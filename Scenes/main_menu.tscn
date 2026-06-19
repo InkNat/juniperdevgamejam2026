@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b6a3douagmd23"]
+
+[ext_resource type="Script" uid="uid://oe4w02wk4xwl" path="res://Scenes/main_menu.gd" id="1_28flt"]
+
+[node name="MainMenu" type="Control" unique_id=197997598 node_paths=PackedStringArray("start_button", "quit_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28flt")
+start_button = NodePath("RichTextLabel/Start Button")
+quit_button = NodePath("RichTextLabel/Quit Button")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=709873276]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "incredible amazing main menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start Button" type="Button" parent="RichTextLabel" unique_id=268640662]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 76.0
+offset_right = 128.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "start the incredible game"
+
+[node name="Quit Button" type="Button" parent="RichTextLabel" unique_id=1130831637]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 122.16
+offset_right = 128.0
+offset_bottom = 154.16
+grow_horizontal = 2
+grow_vertical = 2
+text = "save and quit"

@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="juniperdevgamejam2026"
+run/main_scene="uid://clo7177g2bvre"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Sprites/icon.svg"
 
 [dotnet]
 
