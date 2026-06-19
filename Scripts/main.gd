@@ -5,16 +5,15 @@ static var instance: Main
 
 @export var scenes: Dictionary[String, PackedScene]
 @export var persistent_data: Dictionary[String, Variant]
+@export var default_scene: String
 
 var current_scene: Node
 
 const SAVE_FILE_PATH = "user://savegame.save"
 
 func _ready():
-	if not instance == null:
-		queue_free()
-		return
 	instance = self
+	switch_scene(default_scene)
 	load_persistent_data()
 
 func start_game():
