@@ -18,7 +18,7 @@ func _process(delta):
 
 func land():
 	var result = floor((rotation_degrees/360) * segments)
-	get_parent().cash_money += result
+	Game.instance.cash_money += result
 
 func spin(spin_time: float):
 	current_spin_time += spin_time
@@ -26,4 +26,4 @@ func spin(spin_time: float):
 
 func _unhandled_input(event):
 	if event.is_action_pressed("Click"):
-		spin(0.3)
+		spin(1)

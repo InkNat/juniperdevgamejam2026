@@ -23,10 +23,10 @@ func quit_game():
 	save_persistent_data()
 	get_tree().quit()
 
-func switch_scene(name: String):
+func switch_scene(scene_name: String):
 	if (current_scene != null):
 		current_scene.queue_free()
-	var new_scene = scenes[name].instantiate()
+	var new_scene = scenes[scene_name].instantiate()
 	current_scene = new_scene
 	add_child(new_scene)
 
