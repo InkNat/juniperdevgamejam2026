@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://jfcx8rx3c3tl"]
+
+[ext_resource type="Texture2D" uid="uid://i4fwo6amu7tu" path="res://Sprites/grocery_price_tag_holder.png" id="1_be8vw"]
+[ext_resource type="Script" uid="uid://omiftv5y36bm" path="res://Scripts/grocery_card.gd" id="2_qgrom"]
+
+[node name="GroceryCard" type="Sprite2D" unique_id=1955703994 node_paths=PackedStringArray("_name_label", "_price_label", "item_attach")]
+texture = ExtResource("1_be8vw")
+script = ExtResource("2_qgrom")
+_name_label = NodePath("NameLabel")
+_price_label = NodePath("PriceLabel")
+item_attach = NodePath("ItemAttach")
+
+[node name="ItemAttach" type="Node2D" parent="." unique_id=217295698]
+position = Vector2(-35, -6)
+
+[node name="NameLabel" type="Label" parent="." unique_id=259348073]
+modulate = Color(0, 0, 0, 1)
+offset_left = -25.0
+offset_top = -16.0
+offset_right = 43.0
+offset_bottom = -5.0
+theme_override_font_sizes/font_size = 7
+text = "ITEM"
+vertical_alignment = 2
+
+[node name="PriceLabel" type="Label" parent="." unique_id=540716857]
+modulate = Color(0.86144125, 0.31299037, 0, 1)
+offset_left = -25.0
+offset_top = -7.0
+offset_right = 43.0
+offset_bottom = 4.0
+theme_override_font_sizes/font_size = 7
+text = "10$"
+vertical_alignment = 2

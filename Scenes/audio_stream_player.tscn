@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c2obbv1kgq74x"]
+
+[ext_resource type="AudioStream" uid="uid://cttoesuj6nur6" path="res://wheel_click.wav" id="1_px1li"]
+[ext_resource type="Script" uid="uid://d3dqiim8xheu3" path="res://Scenes/play_and_die.gd" id="2_jxntt"]
+
+[node name="PlayAndDie" type="AudioStreamPlayer" unique_id=1814125365]
+stream = ExtResource("1_px1li")
+autoplay = true
+script = ExtResource("2_jxntt")

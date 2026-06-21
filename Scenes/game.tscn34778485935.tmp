@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://ci8e3htfxl1na"]
 
 [ext_resource type="Script" uid="uid://dvbse4yxt4b38" path="res://Scripts/game.gd" id="1_wrm1d"]
-[ext_resource type="Script" uid="uid://b1jixdvlmdebe" path="res://Scripts/mouse_manager.gd" id="2_85qyi"]
+[ext_resource type="Script" uid="uid://b1jixdvlmdebe" path="res://Scripts/tooltip_manager.gd" id="2_85qyi"]
 [ext_resource type="Script" uid="uid://oiaw4flyckvm" path="res://Scripts/shop.gd" id="2_ewbju"]
 [ext_resource type="Script" uid="uid://du3o3rr0v3r4g" path="res://Scripts/wheel.gd" id="2_qxrlw"]
 [ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="3_iivbl"]
@@ -20,8 +20,9 @@
 [ext_resource type="ArrayMesh" uid="uid://cn5x3mquemgks" path="res://Models/BigCogwheel.tres" id="16_7nbq1"]
 [ext_resource type="Texture2D" uid="uid://cpq72rcikpwcs" path="res://Sprites/circle.svg" id="16_85qyi"]
 [ext_resource type="Shader" uid="uid://dho3ny4pwb7n7" path="res://Scenes/mask.gdshader" id="16_iivbl"]
-[ext_resource type="Texture2D" uid="uid://d1v538f8pf0ni" path="res://Sprites/SPINbutton.png" id="21_exi56"]
-[ext_resource type="Script" uid="uid://b2b1dyxiqfmpr" path="res://Scripts/spin_button_manager.gd" id="22_7t8sx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4fw4"]
+size = Vector2(46, 30)
 
 [sub_resource type="Curve" id="Curve_85qyi"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 3.0288222, 0.0, 0, 0]
@@ -84,14 +85,9 @@ shadow_mesh = SubResource("ArrayMesh_25ntx")
 [sub_resource type="CircleShape2D" id="CircleShape2D_iivbl"]
 radius = 45.85
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4fw4"]
-size = Vector2(46, 30)
-
 [node name="Game" type="Node2D" unique_id=547770425]
 texture_filter = 1
 script = ExtResource("1_wrm1d")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=840636453]
 
 [node name="TooltipManager" type="Node2D" parent="." unique_id=2081408279 node_paths=PackedStringArray("tooltip", "texture_rect", "name_label", "description_label")]
 script = ExtResource("2_85qyi")
@@ -143,6 +139,36 @@ text = "Description"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+
+[node name="Shop" type="Node2D" parent="." unique_id=648444297]
+position = Vector2(244, -76)
+script = ExtResource("2_ewbju")
+item_list = Array[ExtResource("3_nnt18")]([ExtResource("4_ewbju"), ExtResource("5_ewbju")])
+grocery_card = ExtResource("5_85qyi")
+
+[node name="Inventory" type="Sprite2D" parent="." unique_id=1067927796]
+position = Vector2(37, 66)
+texture = ExtResource("4_3dryh")
+centered = false
+script = ExtResource("5_h4fw4")
+_grid_size_x = 3
+_grid_size_y = 2
+_cell_size = 16
+
+[node name="Area2D" type="Area2D" parent="Inventory" unique_id=1385441536]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inventory/Area2D" unique_id=893196993]
+position = Vector2(24, 16)
+shape = SubResource("RectangleShape2D_h4fw4")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=840636453]
+
+[node name="MoneyLabel" type="Label" parent="." unique_id=942007113]
+offset_left = -140.0
+offset_top = -79.0
+offset_right = -100.0
+offset_bottom = -56.0
 
 [node name="MainWheel" type="Node2D" parent="." unique_id=310552690 node_paths=PackedStringArray("wheel", "red_arrow", "cylinder", "cogwheel")]
 position = Vector2(-64, 0)
@@ -221,37 +247,3 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainWheel/Area2D" unique_id=897946354]
 shape = SubResource("CircleShape2D_iivbl")
-
-[node name="Inventory" type="Sprite2D" parent="." unique_id=1067927796]
-position = Vector2(37, 66)
-texture = ExtResource("4_3dryh")
-centered = false
-script = ExtResource("5_h4fw4")
-_grid_size_x = 3
-_grid_size_y = 2
-_cell_size = 16
-
-[node name="Area2D" type="Area2D" parent="Inventory" unique_id=1385441536]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Inventory/Area2D" unique_id=893196993]
-position = Vector2(24, 16)
-shape = SubResource("RectangleShape2D_h4fw4")
-
-[node name="Shop" type="Node2D" parent="." unique_id=648444297]
-position = Vector2(244, -76)
-script = ExtResource("2_ewbju")
-item_list = Array[ExtResource("3_nnt18")]([ExtResource("4_ewbju"), ExtResource("5_ewbju")])
-grocery_card = ExtResource("5_85qyi")
-
-[node name="MoneyLabel" type="Label" parent="." unique_id=942007113]
-offset_left = -140.0
-offset_top = -79.0
-offset_right = -100.0
-offset_bottom = -56.0
-
-[node name="SpinButtonManager" type="Sprite2D" parent="." unique_id=880811446]
-position = Vector2(178, 116)
-texture = ExtResource("21_exi56")
-offset = Vector2(-10, -50)
-script = ExtResource("22_7t8sx")

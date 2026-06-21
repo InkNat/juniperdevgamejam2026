@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dici28bl6aexx"]
+
+[ext_resource type="Script" uid="uid://bvj2es6a7iu5n" path="res://Scripts/item.gd" id="1_76mu4"]
+[ext_resource type="Texture2D" uid="uid://dfepgog4rakdo" path="res://Sprites/debug_item.png" id="2_u06aw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76mu4"]
+size = Vector2(16, 16)
+
+[node name="Item" type="Area2D" unique_id=956821108 node_paths=PackedStringArray("sprite")]
+collision_mask = 2
+script = ExtResource("1_76mu4")
+sprite = NodePath("Texture")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=849982561]
+shape = SubResource("RectangleShape2D_76mu4")
+
+[node name="Texture" type="Sprite2D" parent="." unique_id=835361187]
+texture = ExtResource("2_u06aw")

@@ -1,5 +1,5 @@
 shader_type canvas_item;
-uniform sampler2D colorSampler;
+uniform sampler2D colorSampler : filter_nearest;
 uniform vec4 separatorColor : source_color = vec4(0);
 uniform float angle_offset = 0;
 uniform int separatorCount = 4;

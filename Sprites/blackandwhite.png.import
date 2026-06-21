@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb5qxdxn11m14"
-path="res://.godot/imported/wheel_colors.png-2a665455c5aa6d6df6dd1468960f29e4.ctex"
+uid="uid://bhm24y1h8fcko"
+path="res://.godot/imported/blackandwhite.png-98c0c16b21d842db119fc5ba8b53cada.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/wheel_colors.png"
-dest_files=["res://.godot/imported/wheel_colors.png-2a665455c5aa6d6df6dd1468960f29e4.ctex"]
+source_file="res://Sprites/blackandwhite.png"
+dest_files=["res://.godot/imported/blackandwhite.png-98c0c16b21d842db119fc5ba8b53cada.ctex"]
 
 [params]
 
@@ -31,7 +31,7 @@ process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
 process/channel_remap/alpha=3
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false

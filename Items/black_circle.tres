@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c4nm8uji5ysea"]
+
+[ext_resource type="Script" uid="uid://cu6a1tq8sa07i" path="res://Scripts/itemdata.gd" id="1_rysh3"]
+[ext_resource type="Texture2D" uid="uid://dfepgog4rakdo" path="res://Sprites/debug_item.png" id="1_vsah5"]
+
+[resource]
+script = ExtResource("1_rysh3")
+base_cost = 10
+icon = ExtResource("1_vsah5")
+name = "Black Circle"
+description = "A placeholder item."
+metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

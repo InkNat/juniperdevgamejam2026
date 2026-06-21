@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://ci8e3htfxl1na"]
+
+[ext_resource type="Script" uid="uid://dvbse4yxt4b38" path="res://Scripts/game.gd" id="1_wrm1d"]
+[ext_resource type="Script" uid="uid://du3o3rr0v3r4g" path="res://Scripts/wheel.gd" id="2_qxrlw"]
+[ext_resource type="Texture2D" uid="uid://dfepgog4rakdo" path="res://Sprites/debug_item.png" id="3_3dryh"]
+[ext_resource type="Texture2D" uid="uid://dwrm02peqf5qu" path="res://Sprites/inventory_grid_holder.png" id="4_3dryh"]
+[ext_resource type="Texture2D" uid="uid://bkfqqimd31iiw" path="res://Sprites/glass ui.png" id="4_rku1e"]
+[ext_resource type="Script" uid="uid://djjoqipw7b6on" path="res://Scripts/Slots/grid_slots.gd" id="5_h4fw4"]
+[ext_resource type="Shader" uid="uid://dfojatw757cjj" path="res://Scenes/segmentedwheel.gdshader" id="5_i6g32"]
+[ext_resource type="Texture2D" uid="uid://c6ismvndasu4o" path="res://Sprites/slot.png" id="5_wowpa"]
+[ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="6_1l0tm"]
+[ext_resource type="Script" uid="uid://bvj2es6a7iu5n" path="res://Scripts/item.gd" id="7_h4fw4"]
+[ext_resource type="Script" uid="uid://cdx46qsku6t3u" path="res://Scripts/Slots/shop_slot.gd" id="7_ldgsr"]
+[ext_resource type="Texture2D" uid="uid://c8q8kbgurnotg" path="res://Sprites/red arowe.png" id="10_ldgsr"]
+[ext_resource type="Texture2D" uid="uid://ctxilpqdawiaa" path="res://Sprites/bigleds.png" id="11_o5yvi"]
+[ext_resource type="Texture2D" uid="uid://cb5qxdxn11m14" path="res://Sprites/wheel_colors.png" id="14_nb51f"]
+[ext_resource type="Texture2D" uid="uid://cpq72rcikpwcs" path="res://Sprites/circle.svg" id="16_85qyi"]
+[ext_resource type="PackedScene" uid="uid://c087sg5q6ju1n" path="res://Scenes/hamster_hole.tscn" id="16_ewbju"]
+[ext_resource type="Shader" uid="uid://dho3ny4pwb7n7" path="res://Scenes/mask.gdshader" id="16_iivbl"]
+[ext_resource type="Texture2D" uid="uid://d1v538f8pf0ni" path="res://Sprites/SPINbutton.png" id="16_nnt18"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v158k"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wowpa"]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4fw4"]
+size = Vector2(46, 30)
+
+[sub_resource type="Curve" id="Curve_85qyi"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 3.1114936, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1phco"]
+shader = ExtResource("5_i6g32")
+shader_parameter/colorSampler = ExtResource("14_nb51f")
+shader_parameter/separatorColor = Color(0, 0, 0, 1)
+shader_parameter/angle_offset = 0.0
+shader_parameter/separatorCount = 16
+shader_parameter/separatorLength = 0.01
+shader_parameter/minLength = 0.36
+shader_parameter/maxLength = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_85qyi"]
+shader = ExtResource("16_iivbl")
+shader_parameter/mask = ExtResource("16_85qyi")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nb51f"]
+viewport_path = NodePath("Wheel/3DProjector/SubViewport")
+
+[node name="Game" type="Node2D" unique_id=547770425]
+texture_filter = 1
+script = ExtResource("1_wrm1d")
+
+[node name="Shop" type="Node2D" parent="." unique_id=648444297]
+position = Vector2(-167, -84)
+
+[node name="ShopSlot" type="Sprite2D" parent="Shop" unique_id=370221257]
+position = Vector2(237, 72)
+texture = ExtResource("5_wowpa")
+script = ExtResource("7_ldgsr")
+cost = 20
+
+[node name="Snapbox" type="Area2D" parent="Shop/ShopSlot" unique_id=364144611]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shop/ShopSlot/Snapbox" unique_id=1326384116]
+shape = SubResource("RectangleShape2D_v158k")
+
+[node name="Item" type="Area2D" parent="Shop/ShopSlot" unique_id=176860393]
+collision_mask = 2
+script = ExtResource("7_h4fw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shop/ShopSlot/Item" unique_id=1608989768]
+shape = SubResource("CircleShape2D_wowpa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Shop/ShopSlot/Item" unique_id=835675275]
+texture = ExtResource("3_3dryh")
+
+[node name="Inventory" type="Sprite2D" parent="." unique_id=1067927796]
+position = Vector2(52, -88)
+texture = ExtResource("4_3dryh")
+centered = false
+script = ExtResource("5_h4fw4")
+_grid_size_x = 3
+_grid_size_y = 2
+_cell_size = 16
+
+[node name="Area2D" type="Area2D" parent="Inventory" unique_id=1385441536]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inventory/Area2D" unique_id=893196993]
+position = Vector2(24, 16)
+shape = SubResource("RectangleShape2D_h4fw4")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=840636453]
+
+[node name="MoneyLabel" type="Label" parent="." unique_id=942007113]
+offset_left = -140.0
+offset_top = -79.0
+offset_right = -100.0
+offset_bottom = -56.0
+
+[node name="Background" type="NinePatchRect" parent="." unique_id=579785296]
+offset_left = 127.0
+offset_top = -130.0
+offset_right = 272.0
+offset_bottom = 140.0
+texture = ExtResource("4_rku1e")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Lights" type="NinePatchRect" parent="Background" unique_id=1969857300]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 126.0
+offset_bottom = 263.0
+texture = ExtResource("11_o5yvi")
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="RedArowe" type="Sprite2D" parent="." unique_id=1673140143]
+position = Vector2(-31, -54)
+rotation = 1.5707964
+texture = ExtResource("10_ldgsr")
+
+[node name="SpinButton" type="Sprite2D" parent="." unique_id=1891964432]
+position = Vector2(79, 74)
+texture = ExtResource("16_nnt18")
+
+[node name="Wheel" type="Node2D" parent="." unique_id=310552690 node_paths=PackedStringArray("wheel", "cylinder")]
+script = ExtResource("2_qxrlw")
+curve = SubResource("Curve_85qyi")
+wheel = NodePath("Wheel")
+cylinder = NodePath("3DProjector/SubViewport/Node3D/cylinder")
+
+[node name="Wheel" type="Sprite2D" parent="Wheel" unique_id=1348753697]
+material = SubResource("ShaderMaterial_1phco")
+scale = Vector2(128, 128)
+texture = ExtResource("6_1l0tm")
+
+[node name="3DProjector" type="Sprite2D" parent="Wheel" unique_id=2613632]
+z_index = -1
+material = SubResource("ShaderMaterial_85qyi")
+scale = Vector2(0.2, 0.2)
+texture = SubResource("ViewportTexture_nb51f")
+
+[node name="SubViewport" type="SubViewport" parent="Wheel/3DProjector" unique_id=1090869268]
+
+[node name="Node3D" parent="Wheel/3DProjector/SubViewport" unique_id=2143166278 instance=ExtResource("16_ewbju")]
+
+[editable path="Wheel/3DProjector/SubViewport/Node3D"]
