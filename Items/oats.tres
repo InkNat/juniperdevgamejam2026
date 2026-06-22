@@ -9,4 +9,5 @@ base_cost = 7
 icon = ExtResource("1_yxqu5")
 name = "Oats"
 description = "Delicious!"
+background_color = Color(0.9574525, 0.8830223, 0.981607, 1)
 metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

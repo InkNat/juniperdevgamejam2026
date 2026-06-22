@@ -1,11 +1,24 @@
-extends Sprite2D
+extends Node2D
+
+var _current_tween: Tween
+
+signal sign_clicked
+
+func open_sign():
+	if (_current_tween != null): _current_tween.kill()
+	rotation_degrees = -90
+	_current_tween = get_tree().create_tween()
+	_current_tween.set_trans(Tween.TRANS_ELASTIC)
+	_current_tween.set_ease(Tween.EASE_OUT)
+	_current_tween.tween_property(self, "rotation_degrees",0,1)
+func close_sign():
+	if (_current_tween != null): _current_tween.kill()
+	_current_tween = get_tree().create_tween()
+	_current_tween.set_trans(Tween.TRANS_BACK)
+	_current_tween.set_ease(Tween.EASE_IN)
+	_current_tween.tween_property(self, "rotation_degrees",-90,0.3)
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func click_press():
+	close_sign()
+	sign_clicked.emit()

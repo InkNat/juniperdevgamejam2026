@@ -25,15 +25,10 @@
 [ext_resource type="AudioStream" uid="uid://cttoesuj6nur6" path="res://wheel_click.wav" id="17_81klo"]
 [ext_resource type="PackedScene" uid="uid://c662cotbrgpym" path="res://Scenes/mediumwheelpreview.tscn" id="17_cwurv"]
 [ext_resource type="PackedScene" uid="uid://rrngt3i26um2" path="res://Scenes/test.tscn" id="18_cwurv"]
-[ext_resource type="PackedScene" uid="uid://csdltrx7dvm3g" path="res://Scenes/smallwheelpreview.tscn" id="18_ese38"]
-[ext_resource type="PackedScene" uid="uid://bqdy4hvtplcb" path="res://Scenes/mediumwheel.tscn" id="18_mucmn"]
 [ext_resource type="Script" uid="uid://d3dqiim8xheu3" path="res://Scenes/play_and_die.gd" id="18_tgy6u"]
 [ext_resource type="Script" uid="uid://q7otcvnu0q8a" path="res://Scripts/proxy.gd" id="19_fkdbe"]
-[ext_resource type="PackedScene" uid="uid://kqshj2y3m17n" path="res://Scenes/smallwheel.tscn" id="20_oeip8"]
 [ext_resource type="Texture2D" uid="uid://d1v538f8pf0ni" path="res://Sprites/SPINbutton.png" id="21_exi56"]
 [ext_resource type="Script" uid="uid://b2b1dyxiqfmpr" path="res://Scripts/spin_button_manager.gd" id="22_7t8sx"]
-[ext_resource type="PackedScene" uid="uid://bqnnsjd51761o" path="res://Scenes/bigwheelpreview.tscn" id="31_xe308"]
-[ext_resource type="PackedScene" uid="uid://tkbhuk000ape" path="res://Scenes/bigwheel.tscn" id="33_oeip8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vm72l"]
 texture = ExtResource("4_mg4q0")
@@ -259,21 +254,11 @@ collision_layer = 2
 position = Vector2(-11.5, -38.5)
 shape = SubResource("ConvexPolygonShape2D_81klo")
 
-[node name="Cogworld" type="Node2D" parent="." unique_id=1785529873 node_paths=PackedStringArray("main_cogwheel", "camera", "cogworld_viewport")]
+[node name="Cogworld" type="Node2D" parent="." unique_id=1785529873 node_paths=PackedStringArray("main_cogwheel", "camera")]
 script = ExtResource("16_81klo")
-previews = Dictionary[int, PackedScene]({
-0: ExtResource("18_ese38"),
-1: ExtResource("17_cwurv"),
-2: ExtResource("31_xe308")
-})
-wheels = Dictionary[int, PackedScene]({
-0: ExtResource("20_oeip8"),
-1: ExtResource("18_mucmn"),
-2: ExtResource("33_oeip8")
-})
+cdi_link = ExtResource("17_cwurv")
 main_cogwheel = NodePath("CogworldViewport/SubViewport/MainWheel")
 camera = NodePath("CogworldViewport/SubViewport/Camera2D")
-cogworld_viewport = NodePath("CogworldViewport/SubViewport")
 
 [node name="CogworldViewport" type="Sprite2D" parent="Cogworld" unique_id=820603069]
 z_index = -10
@@ -322,7 +307,6 @@ scale = Vector2(0.375, 0.375)
 texture = SubResource("ViewportTexture_fkdbe")
 
 [node name="SubViewport" type="SubViewport" parent="Cogworld/CogworldViewport/SubViewport/MainWheel/WheelVisual/3DWheelProjector" unique_id=1071431751]
-own_world_3d = true
 transparent_bg = true
 
 [node name="Node3D" type="Node3D" parent="Cogworld/CogworldViewport/SubViewport/MainWheel/WheelVisual/3DWheelProjector/SubViewport" unique_id=882110213]

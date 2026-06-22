@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bqdy4hvtplcb"]
+
+[ext_resource type="Script" uid="uid://du3o3rr0v3r4g" path="res://Scripts/wheel.gd" id="1_27ba7"]
+[ext_resource type="PackedScene" uid="uid://c2obbv1kgq74x" path="res://Scenes/audio_stream_player.tscn" id="2_6xykl"]
+[ext_resource type="Shader" uid="uid://dfojatw757cjj" path="res://Scenes/segmentedwheel.gdshader" id="4_3onuv"]
+[ext_resource type="ArrayMesh" uid="uid://bd1e3xyyc6rjc" path="res://Models/MediumCogwheel.tres" id="7_22orw"]
+[ext_resource type="Texture2D" uid="uid://c8q8kbgurnotg" path="res://Sprites/red arowe.png" id="10_6g4i7"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0858n"]
+load_path = "res://.godot/imported/wheel_colors.png-2a665455c5aa6d6df6dd1468960f29e4.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1phco"]
+resource_local_to_scene = true
+shader = ExtResource("4_3onuv")
+shader_parameter/colorSampler = SubResource("CompressedTexture2D_0858n")
+shader_parameter/separatorColor = Color(0, 0, 0, 1)
+shader_parameter/angle_offset = 0.0
+shader_parameter/separatorCount = 16
+shader_parameter/separatorLength = 0.01
+shader_parameter/minLength = 0.2
+shader_parameter/maxLength = 0.4
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ukv86"]
+load_path = "res://.godot/imported/whitepixel.png-835a41345ae031d82832608708097779.ctex"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_iivbl"]
+viewport_path = NodePath("WheelVisual/3DWheelProjector/SubViewport")
+
+[node name="MediumWheel" type="Node2D" unique_id=2143089451 node_paths=PackedStringArray("wheel", "red_arrow", "cogwheel")]
+script = ExtResource("1_27ba7")
+wheel = NodePath("WheelVisual/Wheel")
+red_arrow = NodePath("WheelVisual/RedArrow")
+cogwheel = NodePath("WheelVisual/3DWheelProjector/SubViewport/Node3D/BigCogwheel")
+click_audio = ExtResource("2_6xykl")
+
+[node name="WheelVisual" type="Node2D" parent="." unique_id=1863031343]
+
+[node name="Wheel" type="Sprite2D" parent="WheelVisual" unique_id=2086716450]
+material = SubResource("ShaderMaterial_1phco")
+scale = Vector2(128, 128)
+texture = SubResource("CompressedTexture2D_ukv86")
+
+[node name="3DWheelProjector" type="Sprite2D" parent="WheelVisual" unique_id=599887041]
+z_index = -2
+scale = Vector2(0.375, 0.375)
+texture = SubResource("ViewportTexture_iivbl")
+
+[node name="SubViewport" type="SubViewport" parent="WheelVisual/3DWheelProjector" unique_id=1071431751]
+own_world_3d = true
+transparent_bg = true
+
+[node name="Node3D" type="Node3D" parent="WheelVisual/3DWheelProjector/SubViewport" unique_id=882110213]
+
+[node name="Camera3D" type="Camera3D" parent="WheelVisual/3DWheelProjector/SubViewport/Node3D" unique_id=1053374171]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, 0)
+projection = 1
+size = 2.03
+
+[node name="BigCogwheel" type="MeshInstance3D" parent="WheelVisual/3DWheelProjector/SubViewport/Node3D" unique_id=960038175]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+mesh = ExtResource("7_22orw")
+
+[node name="RedArrow" type="Sprite2D" parent="WheelVisual" unique_id=1053535091]
+position = Vector2(0, -69)
+rotation = 1.5707964
+texture = ExtResource("10_6g4i7")
+centered = false
+offset = Vector2(-2, -9)

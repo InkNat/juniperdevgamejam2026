@@ -23,17 +23,12 @@
 [ext_resource type="Script" uid="uid://dkunpr0x4ph85" path="res://Scripts/main_wheel.gd" id="16_fkdbe"]
 [ext_resource type="Shader" uid="uid://dho3ny4pwb7n7" path="res://Scenes/mask.gdshader" id="16_iivbl"]
 [ext_resource type="AudioStream" uid="uid://cttoesuj6nur6" path="res://wheel_click.wav" id="17_81klo"]
-[ext_resource type="PackedScene" uid="uid://c662cotbrgpym" path="res://Scenes/mediumwheelpreview.tscn" id="17_cwurv"]
 [ext_resource type="PackedScene" uid="uid://rrngt3i26um2" path="res://Scenes/test.tscn" id="18_cwurv"]
-[ext_resource type="PackedScene" uid="uid://csdltrx7dvm3g" path="res://Scenes/smallwheelpreview.tscn" id="18_ese38"]
-[ext_resource type="PackedScene" uid="uid://bqdy4hvtplcb" path="res://Scenes/mediumwheel.tscn" id="18_mucmn"]
 [ext_resource type="Script" uid="uid://d3dqiim8xheu3" path="res://Scenes/play_and_die.gd" id="18_tgy6u"]
 [ext_resource type="Script" uid="uid://q7otcvnu0q8a" path="res://Scripts/proxy.gd" id="19_fkdbe"]
-[ext_resource type="PackedScene" uid="uid://kqshj2y3m17n" path="res://Scenes/smallwheel.tscn" id="20_oeip8"]
 [ext_resource type="Texture2D" uid="uid://d1v538f8pf0ni" path="res://Sprites/SPINbutton.png" id="21_exi56"]
 [ext_resource type="Script" uid="uid://b2b1dyxiqfmpr" path="res://Scripts/spin_button_manager.gd" id="22_7t8sx"]
-[ext_resource type="PackedScene" uid="uid://bqnnsjd51761o" path="res://Scenes/bigwheelpreview.tscn" id="31_xe308"]
-[ext_resource type="PackedScene" uid="uid://tkbhuk000ape" path="res://Scenes/bigwheel.tscn" id="33_oeip8"]
+[ext_resource type="PackedScene" uid="uid://bqdy4hvtplcb" path="res://Scenes/wheel.tscn" id="28_cwurv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vm72l"]
 texture = ExtResource("4_mg4q0")
@@ -76,9 +71,6 @@ _bundled = {
 "version": 3
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_iivbl"]
-radius = 45.0
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fkdbe"]
 load_path = "res://.godot/imported/wheel_colors.png-2a665455c5aa6d6df6dd1468960f29e4.ctex"
 
@@ -89,8 +81,8 @@ shader_parameter/separatorColor = Color(0, 0, 0, 1)
 shader_parameter/angle_offset = 0.0
 shader_parameter/separatorCount = 16
 shader_parameter/separatorLength = 0.01
-shader_parameter/minLength = 0.3
-shader_parameter/maxLength = 0.4
+shader_parameter/minLength = 0.36
+shader_parameter/maxLength = 0.5
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_fkdbe"]
 viewport_path = NodePath("Cogworld/CogworldViewport/SubViewport/MainWheel/WheelVisual/3DWheelProjector/SubViewport")
@@ -136,12 +128,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_25ntx")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_iivbl"]
+radius = 45.0
+
 [node name="Game" type="Node2D" unique_id=547770425 node_paths=PackedStringArray("tooltip", "camera", "hamster_slot", "main_wheel", "spin_button", "money_label")]
 texture_filter = 1
 script = ExtResource("1_wrm1d")
 tooltip = NodePath("Tooltip")
 camera = NodePath("Cogworld/CogworldViewport/SubViewport/Camera2D")
-hamster_slot = NodePath("Cogworld/CogworldViewport/SubViewport/MainWheel/Proxy/HamsterSlot")
+hamster_slot = NodePath("Cogworld/CogworldProxies/HamsterSlot")
 main_wheel = NodePath("Cogworld/CogworldViewport/SubViewport/MainWheel")
 spin_button = NodePath("SpinSign")
 money_label = NodePath("MoneyLabel")
@@ -259,21 +254,8 @@ collision_layer = 2
 position = Vector2(-11.5, -38.5)
 shape = SubResource("ConvexPolygonShape2D_81klo")
 
-[node name="Cogworld" type="Node2D" parent="." unique_id=1785529873 node_paths=PackedStringArray("main_cogwheel", "camera", "cogworld_viewport")]
+[node name="Cogworld" type="Node2D" parent="." unique_id=1785529873]
 script = ExtResource("16_81klo")
-previews = Dictionary[int, PackedScene]({
-0: ExtResource("18_ese38"),
-1: ExtResource("17_cwurv"),
-2: ExtResource("31_xe308")
-})
-wheels = Dictionary[int, PackedScene]({
-0: ExtResource("20_oeip8"),
-1: ExtResource("18_mucmn"),
-2: ExtResource("33_oeip8")
-})
-main_cogwheel = NodePath("CogworldViewport/SubViewport/MainWheel")
-camera = NodePath("CogworldViewport/SubViewport/Camera2D")
-cogworld_viewport = NodePath("CogworldViewport/SubViewport")
 
 [node name="CogworldViewport" type="Sprite2D" parent="Cogworld" unique_id=820603069]
 z_index = -10
@@ -296,18 +278,11 @@ cylinder = NodePath("WheelVisual/3DInsideProjector/SubViewport/Node3D/cylinder")
 cogwheel = NodePath("WheelVisual/3DWheelProjector/SubViewport/Node3D/BigCogwheel")
 click_audio = SubResource("PackedScene_cwurv")
 
-[node name="Proxy" type="Node2D" parent="Cogworld/CogworldViewport/SubViewport/MainWheel" unique_id=683071112 node_paths=PackedStringArray("scale_target")]
+[node name="Proxy" type="Node2D" parent="Cogworld/CogworldViewport/SubViewport/MainWheel" unique_id=683071112 node_paths=PackedStringArray("camera", "target", "scale_target")]
 script = ExtResource("19_fkdbe")
-scale_target = NodePath("HamsterSlot/Area")
-
-[node name="HamsterSlot" type="Node2D" parent="Cogworld/CogworldViewport/SubViewport/MainWheel/Proxy" unique_id=1521343912]
-script = ExtResource("2_mg4q0")
-
-[node name="Area" type="Area2D" parent="Cogworld/CogworldViewport/SubViewport/MainWheel/Proxy/HamsterSlot" unique_id=226345977]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cogworld/CogworldViewport/SubViewport/MainWheel/Proxy/HamsterSlot/Area" unique_id=897946354]
-shape = SubResource("CircleShape2D_iivbl")
+camera = NodePath("../../Camera2D")
+target = NodePath("../../../../CogworldProxies/HamsterSlot")
+scale_target = NodePath("../../../../CogworldProxies/HamsterSlot/Area")
 
 [node name="WheelVisual" type="Node2D" parent="Cogworld/CogworldViewport/SubViewport/MainWheel" unique_id=1863031343]
 
@@ -318,11 +293,10 @@ texture = ExtResource("6_1l0tm")
 
 [node name="3DWheelProjector" type="Sprite2D" parent="Cogworld/CogworldViewport/SubViewport/MainWheel/WheelVisual" unique_id=599887041]
 z_index = -2
-scale = Vector2(0.375, 0.375)
+scale = Vector2(0.4, 0.4)
 texture = SubResource("ViewportTexture_fkdbe")
 
 [node name="SubViewport" type="SubViewport" parent="Cogworld/CogworldViewport/SubViewport/MainWheel/WheelVisual/3DWheelProjector" unique_id=1071431751]
-own_world_3d = true
 transparent_bg = true
 
 [node name="Node3D" type="Node3D" parent="Cogworld/CogworldViewport/SubViewport/MainWheel/WheelVisual/3DWheelProjector/SubViewport" unique_id=882110213]
@@ -339,7 +313,7 @@ mesh = ExtResource("12_22asu")
 [node name="3DInsideProjector" type="Sprite2D" parent="Cogworld/CogworldViewport/SubViewport/MainWheel/WheelVisual" unique_id=1816939802]
 z_index = -1
 material = SubResource("ShaderMaterial_85qyi")
-scale = Vector2(0.165, 0.165)
+scale = Vector2(0.2, 0.2)
 texture = SubResource("ViewportTexture_81klo")
 
 [node name="SubViewport" type="SubViewport" parent="Cogworld/CogworldViewport/SubViewport/MainWheel/WheelVisual/3DInsideProjector" unique_id=1104155898]
@@ -364,8 +338,22 @@ spot_angle = 44.72
 spot_angle_attenuation = 0.40612617
 
 [node name="RedArrow" type="Sprite2D" parent="Cogworld/CogworldViewport/SubViewport/MainWheel/WheelVisual" unique_id=1053535091]
-position = Vector2(0, -53)
+position = Vector2(0, -69)
 rotation = 1.5707964
 texture = ExtResource("10_ldgsr")
 centered = false
 offset = Vector2(-2, -9)
+
+[node name="MediumWheel" parent="Cogworld/CogworldViewport/SubViewport/MainWheel" unique_id=1900257472 instance=ExtResource("28_cwurv")]
+position = Vector2(128, 0)
+
+[node name="CogworldProxies" type="Node2D" parent="Cogworld" unique_id=1583998300]
+
+[node name="HamsterSlot" type="Node2D" parent="Cogworld/CogworldProxies" unique_id=1521343912]
+script = ExtResource("2_mg4q0")
+
+[node name="Area" type="Area2D" parent="Cogworld/CogworldProxies/HamsterSlot" unique_id=226345977]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cogworld/CogworldProxies/HamsterSlot/Area" unique_id=897946354]
+shape = SubResource("CircleShape2D_iivbl")

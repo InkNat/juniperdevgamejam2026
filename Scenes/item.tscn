@@ -6,12 +6,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76mu4"]
 size = Vector2(16, 16)
 
-[node name="Item" type="Area2D" unique_id=956821108 node_paths=PackedStringArray("sprite")]
-collision_mask = 2
+[node name="Item" type="Node2D" unique_id=1706374103 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_76mu4")
 sprite = NodePath("Texture")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=849982561]
+[node name="Area2D" type="Area2D" parent="." unique_id=2040448549]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=849982561]
 shape = SubResource("RectangleShape2D_76mu4")
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=835361187]

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://csdltrx7dvm3g"]
+
+[ext_resource type="Script" uid="uid://0u5habh28uq1" path="res://Scenes/wheel_preview.gd" id="1_qm5s4"]
+[ext_resource type="ArrayMesh" uid="uid://cjcmgejb41h7a" path="res://Models/SmallCogwheel.tres" id="2_qm5s4"]
+[ext_resource type="Shader" uid="uid://dsp6ku6ynfdbk" path="res://Scenes/wheel_preview.gdshader" id="3_wnljt"]
+[ext_resource type="Script" uid="uid://q7otcvnu0q8a" path="res://Scripts/proxy.gd" id="4_flthu"]
+[ext_resource type="Script" uid="uid://b2joj87wrir42" path="res://Scripts/area_button.gd" id="5_fb5gy"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_iivbl"]
+viewport_path = NodePath("3DWheelProjector/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qejki"]
+render_priority = 0
+shader = ExtResource("3_wnljt")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qejki"]
+radius = 24.020824
+
+[node name="SmallWheelPreview" type="Node2D" unique_id=2143089451]
+script = ExtResource("1_qm5s4")
+
+[node name="3DWheelProjector" type="Sprite2D" parent="." unique_id=599887041]
+z_index = -2
+scale = Vector2(0.375, 0.375)
+texture = SubResource("ViewportTexture_iivbl")
+
+[node name="SubViewport" type="SubViewport" parent="3DWheelProjector" unique_id=1071431751]
+own_world_3d = true
+transparent_bg = true
+
+[node name="Node3D" type="Node3D" parent="3DWheelProjector/SubViewport" unique_id=882110213]
+
+[node name="Camera3D" type="Camera3D" parent="3DWheelProjector/SubViewport/Node3D" unique_id=1053374171]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, 0)
+projection = 1
+size = 2.03
+
+[node name="BigCogwheel" type="MeshInstance3D" parent="3DWheelProjector/SubViewport/Node3D" unique_id=960038175]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+mesh = ExtResource("2_qm5s4")
+surface_material_override/0 = SubResource("ShaderMaterial_qejki")
+
+[node name="Proxy" type="Node2D" parent="." unique_id=17265854]
+script = ExtResource("4_flthu")
+
+[node name="AreaButton" type="Node2D" parent="Proxy" unique_id=1811168765 node_paths=PackedStringArray("target")]
+script = ExtResource("5_fb5gy")
+target = NodePath("../..")
+method_name = "place_wheel_here"
+
+[node name="Area2D" type="Area2D" parent="Proxy/AreaButton" unique_id=370973582]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Proxy/AreaButton/Area2D" unique_id=881495686]
+shape = SubResource("CircleShape2D_qejki")
