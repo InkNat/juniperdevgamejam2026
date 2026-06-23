@@ -3,16 +3,14 @@
 [ext_resource type="Script" uid="uid://du3o3rr0v3r4g" path="res://Scripts/Cogworld/wheel.gd" id="1_27ba7"]
 [ext_resource type="PackedScene" uid="uid://c2obbv1kgq74x" path="res://Scenes/audio_stream_player.tscn" id="2_6xykl"]
 [ext_resource type="Shader" uid="uid://dfojatw757cjj" path="res://Shaders/segmentedwheel.gdshader" id="4_3onuv"]
+[ext_resource type="Texture2D" uid="uid://cbte7wm467275" path="res://Sprites/WheelColorStrips/wheel_stripe.png" id="4_f0bb2"]
 [ext_resource type="ArrayMesh" uid="uid://bd1e3xyyc6rjc" path="res://Models/MediumCogwheel.tres" id="7_22orw"]
 [ext_resource type="Texture2D" uid="uid://c8q8kbgurnotg" path="res://Sprites/red arowe.png" id="10_6g4i7"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0858n"]
-load_path = "res://.godot/imported/wheel_colors.png-2a665455c5aa6d6df6dd1468960f29e4.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1phco"]
 resource_local_to_scene = true
 shader = ExtResource("4_3onuv")
-shader_parameter/colorSampler = SubResource("CompressedTexture2D_0858n")
+shader_parameter/colorSampler = ExtResource("4_f0bb2")
 shader_parameter/separatorColor = Color(0, 0, 0, 1)
 shader_parameter/angle_offset = 0.0
 shader_parameter/separatorCount = 16

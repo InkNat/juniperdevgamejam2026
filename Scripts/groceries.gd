@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @export var item_list: Array[ItemData]
 @export var grocery_card: PackedScene
@@ -13,6 +13,7 @@ func _ready():
 		gc.position.y = i * 20
 		add_child(gc)
 		i+=1
+	
 func open_shop():
 	var i = 0
 	for child in get_children():
@@ -38,11 +39,3 @@ func close_shop():
 		tween.tween_property(child, "position",resulting_position,0.3)
 		i+=1
 	_shop_open = false
-
-func _unhandled_input(event):
-	if (event.is_action_pressed("DebugOpenShop")):
-		if _shop_open:
-			close_shop()
-		else:
-			open_shop()
-	pass

@@ -4,8 +4,13 @@
 [ext_resource type="Script" uid="uid://omiftv5y36bm" path="res://Scripts/grocery_card.gd" id="2_qgrom"]
 [ext_resource type="FontFile" uid="uid://cupgphoqtkwuf" path="res://pixel font.ttf" id="3_opmjl"]
 
-[node name="GroceryCard" type="Sprite2D" unique_id=1955703994 node_paths=PackedStringArray("_name_label", "_price_label", "item_attach")]
+[node name="GroceryCard" type="TextureRect" unique_id=995151733 node_paths=PackedStringArray("_name_label", "_price_label", "item_attach")]
 texture_filter = 1
+anchors_preset = -1
+anchor_right = 0.25
+anchor_bottom = 0.148
+offset_right = -96.0
+offset_bottom = -31.968
 texture = ExtResource("1_be8vw")
 script = ExtResource("2_qgrom")
 _name_label = NodePath("NameLabel")
@@ -13,14 +18,15 @@ _price_label = NodePath("PriceLabel")
 item_attach = NodePath("ItemAttach")
 
 [node name="ItemAttach" type="Node2D" parent="." unique_id=217295698]
-position = Vector2(-35, -6)
+position = Vector2(13, 10)
 
 [node name="NameLabel" type="Label" parent="." unique_id=259348073]
 modulate = Color(0, 0, 0, 1)
-offset_left = -25.0
-offset_top = -17.0
-offset_right = 43.0
-offset_bottom = -6.0
+layout_mode = 0
+offset_left = 23.0
+offset_top = -1.0
+offset_right = 91.0
+offset_bottom = 10.0
 theme_override_fonts/font = ExtResource("3_opmjl")
 theme_override_font_sizes/font_size = 8
 text = "ITEM"
@@ -28,10 +34,11 @@ vertical_alignment = 2
 
 [node name="PriceLabel" type="Label" parent="." unique_id=540716857]
 modulate = Color(0.86144125, 0.31299037, 0, 1)
-offset_left = -25.0
-offset_top = -7.0
-offset_right = 43.0
-offset_bottom = 4.0
+layout_mode = 0
+offset_left = 23.0
+offset_top = 8.0
+offset_right = 91.0
+offset_bottom = 19.0
 theme_override_fonts/font = ExtResource("3_opmjl")
 theme_override_font_sizes/font_size = 8
 text = "10$"

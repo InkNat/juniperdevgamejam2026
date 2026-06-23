@@ -14,14 +14,14 @@ func get_index_from_vec(vec: Vector2) -> int:
 	return floor((_grid_size_x * vec.y) + vec.x)
 
 func _can_insert(item: Item) -> bool:
-	var cell_position = floor((item.global_position-global_position)/_cell_size)
+	var cell_position = floor((item.global_position-self.global_position)/_cell_size)
 	cell_position = Vector2(clamp(cell_position.x, 0, _grid_size_x-1), clamp(cell_position.y, 0, _grid_size_y-1))
 	
 	var index = get_index_from_vec(cell_position)
 	return contents[index] == null
 
 func _insert(item: Item):
-	var cell_position = floor((item.global_position-global_position)/_cell_size)
+	var cell_position = floor((item.global_position-self.global_position)/_cell_size)
 	cell_position = Vector2(clamp(cell_position.x, 0, _grid_size_x-1), clamp(cell_position.y, 0, _grid_size_y-1))
 	
 	var index = get_index_from_vec(cell_position)

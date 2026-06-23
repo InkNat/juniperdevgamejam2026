@@ -1,5 +1,12 @@
 [gd_scene format=3 uid="uid://bac0dpy4o3bfe"]
 
-[node name="GroceryShop" type="Control" unique_id=53211068]
-layout_mode = 3
-anchors_preset = 0
+[ext_resource type="Script" uid="uid://oiaw4flyckvm" path="res://Scripts/groceries.gd" id="1_5do3w"]
+[ext_resource type="Script" uid="uid://cu6a1tq8sa07i" path="res://Scripts/itemdata.gd" id="2_xhfpn"]
+[ext_resource type="Resource" uid="uid://b1v67lk3n2koq" path="res://Resources/Items/oats.tres" id="3_0lq5p"]
+[ext_resource type="PackedScene" uid="uid://jfcx8rx3c3tl" path="res://Scenes/grocery_card.tscn" id="4_fgfc2"]
+
+[node name="GroceryShop" type="VBoxContainer" unique_id=1278868980]
+theme_override_constants/separation = -12
+script = ExtResource("1_5do3w")
+item_list = Array[ExtResource("2_xhfpn")]([ExtResource("3_0lq5p"), ExtResource("3_0lq5p"), ExtResource("3_0lq5p"), ExtResource("3_0lq5p"), ExtResource("3_0lq5p"), ExtResource("3_0lq5p"), ExtResource("3_0lq5p"), ExtResource("3_0lq5p")])
+grocery_card = ExtResource("4_fgfc2")

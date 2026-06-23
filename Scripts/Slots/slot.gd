@@ -1,4 +1,4 @@
-@abstract class_name Slot extends Node2D
+@abstract class_name Slot extends Node
 
 signal on_retrieve
 
