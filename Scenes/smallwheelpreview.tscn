@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://csdltrx7dvm3g"]
 
-[ext_resource type="Script" uid="uid://0u5habh28uq1" path="res://Scenes/wheel_preview.gd" id="1_qm5s4"]
+[ext_resource type="Script" uid="uid://0u5habh28uq1" path="res://Scripts/Cogworld/wheel_preview.gd" id="1_qm5s4"]
 [ext_resource type="ArrayMesh" uid="uid://cjcmgejb41h7a" path="res://Models/SmallCogwheel.tres" id="2_qm5s4"]
-[ext_resource type="Shader" uid="uid://dsp6ku6ynfdbk" path="res://Scenes/wheel_preview.gdshader" id="3_wnljt"]
-[ext_resource type="Script" uid="uid://q7otcvnu0q8a" path="res://Scripts/proxy.gd" id="4_flthu"]
-[ext_resource type="Script" uid="uid://b2joj87wrir42" path="res://Scripts/area_button.gd" id="5_fb5gy"]
+[ext_resource type="Shader" uid="uid://dsp6ku6ynfdbk" path="res://Shaders/wheel_preview.gdshader" id="3_wnljt"]
+[ext_resource type="Script" uid="uid://q7otcvnu0q8a" path="res://Scripts/Cogworld/proxy.gd" id="4_flthu"]
+[ext_resource type="Script" uid="uid://b2joj87wrir42" path="res://Scripts/Cogworld/area_button.gd" id="5_fb5gy"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_iivbl"]
 viewport_path = NodePath("3DWheelProjector/SubViewport")

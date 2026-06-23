@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://kqshj2y3m17n"]
 
-[ext_resource type="Script" uid="uid://du3o3rr0v3r4g" path="res://Scripts/wheel.gd" id="1_5pcjj"]
+[ext_resource type="Script" uid="uid://du3o3rr0v3r4g" path="res://Scripts/Cogworld/wheel.gd" id="1_5pcjj"]
 [ext_resource type="PackedScene" uid="uid://c2obbv1kgq74x" path="res://Scenes/audio_stream_player.tscn" id="2_vg21s"]
-[ext_resource type="Shader" uid="uid://dfojatw757cjj" path="res://Scenes/segmentedwheel.gdshader" id="3_oaoae"]
+[ext_resource type="Shader" uid="uid://dfojatw757cjj" path="res://Shaders/segmentedwheel.gdshader" id="3_oaoae"]
 [ext_resource type="ArrayMesh" uid="uid://cjcmgejb41h7a" path="res://Models/SmallCogwheel.tres" id="4_5pcjj"]
 [ext_resource type="Texture2D" uid="uid://c8q8kbgurnotg" path="res://Sprites/red arowe.png" id="5_546as"]
 

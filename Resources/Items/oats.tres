@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b1v67lk3n2koq"]
+
+[ext_resource type="Texture2D" uid="uid://cg7fb2svorr6q" path="res://Sprites/Items/oats_holder.png" id="1_yxqu5"]
+[ext_resource type="Script" uid="uid://cu6a1tq8sa07i" path="res://Scripts/itemdata.gd" id="2_qi86r"]
+
+[resource]
+script = ExtResource("2_qi86r")
+base_cost = 7
+icon = ExtResource("1_yxqu5")
+name = "Oats"
+description = "Delicious!"
+background_color = Color(0.9574525, 0.8830223, 0.981607, 1)
+metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

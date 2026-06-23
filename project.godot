@@ -13,7 +13,6 @@ config_version=5
 config/name="juniperdevgamejam2026"
 run/main_scene="uid://clo7177g2bvre"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://Sprites/icon.svg"
 
 [display]
 
@@ -80,6 +79,7 @@ Big={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

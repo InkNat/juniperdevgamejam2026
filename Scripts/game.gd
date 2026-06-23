@@ -37,6 +37,7 @@ func _process(delta):
 	
 	
 	tooltip.global_position = mouse_pos
+	
 	var parameters = PhysicsPointQueryParameters2D.new();
 	parameters.position = mouse_pos;
 	parameters.collide_with_areas = true

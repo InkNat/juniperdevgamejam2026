@@ -1,37 +1,32 @@
 [gd_scene format=4 uid="uid://ci8e3htfxl1na"]
 
 [ext_resource type="Script" uid="uid://dvbse4yxt4b38" path="res://Scripts/game.gd" id="1_wrm1d"]
-[ext_resource type="Script" uid="uid://oiaw4flyckvm" path="res://Scripts/shop.gd" id="2_ewbju"]
-[ext_resource type="Script" uid="uid://btq5gf8lyiyq2" path="res://Scripts/hamster_slot.gd" id="2_mg4q0"]
+[ext_resource type="Script" uid="uid://btq5gf8lyiyq2" path="res://Scripts/Slots/hamster_slot.gd" id="2_mg4q0"]
 [ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="3_iivbl"]
-[ext_resource type="Script" uid="uid://cu6a1tq8sa07i" path="res://Scripts/itemdata.gd" id="3_nnt18"]
-[ext_resource type="Texture2D" uid="uid://dwrm02peqf5qu" path="res://Sprites/inventory_grid_holder.png" id="4_3dryh"]
-[ext_resource type="Texture2D" uid="uid://cg7fb2svorr6q" path="res://Sprites/oats_holder.png" id="4_7nbq1"]
+[ext_resource type="Texture2D" uid="uid://dwrm02peqf5qu" path="res://Sprites/UI/inventory_grid_holder.png" id="4_3dryh"]
+[ext_resource type="Texture2D" uid="uid://cg7fb2svorr6q" path="res://Sprites/Items/oats_holder.png" id="4_7nbq1"]
 [ext_resource type="Script" uid="uid://htje5fgs5h2e" path="res://Scripts/tooltip.gd" id="4_22asu"]
-[ext_resource type="Resource" uid="uid://c4nm8uji5ysea" path="res://Items/black_circle.tres" id="4_ewbju"]
-[ext_resource type="Texture2D" uid="uid://dq6d707vjmdjg" path="res://Sprites/full ui.png" id="4_mg4q0"]
-[ext_resource type="PackedScene" uid="uid://jfcx8rx3c3tl" path="res://Scenes/grocery_card.tscn" id="5_85qyi"]
-[ext_resource type="Resource" uid="uid://b1v67lk3n2koq" path="res://Items/oats.tres" id="5_ewbju"]
+[ext_resource type="Texture2D" uid="uid://dq6d707vjmdjg" path="res://Sprites/UI/full ui.png" id="4_mg4q0"]
 [ext_resource type="Script" uid="uid://djjoqipw7b6on" path="res://Scripts/Slots/grid_slots.gd" id="5_h4fw4"]
-[ext_resource type="Shader" uid="uid://dfojatw757cjj" path="res://Scenes/segmentedwheel.gdshader" id="5_i6g32"]
-[ext_resource type="Texture2D" uid="uid://cidfmuyjhvykq" path="res://Sprites/item_icon_background.png" id="5_vm72l"]
+[ext_resource type="Shader" uid="uid://dfojatw757cjj" path="res://Shaders/segmentedwheel.gdshader" id="5_i6g32"]
+[ext_resource type="Texture2D" uid="uid://cidfmuyjhvykq" path="res://Sprites/UI/item_icon_background.png" id="5_vm72l"]
 [ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="6_1l0tm"]
 [ext_resource type="Texture2D" uid="uid://c8q8kbgurnotg" path="res://Sprites/red arowe.png" id="10_ldgsr"]
 [ext_resource type="ArrayMesh" uid="uid://bd1e3xyyc6rjc" path="res://Models/MediumCogwheel.tres" id="12_22asu"]
-[ext_resource type="Script" uid="uid://dtblyjnxeprm" path="res://Scenes/cogworld.gd" id="16_81klo"]
-[ext_resource type="Texture2D" uid="uid://cpq72rcikpwcs" path="res://Sprites/circle.svg" id="16_85qyi"]
+[ext_resource type="Texture2D" uid="uid://cpq72rcikpwcs" path="res://Sprites/UI/circle.svg" id="16_85qyi"]
 [ext_resource type="Script" uid="uid://dkunpr0x4ph85" path="res://Scripts/main_wheel.gd" id="16_fkdbe"]
-[ext_resource type="Shader" uid="uid://dho3ny4pwb7n7" path="res://Scenes/mask.gdshader" id="16_iivbl"]
-[ext_resource type="AudioStream" uid="uid://cttoesuj6nur6" path="res://wheel_click.wav" id="17_81klo"]
+[ext_resource type="Shader" uid="uid://dho3ny4pwb7n7" path="res://Shaders/mask.gdshader" id="16_iivbl"]
+[ext_resource type="AudioStream" uid="uid://cttoesuj6nur6" path="res://Sounds/wheel_click.wav" id="17_81klo"]
 [ext_resource type="PackedScene" uid="uid://c662cotbrgpym" path="res://Scenes/mediumwheelpreview.tscn" id="17_cwurv"]
 [ext_resource type="PackedScene" uid="uid://rrngt3i26um2" path="res://Scenes/test.tscn" id="18_cwurv"]
 [ext_resource type="PackedScene" uid="uid://csdltrx7dvm3g" path="res://Scenes/smallwheelpreview.tscn" id="18_ese38"]
 [ext_resource type="PackedScene" uid="uid://bqdy4hvtplcb" path="res://Scenes/mediumwheel.tscn" id="18_mucmn"]
-[ext_resource type="Script" uid="uid://d3dqiim8xheu3" path="res://Scenes/play_and_die.gd" id="18_tgy6u"]
-[ext_resource type="Script" uid="uid://q7otcvnu0q8a" path="res://Scripts/proxy.gd" id="19_fkdbe"]
+[ext_resource type="Script" uid="uid://d3dqiim8xheu3" path="res://Scripts/play_and_die.gd" id="18_tgy6u"]
+[ext_resource type="Script" uid="uid://q7otcvnu0q8a" path="res://Scripts/Cogworld/proxy.gd" id="19_fkdbe"]
 [ext_resource type="PackedScene" uid="uid://kqshj2y3m17n" path="res://Scenes/smallwheel.tscn" id="20_oeip8"]
 [ext_resource type="Texture2D" uid="uid://d1v538f8pf0ni" path="res://Sprites/SPINbutton.png" id="21_exi56"]
 [ext_resource type="Script" uid="uid://b2b1dyxiqfmpr" path="res://Scripts/spin_button_manager.gd" id="22_7t8sx"]
+[ext_resource type="Script" uid="uid://bi7c182xe8edl" path="res://Scripts/shop.gd" id="30_mucmn"]
 [ext_resource type="PackedScene" uid="uid://bqnnsjd51761o" path="res://Scenes/bigwheelpreview.tscn" id="31_xe308"]
 [ext_resource type="PackedScene" uid="uid://tkbhuk000ape" path="res://Scenes/bigwheel.tscn" id="33_oeip8"]
 
@@ -42,9 +37,6 @@ texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4fw4"]
-size = Vector2(46, 30)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22asu"]
 size = Vector2(19.999989, 72.00002)
 
@@ -53,6 +45,159 @@ size = Vector2(36, 36)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_81klo"]
 points = PackedVector2Array(-16.499992, 22.5, -18.499992, 24.5, -21.499992, 24.5, -44.499992, 1.5, -44.499992, -0.5, -21.499992, -23.500008, -18.499992, -23.500008, -16.499992, -21.500008)
+
+[sub_resource type="GDScript" id="GDScript_cwurv"]
+script/source = "class_name Cogworld extends Node2D
+
+static var instance: Cogworld
+
+@export var previews: Dictionary[Wheel.WheelSize,PackedScene]
+@export var wheels: Dictionary[Wheel.WheelSize,PackedScene]
+@export var main_cogwheel : Wheel
+@export var camera: Camera2D
+@export var cogworld_viewport: Node
+var grid : Dictionary[Vector2i,Wheel]
+var _previews: Array[Node] = []
+
+func neighbor_checks(wheel_size_from, wheel_size_to) -> Array[Vector2i]:
+	if (wheel_size_from == wheel_size_to):
+		var e: int = floor(pow(2,wheel_size_to))
+		return [
+			Vector2i(0, e),
+			Vector2i(-e, 0),
+			Vector2i(e,0),
+			Vector2i(0, -e)]
+	elif (wheel_size_from == wheel_size_to-1):
+		var e: int = floor(pow(2,wheel_size_to-1))
+		return [
+			Vector2i(e, e),
+			Vector2i(e, -e),
+			Vector2i(-e, e),
+			Vector2i(-e, -e)]
+	elif (wheel_size_from == wheel_size_to+1):
+		var e: int = floor(pow(2,wheel_size_to))
+		return [
+			Vector2i(e, e),
+			Vector2i(e, -e),
+			Vector2i(-e, e),
+			Vector2i(-e, -e)]
+	else:
+		return []
+
+func _init():
+	instance = self
+
+func _ready():
+	grid[Vector2i(0,0)] = main_cogwheel
+
+func _process(_delta):
+	if (Input.is_action_just_pressed(\"Small\")):
+		generate_previews(Wheel.WheelSize.Small)
+	if (Input.is_action_just_pressed(\"Medium\")):
+		generate_previews(Wheel.WheelSize.Medium)
+	if (Input.is_action_just_pressed(\"Big\")):
+		generate_previews(Wheel.WheelSize.Large)
+
+func generate_previews(wheel_size):
+	for preview in _previews:
+		preview.queue_free()
+	_previews = []
+	
+	for vec: Vector2 in get_all_empty_spots(wheel_size):
+		var cl = previews[wheel_size].instantiate()
+		cl.position = vec*Vector2(64,64)
+		cl.wheel_position = vec
+		cl.wheel_size = wheel_size
+		cogworld_viewport.add_child(cl)
+		_previews.append(cl)
+
+func sync_wheel(vec: Vector2i, wheel: Wheel):
+	for size in Wheel.WheelSize.values():
+		for neighbor_pos in neighbor_checks(wheel.wheel_size, size):
+			var neighbor: Wheel = grid.get(vec+neighbor_pos)
+			if (neighbor == null): continue
+			if (neighbor.wheel_size != size): continue
+			neighbor.subwheels.append(wheel)
+			print(\"connected to wheel of size \" + str(neighbor.wheel_size) + \" at \" + str(vec+neighbor_pos))
+			return
+
+func place_wheel_at(wheel_size, vec: Vector2i):
+	if (grid.get(vec) != null): return
+	var scene = wheels[wheel_size]
+	var inst = scene.instantiate()
+	inst.position = vec*Vector2i(64,64)
+	grid[vec] = inst
+	cogworld_viewport.add_child(inst)
+	generate_previews(wheel_size)
+	sync_wheel(vec, inst)
+
+func get_all_empty_spots(size) -> Array[Vector2i]:
+	var uniquevecs: Array[Vector2i] = []
+	for vec: Vector2i in grid:
+		for empty_neighbor in empty_neighbors_at(size,vec):
+			if not uniquevecs.has(empty_neighbor): uniquevecs.append(empty_neighbor)
+	return uniquevecs
+
+func overlap_check(check: Vector2i, wheel_coords:Vector2i, strict: bool, wheel_size, t_wheel_size) -> bool:
+	
+	var wheel_scale = floor(pow(2,wheel_size-1))
+	var coords = check-wheel_coords
+	var m = max(abs(coords.x), abs(coords.y))
+	if (wheel_size == 0):
+		return coords == Vector2i(0,0)
+	if (m < wheel_scale): return true
+	if strict && m == wheel_scale:
+		if (wheel_size == t_wheel_size) or (abs(coords.x) != abs(coords.y)):
+			return true
+	return false
+
+func spot_overlap(vec: Vector2i, strict: bool, t_wheel_size) -> bool:
+	var wheel_size = Wheel.WheelSize.values()[-1]
+	
+	var wlength = floor(pow(2,wheel_size-1))
+	var size = 1+(wlength*2)
+	var half = floor(size/2.0)
+	for _x in range(size):
+		var x = _x-half
+		for _y in range(size):
+			var y = _y-half
+			
+			var xy = Vector2i(x,y)
+			var coords = xy+vec
+			var wheel = grid.get(coords)
+			if wheel == null: continue
+			print(vec)
+			print(\"found wheel of size \" + str(wheel.wheel_size) + \" at \" + str(coords) + \" strict = \" + str(strict))
+			if (overlap_check(vec, coords, strict, wheel.wheel_size, t_wheel_size)):
+				return true
+	return false
+
+func wheel_overlap(vec: Vector2i, wheel_size) -> bool:
+	var wlength = floor(pow(2,wheel_size-1))
+	var size = 1+(wlength*2)
+	var half = floor(size/2.0)
+	for _x in range(size):
+		var x = _x-half
+		for _y in range(size):
+			var y = _y-half
+			if (abs(x) == abs(y) and abs(x) == wlength and wlength != 0): continue
+			var strict: bool = (abs(x) != wlength and abs(y) != wlength)
+			if (wlength == 0): strict = true
+			if (spot_overlap(vec+Vector2i(x,y),strict, wheel_size)):
+				return true
+	return false
+
+func empty_neighbors_at(wheel_size: int, vec: Vector2i) -> Array[Vector2i]:
+	var wheel = grid[vec]
+	var result: Array[Vector2i] = []
+	if (wheel == null): return result
+	for check in neighbor_checks(wheel.wheel_size,wheel_size):
+		if (wheel_overlap(check+vec, wheel_size)): continue
+		var neighbor = grid.get(check+vec)
+		if (neighbor == null):
+			result.append(vec+check)
+	return result
+"
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_22asu"]
 viewport_path = NodePath("Cogworld/CogworldViewport/SubViewport")
@@ -136,6 +281,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_25ntx")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4fw4"]
+size = Vector2(46, 30)
+
 [node name="Game" type="Node2D" unique_id=547770425 node_paths=PackedStringArray("tooltip", "camera", "hamster_slot", "main_wheel", "spin_button", "money_label")]
 texture_filter = 1
 script = ExtResource("1_wrm1d")
@@ -144,14 +292,15 @@ camera = NodePath("Cogworld/CogworldViewport/SubViewport/Camera2D")
 hamster_slot = NodePath("Cogworld/CogworldViewport/SubViewport/MainWheel/Proxy/HamsterSlot")
 main_wheel = NodePath("Cogworld/CogworldViewport/SubViewport/MainWheel")
 spin_button = NodePath("SpinSign")
-money_label = NodePath("MoneyLabel")
+money_label = NodePath("Money/MoneyLabel")
 
 [node name="Tooltip" type="PanelContainer" parent="." unique_id=1879497400]
+visible = false
 z_index = 4096
-offset_left = -192.0
-offset_top = -108.0
-offset_right = -119.0
-offset_bottom = -72.0
+offset_left = 119.0
+offset_top = 73.0
+offset_right = 192.0
+offset_bottom = 109.0
 mouse_filter = 2
 theme = ExtResource("3_iivbl")
 theme_override_styles/panel = SubResource("StyleBoxTexture_vm72l")
@@ -186,11 +335,11 @@ mouse_filter = 2
 [node name="Name" type="Label" parent="Tooltip/HSplitContainer/MarginContainer/VBoxContainer" unique_id=1374549087]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 8
 text = "Name"
-horizontal_alignment = 1
 
 [node name="Description" type="RichTextLabel" parent="Tooltip/HSplitContainer/MarginContainer/VBoxContainer" unique_id=939902478]
+modulate = Color(0.46618086, 0.4661808, 0.4661808, 1)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
@@ -201,36 +350,8 @@ autowrap_mode = 0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=596298539]
 
-[node name="Inventory" type="Sprite2D" parent="." unique_id=1067927796]
-position = Vector2(92, 57)
-texture = ExtResource("4_3dryh")
-centered = false
-script = ExtResource("5_h4fw4")
-_grid_size_x = 3
-_grid_size_y = 2
-_cell_size = 16
-
-[node name="Area2D" type="Area2D" parent="Inventory" unique_id=1385441536]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Inventory/Area2D" unique_id=893196993]
-position = Vector2(24, 16)
-shape = SubResource("RectangleShape2D_h4fw4")
-
-[node name="Shop" type="Node2D" parent="." unique_id=648444297]
-position = Vector2(241, -91)
-script = ExtResource("2_ewbju")
-item_list = Array[ExtResource("3_nnt18")]([ExtResource("4_ewbju"), ExtResource("5_ewbju")])
-grocery_card = ExtResource("5_85qyi")
-
-[node name="MoneyLabel" type="Label" parent="." unique_id=942007113]
-offset_left = -192.0
-offset_top = -106.0
-offset_right = -152.0
-offset_bottom = -83.0
-
 [node name="SpinSign" type="Node2D" parent="." unique_id=1564193266]
-position = Vector2(181, 116)
+position = Vector2(70, 116)
 rotation = -1.5707964
 script = ExtResource("22_7t8sx")
 
@@ -260,7 +381,7 @@ position = Vector2(-11.5, -38.5)
 shape = SubResource("ConvexPolygonShape2D_81klo")
 
 [node name="Cogworld" type="Node2D" parent="." unique_id=1785529873 node_paths=PackedStringArray("main_cogwheel", "camera", "cogworld_viewport")]
-script = ExtResource("16_81klo")
+script = SubResource("GDScript_cwurv")
 previews = Dictionary[int, PackedScene]({
 0: ExtResource("18_ese38"),
 1: ExtResource("17_cwurv"),
@@ -276,7 +397,7 @@ camera = NodePath("CogworldViewport/SubViewport/Camera2D")
 cogworld_viewport = NodePath("CogworldViewport/SubViewport")
 
 [node name="CogworldViewport" type="Sprite2D" parent="Cogworld" unique_id=820603069]
-z_index = -10
+z_index = -4096
 scale = Vector2(0.5, 0.5)
 texture = SubResource("ViewportTexture_22asu")
 
@@ -369,3 +490,66 @@ rotation = 1.5707964
 texture = ExtResource("10_ldgsr")
 centered = false
 offset = Vector2(-2, -9)
+
+[node name="Inventory" type="Panel" parent="." unique_id=50398829]
+z_index = -3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -191.0
+offset_top = 66.0
+offset_right = -133.0
+offset_bottom = 107.0
+grow_vertical = 0
+theme = ExtResource("3_iivbl")
+
+[node name="Inventory" type="Sprite2D" parent="Inventory" unique_id=1067927796]
+position = Vector2(5, 4)
+texture = ExtResource("4_3dryh")
+centered = false
+script = ExtResource("5_h4fw4")
+_grid_size_x = 3
+_grid_size_y = 2
+_cell_size = 16
+
+[node name="Area2D" type="Area2D" parent="Inventory/Inventory" unique_id=1385441536]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inventory/Inventory/Area2D" unique_id=893196993]
+position = Vector2(24, 16)
+shape = SubResource("RectangleShape2D_h4fw4")
+
+[node name="Shop" type="Control" parent="." unique_id=1063262171]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("3_iivbl")
+script = ExtResource("30_mucmn")
+
+[node name="Background" type="NinePatchRect" parent="Shop" unique_id=1662985269]
+z_index = -20
+layout_mode = 0
+offset_left = 96.0
+offset_top = -124.0
+offset_right = 201.0
+offset_bottom = 126.0
+texture = ExtResource("4_mg4q0")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Money" type="PanelContainer" parent="." unique_id=1298085606]
+offset_left = -190.0
+offset_top = -106.0
+offset_right = -149.0
+offset_bottom = -84.0
+theme = ExtResource("3_iivbl")
+
+[node name="MoneyLabel" type="Label" parent="Money" unique_id=942007113]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "67$"
+horizontal_alignment = 1
+vertical_alignment = 1

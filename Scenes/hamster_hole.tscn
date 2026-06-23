@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c087sg5q6ju1n"]
 
-[ext_resource type="PackedScene" uid="uid://nuiyqim6jqgx" path="res://cylinder.glb" id="1_tki4a"]
+[ext_resource type="PackedScene" uid="uid://nuiyqim6jqgx" path="res://Models/cylinder.glb" id="1_tki4a"]
 
 [node name="Node3D" type="Node3D" unique_id=2143166278]
 

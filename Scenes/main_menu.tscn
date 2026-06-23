@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://b6a3douagmd23"]
 
 [ext_resource type="Script" uid="uid://oe4w02wk4xwl" path="res://Scripts/main_menu.gd" id="1_28flt"]
+[ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="1_48xlc"]
 
 [node name="MainMenu" type="Control" unique_id=197997598 node_paths=PackedStringArray("start_button", "quit_button")]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_48xlc")
 script = ExtResource("1_28flt")
 start_button = NodePath("RichTextLabel/Start Button")
 quit_button = NodePath("RichTextLabel/Quit Button")
@@ -20,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "incredible amazing main menu"
+text = "Mr Spinnington's Mechanical Emporium"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -37,7 +40,7 @@ offset_right = 128.0
 offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "start the incredible game"
+text = "start"
 
 [node name="Quit Button" type="Button" parent="RichTextLabel" unique_id=1130831637]
 layout_mode = 1
@@ -52,4 +55,5 @@ offset_right = 128.0
 offset_bottom = 78.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "save and quit"
+text = "quit
+"

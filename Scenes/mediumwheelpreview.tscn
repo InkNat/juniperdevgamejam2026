@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c662cotbrgpym"]
 
-[ext_resource type="Script" uid="uid://b2joj87wrir42" path="res://Scripts/area_button.gd" id="1_oqpar"]
-[ext_resource type="Script" uid="uid://0u5habh28uq1" path="res://Scenes/wheel_preview.gd" id="1_qejki"]
-[ext_resource type="Script" uid="uid://q7otcvnu0q8a" path="res://Scripts/proxy.gd" id="3_qun1x"]
-[ext_resource type="Shader" uid="uid://dsp6ku6ynfdbk" path="res://Scenes/wheel_preview.gdshader" id="4_qun1x"]
+[ext_resource type="Script" uid="uid://b2joj87wrir42" path="res://Scripts/Cogworld/area_button.gd" id="1_oqpar"]
+[ext_resource type="Script" uid="uid://0u5habh28uq1" path="res://Scripts/Cogworld/wheel_preview.gd" id="1_qejki"]
+[ext_resource type="Script" uid="uid://q7otcvnu0q8a" path="res://Scripts/Cogworld/proxy.gd" id="3_qun1x"]
+[ext_resource type="Shader" uid="uid://dsp6ku6ynfdbk" path="res://Shaders/wheel_preview.gdshader" id="4_qun1x"]
 [ext_resource type="ArrayMesh" uid="uid://bd1e3xyyc6rjc" path="res://Models/MediumCogwheel.tres" id="5_srtxm"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_iivbl"]

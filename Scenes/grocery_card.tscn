@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://jfcx8rx3c3tl"]
 
-[ext_resource type="Texture2D" uid="uid://i4fwo6amu7tu" path="res://Sprites/grocery_price_tag_holder.png" id="1_be8vw"]
+[ext_resource type="Texture2D" uid="uid://i4fwo6amu7tu" path="res://Sprites/UI/grocery_price_tag_holder.png" id="1_be8vw"]
 [ext_resource type="Script" uid="uid://omiftv5y36bm" path="res://Scripts/grocery_card.gd" id="2_qgrom"]
-[ext_resource type="FontFile" uid="uid://cupgphoqtkwuf" path="res://Sprites/pixel font.ttf" id="3_opmjl"]
+[ext_resource type="FontFile" uid="uid://cupgphoqtkwuf" path="res://pixel font.ttf" id="3_opmjl"]
 
 [node name="GroceryCard" type="Sprite2D" unique_id=1955703994 node_paths=PackedStringArray("_name_label", "_price_label", "item_attach")]
 texture_filter = 1

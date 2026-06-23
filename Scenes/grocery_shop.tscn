@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bac0dpy4o3bfe"]
+
+[node name="GroceryShop" type="Control" unique_id=53211068]
+layout_mode = 3
+anchors_preset = 0
