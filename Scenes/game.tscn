@@ -41,6 +41,8 @@
 [ext_resource type="Resource" uid="uid://cy6pt5d6s3f2y" path="res://Resources/Tiles/blue.tres" id="27_32sfa"]
 [ext_resource type="Texture2D" uid="uid://bcbmstnx5fx4m" path="res://Sprites/mr.spinnington_fast.png" id="29_631el"]
 [ext_resource type="PackedScene" uid="uid://bqnnsjd51761o" path="res://Scenes/bigwheelpreview.tscn" id="31_xe308"]
+[ext_resource type="Texture2D" uid="uid://dtp8c5yw4nelc" path="res://Sprites/mr.hurtington.png" id="33_32sfa"]
+[ext_resource type="AudioStream" uid="uid://kch8fudhw0cy" path="res://Sounds/collision.wav" id="33_htg8p"]
 [ext_resource type="PackedScene" uid="uid://tkbhuk000ape" path="res://Scenes/bigwheel.tscn" id="33_oeip8"]
 [ext_resource type="Script" uid="uid://b6eewmrj3cwu1" path="res://Scenes/hamster_manager.gd" id="36_v2cs8"]
 [ext_resource type="Texture2D" uid="uid://b1h42i6u1xbah" path="res://Sprites/mr.spinnington_idle.png" id="36_vs120"]
@@ -127,6 +129,53 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_25ntx")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aeaeg"]
+bounce = 0.8
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xvgv"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lpvs"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6jpx"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjh24"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5jl5"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqk4g"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh6x0"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0obb"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfavm"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcn4n"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4kai"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(1152, 0, 128, 128)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcvim"]
 atlas = ExtResource("36_vs120")
 region = Rect2(0, 0, 128, 128)
@@ -167,6 +216,94 @@ region = Rect2(640, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_6xvgv")
+}],
+"loop": 1,
+"name": &"hurt_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lpvs")
+}],
+"loop": 1,
+"name": &"hurt_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6jpx")
+}],
+"loop": 1,
+"name": &"hurt_10",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjh24")
+}],
+"loop": 1,
+"name": &"hurt_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5jl5")
+}],
+"loop": 1,
+"name": &"hurt_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqk4g")
+}],
+"loop": 1,
+"name": &"hurt_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fh6x0")
+}],
+"loop": 1,
+"name": &"hurt_5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0obb")
+}],
+"loop": 1,
+"name": &"hurt_6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfavm")
+}],
+"loop": 1,
+"name": &"hurt_7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcn4n")
+}],
+"loop": 1,
+"name": &"hurt_8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4kai")
+}],
+"loop": 1,
+"name": &"hurt_9",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jcvim")
 }, {
 "duration": 1.0,
@@ -203,7 +340,9 @@ animations = [{
 "speed": 40.0
 }]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_631el"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wr3wg"]
+radius = 0.27001953
+height = 0.87184143
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_631el"]
 margin = 0.1
@@ -306,11 +445,12 @@ texture = ExtResource("11_vs120")
 
 [node name="Camera2D" type="Camera2D" parent="CogworldViewport/SubViewport/Cogworld" unique_id=1683973372]
 
-[node name="MainWheel" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld" unique_id=2143089451 node_paths=PackedStringArray("cylinder", "wheel", "red_arrow", "cogwheel", "stickers")]
+[node name="MainWheel" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld" unique_id=2143089451 node_paths=PackedStringArray("cylinder", "hamster_manager", "wheel", "red_arrow", "cogwheel", "stickers")]
 script = ExtResource("16_fkdbe")
 packed_scene = ExtResource("18_cwurv")
 spin_curve = SubResource("Curve_fkdbe")
 cylinder = NodePath("WheelVisual/3DInsideProjector/SubViewport/Node3D/cylinder")
+hamster_manager = NodePath("WheelVisual/3DInsideProjector/SubViewport/Node3D/Hamster")
 wheel = NodePath("WheelVisual/Wheel")
 red_arrow = NodePath("WheelVisual/RedArrow")
 cogwheel = NodePath("WheelVisual/3DWheelProjector/SubViewport/Node3D/BigCogwheel")
@@ -395,18 +535,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57446414, 0.08348197)
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
+physics_material_override = SubResource("PhysicsMaterial_aeaeg")
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("36_v2cs8")
 animated_sprite = NodePath("Sprite3D")
+collision_noise = ExtResource("33_htg8p")
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D/Hamster" unique_id=1140889113]
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_jcvim")
-animation = &"omori_wobbler"
+animation = &"hurt_9"
 autoplay = "omori_wobbler"
-frame_progress = 0.004420329
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D/Hamster" unique_id=2144293855]
-shape = SubResource("SphereShape3D_631el")
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.010292053, -0.15817136, 0)
+shape = SubResource("CapsuleShape3D_wr3wg")
 debug_color = Color(0.98753124, 8.182227e-06, 0.6208047, 1)
 debug_fill = false
 

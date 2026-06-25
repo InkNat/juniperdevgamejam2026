@@ -7,9 +7,9 @@
 [ext_resource type="Script" uid="uid://b2joj87wrir42" path="res://Scripts/Cogworld/area_button.gd" id="2_r5tdd"]
 [ext_resource type="PackedScene" uid="uid://bac0dpy4o3bfe" path="res://Scenes/grocery_shop.tscn" id="3_gx8hh"]
 [ext_resource type="PackedScene" uid="uid://bgr7vofljfrpo" path="res://Scenes/settings.tscn" id="4_1257h"]
-[ext_resource type="Script" path="res://Scripts/shop_tab.gd" id="6_1257h"]
+[ext_resource type="Script" uid="uid://bxywu8qj801jd" path="res://Scripts/shop_tab.gd" id="6_1257h"]
 [ext_resource type="PackedScene" uid="uid://bqgai5td6sg7q" path="res://Scenes/store_shop.tscn" id="6_ho4mo"]
-[ext_resource type="Shader" path="res://Scenes/scrolling_text.gdshader" id="10_1257h"]
+[ext_resource type="Shader" uid="uid://djh7dkph2i4v5" path="res://Scenes/scrolling_text.gdshader" id="10_1257h"]
 [ext_resource type="Texture2D" uid="uid://c7grwga0folil" path="res://Sprites/mr_background.png" id="11_s14v1"]
 [ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="12_7hhs2"]
 
@@ -20,7 +20,7 @@ size = Vector2(18, 17)
 shader = ExtResource("10_1257h")
 shader_parameter/text = ExtResource("11_s14v1")
 shader_parameter/second_offset = Vector2(0, 0.125)
-shader_parameter/size = Vector2(128, 128)
+shader_parameter/size = Vector2(89, 102)
 shader_parameter/speed = 0.05
 shader_parameter/background_color = Color(0, 0.04058157, 0.005374158, 1)
 shader_parameter/text_color = Color(0.0036738925, 0.08736404, 6.016344e-09, 1)
@@ -29,7 +29,7 @@ shader_parameter/text_color = Color(0.0036738925, 0.08736404, 6.016344e-09, 1)
 shader = ExtResource("10_1257h")
 shader_parameter/text = ExtResource("11_s14v1")
 shader_parameter/second_offset = Vector2(0, 0.125)
-shader_parameter/size = Vector2(128, 128)
+shader_parameter/size = Vector2(89, 102)
 shader_parameter/speed = 0.05
 shader_parameter/background_color = Color(0.0027286902, 0, 0.07225924, 1)
 shader_parameter/text_color = Color(0.04050859, 7.941574e-07, 0.28123727, 1)
@@ -41,7 +41,7 @@ shader_parameter/second_offset = Vector2(0, 0.125)
 shader_parameter/size = Vector2(89, 102)
 shader_parameter/speed = 0.05
 shader_parameter/background_color = Color(0.044363476, 0, 0.0006345701, 1)
-shader_parameter/text_color = Color(0.065467045, 0, 0.002313634, 1)
+shader_parameter/text_color = Color(0.18577802, 3.4593977e-08, 0.020180266, 1)
 
 [node name="Shop" type="Node2D" unique_id=1319265294 node_paths=PackedStringArray("grocery_tab", "store_tab", "settings_tab")]
 script = ExtResource("1_ho4mo")
@@ -143,7 +143,7 @@ self_modulate = Color(0.1254902, 0.19607843, 0.24705882, 1)
 clip_children = 2
 z_index = -1
 material = SubResource("ShaderMaterial_pogiw")
-position = Vector2(31.000002, 8)
+position = Vector2(31, 8)
 scale = Vector2(88.99999, 102.00001)
 texture = ExtResource("12_7hhs2")
 centered = false

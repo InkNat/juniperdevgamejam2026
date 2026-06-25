@@ -2,7 +2,7 @@ extends Wheel
 
 var current_full_spin_time: float = 0
 var fadeout_time: float = 0
-const max_fadeout_time:float = 2
+const max_fadeout_time:float = 2.5
 var speed: float = 1
 @export var packed_scene: PackedScene
 @export var spin_curve: Curve
@@ -16,8 +16,8 @@ func _process(delta):
 		current_full_spin_time-=delta
 		if (current_full_spin_time <= 0): hamster_manager.shove()
 	elif fadeout_time > 0:
-		var effective_speed = spin_curve.sample(fadeout_time/(max_fadeout_time*speed)) * speed*delta
-		wheel_rotation += effective_speed
+		var effective_speed = spin_curve.sample(fadeout_time/(max_fadeout_time*speed)) * speed
+		wheel_rotation += effective_speed*delta
 		fadeout_time -= delta
 		if fadeout_time <= 0: land()
 	

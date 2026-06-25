@@ -2,6 +2,18 @@
 
 [ext_resource type="Script" uid="uid://oe4w02wk4xwl" path="res://Scripts/main_menu.gd" id="1_28flt"]
 [ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="1_48xlc"]
+[ext_resource type="Shader" uid="uid://djh7dkph2i4v5" path="res://Scenes/scrolling_text.gdshader" id="3_n45e2"]
+[ext_resource type="Texture2D" uid="uid://c7grwga0folil" path="res://Sprites/mr_background.png" id="4_opfnp"]
+[ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="5_cp0ys"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ke0wg"]
+shader = ExtResource("3_n45e2")
+shader_parameter/text = ExtResource("4_opfnp")
+shader_parameter/second_offset = Vector2(0, 0.125)
+shader_parameter/size = Vector2(384, 216)
+shader_parameter/speed = 0.2
+shader_parameter/background_color = Color(0, 0, 0, 1)
+shader_parameter/text_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
 
 [node name="MainMenu" type="Control" unique_id=197997598 node_paths=PackedStringArray("start_button", "quit_button")]
 texture_filter = 1
@@ -57,3 +69,10 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "quit
 "
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1209947958]
+z_index = -20
+material = SubResource("ShaderMaterial_ke0wg")
+scale = Vector2(384, 216)
+texture = ExtResource("5_cp0ys")
+centered = false

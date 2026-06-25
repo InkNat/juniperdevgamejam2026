@@ -32,9 +32,9 @@ func run():
 
 func random_hurt(_other):
 	var _speed = linear_velocity.length()
-	Game.play_and_die(collision_noise,1,_speed/30.0)
+	Game.play_and_die(collision_noise, (randf()+1)/2,_speed/30)
 	animated_sprite.stop()
-	var e = (randi()%10)+1
+	var e = (randi()%9)+1
 	if e == previous: e+=1
 	animated_sprite.play("hurt_"+str(e))
 	previous = e

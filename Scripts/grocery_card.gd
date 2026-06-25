@@ -26,6 +26,7 @@ func set_sold_item(item: ItemData):
 func refresh_item():
 	var item: Item = _sold_item.create_item()
 	add_child(item)
+	item.position = item_attach.position
 	item.attachement = item_attach.position
 
 func _can_insert(_item: Item) -> bool: return false

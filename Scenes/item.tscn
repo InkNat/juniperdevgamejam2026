@@ -7,7 +7,7 @@
 size = Vector2(16, 16)
 
 [node name="Item" type="Node2D" unique_id=1706374103 node_paths=PackedStringArray("sprite")]
-z_index = 4095
+z_index = 4090
 script = ExtResource("1_76mu4")
 sprite = NodePath("Texture")
 pick_item_audio = ExtResource("2_76mu4")
@@ -19,3 +19,4 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_76mu4")
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=835361187]
+z_index = -1
