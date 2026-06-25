@@ -42,14 +42,11 @@
 [ext_resource type="Texture2D" uid="uid://bcbmstnx5fx4m" path="res://Sprites/mr.spinnington_fast.png" id="29_631el"]
 [ext_resource type="PackedScene" uid="uid://bqnnsjd51761o" path="res://Scenes/bigwheelpreview.tscn" id="31_xe308"]
 [ext_resource type="Texture2D" uid="uid://dtp8c5yw4nelc" path="res://Sprites/mr.hurtington.png" id="33_32sfa"]
-[ext_resource type="AudioStream" uid="uid://kch8fudhw0cy" path="res://Sounds/collision.wav" id="33_htg8p"]
 [ext_resource type="PackedScene" uid="uid://tkbhuk000ape" path="res://Scenes/bigwheel.tscn" id="33_oeip8"]
 [ext_resource type="Script" uid="uid://b6eewmrj3cwu1" path="res://Scenes/hamster_manager.gd" id="36_v2cs8"]
 [ext_resource type="Texture2D" uid="uid://b1h42i6u1xbah" path="res://Sprites/mr.spinnington_idle.png" id="36_vs120"]
 [ext_resource type="PackedScene" uid="uid://bpd6vah0yqaqj" path="res://Scenes/shop_tabs.tscn" id="43_6a4tp"]
 [ext_resource type="Texture2D" uid="uid://bdkt4ipvsin67" path="res://Sprites/pointer.png" id="46_v2cs8"]
-[ext_resource type="Shader" uid="uid://ds2lxv6fws7cj" path="res://Scenes/spiral.gdshader" id="48_titue"]
-[ext_resource type="Script" uid="uid://kehx14xli3xt" path="res://Scenes/follower.gd" id="49_tt7mg"]
 
 [sub_resource type="Curve" id="Curve_fkdbe"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 3.0288222, 0.0, 0, 0]
@@ -127,7 +124,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_25ntx")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_32sfa"]
-bounce = 0.8
+bounce = 0.6
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6xvgv"]
 atlas = ExtResource("33_32sfa")
@@ -337,12 +334,9 @@ animations = [{
 "speed": 40.0
 }]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tt7mg"]
-radius = 0.28955078
-height = 0.90966797
+[sub_resource type="SphereShape3D" id="SphereShape3D_631el"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_631el"]
-margin = 0.1
 data = PackedVector3Array(0, -1, -1, 0.1951, 1, -0.9808, 0.1951, -1, -0.9808, 0, -1, -1, 0, 1, -1, 0.1951, 1, -0.9808, 0.1951, -1, -0.9808, 0.3827, 1, -0.92389995, 0.3827, -1, -0.92389995, 0.1951, -1, -0.9808, 0.1951, 1, -0.9808, 0.3827, 1, -0.92389995, 0.3827, -1, -0.92389995, 0.5556, 1, -0.8315, 0.5556, -1, -0.8315, 0.3827, -1, -0.92389995, 0.3827, 1, -0.92389995, 0.5556, 1, -0.8315, 0.5556, -1, -0.8315, 0.7071, 1, -0.7071, 0.7071, -1, -0.7071, 0.5556, -1, -0.8315, 0.5556, 1, -0.8315, 0.7071, 1, -0.7071, 0.7071, -1, -0.7071, 0.8314, 1, -0.5556, 0.8314, -1, -0.5556, 0.7071, -1, -0.7071, 0.7071, 1, -0.7071, 0.8314, 1, -0.5556, 0.8314, -1, -0.5556, 0.92389995, 1, -0.3827, 0.92389995, -1, -0.3827, 0.8314, -1, -0.5556, 0.8314, 1, -0.5556, 0.92389995, 1, -0.3827, 0.92389995, -1, -0.3827, 0.9808, 1, -0.1951, 0.9808, -1, -0.1951, 0.92389995, -1, -0.3827, 0.92389995, 1, -0.3827, 0.9808, 1, -0.1951, 0.9808, -1, -0.1951, 1, 1, 0, 1, -1, 0, 0.9808, -1, -0.1951, 0.9808, 1, -0.1951, 1, 1, 0, 1, -1, 0, 0.9808, 1, 0.1951, 0.9808, -1, 0.1951, 1, -1, 0, 1, 1, 0, 0.9808, 1, 0.1951, 0.9808, -1, 0.1951, 0.92389995, 1, 0.3827, 0.92389995, -1, 0.3827, 0.9808, -1, 0.1951, 0.9808, 1, 0.1951, 0.92389995, 1, 0.3827, 0.92389995, -1, 0.3827, 0.8314, 1, 0.5556, 0.8314, -1, 0.5556, 0.92389995, -1, 0.3827, 0.92389995, 1, 0.3827, 0.8314, 1, 0.5556, 0.8314, -1, 0.5556, 0.7071, 1, 0.7071, 0.7071, -1, 0.7071, 0.8314, -1, 0.5556, 0.8314, 1, 0.5556, 0.7071, 1, 0.7071, 0.7071, -1, 0.7071, 0.5556, 1, 0.8314, 0.5556, -1, 0.8314, 0.7071, -1, 0.7071, 0.7071, 1, 0.7071, 0.5556, 1, 0.8314, 0.5556, -1, 0.8314, 0.3827, 1, 0.92389995, 0.3827, -1, 0.92389995, 0.5556, -1, 0.8314, 0.5556, 1, 0.8314, 0.3827, 1, 0.92389995, 0.3827, -1, 0.92389995, 0.1951, 1, 0.9808, 0.1951, -1, 0.9808, 0.3827, -1, 0.92389995, 0.3827, 1, 0.92389995, 0.1951, 1, 0.9808, 0.1951, -1, 0.9808, 0, 1, 1, 0, -1, 1, 0.1951, -1, 0.9808, 0.1951, 1, 0.9808, 0, 1, 1, 0, -1, 1, -0.1951, 1, 0.9808, -0.1951, -1, 0.9808, 0, -1, 1, 0, 1, 1, -0.1951, 1, 0.9808, -0.1951, -1, 0.9808, -0.3827, 1, 0.92389995, -0.3827, -1, 0.92389995, -0.1951, -1, 0.9808, -0.1951, 1, 0.9808, -0.3827, 1, 0.92389995, -0.3827, -1, 0.92389995, -0.5556, 1, 0.8314, -0.5556, -1, 0.8314, -0.3827, -1, 0.92389995, -0.3827, 1, 0.92389995, -0.5556, 1, 0.8314, -0.5556, -1, 0.8314, -0.7071, 1, 0.7071, -0.7071, -1, 0.7071, -0.5556, -1, 0.8314, -0.5556, 1, 0.8314, -0.7071, 1, 0.7071, -0.7071, -1, 0.7071, -0.8315, 1, 0.5556, -0.8315, -1, 0.5556, -0.7071, -1, 0.7071, -0.7071, 1, 0.7071, -0.8315, 1, 0.5556, -0.8315, -1, 0.5556, -0.92389995, 1, 0.3827, -0.92389995, -1, 0.3827, -0.8315, -1, 0.5556, -0.8315, 1, 0.5556, -0.92389995, 1, 0.3827, -0.92389995, -1, 0.3827, -0.9808, 1, 0.1951, -0.9808, -1, 0.1951, -0.92389995, -1, 0.3827, -0.92389995, 1, 0.3827, -0.9808, 1, 0.1951, -0.9808, -1, 0.1951, -1, 1, 0, -1, -1, 0, -0.9808, -1, 0.1951, -0.9808, 1, 0.1951, -1, 1, 0, -1, -1, 0, -0.9808, 1, -0.1951, -0.9808, -1, -0.1951, -1, -1, 0, -1, 1, 0, -0.9808, 1, -0.1951, -0.9808, -1, -0.1951, -0.92389995, 1, -0.3827, -0.92389995, -1, -0.3827, -0.9808, -1, -0.1951, -0.9808, 1, -0.1951, -0.92389995, 1, -0.3827, -0.92389995, -1, -0.3827, -0.8315, 1, -0.5556, -0.8315, -1, -0.5556, -0.92389995, -1, -0.3827, -0.92389995, 1, -0.3827, -0.8315, 1, -0.5556, -0.8315, -1, -0.5556, -0.7071, 1, -0.7071, -0.7071, -1, -0.7071, -0.8315, -1, -0.5556, -0.8315, 1, -0.5556, -0.7071, 1, -0.7071, -0.7071, -1, -0.7071, -0.5556, 1, -0.8315, -0.5556, -1, -0.8315, -0.7071, -1, -0.7071, -0.7071, 1, -0.7071, -0.5556, 1, -0.8315, -0.5556, -1, -0.8315, -0.3827, 1, -0.92389995, -0.3827, -1, -0.92389995, -0.5556, -1, -0.8315, -0.5556, 1, -0.8315, -0.3827, 1, -0.92389995, -0.3827, -1, -0.92389995, -0.1951, 1, -0.9808, -0.1951, -1, -0.9808, -0.3827, -1, -0.92389995, -0.3827, 1, -0.92389995, -0.1951, 1, -0.9808, -0.1951, -1, -0.9808, 0, 1, -1, 0, -1, -1, -0.1951, -1, -0.9808, -0.1951, 1, -0.9808, 0, 1, -1, 0.1951, -1, -0.9808, -0.1951, -1, -0.9808, 0, -1, -1, -0.1951, -1, -0.9808, -0.5556, -1, -0.8315, -0.3827, -1, -0.92389995, 0.1951, -1, -0.9808, -0.5556, -1, -0.8315, -0.1951, -1, -0.9808, -0.5556, -1, -0.8315, -0.8315, -1, -0.5556, -0.7071, -1, -0.7071, -0.5556, -1, -0.8315, -0.9808, -1, -0.1951, -0.8315, -1, -0.5556, -0.8315, -1, -0.5556, -0.9808, -1, -0.1951, -0.92389995, -1, -0.3827, 0.1951, -1, -0.9808, -0.9808, -1, -0.1951, -0.5556, -1, -0.8315, -0.9808, -1, -0.1951, -0.9808, -1, 0.1951, -1, -1, 0, -0.9808, -1, -0.1951, -0.8315, -1, 0.5556, -0.9808, -1, 0.1951, -0.9808, -1, 0.1951, -0.8315, -1, 0.5556, -0.92389995, -1, 0.3827, -0.9808, -1, -0.1951, -0.1951, -1, 0.9808, -0.8315, -1, 0.5556, 0.1951, -1, -0.9808, -0.1951, -1, 0.9808, -0.9808, -1, -0.1951, -0.8315, -1, 0.5556, -0.5556, -1, 0.8314, -0.7071, -1, 0.7071, -0.8315, -1, 0.5556, -0.1951, -1, 0.9808, -0.5556, -1, 0.8314, -0.5556, -1, 0.8314, -0.1951, -1, 0.9808, -0.3827, -1, 0.92389995, -0.1951, -1, 0.9808, 0.1951, -1, 0.9808, 0, -1, 1, -0.1951, -1, 0.9808, 0.5556, -1, 0.8314, 0.1951, -1, 0.9808, 0.1951, -1, 0.9808, 0.5556, -1, 0.8314, 0.3827, -1, 0.92389995, -0.1951, -1, 0.9808, 0.1951, -1, -0.9808, 0.9808, -1, 0.1951, -0.1951, -1, 0.9808, 0.9808, -1, 0.1951, 0.5556, -1, 0.8314, 0.5556, -1, 0.8314, 0.8314, -1, 0.5556, 0.7071, -1, 0.7071, 0.5556, -1, 0.8314, 0.9808, -1, 0.1951, 0.8314, -1, 0.5556, 0.8314, -1, 0.5556, 0.9808, -1, 0.1951, 0.92389995, -1, 0.3827, 0.5556, -1, -0.8315, 0.1951, -1, -0.9808, 0.3827, -1, -0.92389995, 0.8314, -1, -0.5556, 0.1951, -1, -0.9808, 0.5556, -1, -0.8315, 0.9808, -1, 0.1951, 0.1951, -1, -0.9808, 0.8314, -1, -0.5556, 0.8314, -1, -0.5556, 0.5556, -1, -0.8315, 0.7071, -1, -0.7071, 0.9808, -1, 0.1951, 0.8314, -1, -0.5556, 0.9808, -1, -0.1951, 0.9808, -1, -0.1951, 0.8314, -1, -0.5556, 0.92389995, -1, -0.3827, 0.9808, -1, 0.1951, 0.9808, -1, -0.1951, 1, -1, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vm72l"]
@@ -364,21 +358,12 @@ points = PackedVector2Array(-16.499992, 22.5, -18.499992, 24.5, -21.499992, 24.5
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4fw4"]
 size = Vector2(46, 30)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tt7mg"]
-shader = ExtResource("48_titue")
-shader_parameter/ring_amount = 5.72
-shader_parameter/line_amount = 1
-shader_parameter/offset = Vector2(0, 0)
-shader_parameter/scale = Vector2(1, 1)
-shader_parameter/color1 = Color(0.051970966, 0.05197096, 0.05197095, 1)
-shader_parameter/color2 = Color(0.06053029, 0.06053038, 0.060530327, 1)
-
 [node name="Game" type="Node2D" unique_id=547770425 node_paths=PackedStringArray("tooltip", "camera", "hamster_slot", "main_wheel", "spin_button", "money_label", "shop_tabs")]
 texture_filter = 1
 script = ExtResource("1_wrm1d")
 tooltip = NodePath("Tooltip")
 camera = NodePath("CogworldViewport/SubViewport/Cogworld/Camera2D")
-hamster_slot = NodePath("CogworldViewport/SubViewport/Cogworld/MainWheel/ProxyHamsterSlot/HamsterSlot")
+hamster_slot = NodePath("CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy/HamsterSlot")
 main_wheel = NodePath("CogworldViewport/SubViewport/Cogworld/MainWheel")
 spin_button = NodePath("SpinSign")
 money_label = NodePath("Money/MoneyLabel")
@@ -387,14 +372,13 @@ shop_tabs = NodePath("ShopTabs")
 test_sticker = ExtResource("16_v2cs8")
 
 [node name="CogworldViewport" type="SubViewportContainer" parent="." unique_id=1843949557]
-z_index = -4095
+z_index = -4096
 offset_right = 768.0
 offset_bottom = 432.0
 mouse_filter = 2
 script = ExtResource("13_631el")
 
 [node name="SubViewport" type="SubViewport" parent="CogworldViewport" unique_id=1382370156]
-transparent_bg = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 physics_object_picking = true
@@ -426,26 +410,26 @@ wheel = NodePath("WheelVisual/Wheel")
 red_arrow = NodePath("WheelVisual/RedArrow")
 cogwheel = NodePath("WheelVisual/3DWheelProjector/SubViewport/Node3D/BigCogwheel")
 click_audio = SubResource("PackedScene_cwurv")
-stickers = NodePath("ProxyStickers/Stickers")
+stickers = NodePath("Proxy2/Stickers")
 tiles = Array[ExtResource("20_lmoi6")]([ExtResource("21_6uxt2"), ExtResource("23_bwj6o"), ExtResource("23_6a4tp"), ExtResource("24_631el"), ExtResource("25_vs120"), ExtResource("26_v2cs8"), ExtResource("27_32sfa"), ExtResource("22_ym3tv"), ExtResource("21_6uxt2"), ExtResource("23_bwj6o"), ExtResource("23_6a4tp"), ExtResource("24_631el"), ExtResource("25_vs120"), ExtResource("26_v2cs8"), ExtResource("27_32sfa"), ExtResource("22_ym3tv")])
 
-[node name="ProxyStickers" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=487615973 node_paths=PackedStringArray("scale_target")]
+[node name="Proxy2" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=487615973 node_paths=PackedStringArray("scale_target")]
 script = ExtResource("19_fkdbe")
 scale_target = NodePath("Stickers")
 
-[node name="Stickers" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/ProxyStickers" unique_id=1528598156]
+[node name="Stickers" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy2" unique_id=1528598156]
 
-[node name="ProxyHamsterSlot" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=683071112 node_paths=PackedStringArray("scale_target")]
+[node name="Proxy" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=683071112 node_paths=PackedStringArray("scale_target")]
 script = ExtResource("19_fkdbe")
 scale_target = NodePath("HamsterSlot/Area")
 
-[node name="HamsterSlot" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/ProxyHamsterSlot" unique_id=1521343912]
+[node name="HamsterSlot" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy" unique_id=1521343912]
 script = ExtResource("2_mg4q0")
 
-[node name="Area" type="Area2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/ProxyHamsterSlot/HamsterSlot" unique_id=226345977]
+[node name="Area" type="Area2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy/HamsterSlot" unique_id=226345977]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/ProxyHamsterSlot/HamsterSlot/Area" unique_id=897946354]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy/HamsterSlot/Area" unique_id=897946354]
 shape = SubResource("CircleShape2D_iivbl")
 
 [node name="WheelVisual" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=1863031343]
@@ -507,21 +491,17 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 physics_material_override = SubResource("PhysicsMaterial_32sfa")
-contact_monitor = true
-max_contacts_reported = 1
 script = ExtResource("36_v2cs8")
 animated_sprite = NodePath("Sprite3D")
-collision_noise = ExtResource("33_htg8p")
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D/Hamster" unique_id=1140889113]
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_jcvim")
-animation = &"hurt_11"
+animation = &"hurt_9"
 autoplay = "omori_wobbler"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D/Hamster" unique_id=2144293855]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.0017089844, -0.09718257, 0)
-shape = SubResource("CapsuleShape3D_tt7mg")
+shape = SubResource("SphereShape3D_631el")
 debug_color = Color(0.98753124, 8.182227e-06, 0.6208047, 1)
 debug_fill = false
 
@@ -540,8 +520,8 @@ offset = Vector2(0, 3)
 [node name="Node2D" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=401547829]
 
 [node name="i have free will" type="Sprite2D" parent="CogworldViewport/SubViewport/Cogworld" unique_id=1772060781]
-modulate = Color(1, 1, 1, 0.1764706)
-position = Vector2(-3964, 22)
+modulate = Color(1, 1, 1, 0.039215688)
+position = Vector2(-2906, -1814)
 scale = Vector2(0.71309185, 0.48813558)
 texture = ExtResource("11_vs120")
 
@@ -663,12 +643,3 @@ vertical_alignment = 1
 
 [node name="ShopTabs" parent="." unique_id=1319265294 instance=ExtResource("43_6a4tp")]
 position = Vector2(384, 24)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994226562 node_paths=PackedStringArray("target")]
-z_index = -4096
-material = SubResource("ShaderMaterial_tt7mg")
-position = Vector2(194, 105)
-scale = Vector2(400, 400)
-texture = ExtResource("6_1l0tm")
-script = ExtResource("49_tt7mg")
-target = NodePath("../CogworldViewport/SubViewport/Cogworld/MainWheel/ProxyHamsterSlot/HamsterSlot")

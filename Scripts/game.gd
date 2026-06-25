@@ -22,14 +22,16 @@ func _init():
 func _ready():
 	hamster_slot.place_first_item.connect(spin_button.open_sign)
 	spin_button.sign_clicked.connect(hamster_slot.consume_and_spin)
-	hamster_slot.spin.connect(func (): main_wheel.spin(1,0.01))
+	hamster_slot.spin.connect(func (): 
+		main_wheel.spin(hamster_slot.get_tags()))
 
-static func play_and_die(audio: AudioStream, pitch: float = 1): instance._play_and_die(audio, pitch)
+static func play_and_die(audio: AudioStream, pitch: float = 1, volume = 1): instance._play_and_die(audio, pitch, volume)
 
-func _play_and_die(audio: AudioStream, pitch: float = 1):
+func _play_and_die(audio: AudioStream, pitch: float = 1, volume = 1):
 	var e: AudioStreamPlayer = audio_player.instantiate()
 	e.stream = audio
 	e.pitch_scale = pitch
+	e.volume_linear = volume
 	add_child(e)
 
 func pop_sticker() -> Sticker:

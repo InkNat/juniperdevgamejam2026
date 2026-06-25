@@ -8,6 +8,7 @@ script = ExtResource("1_1qgx7")
 base_cost = 400
 icon = ExtResource("1_aeaeg")
 name = "Carrot Slice"
+tag = "carrot"
 description = "Increase speed"
 background_color = Color(0.94371605, 0.6479256, 1, 1)
 metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

@@ -66,7 +66,7 @@ func rotate_wheel(p_wheel_rotation: float):
 		subwheel.rotate_wheel((wheel_rotation+gear_offset)*-gear_ratio)
 
 func _process(delta):
-	if (wheel_rotation > 1): wheel_rotation-=1
+	wheel_rotation = fmod(wheel_rotation,1)
 	
 	wheel.material.set_shader_parameter("angle_offset", wheel_rotation)
 	cogwheel.rotation.y = wheel_rotation*TAU

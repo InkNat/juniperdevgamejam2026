@@ -8,6 +8,7 @@ script = ExtResource("1_svs7g")
 base_cost = 1000
 icon = ExtResource("1_pr6tk")
 name = "Popcorn"
+tag = "popcorn"
 description = "Trigger 2.5% of the effects of
 all tiles a clicker passes"
 background_color = Color(0.493464, 0.7227531, 1, 1)

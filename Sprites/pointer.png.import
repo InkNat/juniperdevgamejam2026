@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtp8c5yw4nelc"
-path="res://.godot/imported/mr.hurtington.png-a184c2a1b778cc2cb9ed564af945c83a.ctex"
+uid="uid://bdkt4ipvsin67"
+path="res://.godot/imported/pointer.png-04f363a66441aac9954acac95691455b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/mr.hurtington.png"
-dest_files=["res://.godot/imported/mr.hurtington.png-a184c2a1b778cc2cb9ed564af945c83a.ctex"]
+source_file="res://Sprites/pointer.png"
+dest_files=["res://.godot/imported/pointer.png-04f363a66441aac9954acac95691455b.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

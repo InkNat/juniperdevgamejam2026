@@ -8,6 +8,7 @@ script = ExtResource("2_qi86r")
 base_cost = 100
 icon = ExtResource("1_sqsnd")
 name = "Oat"
+tag = "oat"
 description = "Increase endurance"
 background_color = Color(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

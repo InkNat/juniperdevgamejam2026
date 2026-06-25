@@ -14,6 +14,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func get_tags() -> Array[String]:
+	var result: Array[String] = []
+	for child in get_children():
+		if child is not Item: continue
+		result.append(child.item_data.tag)
+	return result
+
 func arrange_items():
 	var i = 0
 	for child in get_children():

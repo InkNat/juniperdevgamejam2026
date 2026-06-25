@@ -8,6 +8,7 @@ script = ExtResource("2_6oqyp")
 base_cost = 200
 icon = ExtResource("1_4oeeb")
 name = "Mulberry"
+tag = "mulberry"
 description = "x1.5 reward"
 background_color = Color(1, 0.727028, 0.6756104, 1)
 metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

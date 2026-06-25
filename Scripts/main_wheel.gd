@@ -1,25 +1,44 @@
 extends Wheel
 
-var current_spin_time: float = 0
-var max_spin_time: float = 1
+var current_full_spin_time: float = 0
+var fadeout_time: float = 0
+const max_fadeout_time:float = 2
 var speed: float = 1
 @export var packed_scene: PackedScene
 @export var spin_curve: Curve
 @export var cylinder: Node3D
+@export var hamster_manager: HamsterManager
 
 func _process(delta):
 	
-	if current_spin_time < 0: return
+	if current_full_spin_time > 0:
+		wheel_rotation += speed*delta
+		current_full_spin_time-=delta
+		if (current_full_spin_time <= 0): hamster_manager.shove()
+	elif fadeout_time > 0:
+		var effective_speed = spin_curve.sample(fadeout_time/(max_fadeout_time*speed)) * speed*delta
+		wheel_rotation += effective_speed
+		fadeout_time -= delta
+		if fadeout_time <= 0: land()
 	
-	wheel_rotation += spin_curve.sample(current_spin_time/max_spin_time) * speed
 	cylinder.rotation.x = wheel_rotation*-TAU
 	super._process(delta)
-	if current_spin_time > 0:
-		current_spin_time -= delta
-		if current_spin_time <= 0: land()
 	rotate_wheel(wheel_rotation)
 
-func spin(spin_time: float, spin_speed: float):
-	current_spin_time += spin_time
-	max_spin_time = current_spin_time
-	speed = spin_speed
+func spin(tags: Array[String]):
+	var total_time = (randf()*2)+1
+	var total_speed = 1
+	for tag in tags:
+		match tag:
+			"oat":
+				total_time += (randf()*1)+1
+			"carrot":
+				total_speed += 1
+	current_full_spin_time = total_time
+	fadeout_time = max_fadeout_time*speed
+	hamster_manager.speed = speed*100
+	speed = total_speed
+	hamster_manager.run()
+
+func land():
+	super.land()
