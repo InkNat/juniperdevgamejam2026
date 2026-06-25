@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bqgai5td6sg7q"]
+
+[ext_resource type="Script" uid="uid://e41hqjc3cup8" path="res://Scenes/store_shop.gd" id="1_fgfif"]
+[ext_resource type="Texture2D" uid="uid://c3b88qeahm7jh" path="res://Sprites/wheel_slot.png" id="1_xul8q"]
+[ext_resource type="Texture2D" uid="uid://qspjb50js2by" path="res://Sprites/UI/sticker_sheet.png" id="2_xul8q"]
+[ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="3_k3vkq"]
+
+[node name="StoreShop" type="Node2D" unique_id=1924492146]
+script = ExtResource("1_fgfif")
+
+[node name="StickerSheet" type="Sprite2D" parent="." unique_id=825315933]
+z_index = 2
+position = Vector2(-8, 0)
+texture = ExtResource("2_xul8q")
+centered = false
+
+[node name="StickerPriceLabel" type="Label" parent="." unique_id=1520752105]
+offset_top = 67.0
+offset_right = 23.0
+offset_bottom = 79.0
+theme = ExtResource("3_k3vkq")
+theme_override_font_sizes/font_size = 8
+text = "1000$"
+
+[node name="WheelStoreSlot" type="Sprite2D" parent="." unique_id=1917318551]
+position = Vector2(13, 89)
+texture = ExtResource("1_xul8q")
+
+[node name="WheelStoreSlot2" type="Sprite2D" parent="." unique_id=1828963621]
+position = Vector2(44, 89)
+texture = ExtResource("1_xul8q")
+
+[node name="WheelStoreSlot3" type="Sprite2D" parent="." unique_id=1682734391]
+position = Vector2(75, 89)
+texture = ExtResource("1_xul8q")

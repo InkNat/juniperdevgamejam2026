@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://dici28bl6aexx"]
 
 [ext_resource type="Script" uid="uid://bvj2es6a7iu5n" path="res://Scripts/item.gd" id="1_76mu4"]
+[ext_resource type="AudioStream" uid="uid://bil25ivoxtiuk" path="res://Sounds/pick_item.wav" id="2_76mu4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76mu4"]
 size = Vector2(16, 16)
 
 [node name="Item" type="Node2D" unique_id=1706374103 node_paths=PackedStringArray("sprite")]
+z_index = 4095
 script = ExtResource("1_76mu4")
 sprite = NodePath("Texture")
+pick_item_audio = ExtResource("2_76mu4")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2040448549]
 collision_mask = 2

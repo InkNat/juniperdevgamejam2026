@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c8yhlxt35xk1x"]
+
+[ext_resource type="Texture2D" uid="uid://65fp3mlm0jce" path="res://Sprites/spinach.png" id="1_7iw0a"]
+[ext_resource type="Script" uid="uid://cu6a1tq8sa07i" path="res://Scripts/itemdata.gd" id="1_cyf41"]
+
+[resource]
+script = ExtResource("1_cyf41")
+base_cost = 500
+icon = ExtResource("1_7iw0a")
+name = "Spinach"
+description = "+0.5% reward per space 
+the clicker passes over"
+background_color = Color(0.5752035, 0.89537734, 0.45555526, 1)
+metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

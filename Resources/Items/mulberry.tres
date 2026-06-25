@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://clsi7y60htu7h"]
+
+[ext_resource type="Texture2D" uid="uid://vkf4h8d0n42y" path="res://Sprites/mulberry.png" id="1_4oeeb"]
+[ext_resource type="Script" uid="uid://cu6a1tq8sa07i" path="res://Scripts/itemdata.gd" id="2_6oqyp"]
+
+[resource]
+script = ExtResource("2_6oqyp")
+base_cost = 200
+icon = ExtResource("1_4oeeb")
+name = "Mulberry"
+description = "x1.5 reward"
+background_color = Color(1, 0.727028, 0.6756104, 1)
+metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

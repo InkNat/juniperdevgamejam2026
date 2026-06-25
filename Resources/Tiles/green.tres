@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Tile" format=3 uid="uid://i5j4g12o1m15"]
+
+[ext_resource type="Script" uid="uid://c2vyt84ou3pjd" path="res://Scripts/tile.gd" id="1_fhe1w"]
+
+[resource]
+script = ExtResource("1_fhe1w")
+color = Color(0.06666667, 0.67058825, 0, 1)
+base_reward = 200
+metadata/_custom_type_script = "uid://c2vyt84ou3pjd"

@@ -7,20 +7,30 @@ static var instance: Game
 @export var main_wheel: Node2D
 @export var spin_button: Node2D
 @export var money_label: Label
+@export var audio_player: PackedScene
+@export var shop_tabs: Node2D
+@export var test_sticker: PackedScene
 var _camera_zoom: float = 1.0
-var cash_money: int = 20
+var cash_money: int = 2000
+
+var current_sticker: Sticker
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _init():
 	instance = self
+
+func _ready():
 	hamster_slot.place_first_item.connect(spin_button.open_sign)
 	spin_button.sign_clicked.connect(hamster_slot.consume_and_spin)
 	hamster_slot.spin.connect(func (): main_wheel.spin(1,0.01))
 
-func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		if Input.is_action_pressed("PanCamera"):
-			camera.position-=event.relative/(_camera_zoom)
+static func play_and_die(audio: AudioStream, pitch: float = 1): instance._play_and_die(audio, pitch)
+
+func _play_and_die(audio: AudioStream, pitch: float = 1):
+	var e: AudioStreamPlayer = audio_player.instantiate()
+	e.stream = audio
+	e.pitch_scale = pitch
+	add_child(e)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -28,15 +38,15 @@ func _process(delta):
 	var space = get_world_2d().direct_space_state
 	var mouse_pos = get_global_mouse_position()
 	
-	if Input.is_action_just_pressed("ZoomIn"):
-		_camera_zoom += 0.1
-	if Input.is_action_just_pressed("ZoomOut"):
-		_camera_zoom -= 0.1
-	_camera_zoom = clamp(_camera_zoom,0.3,2)
+	_camera_zoom = clamp(_camera_zoom,0.3,1)
 	camera.zoom = lerp(camera.zoom,Vector2(_camera_zoom*2,_camera_zoom*2),delta*20)
 	
+	if (Input.is_action_just_pressed("Small") and current_sticker == null):
+		current_sticker = test_sticker.instantiate()
+		add_child(current_sticker)
 	
-	tooltip.global_position = mouse_pos
+	if (current_sticker != null):
+		current_sticker.position = mouse_pos
 	
 	var parameters = PhysicsPointQueryParameters2D.new();
 	parameters.position = mouse_pos;
@@ -55,4 +65,11 @@ func _process(delta):
 			tooltip.set_tooltip(tooltip_data)
 			show_tooltip = true
 			break
+	var viewport_size:Rect2 = get_viewport_rect()
+	
+	tooltip.update_minimum_size()
+	tooltip.global_position = Vector2(
+		clamp(mouse_pos.x,0,viewport_size.size.x-tooltip.size.x),
+		clamp(mouse_pos.y,0,viewport_size.size.y-tooltip.size.y)
+	) 
 	tooltip.visible = show_tooltip

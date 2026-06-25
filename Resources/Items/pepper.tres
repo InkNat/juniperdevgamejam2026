@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b0yy6kvjy0cl"]
+
+[ext_resource type="Texture2D" uid="uid://4ryqwe0it1gk" path="res://Sprites/pepper.png" id="1_mabur"]
+[ext_resource type="Script" uid="uid://cu6a1tq8sa07i" path="res://Scripts/itemdata.gd" id="1_x41an"]
+
+[resource]
+script = ExtResource("1_x41an")
+base_cost = 300
+icon = ExtResource("1_mabur")
+name = "Pepper Chunk"
+description = "Trigger the respective color
+an additional time"
+background_color = Color(0.7792914, 0.7792914, 0.7792913, 1)
+metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bl4xhqbipo23e"]
+
+[ext_resource type="Texture2D" uid="uid://bmr8cokipsge3" path="res://Sprites/popcorn.png" id="1_pr6tk"]
+[ext_resource type="Script" uid="uid://cu6a1tq8sa07i" path="res://Scripts/itemdata.gd" id="1_svs7g"]
+
+[resource]
+script = ExtResource("1_svs7g")
+base_cost = 1000
+icon = ExtResource("1_pr6tk")
+name = "Popcorn"
+description = "Trigger 2.5% of the effects of
+all tiles a clicker passes"
+background_color = Color(0.493464, 0.7227531, 1, 1)
+metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

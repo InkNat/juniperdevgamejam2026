@@ -6,9 +6,29 @@ static var instance: Cogworld
 @export var wheels: Dictionary[Wheel.WheelSize,PackedScene]
 @export var main_cogwheel : Wheel
 @export var camera: Camera2D
-@export var cogworld_viewport: Node
 var grid : Dictionary[Vector2i,Wheel]
 var _previews: Array[Node] = []
+
+
+
+func _init():
+	instance = self
+
+func _ready():
+	grid[Vector2i(0,0)] = main_cogwheel
+
+func generate_previews(wheel_size):
+	for preview in _previews:
+		preview.queue_free()
+	_previews = []
+	
+	for vec: Vector2 in get_all_empty_spots(wheel_size):
+		var cl = previews[wheel_size].instantiate()
+		cl.position = vec*Vector2(64,64)
+		cl.wheel_position = vec
+		cl.wheel_size = wheel_size
+		add_child(cl)
+		_previews.append(cl)
 
 func neighbor_checks(wheel_size_from, wheel_size_to) -> Array[Vector2i]:
 	if (wheel_size_from == wheel_size_to):
@@ -35,33 +55,6 @@ func neighbor_checks(wheel_size_from, wheel_size_to) -> Array[Vector2i]:
 	else:
 		return []
 
-func _init():
-	instance = self
-
-func _ready():
-	grid[Vector2i(0,0)] = main_cogwheel
-
-func _process(_delta):
-	if (Input.is_action_just_pressed("Small")):
-		generate_previews(Wheel.WheelSize.Small)
-	if (Input.is_action_just_pressed("Medium")):
-		generate_previews(Wheel.WheelSize.Medium)
-	if (Input.is_action_just_pressed("Big")):
-		generate_previews(Wheel.WheelSize.Large)
-
-func generate_previews(wheel_size):
-	for preview in _previews:
-		preview.queue_free()
-	_previews = []
-	
-	for vec: Vector2 in get_all_empty_spots(wheel_size):
-		var cl = previews[wheel_size].instantiate()
-		cl.position = vec*Vector2(64,64)
-		cl.wheel_position = vec
-		cl.wheel_size = wheel_size
-		cogworld_viewport.add_child(cl)
-		_previews.append(cl)
-
 func sync_wheel(vec: Vector2i, wheel: Wheel):
 	for size in Wheel.WheelSize.values():
 		for neighbor_pos in neighbor_checks(wheel.wheel_size, size):
@@ -78,7 +71,7 @@ func place_wheel_at(wheel_size, vec: Vector2i):
 	var inst = scene.instantiate()
 	inst.position = vec*Vector2i(64,64)
 	grid[vec] = inst
-	cogworld_viewport.add_child(inst)
+	add_child(inst)
 	generate_previews(wheel_size)
 	sync_wheel(vec, inst)
 

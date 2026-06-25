@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bac0dpy4o3bfe"]
+
+[ext_resource type="Script" uid="uid://oiaw4flyckvm" path="res://Scripts/groceries.gd" id="1_5do3w"]
+[ext_resource type="Script" uid="uid://cu6a1tq8sa07i" path="res://Scripts/itemdata.gd" id="2_xhfpn"]
+[ext_resource type="Resource" uid="uid://b1v67lk3n2koq" path="res://Resources/Items/oats.tres" id="3_0lq5p"]
+[ext_resource type="PackedScene" uid="uid://jfcx8rx3c3tl" path="res://Scenes/grocery_card.tscn" id="4_fgfc2"]
+[ext_resource type="Resource" uid="uid://c4nm8uji5ysea" path="res://Resources/Items/black_circle.tres" id="4_xhfpn"]
+
+[node name="GroceryShop" type="Node2D" unique_id=1447149334]
+script = ExtResource("1_5do3w")
+item_list = Array[ExtResource("2_xhfpn")]([ExtResource("3_0lq5p"), ExtResource("3_0lq5p"), ExtResource("4_xhfpn"), ExtResource("4_xhfpn"), ExtResource("3_0lq5p")])
+grocery_card = ExtResource("4_fgfc2")
+offscreen_x = 120.0
+maximum = 4

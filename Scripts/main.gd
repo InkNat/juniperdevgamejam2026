@@ -14,7 +14,7 @@ const SAVE_FILE_PATH = "user://savegame.save"
 func _ready():
 	instance = self
 	switch_scene(default_scene)
-	load_persistent_data()
+	#load_persistent_data()
 
 func start_game():
 	switch_scene("game")

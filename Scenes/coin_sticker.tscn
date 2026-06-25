@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://fmsn41ok0g5i"]
+
+[ext_resource type="Texture2D" uid="uid://diouku4vn26fg" path="res://Sprites/test_sticker.png" id="1_g4v3q"]
+[ext_resource type="Script" uid="uid://ci4d7o48h5g2u" path="res://Scenes/coin_sticker.gd" id="2_fue7j"]
+
+[node name="CoinSticker" type="Sprite2D" unique_id=350186726]
+texture = ExtResource("1_g4v3q")
+script = ExtResource("2_fue7j")

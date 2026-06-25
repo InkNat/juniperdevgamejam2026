@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://bpd6vah0yqaqj"]
+
+[ext_resource type="Texture2D" uid="uid://b36hagec2y5ye" path="res://Sprites/UI/settings_tab.png" id="1_gx8hh"]
+[ext_resource type="Script" uid="uid://bi7c182xe8edl" path="res://Scripts/shop.gd" id="1_ho4mo"]
+[ext_resource type="Texture2D" uid="uid://bn6et60y5gdhe" path="res://Sprites/UI/groceries_tab.png" id="1_pa22l"]
+[ext_resource type="Texture2D" uid="uid://cpcv1oiqe1qt1" path="res://Sprites/UI/store_tab.png" id="2_ho4mo"]
+[ext_resource type="Script" uid="uid://b2joj87wrir42" path="res://Scripts/Cogworld/area_button.gd" id="2_r5tdd"]
+[ext_resource type="PackedScene" uid="uid://bac0dpy4o3bfe" path="res://Scenes/grocery_shop.tscn" id="3_gx8hh"]
+[ext_resource type="Script" uid="uid://bxywu8qj801jd" path="res://Scripts/shop_tab.gd" id="6_1257h"]
+[ext_resource type="PackedScene" uid="uid://bqgai5td6sg7q" path="res://Scenes/store_shop.tscn" id="6_ho4mo"]
+[ext_resource type="Texture2D" uid="uid://csuv4xgiw4smt" path="res://Sprites/shop_tab_background.png" id="10_40qaa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32sfa"]
+size = Vector2(18, 17)
+
+[node name="Shop" type="Node2D" unique_id=1319265294 node_paths=PackedStringArray("grocery_tab", "store_tab", "settings_tab")]
+script = ExtResource("1_ho4mo")
+grocery_tab = NodePath("GroceryTab")
+store_tab = NodePath("StoreTab")
+settings_tab = NodePath("SettingsTab")
+
+[node name="SettingsTab" type="Sprite2D" parent="." unique_id=13628183]
+texture = ExtResource("1_gx8hh")
+centered = false
+script = ExtResource("6_1257h")
+
+[node name="AreaButton" type="Node2D" parent="SettingsTab" unique_id=1331705982 node_paths=PackedStringArray("target")]
+position = Vector2(13, 24)
+script = ExtResource("2_r5tdd")
+target = NodePath("../..")
+method_name = "settings"
+
+[node name="Area2D" type="Area2D" parent="SettingsTab/AreaButton" unique_id=1026230624]
+position = Vector2(0, 33)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SettingsTab/AreaButton/Area2D" unique_id=1027338049]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_32sfa")
+debug_color = Color(0, 0.6510909, 0.008255964, 0.41960785)
+
+[node name="Background" type="Sprite2D" parent="SettingsTab" unique_id=89451437]
+modulate = Color(0.26806864, 0.20216721, 0.22568214, 1)
+z_index = -2
+position = Vector2(28, 5)
+texture = ExtResource("10_40qaa")
+centered = false
+
+[node name="StoreTab" type="Sprite2D" parent="." unique_id=2112267150 node_paths=PackedStringArray("target")]
+texture = ExtResource("2_ho4mo")
+centered = false
+script = ExtResource("6_1257h")
+insides = ExtResource("6_ho4mo")
+target = NodePath("Background")
+
+[node name="AreaButton" type="Node2D" parent="StoreTab" unique_id=1709855505 node_paths=PackedStringArray("target")]
+position = Vector2(13, 24)
+script = ExtResource("2_r5tdd")
+target = NodePath("../..")
+method_name = "store"
+
+[node name="Area2D" type="Area2D" parent="StoreTab/AreaButton" unique_id=589665000]
+position = Vector2(0, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StoreTab/AreaButton/Area2D" unique_id=1134377682]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_32sfa")
+debug_color = Color(0.9970785, 0, 0.18316555, 0.41960785)
+
+[node name="Background" type="Sprite2D" parent="StoreTab" unique_id=2074455758]
+self_modulate = Color(0.1254902, 0.21176471, 0.13725491, 1)
+z_index = -2
+position = Vector2(28, 5)
+texture = ExtResource("10_40qaa")
+centered = false
+
+[node name="GroceryTab" type="Sprite2D" parent="." unique_id=999702410 node_paths=PackedStringArray("target")]
+texture = ExtResource("1_pa22l")
+centered = false
+script = ExtResource("6_1257h")
+insides = ExtResource("3_gx8hh")
+target = NodePath("Background")
+
+[node name="AreaButton" type="Node2D" parent="GroceryTab" unique_id=306390068 node_paths=PackedStringArray("target")]
+position = Vector2(13, 24)
+script = ExtResource("2_r5tdd")
+target = NodePath("../..")
+method_name = "groceries"
+
+[node name="Area2D" type="Area2D" parent="GroceryTab/AreaButton" unique_id=1187663971]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroceryTab/AreaButton/Area2D" unique_id=2088717087]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_32sfa")
+debug_color = Color(0.99713296, 0, 0.18206915, 0.41960785)
+
+[node name="Background" type="Sprite2D" parent="GroceryTab" unique_id=1526698691]
+self_modulate = Color(0.1254902, 0.19607843, 0.24705882, 1)
+clip_children = 2
+z_index = -2
+position = Vector2(28, 5)
+texture = ExtResource("10_40qaa")
+centered = false

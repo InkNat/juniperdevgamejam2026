@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bwd408a100e8h"]
+
+[ext_resource type="Script" uid="uid://cu6a1tq8sa07i" path="res://Scripts/itemdata.gd" id="1_k81so"]
+[ext_resource type="Texture2D" uid="uid://d1mquwclv0yqa" path="res://Sprites/cheese.png" id="1_wtxrw"]
+
+[resource]
+script = ExtResource("1_k81so")
+base_cost = 1500
+icon = ExtResource("1_wtxrw")
+name = "Cheese"
+description = "+100% reward.
+-25% to this bonus each spin."
+background_color = Color(0.8113204, 0.7614801, 1, 1)
+metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

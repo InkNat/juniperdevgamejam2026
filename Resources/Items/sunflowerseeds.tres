@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bwtrrhinwuhgy"]
+
+[ext_resource type="Script" uid="uid://cu6a1tq8sa07i" path="res://Scripts/itemdata.gd" id="1_3skoc"]
+[ext_resource type="Texture2D" uid="uid://bos4os34horju" path="res://Sprites/sunseed.png" id="1_te2ap"]
+
+[resource]
+script = ExtResource("1_3skoc")
+base_cost = 2500
+icon = ExtResource("1_te2ap")
+name = "Sun Seed"
+description = "Trigger all tiles twice."
+background_color = Color(1, 0.9085098, 0.30257878, 1)
+metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

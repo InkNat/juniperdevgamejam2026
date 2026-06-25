@@ -14,6 +14,7 @@ Button/styles/pressed = ExtResource("1_cjfk0")
 Label/font_sizes/font_size = 11
 Panel/styles/panel = ExtResource("1_cjfk0")
 PanelContainer/styles/panel = ExtResource("1_cjfk0")
+RichTextLabel/constants/line_separation = 1
 RichTextLabel/font_sizes/bold_font_size = 8
 RichTextLabel/font_sizes/bold_italics_font_size = 8
 RichTextLabel/font_sizes/italics_font_size = 8

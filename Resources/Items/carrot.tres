@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://pf3aahg5ojcd"]
+
+[ext_resource type="Script" uid="uid://cu6a1tq8sa07i" path="res://Scripts/itemdata.gd" id="1_1qgx7"]
+[ext_resource type="Texture2D" uid="uid://0kk2tx6xwr5p" path="res://Sprites/carot.png" id="1_aeaeg"]
+
+[resource]
+script = ExtResource("1_1qgx7")
+base_cost = 400
+icon = ExtResource("1_aeaeg")
+name = "Carrot Slice"
+description = "Increase speed"
+background_color = Color(0.94371605, 0.6479256, 1, 1)
+metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

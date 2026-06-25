@@ -5,13 +5,14 @@ var max_spin_time: float = 1
 var speed: float = 1
 @export var packed_scene: PackedScene
 @export var spin_curve: Curve
+@export var cylinder: Node3D
 
 func _process(delta):
 	
 	if current_spin_time < 0: return
 	
 	wheel_rotation += spin_curve.sample(current_spin_time/max_spin_time) * speed
-	cylinder.rotation.x = wheel_rotation*TAU
+	cylinder.rotation.x = wheel_rotation*-TAU
 	super._process(delta)
 	if current_spin_time > 0:
 		current_spin_time -= delta

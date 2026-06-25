@@ -10,9 +10,10 @@ func _ready():
 	camera = Cogworld.instance.camera
 	if (scale_target == null):
 		scale_target = target
-	target.reparent.call_deferred(Cogworld.instance, false)
+	target.reparent.call_deferred(Game.instance, false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	target.position = (global_position-camera.position)*camera.zoom/2
-	scale_target.scale = camera.zoom/2
+	var e = get_viewport_rect().size/2
+	target.position = ((global_position-camera.position)*camera.zoom)+e
+	scale_target.scale = camera.zoom

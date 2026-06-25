@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_rysh3")
+base_cost = 2500
 icon = ExtResource("1_vsah5")
 name = "placeholder"
 description = "placeholder"

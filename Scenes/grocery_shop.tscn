@@ -4,9 +4,21 @@
 [ext_resource type="Script" uid="uid://cu6a1tq8sa07i" path="res://Scripts/itemdata.gd" id="2_xhfpn"]
 [ext_resource type="Resource" uid="uid://b1v67lk3n2koq" path="res://Resources/Items/oats.tres" id="3_0lq5p"]
 [ext_resource type="PackedScene" uid="uid://jfcx8rx3c3tl" path="res://Scenes/grocery_card.tscn" id="4_fgfc2"]
+[ext_resource type="Resource" uid="uid://cfk8p51cgwjux" path="res://Resources/Items/raspberry.tres" id="4_hjmea"]
+[ext_resource type="Resource" uid="uid://clsi7y60htu7h" path="res://Resources/Items/mulberry.tres" id="5_hjmea"]
+[ext_resource type="AudioStream" uid="uid://csxi7e1penjg8" path="res://Sounds/scroll_groceries.wav" id="6_0lq5p"]
+[ext_resource type="Resource" uid="uid://pf3aahg5ojcd" path="res://Resources/Items/carrot.tres" id="6_qjdv7"]
+[ext_resource type="Resource" uid="uid://c8yhlxt35xk1x" path="res://Resources/Items/spinach.tres" id="7_tsx7t"]
+[ext_resource type="Resource" uid="uid://b0yy6kvjy0cl" path="res://Resources/Items/pepper.tres" id="8_8feak"]
+[ext_resource type="Resource" uid="uid://bwd408a100e8h" path="res://Resources/Items/cheese.tres" id="9_fx458"]
+[ext_resource type="Resource" uid="uid://bl4xhqbipo23e" path="res://Resources/Items/popcorn.tres" id="9_vq0vh"]
+[ext_resource type="Resource" uid="uid://bwtrrhinwuhgy" path="res://Resources/Items/sunflowerseeds.tres" id="11_vq0vh"]
 
-[node name="GroceryShop" type="VBoxContainer" unique_id=1278868980]
-theme_override_constants/separation = -12
+[node name="GroceryShop" type="Node2D" unique_id=1447149334]
+z_index = 1
 script = ExtResource("1_5do3w")
-item_list = Array[ExtResource("2_xhfpn")]([ExtResource("3_0lq5p"), ExtResource("3_0lq5p"), ExtResource("3_0lq5p"), ExtResource("3_0lq5p"), ExtResource("3_0lq5p"), ExtResource("3_0lq5p"), ExtResource("3_0lq5p"), ExtResource("3_0lq5p")])
+item_list = Array[ExtResource("2_xhfpn")]([ExtResource("3_0lq5p"), ExtResource("4_hjmea"), ExtResource("5_hjmea"), ExtResource("8_8feak"), ExtResource("6_qjdv7"), ExtResource("7_tsx7t"), ExtResource("9_vq0vh"), ExtResource("9_fx458"), ExtResource("11_vq0vh")])
 grocery_card = ExtResource("4_fgfc2")
+offscreen_x = 120.0
+maximum = 6
+scroll_audio = ExtResource("6_0lq5p")
