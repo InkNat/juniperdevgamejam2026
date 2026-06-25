@@ -10,5 +10,5 @@ icon = ExtResource("1_sqsnd")
 name = "Oat"
 tag = "oat"
 description = "Increase endurance"
-background_color = Color(1, 1, 1, 1)
+background_color = Color(1, 0.8725727, 0.92777306, 1)
 metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

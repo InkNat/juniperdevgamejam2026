@@ -7,8 +7,7 @@
 script = ExtResource("1_3skoc")
 base_cost = 2500
 icon = ExtResource("1_te2ap")
-name = "Sun Seed"
-tag = "sunseed"
+name = "Sun. Seed"
 description = "Trigger all tiles twice."
 background_color = Color(1, 0.9085098, 0.30257878, 1)
 metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

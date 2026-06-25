@@ -6,12 +6,42 @@
 [ext_resource type="Texture2D" uid="uid://cpcv1oiqe1qt1" path="res://Sprites/UI/store_tab.png" id="2_ho4mo"]
 [ext_resource type="Script" uid="uid://b2joj87wrir42" path="res://Scripts/Cogworld/area_button.gd" id="2_r5tdd"]
 [ext_resource type="PackedScene" uid="uid://bac0dpy4o3bfe" path="res://Scenes/grocery_shop.tscn" id="3_gx8hh"]
-[ext_resource type="Script" uid="uid://bxywu8qj801jd" path="res://Scripts/shop_tab.gd" id="6_1257h"]
+[ext_resource type="PackedScene" uid="uid://bgr7vofljfrpo" path="res://Scenes/settings.tscn" id="4_1257h"]
+[ext_resource type="Script" path="res://Scripts/shop_tab.gd" id="6_1257h"]
 [ext_resource type="PackedScene" uid="uid://bqgai5td6sg7q" path="res://Scenes/store_shop.tscn" id="6_ho4mo"]
-[ext_resource type="Texture2D" uid="uid://csuv4xgiw4smt" path="res://Sprites/shop_tab_background.png" id="10_40qaa"]
+[ext_resource type="Shader" path="res://Scenes/scrolling_text.gdshader" id="10_1257h"]
+[ext_resource type="Texture2D" uid="uid://c7grwga0folil" path="res://Sprites/mr_background.png" id="11_s14v1"]
+[ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="12_7hhs2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_32sfa"]
 size = Vector2(18, 17)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_40qaa"]
+shader = ExtResource("10_1257h")
+shader_parameter/text = ExtResource("11_s14v1")
+shader_parameter/second_offset = Vector2(0, 0.125)
+shader_parameter/size = Vector2(128, 128)
+shader_parameter/speed = 0.05
+shader_parameter/background_color = Color(0, 0.04058157, 0.005374158, 1)
+shader_parameter/text_color = Color(0.0036738925, 0.08736404, 6.016344e-09, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1257h"]
+shader = ExtResource("10_1257h")
+shader_parameter/text = ExtResource("11_s14v1")
+shader_parameter/second_offset = Vector2(0, 0.125)
+shader_parameter/size = Vector2(128, 128)
+shader_parameter/speed = 0.05
+shader_parameter/background_color = Color(0.0027286902, 0, 0.07225924, 1)
+shader_parameter/text_color = Color(0.04050859, 7.941574e-07, 0.28123727, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pogiw"]
+shader = ExtResource("10_1257h")
+shader_parameter/text = ExtResource("11_s14v1")
+shader_parameter/second_offset = Vector2(0, 0.125)
+shader_parameter/size = Vector2(89, 102)
+shader_parameter/speed = 0.05
+shader_parameter/background_color = Color(0.044363476, 0, 0.0006345701, 1)
+shader_parameter/text_color = Color(0.065467045, 0, 0.002313634, 1)
 
 [node name="Shop" type="Node2D" unique_id=1319265294 node_paths=PackedStringArray("grocery_tab", "store_tab", "settings_tab")]
 script = ExtResource("1_ho4mo")
@@ -19,10 +49,13 @@ grocery_tab = NodePath("GroceryTab")
 store_tab = NodePath("StoreTab")
 settings_tab = NodePath("SettingsTab")
 
-[node name="SettingsTab" type="Sprite2D" parent="." unique_id=13628183]
+[node name="SettingsTab" type="Sprite2D" parent="." unique_id=13628183 node_paths=PackedStringArray("target")]
+z_index = 10
 texture = ExtResource("1_gx8hh")
 centered = false
 script = ExtResource("6_1257h")
+insides = ExtResource("4_1257h")
+target = NodePath("Node2D")
 
 [node name="AreaButton" type="Node2D" parent="SettingsTab" unique_id=1331705982 node_paths=PackedStringArray("target")]
 position = Vector2(13, 24)
@@ -40,17 +73,23 @@ debug_color = Color(0, 0.6510909, 0.008255964, 0.41960785)
 
 [node name="Background" type="Sprite2D" parent="SettingsTab" unique_id=89451437]
 modulate = Color(0.26806864, 0.20216721, 0.22568214, 1)
-z_index = -2
-position = Vector2(28, 5)
-texture = ExtResource("10_40qaa")
+z_index = -3
+material = SubResource("ShaderMaterial_40qaa")
+position = Vector2(31, 8)
+scale = Vector2(89, 102.00001)
+texture = ExtResource("12_7hhs2")
 centered = false
 
+[node name="Node2D" type="Node2D" parent="SettingsTab" unique_id=499025461]
+position = Vector2(31, 8)
+
 [node name="StoreTab" type="Sprite2D" parent="." unique_id=2112267150 node_paths=PackedStringArray("target")]
+z_index = 15
 texture = ExtResource("2_ho4mo")
 centered = false
 script = ExtResource("6_1257h")
 insides = ExtResource("6_ho4mo")
-target = NodePath("Background")
+target = NodePath("Node2D")
 
 [node name="AreaButton" type="Node2D" parent="StoreTab" unique_id=1709855505 node_paths=PackedStringArray("target")]
 position = Vector2(13, 24)
@@ -69,16 +108,22 @@ debug_color = Color(0.9970785, 0, 0.18316555, 0.41960785)
 [node name="Background" type="Sprite2D" parent="StoreTab" unique_id=2074455758]
 self_modulate = Color(0.1254902, 0.21176471, 0.13725491, 1)
 z_index = -2
-position = Vector2(28, 5)
-texture = ExtResource("10_40qaa")
+material = SubResource("ShaderMaterial_1257h")
+position = Vector2(31.000002, 8)
+scale = Vector2(88.99999, 101.99999)
+texture = ExtResource("12_7hhs2")
 centered = false
 
+[node name="Node2D" type="Node2D" parent="StoreTab" unique_id=167023093]
+position = Vector2(31, 8)
+
 [node name="GroceryTab" type="Sprite2D" parent="." unique_id=999702410 node_paths=PackedStringArray("target")]
+z_index = 20
 texture = ExtResource("1_pa22l")
 centered = false
 script = ExtResource("6_1257h")
 insides = ExtResource("3_gx8hh")
-target = NodePath("Background")
+target = NodePath("Node2D")
 
 [node name="AreaButton" type="Node2D" parent="GroceryTab" unique_id=306390068 node_paths=PackedStringArray("target")]
 position = Vector2(13, 24)
@@ -96,7 +141,12 @@ debug_color = Color(0.99713296, 0, 0.18206915, 0.41960785)
 [node name="Background" type="Sprite2D" parent="GroceryTab" unique_id=1526698691]
 self_modulate = Color(0.1254902, 0.19607843, 0.24705882, 1)
 clip_children = 2
-z_index = -2
-position = Vector2(28, 5)
-texture = ExtResource("10_40qaa")
+z_index = -1
+material = SubResource("ShaderMaterial_pogiw")
+position = Vector2(31.000002, 8)
+scale = Vector2(88.99999, 102.00001)
+texture = ExtResource("12_7hhs2")
 centered = false
+
+[node name="Node2D" type="Node2D" parent="GroceryTab" unique_id=1218629202]
+position = Vector2(31, 8)

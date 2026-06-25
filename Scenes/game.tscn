@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://btq5gf8lyiyq2" path="res://Scripts/Slots/hamster_slot.gd" id="2_mg4q0"]
 [ext_resource type="PackedScene" uid="uid://c2obbv1kgq74x" path="res://Scenes/audio_stream_player.tscn" id="2_v2cs8"]
 [ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="3_iivbl"]
-[ext_resource type="Texture2D" uid="uid://dwrm02peqf5qu" path="res://Sprites/UI/inventory_grid_holder.png" id="4_3dryh"]
 [ext_resource type="Texture2D" uid="uid://cg7fb2svorr6q" path="res://Sprites/Items/oats_holder.png" id="4_7nbq1"]
 [ext_resource type="Script" uid="uid://htje5fgs5h2e" path="res://Scripts/tooltip.gd" id="4_22asu"]
 [ext_resource type="Texture2D" uid="uid://dq6d707vjmdjg" path="res://Sprites/UI/full ui.png" id="4_mg4q0"]
@@ -13,9 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://cidfmuyjhvykq" path="res://Sprites/UI/item_icon_background.png" id="5_vm72l"]
 [ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="6_1l0tm"]
 [ext_resource type="Script" uid="uid://dtblyjnxeprm" path="res://Scripts/Cogworld/cogworld.gd" id="9_mucmn"]
+[ext_resource type="Texture2D" uid="uid://c8q8kbgurnotg" path="res://Sprites/red arowe.png" id="10_ldgsr"]
 [ext_resource type="Texture2D" uid="uid://bu1al5pltf6vw" path="res://Sprites/matpat.jpg" id="11_vs120"]
 [ext_resource type="ArrayMesh" uid="uid://bd1e3xyyc6rjc" path="res://Models/MediumCogwheel.tres" id="12_22asu"]
-[ext_resource type="Script" uid="uid://whlshrepr0o8" path="res://Scenes/input_pusher.gd" id="13_631el"]
+[ext_resource type="Script" path="res://Scenes/input_pusher.gd" id="13_631el"]
 [ext_resource type="Texture2D" uid="uid://cpq72rcikpwcs" path="res://Sprites/UI/circle.svg" id="16_85qyi"]
 [ext_resource type="Script" uid="uid://dkunpr0x4ph85" path="res://Scripts/main_wheel.gd" id="16_fkdbe"]
 [ext_resource type="Shader" uid="uid://dho3ny4pwb7n7" path="res://Shaders/mask.gdshader" id="16_iivbl"]
@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bqdy4hvtplcb" path="res://Scenes/mediumwheel.tscn" id="18_mucmn"]
 [ext_resource type="Script" uid="uid://d3dqiim8xheu3" path="res://Scripts/play_and_die.gd" id="18_tgy6u"]
 [ext_resource type="Script" uid="uid://q7otcvnu0q8a" path="res://Scripts/Cogworld/proxy.gd" id="19_fkdbe"]
-[ext_resource type="Script" uid="uid://c2vyt84ou3pjd" path="res://Scripts/tile.gd" id="20_lmoi6"]
+[ext_resource type="Script" path="res://Scripts/tile.gd" id="20_lmoi6"]
 [ext_resource type="PackedScene" uid="uid://kqshj2y3m17n" path="res://Scenes/smallwheel.tscn" id="20_oeip8"]
 [ext_resource type="Resource" uid="uid://duo76hod7pwiw" path="res://Resources/Tiles/pink.tres" id="21_6uxt2"]
 [ext_resource type="Texture2D" uid="uid://d1v538f8pf0ni" path="res://Sprites/SPINbutton.png" id="21_exi56"]
@@ -41,15 +41,14 @@
 [ext_resource type="Resource" uid="uid://cy6pt5d6s3f2y" path="res://Resources/Tiles/blue.tres" id="27_32sfa"]
 [ext_resource type="Texture2D" uid="uid://bcbmstnx5fx4m" path="res://Sprites/mr.spinnington_fast.png" id="29_631el"]
 [ext_resource type="PackedScene" uid="uid://bqnnsjd51761o" path="res://Scenes/bigwheelpreview.tscn" id="31_xe308"]
-[ext_resource type="Texture2D" uid="uid://dtp8c5yw4nelc" path="res://Sprites/mr.hurtington.png" id="33_32sfa"]
-[ext_resource type="AudioStream" uid="uid://kch8fudhw0cy" path="res://Sounds/collision.wav" id="33_htg8p"]
 [ext_resource type="PackedScene" uid="uid://tkbhuk000ape" path="res://Scenes/bigwheel.tscn" id="33_oeip8"]
-[ext_resource type="Script" uid="uid://b6eewmrj3cwu1" path="res://Scenes/hamster_manager.gd" id="36_v2cs8"]
+[ext_resource type="Script" path="res://Scenes/hamster_manager.gd" id="36_v2cs8"]
 [ext_resource type="Texture2D" uid="uid://b1h42i6u1xbah" path="res://Sprites/mr.spinnington_idle.png" id="36_vs120"]
 [ext_resource type="PackedScene" uid="uid://bpd6vah0yqaqj" path="res://Scenes/shop_tabs.tscn" id="43_6a4tp"]
-[ext_resource type="Texture2D" uid="uid://bdkt4ipvsin67" path="res://Sprites/pointer.png" id="46_v2cs8"]
-[ext_resource type="Shader" uid="uid://ds2lxv6fws7cj" path="res://Scenes/spiral.gdshader" id="48_titue"]
-[ext_resource type="Script" uid="uid://kehx14xli3xt" path="res://Scenes/follower.gd" id="49_tt7mg"]
+[ext_resource type="Texture2D" uid="uid://dhfqatp6nnrf6" path="res://Sprites/UI/inventorytab.png" id="46_htg8p"]
+[ext_resource type="Texture2D" uid="uid://bkfqqimd31iiw" path="res://Sprites/UI/glass ui.png" id="46_tt7mg"]
+[ext_resource type="Shader" path="res://Scenes/scrolling_text.gdshader" id="47_32sfa"]
+[ext_resource type="Texture2D" uid="uid://c7grwga0folil" path="res://Sprites/mr_background.png" id="48_titue"]
 
 [sub_resource type="Curve" id="Curve_fkdbe"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 3.0288222, 0.0, 0, 0]
@@ -126,53 +125,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_25ntx")
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_32sfa"]
-bounce = 0.8
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6xvgv"]
-atlas = ExtResource("33_32sfa")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8lpvs"]
-atlas = ExtResource("33_32sfa")
-region = Rect2(1152, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x6jpx"]
-atlas = ExtResource("33_32sfa")
-region = Rect2(1280, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sjh24"]
-atlas = ExtResource("33_32sfa")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k5jl5"]
-atlas = ExtResource("33_32sfa")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nqk4g"]
-atlas = ExtResource("33_32sfa")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fh6x0"]
-atlas = ExtResource("33_32sfa")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j0obb"]
-atlas = ExtResource("33_32sfa")
-region = Rect2(640, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nfavm"]
-atlas = ExtResource("33_32sfa")
-region = Rect2(768, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jcn4n"]
-atlas = ExtResource("33_32sfa")
-region = Rect2(896, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l4kai"]
-atlas = ExtResource("33_32sfa")
-region = Rect2(1024, 0, 128, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcvim"]
 atlas = ExtResource("36_vs120")
 region = Rect2(0, 0, 128, 128)
@@ -213,94 +165,6 @@ region = Rect2(640, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6xvgv")
-}],
-"loop": true,
-"name": &"hurt_1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8lpvs")
-}],
-"loop": true,
-"name": &"hurt_10",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x6jpx")
-}],
-"loop": true,
-"name": &"hurt_11",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sjh24")
-}],
-"loop": true,
-"name": &"hurt_2",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k5jl5")
-}],
-"loop": true,
-"name": &"hurt_3",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nqk4g")
-}],
-"loop": true,
-"name": &"hurt_4",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fh6x0")
-}],
-"loop": true,
-"name": &"hurt_5",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j0obb")
-}],
-"loop": true,
-"name": &"hurt_6",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nfavm")
-}],
-"loop": true,
-"name": &"hurt_7",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jcn4n")
-}],
-"loop": true,
-"name": &"hurt_8",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l4kai")
-}],
-"loop": true,
-"name": &"hurt_9",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_jcvim")
 }, {
 "duration": 1.0,
@@ -337,12 +201,9 @@ animations = [{
 "speed": 40.0
 }]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tt7mg"]
-radius = 0.28955078
-height = 0.90966797
+[sub_resource type="SphereShape3D" id="SphereShape3D_631el"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_631el"]
-margin = 0.1
 data = PackedVector3Array(0, -1, -1, 0.1951, 1, -0.9808, 0.1951, -1, -0.9808, 0, -1, -1, 0, 1, -1, 0.1951, 1, -0.9808, 0.1951, -1, -0.9808, 0.3827, 1, -0.92389995, 0.3827, -1, -0.92389995, 0.1951, -1, -0.9808, 0.1951, 1, -0.9808, 0.3827, 1, -0.92389995, 0.3827, -1, -0.92389995, 0.5556, 1, -0.8315, 0.5556, -1, -0.8315, 0.3827, -1, -0.92389995, 0.3827, 1, -0.92389995, 0.5556, 1, -0.8315, 0.5556, -1, -0.8315, 0.7071, 1, -0.7071, 0.7071, -1, -0.7071, 0.5556, -1, -0.8315, 0.5556, 1, -0.8315, 0.7071, 1, -0.7071, 0.7071, -1, -0.7071, 0.8314, 1, -0.5556, 0.8314, -1, -0.5556, 0.7071, -1, -0.7071, 0.7071, 1, -0.7071, 0.8314, 1, -0.5556, 0.8314, -1, -0.5556, 0.92389995, 1, -0.3827, 0.92389995, -1, -0.3827, 0.8314, -1, -0.5556, 0.8314, 1, -0.5556, 0.92389995, 1, -0.3827, 0.92389995, -1, -0.3827, 0.9808, 1, -0.1951, 0.9808, -1, -0.1951, 0.92389995, -1, -0.3827, 0.92389995, 1, -0.3827, 0.9808, 1, -0.1951, 0.9808, -1, -0.1951, 1, 1, 0, 1, -1, 0, 0.9808, -1, -0.1951, 0.9808, 1, -0.1951, 1, 1, 0, 1, -1, 0, 0.9808, 1, 0.1951, 0.9808, -1, 0.1951, 1, -1, 0, 1, 1, 0, 0.9808, 1, 0.1951, 0.9808, -1, 0.1951, 0.92389995, 1, 0.3827, 0.92389995, -1, 0.3827, 0.9808, -1, 0.1951, 0.9808, 1, 0.1951, 0.92389995, 1, 0.3827, 0.92389995, -1, 0.3827, 0.8314, 1, 0.5556, 0.8314, -1, 0.5556, 0.92389995, -1, 0.3827, 0.92389995, 1, 0.3827, 0.8314, 1, 0.5556, 0.8314, -1, 0.5556, 0.7071, 1, 0.7071, 0.7071, -1, 0.7071, 0.8314, -1, 0.5556, 0.8314, 1, 0.5556, 0.7071, 1, 0.7071, 0.7071, -1, 0.7071, 0.5556, 1, 0.8314, 0.5556, -1, 0.8314, 0.7071, -1, 0.7071, 0.7071, 1, 0.7071, 0.5556, 1, 0.8314, 0.5556, -1, 0.8314, 0.3827, 1, 0.92389995, 0.3827, -1, 0.92389995, 0.5556, -1, 0.8314, 0.5556, 1, 0.8314, 0.3827, 1, 0.92389995, 0.3827, -1, 0.92389995, 0.1951, 1, 0.9808, 0.1951, -1, 0.9808, 0.3827, -1, 0.92389995, 0.3827, 1, 0.92389995, 0.1951, 1, 0.9808, 0.1951, -1, 0.9808, 0, 1, 1, 0, -1, 1, 0.1951, -1, 0.9808, 0.1951, 1, 0.9808, 0, 1, 1, 0, -1, 1, -0.1951, 1, 0.9808, -0.1951, -1, 0.9808, 0, -1, 1, 0, 1, 1, -0.1951, 1, 0.9808, -0.1951, -1, 0.9808, -0.3827, 1, 0.92389995, -0.3827, -1, 0.92389995, -0.1951, -1, 0.9808, -0.1951, 1, 0.9808, -0.3827, 1, 0.92389995, -0.3827, -1, 0.92389995, -0.5556, 1, 0.8314, -0.5556, -1, 0.8314, -0.3827, -1, 0.92389995, -0.3827, 1, 0.92389995, -0.5556, 1, 0.8314, -0.5556, -1, 0.8314, -0.7071, 1, 0.7071, -0.7071, -1, 0.7071, -0.5556, -1, 0.8314, -0.5556, 1, 0.8314, -0.7071, 1, 0.7071, -0.7071, -1, 0.7071, -0.8315, 1, 0.5556, -0.8315, -1, 0.5556, -0.7071, -1, 0.7071, -0.7071, 1, 0.7071, -0.8315, 1, 0.5556, -0.8315, -1, 0.5556, -0.92389995, 1, 0.3827, -0.92389995, -1, 0.3827, -0.8315, -1, 0.5556, -0.8315, 1, 0.5556, -0.92389995, 1, 0.3827, -0.92389995, -1, 0.3827, -0.9808, 1, 0.1951, -0.9808, -1, 0.1951, -0.92389995, -1, 0.3827, -0.92389995, 1, 0.3827, -0.9808, 1, 0.1951, -0.9808, -1, 0.1951, -1, 1, 0, -1, -1, 0, -0.9808, -1, 0.1951, -0.9808, 1, 0.1951, -1, 1, 0, -1, -1, 0, -0.9808, 1, -0.1951, -0.9808, -1, -0.1951, -1, -1, 0, -1, 1, 0, -0.9808, 1, -0.1951, -0.9808, -1, -0.1951, -0.92389995, 1, -0.3827, -0.92389995, -1, -0.3827, -0.9808, -1, -0.1951, -0.9808, 1, -0.1951, -0.92389995, 1, -0.3827, -0.92389995, -1, -0.3827, -0.8315, 1, -0.5556, -0.8315, -1, -0.5556, -0.92389995, -1, -0.3827, -0.92389995, 1, -0.3827, -0.8315, 1, -0.5556, -0.8315, -1, -0.5556, -0.7071, 1, -0.7071, -0.7071, -1, -0.7071, -0.8315, -1, -0.5556, -0.8315, 1, -0.5556, -0.7071, 1, -0.7071, -0.7071, -1, -0.7071, -0.5556, 1, -0.8315, -0.5556, -1, -0.8315, -0.7071, -1, -0.7071, -0.7071, 1, -0.7071, -0.5556, 1, -0.8315, -0.5556, -1, -0.8315, -0.3827, 1, -0.92389995, -0.3827, -1, -0.92389995, -0.5556, -1, -0.8315, -0.5556, 1, -0.8315, -0.3827, 1, -0.92389995, -0.3827, -1, -0.92389995, -0.1951, 1, -0.9808, -0.1951, -1, -0.9808, -0.3827, -1, -0.92389995, -0.3827, 1, -0.92389995, -0.1951, 1, -0.9808, -0.1951, -1, -0.9808, 0, 1, -1, 0, -1, -1, -0.1951, -1, -0.9808, -0.1951, 1, -0.9808, 0, 1, -1, 0.1951, -1, -0.9808, -0.1951, -1, -0.9808, 0, -1, -1, -0.1951, -1, -0.9808, -0.5556, -1, -0.8315, -0.3827, -1, -0.92389995, 0.1951, -1, -0.9808, -0.5556, -1, -0.8315, -0.1951, -1, -0.9808, -0.5556, -1, -0.8315, -0.8315, -1, -0.5556, -0.7071, -1, -0.7071, -0.5556, -1, -0.8315, -0.9808, -1, -0.1951, -0.8315, -1, -0.5556, -0.8315, -1, -0.5556, -0.9808, -1, -0.1951, -0.92389995, -1, -0.3827, 0.1951, -1, -0.9808, -0.9808, -1, -0.1951, -0.5556, -1, -0.8315, -0.9808, -1, -0.1951, -0.9808, -1, 0.1951, -1, -1, 0, -0.9808, -1, -0.1951, -0.8315, -1, 0.5556, -0.9808, -1, 0.1951, -0.9808, -1, 0.1951, -0.8315, -1, 0.5556, -0.92389995, -1, 0.3827, -0.9808, -1, -0.1951, -0.1951, -1, 0.9808, -0.8315, -1, 0.5556, 0.1951, -1, -0.9808, -0.1951, -1, 0.9808, -0.9808, -1, -0.1951, -0.8315, -1, 0.5556, -0.5556, -1, 0.8314, -0.7071, -1, 0.7071, -0.8315, -1, 0.5556, -0.1951, -1, 0.9808, -0.5556, -1, 0.8314, -0.5556, -1, 0.8314, -0.1951, -1, 0.9808, -0.3827, -1, 0.92389995, -0.1951, -1, 0.9808, 0.1951, -1, 0.9808, 0, -1, 1, -0.1951, -1, 0.9808, 0.5556, -1, 0.8314, 0.1951, -1, 0.9808, 0.1951, -1, 0.9808, 0.5556, -1, 0.8314, 0.3827, -1, 0.92389995, -0.1951, -1, 0.9808, 0.1951, -1, -0.9808, 0.9808, -1, 0.1951, -0.1951, -1, 0.9808, 0.9808, -1, 0.1951, 0.5556, -1, 0.8314, 0.5556, -1, 0.8314, 0.8314, -1, 0.5556, 0.7071, -1, 0.7071, 0.5556, -1, 0.8314, 0.9808, -1, 0.1951, 0.8314, -1, 0.5556, 0.8314, -1, 0.5556, 0.9808, -1, 0.1951, 0.92389995, -1, 0.3827, 0.5556, -1, -0.8315, 0.1951, -1, -0.9808, 0.3827, -1, -0.92389995, 0.8314, -1, -0.5556, 0.1951, -1, -0.9808, 0.5556, -1, -0.8315, 0.9808, -1, 0.1951, 0.1951, -1, -0.9808, 0.8314, -1, -0.5556, 0.8314, -1, -0.5556, 0.5556, -1, -0.8315, 0.7071, -1, -0.7071, 0.9808, -1, 0.1951, 0.8314, -1, -0.5556, 0.9808, -1, -0.1951, 0.9808, -1, -0.1951, 0.8314, -1, -0.5556, 0.92389995, -1, -0.3827, 0.9808, -1, 0.1951, 0.9808, -1, -0.1951, 1, -1, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vm72l"]
@@ -362,23 +223,32 @@ size = Vector2(36, 36)
 points = PackedVector2Array(-16.499992, 22.5, -18.499992, 24.5, -21.499992, 24.5, -44.499992, 1.5, -44.499992, -0.5, -21.499992, -23.500008, -18.499992, -23.500008, -16.499992, -21.500008)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4fw4"]
-size = Vector2(46, 30)
+size = Vector2(30, 46)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tt7mg"]
-shader = ExtResource("48_titue")
-shader_parameter/ring_amount = 5.72
-shader_parameter/line_amount = 1
-shader_parameter/offset = Vector2(0, 0)
-shader_parameter/scale = Vector2(1, 1)
-shader_parameter/color1 = Color(0.051970966, 0.05197096, 0.05197095, 1)
-shader_parameter/color2 = Color(0.06053029, 0.06053038, 0.060530327, 1)
+shader = ExtResource("47_32sfa")
+shader_parameter/text = ExtResource("48_titue")
+shader_parameter/second_offset = Vector2(0, 0.125)
+shader_parameter/size = Vector2(51.25, 48.25)
+shader_parameter/speed = 0.05
+shader_parameter/background_color = Color(0, 0.021325381, 0.019793116, 1)
+shader_parameter/text_color = Color(0, 0.10039256, 0.08634325, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_htg8p"]
+shader = ExtResource("47_32sfa")
+shader_parameter/text = ExtResource("48_titue")
+shader_parameter/second_offset = Vector2(0, 0.125)
+shader_parameter/size = Vector2(71, 10.25)
+shader_parameter/speed = 0.05
+shader_parameter/background_color = Color(0.047557615, 0.04755766, 0.047557645, 1)
+shader_parameter/text_color = Color(0.008202022, 0.008202025, 0.008202025, 1)
 
 [node name="Game" type="Node2D" unique_id=547770425 node_paths=PackedStringArray("tooltip", "camera", "hamster_slot", "main_wheel", "spin_button", "money_label", "shop_tabs")]
 texture_filter = 1
 script = ExtResource("1_wrm1d")
 tooltip = NodePath("Tooltip")
 camera = NodePath("CogworldViewport/SubViewport/Cogworld/Camera2D")
-hamster_slot = NodePath("CogworldViewport/SubViewport/Cogworld/MainWheel/ProxyHamsterSlot/HamsterSlot")
+hamster_slot = NodePath("CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy/HamsterSlot")
 main_wheel = NodePath("CogworldViewport/SubViewport/Cogworld/MainWheel")
 spin_button = NodePath("SpinSign")
 money_label = NodePath("Money/MoneyLabel")
@@ -387,14 +257,13 @@ shop_tabs = NodePath("ShopTabs")
 test_sticker = ExtResource("16_v2cs8")
 
 [node name="CogworldViewport" type="SubViewportContainer" parent="." unique_id=1843949557]
-z_index = -4095
+z_index = -4096
 offset_right = 768.0
 offset_bottom = 432.0
 mouse_filter = 2
 script = ExtResource("13_631el")
 
 [node name="SubViewport" type="SubViewport" parent="CogworldViewport" unique_id=1382370156]
-transparent_bg = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 physics_object_picking = true
@@ -416,36 +285,43 @@ wheels = Dictionary[int, PackedScene]({
 main_cogwheel = NodePath("MainWheel")
 camera = NodePath("Camera2D")
 
-[node name="MainWheel" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld" unique_id=2143089451 node_paths=PackedStringArray("cylinder", "hamster_manager", "wheel", "red_arrow", "cogwheel", "stickers")]
+[node name="i have free will" type="Sprite2D" parent="CogworldViewport/SubViewport/Cogworld" unique_id=1772060781]
+modulate = Color(1, 1, 1, 0.039215688)
+position = Vector2(-2906, -1814)
+scale = Vector2(0.71309185, 0.48813558)
+texture = ExtResource("11_vs120")
+
+[node name="Camera2D" type="Camera2D" parent="CogworldViewport/SubViewport/Cogworld" unique_id=1683973372]
+
+[node name="MainWheel" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld" unique_id=2143089451 node_paths=PackedStringArray("cylinder", "wheel", "red_arrow", "cogwheel", "stickers")]
 script = ExtResource("16_fkdbe")
 packed_scene = ExtResource("18_cwurv")
 spin_curve = SubResource("Curve_fkdbe")
 cylinder = NodePath("WheelVisual/3DInsideProjector/SubViewport/Node3D/cylinder")
-hamster_manager = NodePath("WheelVisual/3DInsideProjector/SubViewport/Node3D/Hamster")
 wheel = NodePath("WheelVisual/Wheel")
 red_arrow = NodePath("WheelVisual/RedArrow")
 cogwheel = NodePath("WheelVisual/3DWheelProjector/SubViewport/Node3D/BigCogwheel")
 click_audio = SubResource("PackedScene_cwurv")
-stickers = NodePath("ProxyStickers/Stickers")
+stickers = NodePath("Proxy2/Stickers")
 tiles = Array[ExtResource("20_lmoi6")]([ExtResource("21_6uxt2"), ExtResource("23_bwj6o"), ExtResource("23_6a4tp"), ExtResource("24_631el"), ExtResource("25_vs120"), ExtResource("26_v2cs8"), ExtResource("27_32sfa"), ExtResource("22_ym3tv"), ExtResource("21_6uxt2"), ExtResource("23_bwj6o"), ExtResource("23_6a4tp"), ExtResource("24_631el"), ExtResource("25_vs120"), ExtResource("26_v2cs8"), ExtResource("27_32sfa"), ExtResource("22_ym3tv")])
 
-[node name="ProxyStickers" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=487615973 node_paths=PackedStringArray("scale_target")]
+[node name="Proxy2" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=487615973 node_paths=PackedStringArray("scale_target")]
 script = ExtResource("19_fkdbe")
 scale_target = NodePath("Stickers")
 
-[node name="Stickers" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/ProxyStickers" unique_id=1528598156]
+[node name="Stickers" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy2" unique_id=1528598156]
 
-[node name="ProxyHamsterSlot" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=683071112 node_paths=PackedStringArray("scale_target")]
+[node name="Proxy" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=683071112 node_paths=PackedStringArray("scale_target")]
 script = ExtResource("19_fkdbe")
 scale_target = NodePath("HamsterSlot/Area")
 
-[node name="HamsterSlot" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/ProxyHamsterSlot" unique_id=1521343912]
+[node name="HamsterSlot" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy" unique_id=1521343912]
 script = ExtResource("2_mg4q0")
 
-[node name="Area" type="Area2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/ProxyHamsterSlot/HamsterSlot" unique_id=226345977]
+[node name="Area" type="Area2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy/HamsterSlot" unique_id=226345977]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/ProxyHamsterSlot/HamsterSlot/Area" unique_id=897946354]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy/HamsterSlot/Area" unique_id=897946354]
 shape = SubResource("CircleShape2D_iivbl")
 
 [node name="WheelVisual" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=1863031343]
@@ -506,22 +382,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57446414, 0.08348197)
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
-physics_material_override = SubResource("PhysicsMaterial_32sfa")
-contact_monitor = true
-max_contacts_reported = 1
 script = ExtResource("36_v2cs8")
 animated_sprite = NodePath("Sprite3D")
-collision_noise = ExtResource("33_htg8p")
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D/Hamster" unique_id=1140889113]
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_jcvim")
-animation = &"hurt_11"
+animation = &"omori_wobbler"
 autoplay = "omori_wobbler"
+frame_progress = 0.004420329
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D/Hamster" unique_id=2144293855]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.0017089844, -0.09718257, 0)
-shape = SubResource("CapsuleShape3D_tt7mg")
+shape = SubResource("SphereShape3D_631el")
 debug_color = Color(0.98753124, 8.182227e-06, 0.6208047, 1)
 debug_fill = false
 
@@ -534,18 +406,12 @@ shape = SubResource("ConcavePolygonShape3D_631el")
 
 [node name="RedArrow" type="Sprite2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual" unique_id=1053535091]
 position = Vector2(0, -53)
-texture = ExtResource("46_v2cs8")
-offset = Vector2(0, 3)
+rotation = 1.5707964
+texture = ExtResource("10_ldgsr")
+centered = false
+offset = Vector2(-2, -9)
 
 [node name="Node2D" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=401547829]
-
-[node name="i have free will" type="Sprite2D" parent="CogworldViewport/SubViewport/Cogworld" unique_id=1772060781]
-modulate = Color(1, 1, 1, 0.1764706)
-position = Vector2(-3964, 22)
-scale = Vector2(0.71309185, 0.48813558)
-texture = ExtResource("11_vs120")
-
-[node name="Camera2D" type="Camera2D" parent="CogworldViewport/SubViewport/Cogworld" unique_id=1683973372]
 
 [node name="Tooltip" type="PanelContainer" parent="." unique_id=1879497400]
 z_index = 4096
@@ -602,7 +468,7 @@ autowrap_mode = 0
 
 [node name="SpinSign" type="Node2D" parent="." unique_id=1564193266]
 z_index = 200
-position = Vector2(261, 231)
+position = Vector2(300, 224)
 rotation = -1.5707964
 script = ExtResource("22_7t8sx")
 
@@ -631,44 +497,70 @@ collision_layer = 2
 position = Vector2(-11.5, -38.5)
 shape = SubResource("ConvexPolygonShape2D_81klo")
 
-[node name="Inventory" type="Sprite2D" parent="." unique_id=1067927796]
-position = Vector2(320, 177)
-texture = ExtResource("4_3dryh")
-centered = false
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1817472785]
+position = Vector2(347, 164)
+texture = ExtResource("46_htg8p")
+
+[node name="Inventory" type="Node2D" parent="Sprite2D2" unique_id=1328805220]
+position = Vector2(-14, -24)
 script = ExtResource("5_h4fw4")
-_grid_size_x = 3
-_grid_size_y = 2
+_grid_size_x = 2
+_grid_size_y = 3
 _cell_size = 16
 
-[node name="Area2D" type="Area2D" parent="Inventory" unique_id=1385441536]
+[node name="Area2D" type="Area2D" parent="Sprite2D2/Inventory" unique_id=1385441536]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Inventory/Area2D" unique_id=893196993]
-position = Vector2(24, 16)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/Inventory/Area2D" unique_id=893196993]
+position = Vector2(16, 24)
 shape = SubResource("RectangleShape2D_h4fw4")
 
-[node name="Money" type="PanelContainer" parent="." unique_id=1298085606]
-offset_left = 16.0
-offset_top = 9.0
-offset_right = 105.0
-offset_bottom = 43.0
-theme = ExtResource("3_iivbl")
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D2" unique_id=1366728877]
+z_index = -1
+material = SubResource("ShaderMaterial_tt7mg")
+position = Vector2(11.374989, -0.125)
+scale = Vector2(51.249977, 48.25)
+texture = ExtResource("6_1l0tm")
+
+[node name="Money" type="Node2D" parent="." unique_id=2073472326]
+position = Vector2(6, 6)
 
 [node name="MoneyLabel" type="Label" parent="Money" unique_id=942007113]
-layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 85.0
+offset_bottom = 19.0
+theme = ExtResource("3_iivbl")
 theme_override_font_sizes/font_size = 8
-text = "67$"
+text = "2,147,483,647$"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ShopTabs" parent="." unique_id=1319265294 instance=ExtResource("43_6a4tp")]
-position = Vector2(384, 24)
+[node name="Sprite2D" type="Sprite2D" parent="Money" unique_id=193049399]
+position = Vector2(23, 1)
+texture = ExtResource("21_exi56")
+offset = Vector2(-10, -50)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994226562 node_paths=PackedStringArray("target")]
-z_index = -4096
-material = SubResource("ShaderMaterial_tt7mg")
-position = Vector2(194, 105)
-scale = Vector2(400, 400)
+[node name="Sprite2D2" type="Sprite2D" parent="Money" unique_id=1606274463]
+position = Vector2(67, 1)
+texture = ExtResource("21_exi56")
+offset = Vector2(-10, -50)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Money" unique_id=1632458794]
+offset_right = 89.0
+offset_bottom = 28.0
+texture = ExtResource("46_tt7mg")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="back" type="Sprite2D" parent="Money" unique_id=1478068580]
+z_index = -2
+material = SubResource("ShaderMaterial_htg8p")
+position = Vector2(44.5, 13.875)
+scale = Vector2(71, 10.249999)
 texture = ExtResource("6_1l0tm")
-script = ExtResource("49_tt7mg")
-target = NodePath("../CogworldViewport/SubViewport/Cogworld/MainWheel/ProxyHamsterSlot/HamsterSlot")
+
+[node name="ShopTabs" parent="." unique_id=1319265294 instance=ExtResource("43_6a4tp")]
+position = Vector2(384, 7)
