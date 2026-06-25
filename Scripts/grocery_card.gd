@@ -17,9 +17,10 @@ func _ready():
 func set_sold_item(item: ItemData):
 	_name_label.text = item.name
 	cost = item.base_cost
-	_price_label.text = str(cost)
+	_price_label.text = str(cost) + "$"
 	_sold_item = item
 	background.modulate = item.background_color
+	_price_label.modulate = item.background_color
 	refresh_item()
 
 func refresh_item():

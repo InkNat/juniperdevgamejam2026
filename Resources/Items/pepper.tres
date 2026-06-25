@@ -10,5 +10,5 @@ icon = ExtResource("1_mabur")
 name = "Pepper Chunk"
 description = "Trigger the respective color
 an additional time"
-background_color = Color(0.7792914, 0.7792914, 0.7792913, 1)
+background_color = Color(0.99840575, 0.8272538, 0.6338143, 1)
 metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

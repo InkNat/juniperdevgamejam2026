@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://btq5gf8lyiyq2" path="res://Scripts/Slots/hamster_slot.gd" id="2_mg4q0"]
 [ext_resource type="PackedScene" uid="uid://c2obbv1kgq74x" path="res://Scenes/audio_stream_player.tscn" id="2_v2cs8"]
 [ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="3_iivbl"]
-[ext_resource type="Texture2D" uid="uid://dwrm02peqf5qu" path="res://Sprites/UI/inventory_grid_holder.png" id="4_3dryh"]
 [ext_resource type="Texture2D" uid="uid://cg7fb2svorr6q" path="res://Sprites/Items/oats_holder.png" id="4_7nbq1"]
 [ext_resource type="Script" uid="uid://htje5fgs5h2e" path="res://Scripts/tooltip.gd" id="4_22asu"]
 [ext_resource type="Texture2D" uid="uid://dq6d707vjmdjg" path="res://Sprites/UI/full ui.png" id="4_mg4q0"]
@@ -16,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c8q8kbgurnotg" path="res://Sprites/red arowe.png" id="10_ldgsr"]
 [ext_resource type="Texture2D" uid="uid://bu1al5pltf6vw" path="res://Sprites/matpat.jpg" id="11_vs120"]
 [ext_resource type="ArrayMesh" uid="uid://bd1e3xyyc6rjc" path="res://Models/MediumCogwheel.tres" id="12_22asu"]
-[ext_resource type="Script" uid="uid://whlshrepr0o8" path="res://Scenes/input_pusher.gd" id="13_631el"]
+[ext_resource type="Script" path="res://Scenes/input_pusher.gd" id="13_631el"]
 [ext_resource type="Texture2D" uid="uid://cpq72rcikpwcs" path="res://Sprites/UI/circle.svg" id="16_85qyi"]
 [ext_resource type="Script" uid="uid://dkunpr0x4ph85" path="res://Scripts/main_wheel.gd" id="16_fkdbe"]
 [ext_resource type="Shader" uid="uid://dho3ny4pwb7n7" path="res://Shaders/mask.gdshader" id="16_iivbl"]
@@ -28,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bqdy4hvtplcb" path="res://Scenes/mediumwheel.tscn" id="18_mucmn"]
 [ext_resource type="Script" uid="uid://d3dqiim8xheu3" path="res://Scripts/play_and_die.gd" id="18_tgy6u"]
 [ext_resource type="Script" uid="uid://q7otcvnu0q8a" path="res://Scripts/Cogworld/proxy.gd" id="19_fkdbe"]
-[ext_resource type="Script" uid="uid://c2vyt84ou3pjd" path="res://Scripts/tile.gd" id="20_lmoi6"]
+[ext_resource type="Script" path="res://Scripts/tile.gd" id="20_lmoi6"]
 [ext_resource type="PackedScene" uid="uid://kqshj2y3m17n" path="res://Scenes/smallwheel.tscn" id="20_oeip8"]
 [ext_resource type="Resource" uid="uid://duo76hod7pwiw" path="res://Resources/Tiles/pink.tres" id="21_6uxt2"]
 [ext_resource type="Texture2D" uid="uid://d1v538f8pf0ni" path="res://Sprites/SPINbutton.png" id="21_exi56"]
@@ -43,10 +42,12 @@
 [ext_resource type="Texture2D" uid="uid://bcbmstnx5fx4m" path="res://Sprites/mr.spinnington_fast.png" id="29_631el"]
 [ext_resource type="PackedScene" uid="uid://bqnnsjd51761o" path="res://Scenes/bigwheelpreview.tscn" id="31_xe308"]
 [ext_resource type="PackedScene" uid="uid://tkbhuk000ape" path="res://Scenes/bigwheel.tscn" id="33_oeip8"]
-[ext_resource type="Script" uid="uid://b6eewmrj3cwu1" path="res://Scenes/hamster_manager.gd" id="36_v2cs8"]
+[ext_resource type="Script" path="res://Scenes/hamster_manager.gd" id="36_v2cs8"]
 [ext_resource type="Texture2D" uid="uid://b1h42i6u1xbah" path="res://Sprites/mr.spinnington_idle.png" id="36_vs120"]
 [ext_resource type="PackedScene" uid="uid://bpd6vah0yqaqj" path="res://Scenes/shop_tabs.tscn" id="43_6a4tp"]
-[ext_resource type="Shader" uid="uid://djh7dkph2i4v5" path="res://Scenes/scrolling_text.gdshader" id="47_32sfa"]
+[ext_resource type="Texture2D" uid="uid://dhfqatp6nnrf6" path="res://Sprites/UI/inventorytab.png" id="46_htg8p"]
+[ext_resource type="Texture2D" uid="uid://bkfqqimd31iiw" path="res://Sprites/UI/glass ui.png" id="46_tt7mg"]
+[ext_resource type="Shader" path="res://Scenes/scrolling_text.gdshader" id="47_32sfa"]
 [ext_resource type="Texture2D" uid="uid://c7grwga0folil" path="res://Sprites/mr_background.png" id="48_titue"]
 
 [sub_resource type="Curve" id="Curve_fkdbe"]
@@ -222,16 +223,25 @@ size = Vector2(36, 36)
 points = PackedVector2Array(-16.499992, 22.5, -18.499992, 24.5, -21.499992, 24.5, -44.499992, 1.5, -44.499992, -0.5, -21.499992, -23.500008, -18.499992, -23.500008, -16.499992, -21.500008)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4fw4"]
-size = Vector2(46, 30)
+size = Vector2(30, 46)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_titue"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tt7mg"]
 shader = ExtResource("47_32sfa")
 shader_parameter/text = ExtResource("48_titue")
 shader_parameter/second_offset = Vector2(0, 0.125)
-shader_parameter/size = Vector2(239, 128)
-shader_parameter/speed = 0.2
-shader_parameter/background_color = Color(9.241105e-06, 0.76971406, 0.94763523, 1)
-shader_parameter/text_color = Color(1, 1, 1, 1)
+shader_parameter/size = Vector2(51.25, 48.25)
+shader_parameter/speed = 0.05
+shader_parameter/background_color = Color(0, 0.021325381, 0.019793116, 1)
+shader_parameter/text_color = Color(0, 0.10039256, 0.08634325, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_htg8p"]
+shader = ExtResource("47_32sfa")
+shader_parameter/text = ExtResource("48_titue")
+shader_parameter/second_offset = Vector2(0, 0.125)
+shader_parameter/size = Vector2(71, 10.25)
+shader_parameter/speed = 0.05
+shader_parameter/background_color = Color(0.047557615, 0.04755766, 0.047557645, 1)
+shader_parameter/text_color = Color(0.008202022, 0.008202025, 0.008202025, 1)
 
 [node name="Game" type="Node2D" unique_id=547770425 node_paths=PackedStringArray("tooltip", "camera", "hamster_slot", "main_wheel", "spin_button", "money_label", "shop_tabs")]
 texture_filter = 1
@@ -458,7 +468,7 @@ autowrap_mode = 0
 
 [node name="SpinSign" type="Node2D" parent="." unique_id=1564193266]
 z_index = 200
-position = Vector2(261, 231)
+position = Vector2(300, 224)
 rotation = -1.5707964
 script = ExtResource("22_7t8sx")
 
@@ -487,42 +497,70 @@ collision_layer = 2
 position = Vector2(-11.5, -38.5)
 shape = SubResource("ConvexPolygonShape2D_81klo")
 
-[node name="Inventory" type="Sprite2D" parent="." unique_id=1067927796]
-position = Vector2(320, 177)
-texture = ExtResource("4_3dryh")
-centered = false
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1817472785]
+position = Vector2(347, 164)
+texture = ExtResource("46_htg8p")
+
+[node name="Inventory" type="Node2D" parent="Sprite2D2" unique_id=1328805220]
+position = Vector2(-14, -24)
 script = ExtResource("5_h4fw4")
-_grid_size_x = 3
-_grid_size_y = 2
+_grid_size_x = 2
+_grid_size_y = 3
 _cell_size = 16
 
-[node name="Area2D" type="Area2D" parent="Inventory" unique_id=1385441536]
+[node name="Area2D" type="Area2D" parent="Sprite2D2/Inventory" unique_id=1385441536]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Inventory/Area2D" unique_id=893196993]
-position = Vector2(24, 16)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/Inventory/Area2D" unique_id=893196993]
+position = Vector2(16, 24)
 shape = SubResource("RectangleShape2D_h4fw4")
 
-[node name="Money" type="PanelContainer" parent="." unique_id=1298085606]
-offset_left = 16.0
-offset_top = 9.0
-offset_right = 105.0
-offset_bottom = 43.0
-theme = ExtResource("3_iivbl")
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D2" unique_id=1366728877]
+z_index = -1
+material = SubResource("ShaderMaterial_tt7mg")
+position = Vector2(11.374989, -0.125)
+scale = Vector2(51.249977, 48.25)
+texture = ExtResource("6_1l0tm")
+
+[node name="Money" type="Node2D" parent="." unique_id=2073472326]
+position = Vector2(6, 6)
 
 [node name="MoneyLabel" type="Label" parent="Money" unique_id=942007113]
-layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 85.0
+offset_bottom = 19.0
+theme = ExtResource("3_iivbl")
 theme_override_font_sizes/font_size = 8
-text = "67$"
+text = "2,147,483,647$"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ShopTabs" parent="." unique_id=1319265294 instance=ExtResource("43_6a4tp")]
-position = Vector2(384, 24)
+[node name="Sprite2D" type="Sprite2D" parent="Money" unique_id=193049399]
+position = Vector2(23, 1)
+texture = ExtResource("21_exi56")
+offset = Vector2(-10, -50)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1222336408]
-material = SubResource("ShaderMaterial_titue")
-position = Vector2(234.5, 139)
-scale = Vector2(239, 128)
+[node name="Sprite2D2" type="Sprite2D" parent="Money" unique_id=1606274463]
+position = Vector2(67, 1)
+texture = ExtResource("21_exi56")
+offset = Vector2(-10, -50)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Money" unique_id=1632458794]
+offset_right = 89.0
+offset_bottom = 28.0
+texture = ExtResource("46_tt7mg")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="back" type="Sprite2D" parent="Money" unique_id=1478068580]
+z_index = -2
+material = SubResource("ShaderMaterial_htg8p")
+position = Vector2(44.5, 13.875)
+scale = Vector2(71, 10.249999)
 texture = ExtResource("6_1l0tm")
-region_rect = Rect2(0, 0, 2.105, 1.16)
+
+[node name="ShopTabs" parent="." unique_id=1319265294 instance=ExtResource("43_6a4tp")]
+position = Vector2(384, 7)

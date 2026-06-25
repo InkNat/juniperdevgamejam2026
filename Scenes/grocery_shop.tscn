@@ -20,5 +20,5 @@ script = ExtResource("1_5do3w")
 item_list = Array[ExtResource("2_xhfpn")]([ExtResource("3_0lq5p"), ExtResource("4_hjmea"), ExtResource("5_hjmea"), ExtResource("8_8feak"), ExtResource("6_qjdv7"), ExtResource("7_tsx7t"), ExtResource("9_vq0vh"), ExtResource("9_fx458"), ExtResource("11_vq0vh")])
 grocery_card = ExtResource("4_fgfc2")
 offscreen_x = 120.0
-maximum = 6
+maximum = 5
 scroll_audio = ExtResource("6_0lq5p")
