@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c8q8kbgurnotg" path="res://Sprites/red arowe.png" id="10_ldgsr"]
 [ext_resource type="Texture2D" uid="uid://bu1al5pltf6vw" path="res://Sprites/matpat.jpg" id="11_vs120"]
 [ext_resource type="ArrayMesh" uid="uid://bd1e3xyyc6rjc" path="res://Models/MediumCogwheel.tres" id="12_22asu"]
-[ext_resource type="Script" path="res://Scenes/input_pusher.gd" id="13_631el"]
+[ext_resource type="Script" uid="uid://whlshrepr0o8" path="res://Scenes/input_pusher.gd" id="13_631el"]
 [ext_resource type="Texture2D" uid="uid://cpq72rcikpwcs" path="res://Sprites/UI/circle.svg" id="16_85qyi"]
 [ext_resource type="Script" uid="uid://dkunpr0x4ph85" path="res://Scripts/main_wheel.gd" id="16_fkdbe"]
 [ext_resource type="Shader" uid="uid://dho3ny4pwb7n7" path="res://Shaders/mask.gdshader" id="16_iivbl"]
@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bqdy4hvtplcb" path="res://Scenes/mediumwheel.tscn" id="18_mucmn"]
 [ext_resource type="Script" uid="uid://d3dqiim8xheu3" path="res://Scripts/play_and_die.gd" id="18_tgy6u"]
 [ext_resource type="Script" uid="uid://q7otcvnu0q8a" path="res://Scripts/Cogworld/proxy.gd" id="19_fkdbe"]
-[ext_resource type="Script" path="res://Scripts/tile.gd" id="20_lmoi6"]
+[ext_resource type="Script" uid="uid://c2vyt84ou3pjd" path="res://Scripts/tile.gd" id="20_lmoi6"]
 [ext_resource type="PackedScene" uid="uid://kqshj2y3m17n" path="res://Scenes/smallwheel.tscn" id="20_oeip8"]
 [ext_resource type="Resource" uid="uid://duo76hod7pwiw" path="res://Resources/Tiles/pink.tres" id="21_6uxt2"]
 [ext_resource type="Texture2D" uid="uid://d1v538f8pf0ni" path="res://Sprites/SPINbutton.png" id="21_exi56"]
@@ -42,13 +42,15 @@
 [ext_resource type="Texture2D" uid="uid://bcbmstnx5fx4m" path="res://Sprites/mr.spinnington_fast.png" id="29_631el"]
 [ext_resource type="PackedScene" uid="uid://bqnnsjd51761o" path="res://Scenes/bigwheelpreview.tscn" id="31_xe308"]
 [ext_resource type="PackedScene" uid="uid://tkbhuk000ape" path="res://Scenes/bigwheel.tscn" id="33_oeip8"]
-[ext_resource type="Script" path="res://Scenes/hamster_manager.gd" id="36_v2cs8"]
+[ext_resource type="Script" uid="uid://b6eewmrj3cwu1" path="res://Scenes/hamster_manager.gd" id="36_v2cs8"]
 [ext_resource type="Texture2D" uid="uid://b1h42i6u1xbah" path="res://Sprites/mr.spinnington_idle.png" id="36_vs120"]
 [ext_resource type="PackedScene" uid="uid://bpd6vah0yqaqj" path="res://Scenes/shop_tabs.tscn" id="43_6a4tp"]
 [ext_resource type="Texture2D" uid="uid://dhfqatp6nnrf6" path="res://Sprites/UI/inventorytab.png" id="46_htg8p"]
 [ext_resource type="Texture2D" uid="uid://bkfqqimd31iiw" path="res://Sprites/UI/glass ui.png" id="46_tt7mg"]
-[ext_resource type="Shader" path="res://Scenes/scrolling_text.gdshader" id="47_32sfa"]
+[ext_resource type="Shader" uid="uid://djh7dkph2i4v5" path="res://Scenes/scrolling_text.gdshader" id="47_32sfa"]
 [ext_resource type="Texture2D" uid="uid://c7grwga0folil" path="res://Sprites/mr_background.png" id="48_titue"]
+[ext_resource type="Script" uid="uid://kehx14xli3xt" path="res://Scenes/follower.gd" id="49_tt7mg"]
+[ext_resource type="Shader" uid="uid://ds2lxv6fws7cj" path="res://Scenes/spiral.gdshader" id="50_htg8p"]
 
 [sub_resource type="Curve" id="Curve_fkdbe"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 3.0288222, 0.0, 0, 0]
@@ -173,7 +175,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wr3wg")
 }],
-"loop": true,
+"loop": 1,
 "name": &"omori_wobbler",
 "speed": 5.0
 }, {
@@ -196,7 +198,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_htg8p")
 }],
-"loop": true,
+"loop": 1,
 "name": &"running",
 "speed": 40.0
 }]
@@ -204,6 +206,7 @@ animations = [{
 [sub_resource type="SphereShape3D" id="SphereShape3D_631el"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_631el"]
+margin = 0.1
 data = PackedVector3Array(0, -1, -1, 0.1951, 1, -0.9808, 0.1951, -1, -0.9808, 0, -1, -1, 0, 1, -1, 0.1951, 1, -0.9808, 0.1951, -1, -0.9808, 0.3827, 1, -0.92389995, 0.3827, -1, -0.92389995, 0.1951, -1, -0.9808, 0.1951, 1, -0.9808, 0.3827, 1, -0.92389995, 0.3827, -1, -0.92389995, 0.5556, 1, -0.8315, 0.5556, -1, -0.8315, 0.3827, -1, -0.92389995, 0.3827, 1, -0.92389995, 0.5556, 1, -0.8315, 0.5556, -1, -0.8315, 0.7071, 1, -0.7071, 0.7071, -1, -0.7071, 0.5556, -1, -0.8315, 0.5556, 1, -0.8315, 0.7071, 1, -0.7071, 0.7071, -1, -0.7071, 0.8314, 1, -0.5556, 0.8314, -1, -0.5556, 0.7071, -1, -0.7071, 0.7071, 1, -0.7071, 0.8314, 1, -0.5556, 0.8314, -1, -0.5556, 0.92389995, 1, -0.3827, 0.92389995, -1, -0.3827, 0.8314, -1, -0.5556, 0.8314, 1, -0.5556, 0.92389995, 1, -0.3827, 0.92389995, -1, -0.3827, 0.9808, 1, -0.1951, 0.9808, -1, -0.1951, 0.92389995, -1, -0.3827, 0.92389995, 1, -0.3827, 0.9808, 1, -0.1951, 0.9808, -1, -0.1951, 1, 1, 0, 1, -1, 0, 0.9808, -1, -0.1951, 0.9808, 1, -0.1951, 1, 1, 0, 1, -1, 0, 0.9808, 1, 0.1951, 0.9808, -1, 0.1951, 1, -1, 0, 1, 1, 0, 0.9808, 1, 0.1951, 0.9808, -1, 0.1951, 0.92389995, 1, 0.3827, 0.92389995, -1, 0.3827, 0.9808, -1, 0.1951, 0.9808, 1, 0.1951, 0.92389995, 1, 0.3827, 0.92389995, -1, 0.3827, 0.8314, 1, 0.5556, 0.8314, -1, 0.5556, 0.92389995, -1, 0.3827, 0.92389995, 1, 0.3827, 0.8314, 1, 0.5556, 0.8314, -1, 0.5556, 0.7071, 1, 0.7071, 0.7071, -1, 0.7071, 0.8314, -1, 0.5556, 0.8314, 1, 0.5556, 0.7071, 1, 0.7071, 0.7071, -1, 0.7071, 0.5556, 1, 0.8314, 0.5556, -1, 0.8314, 0.7071, -1, 0.7071, 0.7071, 1, 0.7071, 0.5556, 1, 0.8314, 0.5556, -1, 0.8314, 0.3827, 1, 0.92389995, 0.3827, -1, 0.92389995, 0.5556, -1, 0.8314, 0.5556, 1, 0.8314, 0.3827, 1, 0.92389995, 0.3827, -1, 0.92389995, 0.1951, 1, 0.9808, 0.1951, -1, 0.9808, 0.3827, -1, 0.92389995, 0.3827, 1, 0.92389995, 0.1951, 1, 0.9808, 0.1951, -1, 0.9808, 0, 1, 1, 0, -1, 1, 0.1951, -1, 0.9808, 0.1951, 1, 0.9808, 0, 1, 1, 0, -1, 1, -0.1951, 1, 0.9808, -0.1951, -1, 0.9808, 0, -1, 1, 0, 1, 1, -0.1951, 1, 0.9808, -0.1951, -1, 0.9808, -0.3827, 1, 0.92389995, -0.3827, -1, 0.92389995, -0.1951, -1, 0.9808, -0.1951, 1, 0.9808, -0.3827, 1, 0.92389995, -0.3827, -1, 0.92389995, -0.5556, 1, 0.8314, -0.5556, -1, 0.8314, -0.3827, -1, 0.92389995, -0.3827, 1, 0.92389995, -0.5556, 1, 0.8314, -0.5556, -1, 0.8314, -0.7071, 1, 0.7071, -0.7071, -1, 0.7071, -0.5556, -1, 0.8314, -0.5556, 1, 0.8314, -0.7071, 1, 0.7071, -0.7071, -1, 0.7071, -0.8315, 1, 0.5556, -0.8315, -1, 0.5556, -0.7071, -1, 0.7071, -0.7071, 1, 0.7071, -0.8315, 1, 0.5556, -0.8315, -1, 0.5556, -0.92389995, 1, 0.3827, -0.92389995, -1, 0.3827, -0.8315, -1, 0.5556, -0.8315, 1, 0.5556, -0.92389995, 1, 0.3827, -0.92389995, -1, 0.3827, -0.9808, 1, 0.1951, -0.9808, -1, 0.1951, -0.92389995, -1, 0.3827, -0.92389995, 1, 0.3827, -0.9808, 1, 0.1951, -0.9808, -1, 0.1951, -1, 1, 0, -1, -1, 0, -0.9808, -1, 0.1951, -0.9808, 1, 0.1951, -1, 1, 0, -1, -1, 0, -0.9808, 1, -0.1951, -0.9808, -1, -0.1951, -1, -1, 0, -1, 1, 0, -0.9808, 1, -0.1951, -0.9808, -1, -0.1951, -0.92389995, 1, -0.3827, -0.92389995, -1, -0.3827, -0.9808, -1, -0.1951, -0.9808, 1, -0.1951, -0.92389995, 1, -0.3827, -0.92389995, -1, -0.3827, -0.8315, 1, -0.5556, -0.8315, -1, -0.5556, -0.92389995, -1, -0.3827, -0.92389995, 1, -0.3827, -0.8315, 1, -0.5556, -0.8315, -1, -0.5556, -0.7071, 1, -0.7071, -0.7071, -1, -0.7071, -0.8315, -1, -0.5556, -0.8315, 1, -0.5556, -0.7071, 1, -0.7071, -0.7071, -1, -0.7071, -0.5556, 1, -0.8315, -0.5556, -1, -0.8315, -0.7071, -1, -0.7071, -0.7071, 1, -0.7071, -0.5556, 1, -0.8315, -0.5556, -1, -0.8315, -0.3827, 1, -0.92389995, -0.3827, -1, -0.92389995, -0.5556, -1, -0.8315, -0.5556, 1, -0.8315, -0.3827, 1, -0.92389995, -0.3827, -1, -0.92389995, -0.1951, 1, -0.9808, -0.1951, -1, -0.9808, -0.3827, -1, -0.92389995, -0.3827, 1, -0.92389995, -0.1951, 1, -0.9808, -0.1951, -1, -0.9808, 0, 1, -1, 0, -1, -1, -0.1951, -1, -0.9808, -0.1951, 1, -0.9808, 0, 1, -1, 0.1951, -1, -0.9808, -0.1951, -1, -0.9808, 0, -1, -1, -0.1951, -1, -0.9808, -0.5556, -1, -0.8315, -0.3827, -1, -0.92389995, 0.1951, -1, -0.9808, -0.5556, -1, -0.8315, -0.1951, -1, -0.9808, -0.5556, -1, -0.8315, -0.8315, -1, -0.5556, -0.7071, -1, -0.7071, -0.5556, -1, -0.8315, -0.9808, -1, -0.1951, -0.8315, -1, -0.5556, -0.8315, -1, -0.5556, -0.9808, -1, -0.1951, -0.92389995, -1, -0.3827, 0.1951, -1, -0.9808, -0.9808, -1, -0.1951, -0.5556, -1, -0.8315, -0.9808, -1, -0.1951, -0.9808, -1, 0.1951, -1, -1, 0, -0.9808, -1, -0.1951, -0.8315, -1, 0.5556, -0.9808, -1, 0.1951, -0.9808, -1, 0.1951, -0.8315, -1, 0.5556, -0.92389995, -1, 0.3827, -0.9808, -1, -0.1951, -0.1951, -1, 0.9808, -0.8315, -1, 0.5556, 0.1951, -1, -0.9808, -0.1951, -1, 0.9808, -0.9808, -1, -0.1951, -0.8315, -1, 0.5556, -0.5556, -1, 0.8314, -0.7071, -1, 0.7071, -0.8315, -1, 0.5556, -0.1951, -1, 0.9808, -0.5556, -1, 0.8314, -0.5556, -1, 0.8314, -0.1951, -1, 0.9808, -0.3827, -1, 0.92389995, -0.1951, -1, 0.9808, 0.1951, -1, 0.9808, 0, -1, 1, -0.1951, -1, 0.9808, 0.5556, -1, 0.8314, 0.1951, -1, 0.9808, 0.1951, -1, 0.9808, 0.5556, -1, 0.8314, 0.3827, -1, 0.92389995, -0.1951, -1, 0.9808, 0.1951, -1, -0.9808, 0.9808, -1, 0.1951, -0.1951, -1, 0.9808, 0.9808, -1, 0.1951, 0.5556, -1, 0.8314, 0.5556, -1, 0.8314, 0.8314, -1, 0.5556, 0.7071, -1, 0.7071, 0.5556, -1, 0.8314, 0.9808, -1, 0.1951, 0.8314, -1, 0.5556, 0.8314, -1, 0.5556, 0.9808, -1, 0.1951, 0.92389995, -1, 0.3827, 0.5556, -1, -0.8315, 0.1951, -1, -0.9808, 0.3827, -1, -0.92389995, 0.8314, -1, -0.5556, 0.1951, -1, -0.9808, 0.5556, -1, -0.8315, 0.9808, -1, 0.1951, 0.1951, -1, -0.9808, 0.8314, -1, -0.5556, 0.8314, -1, -0.5556, 0.5556, -1, -0.8315, 0.7071, -1, -0.7071, 0.9808, -1, 0.1951, 0.8314, -1, -0.5556, 0.9808, -1, -0.1951, 0.9808, -1, -0.1951, 0.8314, -1, -0.5556, 0.92389995, -1, -0.3827, 0.9808, -1, 0.1951, 0.9808, -1, -0.1951, 1, -1, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vm72l"]
@@ -243,6 +246,15 @@ shader_parameter/speed = 0.05
 shader_parameter/background_color = Color(0.047557615, 0.04755766, 0.047557645, 1)
 shader_parameter/text_color = Color(0.008202022, 0.008202025, 0.008202025, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ke0wg"]
+shader = ExtResource("50_htg8p")
+shader_parameter/ring_amount = 3.0
+shader_parameter/line_amount = 1
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/color1 = Color(0.051970966, 0.05197096, 0.05197095, 1)
+shader_parameter/color2 = Color(0.06053035, 0.06053035, 0.060530342, 1)
+
 [node name="Game" type="Node2D" unique_id=547770425 node_paths=PackedStringArray("tooltip", "camera", "hamster_slot", "main_wheel", "spin_button", "money_label", "shop_tabs")]
 texture_filter = 1
 script = ExtResource("1_wrm1d")
@@ -257,13 +269,14 @@ shop_tabs = NodePath("ShopTabs")
 test_sticker = ExtResource("16_v2cs8")
 
 [node name="CogworldViewport" type="SubViewportContainer" parent="." unique_id=1843949557]
-z_index = -4096
+z_index = -4095
 offset_right = 768.0
 offset_bottom = 432.0
 mouse_filter = 2
 script = ExtResource("13_631el")
 
 [node name="SubViewport" type="SubViewport" parent="CogworldViewport" unique_id=1382370156]
+transparent_bg = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 physics_object_picking = true
@@ -564,3 +577,12 @@ texture = ExtResource("6_1l0tm")
 
 [node name="ShopTabs" parent="." unique_id=1319265294 instance=ExtResource("43_6a4tp")]
 position = Vector2(384, 7)
+
+[node name="spiral" type="Sprite2D" parent="." unique_id=1415703983 node_paths=PackedStringArray("target")]
+z_index = -4096
+material = SubResource("ShaderMaterial_ke0wg")
+position = Vector2(191.75, 107.25)
+scale = Vector2(400, 400)
+texture = ExtResource("6_1l0tm")
+script = ExtResource("49_tt7mg")
+target = NodePath("../CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy/HamsterSlot")
