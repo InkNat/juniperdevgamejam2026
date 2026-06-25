@@ -37,7 +37,6 @@ func _ready():
 		var j = i+0.5
 		var pos = Vector2(sin(j/float(tiles_len/TAU)), -cos(j/float(tiles_len/TAU)))*128*wheel_range_max
 		var sticker = Node2D.new()
-		sticker.scale = Vector2(0.5,0.5)
 		stickers.add_child(sticker)
 		sticker.position = pos
 	image.decompress()
@@ -53,8 +52,10 @@ func _input(event):
 		var length = pos.length()/128.0
 		if (length > wheel_range_min and length < wheel_range_max):
 			var chosen_tile = floor(fmod((-atan2(pos.x, pos.y)/TAU)+0.5+wheel_rotation,1)*16)
-			if (Game.instance.current_sticker != null):
-				Game.instance.current_sticker.reparent(stickers.get_child(chosen_tile))
+			var cs = Game.instance.pop_sticker()
+			if (cs != null):
+				cs.reparent(stickers.get_child(chosen_tile),true)
+				cs.scale = Vector2(0.5,0.5)
 			print(chosen_tile)
 
 func rotate_wheel(p_wheel_rotation: float):

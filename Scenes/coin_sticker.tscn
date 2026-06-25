@@ -4,5 +4,6 @@
 [ext_resource type="Script" uid="uid://ci4d7o48h5g2u" path="res://Scenes/coin_sticker.gd" id="2_fue7j"]
 
 [node name="CoinSticker" type="Sprite2D" unique_id=350186726]
+z_index = 5
 texture = ExtResource("1_g4v3q")
 script = ExtResource("2_fue7j")

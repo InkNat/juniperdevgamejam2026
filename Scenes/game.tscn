@@ -46,6 +46,8 @@
 [ext_resource type="Script" uid="uid://b6eewmrj3cwu1" path="res://Scenes/hamster_manager.gd" id="36_v2cs8"]
 [ext_resource type="Texture2D" uid="uid://b1h42i6u1xbah" path="res://Sprites/mr.spinnington_idle.png" id="36_vs120"]
 [ext_resource type="PackedScene" uid="uid://bpd6vah0yqaqj" path="res://Scenes/shop_tabs.tscn" id="43_6a4tp"]
+[ext_resource type="Shader" uid="uid://djh7dkph2i4v5" path="res://Scenes/scrolling_text.gdshader" id="47_32sfa"]
+[ext_resource type="Texture2D" uid="uid://c7grwga0folil" path="res://Sprites/mr_background.png" id="48_titue"]
 
 [sub_resource type="Curve" id="Curve_fkdbe"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 3.0288222, 0.0, 0, 0]
@@ -222,6 +224,15 @@ points = PackedVector2Array(-16.499992, 22.5, -18.499992, 24.5, -21.499992, 24.5
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4fw4"]
 size = Vector2(46, 30)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_titue"]
+shader = ExtResource("47_32sfa")
+shader_parameter/text = ExtResource("48_titue")
+shader_parameter/second_offset = Vector2(0, 0.125)
+shader_parameter/size = Vector2(239, 128)
+shader_parameter/speed = 0.2
+shader_parameter/background_color = Color(9.241105e-06, 0.76971406, 0.94763523, 1)
+shader_parameter/text_color = Color(1, 1, 1, 1)
+
 [node name="Game" type="Node2D" unique_id=547770425 node_paths=PackedStringArray("tooltip", "camera", "hamster_slot", "main_wheel", "spin_button", "money_label", "shop_tabs")]
 texture_filter = 1
 script = ExtResource("1_wrm1d")
@@ -281,8 +292,14 @@ wheel = NodePath("WheelVisual/Wheel")
 red_arrow = NodePath("WheelVisual/RedArrow")
 cogwheel = NodePath("WheelVisual/3DWheelProjector/SubViewport/Node3D/BigCogwheel")
 click_audio = SubResource("PackedScene_cwurv")
-stickers = NodePath("Stickers")
+stickers = NodePath("Proxy2/Stickers")
 tiles = Array[ExtResource("20_lmoi6")]([ExtResource("21_6uxt2"), ExtResource("23_bwj6o"), ExtResource("23_6a4tp"), ExtResource("24_631el"), ExtResource("25_vs120"), ExtResource("26_v2cs8"), ExtResource("27_32sfa"), ExtResource("22_ym3tv"), ExtResource("21_6uxt2"), ExtResource("23_bwj6o"), ExtResource("23_6a4tp"), ExtResource("24_631el"), ExtResource("25_vs120"), ExtResource("26_v2cs8"), ExtResource("27_32sfa"), ExtResource("22_ym3tv")])
+
+[node name="Proxy2" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=487615973 node_paths=PackedStringArray("scale_target")]
+script = ExtResource("19_fkdbe")
+scale_target = NodePath("Stickers")
+
+[node name="Stickers" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy2" unique_id=1528598156]
 
 [node name="Proxy" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=683071112 node_paths=PackedStringArray("scale_target")]
 script = ExtResource("19_fkdbe")
@@ -384,7 +401,7 @@ texture = ExtResource("10_ldgsr")
 centered = false
 offset = Vector2(-2, -9)
 
-[node name="Stickers" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=1528598156]
+[node name="Node2D" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=401547829]
 
 [node name="Tooltip" type="PanelContainer" parent="." unique_id=1879497400]
 z_index = 4096
@@ -502,3 +519,10 @@ vertical_alignment = 1
 
 [node name="ShopTabs" parent="." unique_id=1319265294 instance=ExtResource("43_6a4tp")]
 position = Vector2(384, 24)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1222336408]
+material = SubResource("ShaderMaterial_titue")
+position = Vector2(234.5, 139)
+scale = Vector2(239, 128)
+texture = ExtResource("6_1l0tm")
+region_rect = Rect2(0, 0, 2.105, 1.16)

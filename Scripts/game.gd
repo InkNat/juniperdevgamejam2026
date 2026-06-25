@@ -32,6 +32,11 @@ func _play_and_die(audio: AudioStream, pitch: float = 1):
 	e.pitch_scale = pitch
 	add_child(e)
 
+func pop_sticker() -> Sticker:
+	var result = current_sticker
+	current_sticker = null
+	return result
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	money_label.text = str(cash_money) + "$"
