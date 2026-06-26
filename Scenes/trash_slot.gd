@@ -10,7 +10,6 @@ func delete():
 
 func _can_insert(_item: Item) -> bool: return item == null
 func _insert(p_item: Item):
-	print("e")
 	item = p_item
 	item.reparent(self, true)
 	item.attachement = item_attach.position

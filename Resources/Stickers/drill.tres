@@ -8,5 +8,6 @@ script = ExtResource("1_uij5c")
 texture = ExtResource("2_mjftt")
 size = Vector2i(2, 1)
 name = "Drill"
+exhausts = true
 description = "Trigger the opposite tile."
 metadata/_custom_type_script = "uid://dgxfjckrxanua"

@@ -42,7 +42,8 @@ func try_place_at(i: int):
 	var reg_len = len(_registry)
 	var random_offset = randi()%reg_len
 	for r_index in range(reg_len):
-		var sticker:StickerData = _registry[(r_index+random_offset)%reg_len]
+		var sticker:StickerData = _registry[0]
+		#var sticker:StickerData = _registry[(r_index+random_offset)%reg_len]
 		if not can_place(Rect2(vec, sticker.size)): 
 			continue
 		_result[i] = sticker

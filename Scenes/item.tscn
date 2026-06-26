@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bvj2es6a7iu5n" path="res://Scripts/item.gd" id="1_76mu4"]
 [ext_resource type="AudioStream" uid="uid://bil25ivoxtiuk" path="res://Sounds/pick_item.wav" id="2_76mu4"]
+[ext_resource type="Shader" uid="uid://c5nixosxut2ij" path="res://Shaders/hue_shift.gdshader" id="3_btogu"]
+[ext_resource type="Texture2D" uid="uid://4ryqwe0it1gk" path="res://Sprites/pepper.png" id="4_tnst4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76mu4"]
 size = Vector2(16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ifeo7"]
+resource_local_to_scene = true
+shader = ExtResource("3_btogu")
+shader_parameter/hue_shift = 0.0
 
 [node name="Item" type="Node2D" unique_id=1706374103 node_paths=PackedStringArray("sprite")]
 z_index = 4000
@@ -20,3 +27,5 @@ shape = SubResource("RectangleShape2D_76mu4")
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=835361187]
 z_index = -1
+material = SubResource("ShaderMaterial_ifeo7")
+texture = ExtResource("4_tnst4")

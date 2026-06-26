@@ -81,7 +81,7 @@ func retract():
 	tween.set_ease(Tween.EASE_OUT)
 	var result
 	if (state == 0):
-		result = Vector2(3,-107)
+		result = Vector2(3,-97)
 	else:
 		result = Vector2(0,-40)
 	tween.tween_property(self, "position", result, 0.7)

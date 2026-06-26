@@ -7,8 +7,12 @@ var _dragging_offset: Vector2
 var attachement: Vector2 = position
 var item_data: ItemData
 
+var color: Tile
+
 func _ready():
-	pass
+	if item_data.color_based:
+		color = Game.instance.get_pepper_color()
+		sprite.material.set_shader_parameter("hue_shift",color.hue_shift)
 
 func _process(delta):
 	var mouse_pos = get_global_mouse_position()
@@ -21,7 +25,17 @@ func _process(delta):
 
 func get_tooltip() -> TooltipData:
 	if _dragging: return null
-	return TooltipData.new(item_data.icon, item_data.background_color,item_data.name, item_data.description,2)
+	var name = item_data.name
+	var hue_shift = 0
+	if item_data.color_based:
+		name = color.name + " " + name
+		hue_shift = color.hue_shift
+	return TooltipData.new(item_data.icon, item_data.background_color,name, item_data.description,2,hue_shift)
+
+func get_tag() -> String:
+	if item_data.color_based:
+		return item_data.tag + "_" + color.name.to_snake_case()
+	return item_data.tag
 
 func click_press():
 	Game.play_and_die(pick_item_audio)

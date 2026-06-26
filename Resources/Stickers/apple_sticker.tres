@@ -7,6 +7,7 @@
 script = ExtResource("1_e5nfi")
 texture = ExtResource("2_oe504")
 name = "Apple Sticker"
+exhausts = true
 description = "10% chance to add an apple 
 slice to your inventory."
 metadata/_custom_type_script = "uid://dgxfjckrxanua"

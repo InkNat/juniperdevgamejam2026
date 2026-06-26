@@ -441,7 +441,7 @@ size = Vector2(15, 17)
 [node name="Game" type="Node2D" unique_id=547770425 node_paths=PackedStringArray("tooltip", "camera", "hamster_slot", "main_wheel", "spin_button", "money_label", "shop_tabs", "sticker_sheet_slot")]
 texture_filter = 1
 script = ExtResource("1_wrm1d")
-sticker_registry = Array[ExtResource("2_x6jpx")]([ExtResource("18_ifeo7"), ExtResource("19_qj5kr"), ExtResource("4_ff75x"), ExtResource("15_q8b24"), ExtResource("8_sfx3s"), ExtResource("4_kcoun"), ExtResource("10_gyste"), ExtResource("3_sjh24"), ExtResource("5_jegl3"), ExtResource("10_lknxd"), ExtResource("9_p5qon"), ExtResource("11_p3b6d"), ExtResource("12_bchkn"), ExtResource("14_ckj55"), ExtResource("6_csv17"), ExtResource("7_6i05k"), ExtResource("17_ff75x"), ExtResource("20_d5jaa"), ExtResource("21_k8ojv"), ExtResource("22_7sqp1")])
+sticker_registry = Array[ExtResource("2_x6jpx")]([ExtResource("4_ff75x"), ExtResource("15_q8b24"), ExtResource("8_sfx3s"), ExtResource("4_kcoun"), ExtResource("10_gyste"), ExtResource("3_sjh24"), ExtResource("5_jegl3"), ExtResource("10_lknxd"), ExtResource("9_p5qon"), ExtResource("11_p3b6d"), ExtResource("12_bchkn"), ExtResource("14_ckj55"), ExtResource("6_csv17"), ExtResource("7_6i05k"), ExtResource("17_ff75x"), ExtResource("18_ifeo7"), ExtResource("19_qj5kr"), ExtResource("20_d5jaa"), ExtResource("21_k8ojv"), ExtResource("22_7sqp1")])
 tile_registry = Array[ExtResource("20_lmoi6")]([ExtResource("21_6uxt2"), ExtResource("23_bwj6o"), ExtResource("23_6a4tp"), ExtResource("24_631el"), ExtResource("25_vs120"), ExtResource("26_v2cs8"), ExtResource("27_32sfa"), ExtResource("22_ym3tv")])
 apple = ExtResource("27_a2m5q")
 tooltip = NodePath("Tooltip")
@@ -492,7 +492,7 @@ texture = ExtResource("11_vs120")
 
 [node name="Camera2D" type="Camera2D" parent="CogworldViewport/SubViewport/Cogworld" unique_id=1683973372]
 
-[node name="MainWheel" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld" unique_id=2143089451 node_paths=PackedStringArray("cylinder", "hamster_manager", "wheel", "red_arrow", "cogwheel", "stickers", "wheel_stickers")]
+[node name="MainWheel" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld" unique_id=2143089451 node_paths=PackedStringArray("cylinder", "hamster_manager", "wheel", "red_arrow", "cogwheel", "stickers")]
 script = ExtResource("16_fkdbe")
 packed_scene = ExtResource("18_cwurv")
 spin_curve = SubResource("Curve_fkdbe")
@@ -504,8 +504,7 @@ red_arrow = NodePath("WheelVisual/RedArrow")
 cogwheel = NodePath("WheelVisual/3DWheelProjector/SubViewport/Node3D/BigCogwheel")
 click_audio = SubResource("PackedScene_cwurv")
 tile_tooltip = ExtResource("19_x6jpx")
-stickers = NodePath("Proxy2/Stickers/TileStickers")
-wheel_stickers = NodePath("Proxy2/Stickers/WheelStickers")
+stickers = NodePath("Proxy2/Stickers")
 
 [node name="Proxy2" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=487615973 node_paths=PackedStringArray("scale_target")]
 script = ExtResource("19_fkdbe")
@@ -513,10 +512,6 @@ scale_target = NodePath("Stickers")
 
 [node name="Stickers" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy2" unique_id=1528598156]
 z_index = -1
-
-[node name="TileStickers" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy2/Stickers" unique_id=1868135191]
-
-[node name="WheelStickers" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy2/Stickers" unique_id=1803881332]
 
 [node name="Proxy" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=683071112 node_paths=PackedStringArray("scale_target")]
 script = ExtResource("19_fkdbe")
@@ -622,7 +617,7 @@ texture = ExtResource("54_ff75x")
 [node name="Node2D" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=401547829]
 
 [node name="Tooltip" type="PanelContainer" parent="." unique_id=1879497400]
-z_index = 4094
+z_index = 4090
 offset_left = 119.0
 offset_top = 73.0
 offset_right = 194.0
@@ -767,7 +762,6 @@ script = ExtResource("49_tt7mg")
 target = NodePath("../CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy/HamsterSlot")
 
 [node name="StickerSheetSlot" type="Node2D" parent="." unique_id=1712007632]
-z_index = 4093
 position = Vector2(6, 216)
 
 [node name="Inventory" type="Node2D" parent="." unique_id=1928031187 node_paths=PackedStringArray("target")]

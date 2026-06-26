@@ -1,6 +1,7 @@
 shader_type canvas_item;
 
 uniform float hue_shift : hint_range(-180.0, 180.0) = 0.0;
+uniform vec4 tint : source_color = vec4(1);
 
 vec3 rgb_to_hsv(vec3 rgb) {
     float max_c = max(rgb.r, max(rgb.g, rgb.b));
@@ -58,7 +59,7 @@ void fragment() {
     vec3 hsv = rgb_to_hsv(rgb);
     hsv.x = mod(hsv.x + hue_shift / 360.0, 1.0);
     rgb = hsv_to_rgb(hsv);
-    COLOR = vec4(rgb, tex_color.a);
+    COLOR = vec4(rgb, tex_color.a)*tint;
 }
 
 //void light() {

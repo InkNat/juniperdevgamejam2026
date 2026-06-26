@@ -8,6 +8,7 @@ script = ExtResource("1_nnhj3")
 texture = ExtResource("2_fklsi")
 size = Vector2i(2, 2)
 name = "Nosey Neighbor"
+exhausts = true
 description = "Trigger 25% to 75% of the rewards 
 of the adjacent tiles."
 metadata/_custom_type_script = "uid://dgxfjckrxanua"

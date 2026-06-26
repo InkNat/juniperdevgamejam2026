@@ -24,7 +24,7 @@ load_path = "res://.godot/imported/whitepixel.png-835a41345ae031d828326087080977
 [sub_resource type="ViewportTexture" id="ViewportTexture_iivbl"]
 viewport_path = NodePath("WheelVisual/3DWheelProjector/SubViewport")
 
-[node name="SmallWheel" type="Node2D" unique_id=2143089451 node_paths=PackedStringArray("wheel", "red_arrow", "cogwheel", "stickers")]
+[node name="SmallWheel" type="Node2D" unique_id=2143089451 node_paths=PackedStringArray("wheel", "red_arrow", "cogwheel", "stickers", "wheel_stickers")]
 script = ExtResource("1_5pcjj")
 wheel = NodePath("WheelVisual/Wheel")
 red_arrow = NodePath("WheelVisual/RedArrow")
@@ -32,7 +32,8 @@ cogwheel = NodePath("WheelVisual/3DWheelProjector/SubViewport/Node3D/BigCogwheel
 click_audio = ExtResource("2_vg21s")
 tile_tooltip = ExtResource("3_lftd2")
 wheel_size = 0
-stickers = NodePath("Proxy/Stickers")
+stickers = NodePath("Proxy/Stickers/TileStickers")
+wheel_stickers = NodePath("Proxy/Stickers/WheelStickers")
 
 [node name="WheelVisual" type="Node2D" parent="." unique_id=1863031343]
 
@@ -70,3 +71,7 @@ script = ExtResource("6_vg21s")
 scale_target = NodePath("Stickers")
 
 [node name="Stickers" type="Node2D" parent="Proxy" unique_id=173015961]
+
+[node name="TileStickers" type="Node2D" parent="Proxy/Stickers" unique_id=2020131813]
+
+[node name="WheelStickers" type="Node2D" parent="Proxy/Stickers" unique_id=1326875137]

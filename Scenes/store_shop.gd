@@ -25,7 +25,7 @@ func _ready():
 	
 	if (not Game.instance.popped_sticker_sheet):
 		ss = sticker_sheet.instantiate()
-		ss.setup(Game.instance.generated_sticker_sheet, 1000 * Game.instance.global_cost_multiplier)
+		ss.setup(Game.instance.generated_sticker_sheet, 10000 * Game.instance.global_cost_multiplier)
 		add_child(ss)
 
 func setup_wheels(wheels: Array[WheelData]):

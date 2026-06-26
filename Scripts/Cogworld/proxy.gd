@@ -19,7 +19,6 @@ func _process(delta):
 	scale_target.scale = camera.zoom
 	
 func delete():
-	print("deleted")
 	if (scale_target != target):
 		if is_instance_valid(scale_target):
 			scale_target.queue_free()

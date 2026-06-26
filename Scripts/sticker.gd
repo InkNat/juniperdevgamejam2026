@@ -5,6 +5,7 @@ var previous_parent
 var previous_position
 
 var locked = true
+var exhausted = false
 
 func setup_data(p_sticker_data: StickerData):
 	sticker_data = p_sticker_data
@@ -25,6 +26,14 @@ func click_press():
 	previous_position = position
 	Game.instance.push_sticker(self)
 
+func exhaust():
+	modulate = Color(0.5,0.5,0.5,1)
+	exhausted = true
+
+func refresh():
+	modulate = Color(1,1,1,1)
+	exhausted = false
+	
 func reset():
 	if not is_instance_valid(previous_parent):
 		queue_free()

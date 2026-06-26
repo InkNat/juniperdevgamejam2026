@@ -16,11 +16,14 @@ static var instance: Game
 @export var shop_tabs: Node2D
 @export var sticker_sheet_slot: Node2D
 var _camera_zoom: float = 0.5
-var cash_money: int = 2000
+var cash_money: int = 35000
 var generated_sticker_sheet: Array[StickerData]
 var popped_sticker_sheet: bool = false
 
 var global_cost_multiplier: float = 1
+var pepper_color = null
+
+var cheese_bonuses: Array[CheeseBonus]
 
 var current_sticker: Sticker
 var sold_wheels = null
@@ -37,6 +40,19 @@ func _ready():
 	spin_button.sign_clicked.connect(hamster_slot.consume_and_spin)
 	hamster_slot.spin.connect(func (): 
 		main_wheel.spin(hamster_slot.get_tags()))
+
+func random_tile() -> Tile:
+	return (tile_registry[randi()%len(tile_registry)]) 
+func get_pepper_color():
+	if pepper_color == null: pepper_color = random_tile()
+	return pepper_color
+
+func get_cheese_bonus() -> float:
+	var result: float = 1
+	for cb in cheese_bonuses:
+		result += cb.bonus
+	print(result)
+	return result
 
 static func play_and_die(audio: AudioStream, pitch: float = 1, volume = 1): instance._play_and_die(audio, pitch, volume)
 
@@ -59,7 +75,7 @@ func setup_sticker_sheet(sheet: Node2D):
 	sheet.position = Vector2(0,0)
 
 func spin_reset():
-	global_cost_multiplier *= 1.1
+	global_cost_multiplier *= 1.15
 	shop_tabs.close_all()
 	shop_tabs.locked = true
 
@@ -73,7 +89,7 @@ func generate_wheels():
 		var tiles: Array[Tile] = []
 		tiles.resize(tile_count)
 		for j in range(tile_count):
-			tiles[j] = (tile_registry[randi()%len(tile_registry)])
+			tiles[j] = random_tile()
 		var wheel_data: WheelData = WheelData.new(wheel_size,tiles)
 		result.append(wheel_data)
 	sold_wheels = result
@@ -84,16 +100,25 @@ func land_reset():
 	popped_sticker_sheet = false
 	Cogworld.instance.delete_previews()
 	generate_wheels()
+	pepper_color = random_tile()
+	var new_bonuses: Array[CheeseBonus] = []
+	for cheese_bonus in cheese_bonuses:
+		cheese_bonus.tick()
+		if not cheese_bonus.is_valid(): continue
+		new_bonuses.append(cheese_bonus)
+	cheese_bonuses = new_bonuses
 	shop_tabs.locked = false
 	generated_sticker_sheet = StickerSheetGenerator.new(Vector2(4,6),sticker_registry).generate_sticker_sheet()
 
 func pop_sticker() -> Sticker:
 	var result = current_sticker
+	current_sticker.z_index = 0
 	current_sticker = null
 	return result
 
 func push_sticker(sticker: Sticker):
 	current_sticker = sticker
+	current_sticker.z_index = 4096
 	sticker.reparent(self)
 	sticker.position = get_global_mouse_position()
 

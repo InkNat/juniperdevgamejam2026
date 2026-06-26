@@ -19,7 +19,7 @@ func get_tags() -> Array[String]:
 	var result: Array[String] = []
 	for child in get_children():
 		if child is not Item: continue
-		result.append(child.item_data.tag)
+		result.append(child.get_tag())
 	return result
 
 func arrange_items():

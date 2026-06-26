@@ -8,10 +8,11 @@ class_name Tooltip extends PanelContainer
 func set_tooltip(tooltip_data: TooltipData):
 	if (tooltip_data.icon == null):
 		texture_rect.texture = load("res://Sprites/UI/item_icon_background.png")
-		texture_rect.self_modulate = Color(0)
+		texture_rect.material.set_shader_parameter("tint",Color(0))
 	else:
 		texture_rect.texture = tooltip_data.icon
-		texture_rect.self_modulate = Color(1,1,1,1)
+		texture_rect.material.set_shader_parameter("tint",Color(1,1,1,1))
+		texture_rect.material.set_shader_parameter("hue_shift",tooltip_data.hue_shift)
 	name_label.text = tooltip_data.name
 	background_rect.self_modulate = tooltip_data.background_color
 	description_label.text = tooltip_data.description

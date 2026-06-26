@@ -70,7 +70,6 @@ func sync_wheel(vec: Vector2i, wheel: Wheel):
 			if (neighbor == null): continue
 			if (neighbor.wheel_size != size): continue
 			neighbor.subwheels.append(wheel)
-			print("connected to wheel of size " + str(neighbor.wheel_size) + " at " + str(vec+neighbor_pos))
 			return
 
 func place_wheel_at(wheel_size, vec: Vector2i):
@@ -120,8 +119,6 @@ func spot_overlap(vec: Vector2i, strict: bool, t_wheel_size) -> bool:
 			var coords = xy+vec
 			var wheel = grid.get(coords)
 			if wheel == null: continue
-			print(vec)
-			print("found wheel of size " + str(wheel.wheel_size) + " at " + str(coords) + " strict = " + str(strict))
 			if (overlap_check(vec, coords, strict, wheel.wheel_size, t_wheel_size)):
 				return true
 	return false

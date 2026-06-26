@@ -8,6 +8,7 @@ class_name Wheel extends Node2D
 @export var tile_tooltip: PackedScene
 @export var wheel_size: WheelSize = WheelSize.Medium
 @export var stickers: Node2D
+@export var wheel_stickers: Node2D
 
 @export var sprite_scale: float = 128
 
@@ -54,25 +55,39 @@ func setup(p_tiles: Array[Tile]):
 
 func click():
 	add_child(click_audio.instantiate())
-	var result = floor((wheel_rotation) * segments)
-	print(result)
+	var result = tile_result()
 	for sticker in stickers.get_child(result).get_children():
 		if sticker is not Sticker: continue
 		if sticker.sticker_data.get_tag() == "clicker":
 			trigger(result, 0.05)
+	
+	var spinach = MainWheel.instance.food_count("spinach")
+	MainWheel.instance.spinach_mult += spinach*0.01
+		
+	var popcorn = MainWheel.instance.food_count("popcorn")
+	if popcorn > 0:
+		trigger(result, popcorn*0.025)
 
 func _input(event):
 	if not _setup: return
+	if Game.instance.current_sticker == null: return
+	var is_wheel: bool = Game.instance.current_sticker.sticker_data.wheel_sticker
+	if is_wheel and self is MainWheel:
+		return
 	if (event.is_action_pressed("Click")):
 		var pos = get_global_mouse_position()-position
 		var length = pos.length()/sprite_scale
-		if (length > wheel_range_min and length < wheel_range_max):
+		if is_wheel and length < wheel_range_min:
+			var cs = Game.instance.pop_sticker()
+			if (cs != null):
+				cs.reparent(wheel_stickers,true)
+				cs.scale = Vector2(0.5,0.5)
+		elif (length > wheel_range_min and length < wheel_range_max):
 			var chosen_tile = floor(fmod((-atan2(pos.x, pos.y)/TAU)+0.5+wheel_rotation,1)*segments)
 			var cs = Game.instance.pop_sticker()
 			if (cs != null):
 				cs.reparent(stickers.get_child(chosen_tile),true)
 				cs.scale = Vector2(0.5,0.5)
-			print(chosen_tile)
 
 func rotate_wheel(p_wheel_rotation: float):
 	if not _setup: return
@@ -82,23 +97,40 @@ func rotate_wheel(p_wheel_rotation: float):
 		var gear_ratio = 1*(pow(2,wheel_size-subwheel.wheel_size))
 		subwheel.rotate_wheel((wheel_rotation+gear_offset)*-gear_ratio)
 
-func _process(delta):
+func normalized_wheel_rotation() -> float:
+	return fmod(wheel_rotation,1)
+
+func tile_result() -> int:
+	return floor(fmod(wheel_rotation*wheel_speed(),1)*segments)
+
+func wheel_speed() -> float:
+	return pow(2,count_wheel_stickers("gear_ratio"))
+
+func has_wheel_sticker(_name: String) -> bool:
+	for e in wheel_stickers.get_children():
+		if e is Sticker:
+			if e.sticker_data.get_tag() == _name: return true
+	return false
+func count_wheel_stickers(_name: String) -> int:
+	var result: int = 0
+	for e in wheel_stickers.get_children():
+		if e is Sticker:
+			if e.sticker_data.get_tag() == _name:
+				result+=1
+	return result
+
+func _process(_delta):
 	if not _setup: return 
-	wheel_rotation = fmod(wheel_rotation,1)
 	
-	wheel.material.set_shader_parameter("angle_offset", wheel_rotation)
 	cogwheel.rotation.y = wheel_rotation*TAU
 	stickers.rotation = -wheel_rotation*TAU
+	wheel.material.set_shader_parameter("angle_offset", wheel_rotation*wheel_speed())
 	
 	var currentSegment = floor(wheel_rotation*segments)
 	
 	if (currentSegment != previousSegment):
 		click()
 		previousSegment = currentSegment
-	for child in get_children():
-		if child is not Wheel: continue
-		var wheel_child : Wheel = child
-		wheel_child.wheel_rotation = (1/float(segments*2))-wheel_rotation
 
 func clover_randf(clover_count: int):
 	var e = randf()
@@ -107,24 +139,67 @@ func clover_randf(clover_count: int):
 		if e < f: e = f
 	return e
 
-func trigger(index: int, multiplier = 1):
-	var tags = []
+func has_stickers(index: int, tag: String, check_exhaust: bool = false) -> bool:
+	for s in stickers.get_child(index).get_children():
+		if s is not Sticker: continue
+		if check_exhaust:
+			if s.exhausted: 
+				continue
+			elif s.sticker_data.exhausts: 
+				s.exhaust()
+		if s.sticker_data.get_tag() == tag:
+			return true
+	return false
+
+func count_stickers(index: int, tag: String, check_exhaust: bool = false) -> int:
+	var result = 0
+	for s in stickers.get_child(index).get_children():
+		if s is not Sticker: continue
+		if check_exhaust:
+			if s.exhausted: 
+				continue
+			elif s.sticker_data.exhausts: 
+				s.exhaust()
+		if s.sticker_data.get_tag() == tag:
+			result+=1
+	return result
+
+func count_total_stickers(tag: String) -> int:
+	var result = 0
+	for c in stickers.get_children():
+		for s in c.get_children():
+			if s is not Sticker: continue
+			if s.sticker_data.get_tag() == tag:
+				result+=1
+	return result
+
+func get_sticker_list(index: int, check_exhaust: bool = false) -> Array[String]:
+	var result: Array[String] = []
 	for sticker in stickers.get_child(index).get_children():
 		if sticker is not Sticker: continue
-		tags.append(sticker.sticker_data.get_tag())
-		
-	var star_count = 0
-	for c in stickers.get_children():
-		for s in c.get_children():
-			if s is not Sticker: continue
-			if s.sticker_data.get_tag() == "star":
-				star_count+=1
-	var clover_count = 0
-	for c in stickers.get_children():
-		for s in c.get_children():
-			if s is not Sticker: continue
-			if s.sticker_data.get_tag() == "lucky_clover":
-				clover_count+=1
+		if check_exhaust:
+			if sticker.exhausted: 
+				continue
+			elif sticker.sticker_data.exhausts: 
+				sticker.exhaust()
+		result.append(sticker.sticker_data.get_tag())
+	return result
+
+func trigger(index: int, multiplier: float = 1):
+	var tile = tiles[index]
+	if MainWheel.instance.food_count("apple_slice") > 0 and tile.base_reward < 0:
+		return
+	
+	var trigger_count = 1 + MainWheel.instance.food_count("sun._seed") + MainWheel.instance.food_count("pepper_"+tile.name.to_snake_case())
+	print(trigger_count)
+	for e in trigger_count:
+		_trigger(index, multiplier)
+func _trigger(index: int, multiplier: float = 1):
+	print("triggered!")
+	var tags = get_sticker_list(index, true)
+	
+	var total_star_count = count_total_stickers("star")
+	var clover_count = count_stickers(index, "lucky_clover")
 	
 	var money = tiles[index].base_reward
 	
@@ -146,23 +221,24 @@ func trigger(index: int, multiplier = 1):
 			"plaster":
 				plaster_count+=1
 			"star":
-				bonus_money+=star_count*500
+				bonus_money+=total_star_count*500
 			"horseshoe":
 				if clover_randf(clover_count) >= 0.8:
 					bonus_money+=10000
 			"motivational":
-				MainWheel.instance.motivation+=0.25
+				MainWheel.instance.motivation+=0.25*multiplier
 			"affectionate":
 				heart_count+=1
 			"apple_sticker":
-				if clover_randf(clover_count) >= 0.9:
+				if clover_randf(clover_count) >= 1-(0.1*multiplier):
 					var apple = Game.instance.apple.create_item()
 					var result = GridSlots.instance.add_item(apple)
 					if not result: apple.queue_free()
 			"drill":
-				trigger((index+(segments/2))%segments)
+				trigger((index+(segments/2))%segments,multiplier)
 			"nosey_neighbor":
 				var mult = (clover_randf(clover_count)*0.5)+0.25
+				mult *= multiplier
 				trigger((index+1)%segments, mult)
 				trigger((index-1)%segments, mult)
 	for i in range(plaster_count):
@@ -178,11 +254,39 @@ func trigger(index: int, multiplier = 1):
 			"mulberry":
 				mulberry_count+=1
 	
-	Game.instance.cash_money += (ceil((money+(raspberry_count*100))*pow(1.5,mulberry_count))) * multiplier
+	Game.instance.cash_money += (ceil((money+(raspberry_count*100))*pow(1.5,mulberry_count))) * multiplier * MainWheel.instance.spinach_mult * Game.instance.get_cheese_bonus()
+
+func skip_check() -> bool:
+	var result = tile_result()
+	for sub_wheel in subwheels:
+		if (sub_wheel.skip_check()):
+			return true
+	return has_stickers(result, "nuh_uh!")
+
+func total_respins() -> int:
+	var result = tile_result()
+	var respins = 0
+	var clover_count = count_stickers(result, "lucky_clover")
+	for sub_wheel in subwheels:
+		respins+=sub_wheel.total_respins()
+	for i in range(count_stickers(result, "again!_and_again?", true)):
+		respins+=1
+		if clover_randf(clover_count) > 0.9:
+			respins+=1
+	return respins
 
 func land():
 	for sub_wheel in subwheels:
 		sub_wheel.land()
-	var result = floor((wheel_rotation) * segments)
-	print("landed on tile " + str(result))
-	trigger(result)
+	var result = tile_result()
+	var credit_cards = count_wheel_stickers("credit_card")
+	trigger(result, pow(1.5, credit_cards))
+
+func refresh_stickers():
+	for sub_wheel in subwheels:
+		sub_wheel.refresh_stickers()
+	for c in stickers.get_children():
+		for s in c.get_children():
+			if s is not Sticker: continue
+			if not s.exhausted: continue
+			s.refresh()

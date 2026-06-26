@@ -5,11 +5,12 @@
 
 [resource]
 script = ExtResource("1_x41an")
-base_cost = 300
+base_cost = 3000
 icon = ExtResource("1_mabur")
 name = "Pepper Chunk"
 tag = "pepper"
 description = "Trigger the respective color
 an additional time"
 background_color = Color(0.99840575, 0.8272538, 0.6338143, 1)
+color_based = true
 metadata/_custom_type_script = "uid://cu6a1tq8sa07i"
