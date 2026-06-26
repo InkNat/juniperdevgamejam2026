@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="StickerData" format=3 uid="uid://duqe8jjsk81vk"]
+
+[ext_resource type="Script" uid="uid://dgxfjckrxanua" path="res://Scripts/sticker_data.gd" id="1_db1jm"]
+[ext_resource type="Texture2D" uid="uid://cub5dpnr3ksb1" path="res://Sprites/jollygodot.png" id="2_jk3fm"]
+
+[resource]
+script = ExtResource("1_db1jm")
+texture = ExtResource("2_jk3fm")
+size = Vector2i(3, 3)
+wheel_sticker = true
+name = "Nodal"
+description = "Wheel sticker.
+Trigger tiles of the same color
+of connected wheels."
+metadata/_custom_type_script = "uid://dgxfjckrxanua"

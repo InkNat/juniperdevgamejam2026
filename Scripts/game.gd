@@ -4,6 +4,7 @@ static var instance: Game
 
 @export var sticker_registry: Array[StickerData]
 @export var tile_registry: Array[Tile]
+@export var apple: ItemData
 @export_group("References")
 @export var tooltip : Tooltip
 @export var camera: Camera2D

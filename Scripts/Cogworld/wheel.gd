@@ -55,10 +55,11 @@ func setup(p_tiles: Array[Tile]):
 func click():
 	add_child(click_audio.instantiate())
 	var result = floor((wheel_rotation) * segments)
+	print(result)
 	for sticker in stickers.get_child(result).get_children():
 		if sticker is not Sticker: continue
-		if sticker.sticker_data.tag == "clicker":
-			pass
+		if sticker.sticker_data.get_tag() == "clicker":
+			trigger(result, 0.05)
 
 func _input(event):
 	if not _setup: return
@@ -99,14 +100,31 @@ func _process(delta):
 		var wheel_child : Wheel = child
 		wheel_child.wheel_rotation = (1/float(segments*2))-wheel_rotation
 
-func trigger(index: int,tags: Array[String]):
-	
+func clover_randf(clover_count: int):
+	var e = randf()
+	for i in range(clover_count):
+		var f = randf()
+		if e < f: e = f
+	return e
+
+func trigger(index: int, multiplier = 1):
+	var tags = []
+	for sticker in stickers.get_child(index).get_children():
+		if sticker is not Sticker: continue
+		tags.append(sticker.sticker_data.get_tag())
+		
 	var star_count = 0
 	for c in stickers.get_children():
 		for s in c.get_children():
 			if s is not Sticker: continue
-			if s.sticker_data.tag == "star":
+			if s.sticker_data.get_tag() == "star":
 				star_count+=1
+	var clover_count = 0
+	for c in stickers.get_children():
+		for s in c.get_children():
+			if s is not Sticker: continue
+			if s.sticker_data.get_tag() == "lucky_clover":
+				clover_count+=1
 	
 	var money = tiles[index].base_reward
 	
@@ -130,37 +148,41 @@ func trigger(index: int,tags: Array[String]):
 			"star":
 				bonus_money+=star_count*500
 			"horseshoe":
-				if randf() >= 0.2:
+				if clover_randf(clover_count) >= 0.8:
 					bonus_money+=10000
 			"motivational":
-				print("i'm so motivated")
+				MainWheel.instance.motivation+=0.25
 			"affectionate":
 				heart_count+=1
-			"lucky_clover":
-				print("i'm so lucky")
-			"clicker":
-				print("clicky!")
+			"apple_sticker":
+				if clover_randf(clover_count) >= 0.9:
+					var apple = Game.instance.apple.create_item()
+					var result = GridSlots.instance.add_item(apple)
+					if not result: apple.queue_free()
+			"drill":
+				trigger((index+(segments/2))%segments)
+			"nosey_neighbor":
+				var mult = (clover_randf(clover_count)*0.5)+0.25
+				trigger((index+1)%segments, mult)
+				trigger((index-1)%segments, mult)
 	for i in range(plaster_count):
-		money *= (0.5 - (randf()*0.25))
+		money *= (0.5 - (clover_randf(clover_count)*0.25))
 	for i in range(heart_count):
 		money = pow(money,1.2)
 	money += bonus_money
 	
-	for effect in MainWheel.global_tags:
+	for effect in MainWheel.instance.global_tags:
 		match effect:
 			"raspberry":
 				raspberry_count+=1
 			"mulberry":
 				mulberry_count+=1
 	
-	Game.instance.cash_money += ceil((money+(raspberry_count*100))*pow(1.5,mulberry_count))
+	Game.instance.cash_money += (ceil((money+(raspberry_count*100))*pow(1.5,mulberry_count))) * multiplier
 
 func land():
 	for sub_wheel in subwheels:
 		sub_wheel.land()
 	var result = floor((wheel_rotation) * segments)
 	print("landed on tile " + str(result))
-	var sticker_tags = []
-	for sticker in stickers.get_child(result).get_children():
-		if sticker is not Sticker: continue
-		sticker_tags.append(sticker.sticker_data.tag)
+	trigger(result)

@@ -1,6 +1,9 @@
 class_name MainWheel extends Wheel
 
-static var global_tags: Array[String] = []
+static var instance: MainWheel
+
+var global_tags: Array[String] = []
+var motivation: float = 1
 
 var current_full_spin_time: float = 0
 var fadeout_time: float = 0
@@ -13,6 +16,7 @@ var speed: float = 1
 @export var base_tiles: Array[Tile]
 
 func _ready():
+	instance = self
 	setup(base_tiles)
 
 func _process(delta):
@@ -44,11 +48,13 @@ func spin(tags: Array[String]):
 				total_speed += 1
 			_:
 				rest.append(tag)
+	total_speed *= motivation
+	motivation = 1
+	speed = total_speed
 	global_tags = rest
 	current_full_spin_time = total_time
 	fadeout_time = max_fadeout_time*speed
 	hamster_manager.speed = speed*100
-	speed = total_speed
 	hamster_manager.run()
 
 func land():

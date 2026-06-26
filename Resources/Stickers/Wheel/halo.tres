@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="StickerData" format=3 uid="uid://cetrajpb4hh03"]
+
+[ext_resource type="Script" uid="uid://dgxfjckrxanua" path="res://Scripts/sticker_data.gd" id="1_uh0mr"]
+[ext_resource type="Texture2D" uid="uid://da327x4vksaip" path="res://Sprites/halo.png" id="2_qi13d"]
+
+[resource]
+script = ExtResource("1_uh0mr")
+texture = ExtResource("2_qi13d")
+size = Vector2i(4, 4)
+wheel_sticker = true
+name = "Halo"
+description = "Wheel sticker.
+Place a single non-wheel sticker inside.
+Give its effect to all tiles of the wheel."
+metadata/_custom_type_script = "uid://dgxfjckrxanua"

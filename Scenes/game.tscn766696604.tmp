@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="6_1l0tm"]
 [ext_resource type="Resource" uid="uid://cbyp5qi3mvfu" path="res://Resources/Stickers/plaster.tres" id="6_csv17"]
 [ext_resource type="Resource" uid="uid://ccwua0o58poqq" path="res://Resources/Stickers/star.tres" id="7_6i05k"]
+[ext_resource type="Resource" uid="uid://c4ei4lq5vt07a" path="res://Resources/Stickers/credit_card.tres" id="8_a2m5q"]
 [ext_resource type="Resource" uid="uid://dim77k6kldl8q" path="res://Resources/Stickers/affectionate.tres" id="8_sfx3s"]
 [ext_resource type="Script" uid="uid://dtblyjnxeprm" path="res://Scripts/Cogworld/cogworld.gd" id="9_mucmn"]
 [ext_resource type="Resource" uid="uid://wf05lo0tr1ft" path="res://Resources/Stickers/horseshoe.tres" id="9_p5qon"]
@@ -34,22 +35,16 @@
 [ext_resource type="Shader" uid="uid://dho3ny4pwb7n7" path="res://Shaders/mask.gdshader" id="16_iivbl"]
 [ext_resource type="AudioStream" uid="uid://cttoesuj6nur6" path="res://Sounds/wheel_click.wav" id="17_81klo"]
 [ext_resource type="PackedScene" uid="uid://c662cotbrgpym" path="res://Scenes/mediumwheelpreview.tscn" id="17_cwurv"]
-[ext_resource type="Resource" uid="uid://g4w3fqcgjbjs" path="res://Resources/Stickers/apple_sticker.tres" id="17_ff75x"]
 [ext_resource type="PackedScene" uid="uid://rrngt3i26um2" path="res://Scenes/test.tscn" id="18_cwurv"]
 [ext_resource type="PackedScene" uid="uid://csdltrx7dvm3g" path="res://Scenes/smallwheelpreview.tscn" id="18_ese38"]
-[ext_resource type="Resource" uid="uid://c4ei4lq5vt07a" path="res://Resources/Stickers/Wheel/credit_card.tres" id="18_ifeo7"]
 [ext_resource type="PackedScene" uid="uid://bqdy4hvtplcb" path="res://Scenes/mediumwheel.tscn" id="18_mucmn"]
 [ext_resource type="Script" uid="uid://d3dqiim8xheu3" path="res://Scripts/play_and_die.gd" id="18_tgy6u"]
 [ext_resource type="Script" uid="uid://q7otcvnu0q8a" path="res://Scripts/Cogworld/proxy.gd" id="19_fkdbe"]
-[ext_resource type="Resource" uid="uid://c068m1of27sah" path="res://Resources/Stickers/Wheel/gear_ratio.tres" id="19_qj5kr"]
 [ext_resource type="PackedScene" uid="uid://l4a0yms58kph" path="res://Scenes/tile_tooltip.tscn" id="19_x6jpx"]
-[ext_resource type="Resource" uid="uid://cetrajpb4hh03" path="res://Resources/Stickers/Wheel/halo.tres" id="20_d5jaa"]
 [ext_resource type="Script" uid="uid://c2vyt84ou3pjd" path="res://Scripts/tile.gd" id="20_lmoi6"]
 [ext_resource type="PackedScene" uid="uid://kqshj2y3m17n" path="res://Scenes/smallwheel.tscn" id="20_oeip8"]
 [ext_resource type="Resource" uid="uid://duo76hod7pwiw" path="res://Resources/Tiles/pink.tres" id="21_6uxt2"]
 [ext_resource type="Texture2D" uid="uid://d1v538f8pf0ni" path="res://Sprites/SPINbutton.png" id="21_exi56"]
-[ext_resource type="Resource" uid="uid://duqe8jjsk81vk" path="res://Resources/Stickers/Wheel/nodal.tres" id="21_k8ojv"]
-[ext_resource type="Resource" uid="uid://csnabfrbbirt0" path="res://Resources/Stickers/Wheel/rainbowbow.tres" id="22_7sqp1"]
 [ext_resource type="Script" uid="uid://b2b1dyxiqfmpr" path="res://Scripts/spin_button_manager.gd" id="22_7t8sx"]
 [ext_resource type="Resource" uid="uid://dkxm2mketho85" path="res://Resources/Tiles/purple.tres" id="22_ym3tv"]
 [ext_resource type="Resource" uid="uid://dnsdtm0fpuw2j" path="res://Resources/Tiles/orange.tres" id="23_6a4tp"]
@@ -58,7 +53,6 @@
 [ext_resource type="Resource" uid="uid://i5j4g12o1m15" path="res://Resources/Tiles/green.tres" id="25_vs120"]
 [ext_resource type="Resource" uid="uid://1moc5sb8ltfg" path="res://Resources/Tiles/cyan.tres" id="26_v2cs8"]
 [ext_resource type="Resource" uid="uid://cy6pt5d6s3f2y" path="res://Resources/Tiles/blue.tres" id="27_32sfa"]
-[ext_resource type="Resource" uid="uid://l0y521g25h4c" path="res://Resources/Items/apple.tres" id="27_a2m5q"]
 [ext_resource type="Texture2D" uid="uid://bcbmstnx5fx4m" path="res://Sprites/mr.spinnington_fast.png" id="29_631el"]
 [ext_resource type="PackedScene" uid="uid://bqnnsjd51761o" path="res://Scenes/bigwheelpreview.tscn" id="31_xe308"]
 [ext_resource type="Texture2D" uid="uid://dtp8c5yw4nelc" path="res://Sprites/mr.hurtington.png" id="33_32sfa"]
@@ -435,9 +429,8 @@ size = Vector2(15, 17)
 [node name="Game" type="Node2D" unique_id=547770425 node_paths=PackedStringArray("tooltip", "camera", "hamster_slot", "main_wheel", "spin_button", "money_label", "shop_tabs", "sticker_sheet_slot")]
 texture_filter = 1
 script = ExtResource("1_wrm1d")
-sticker_registry = Array[ExtResource("2_x6jpx")]([ExtResource("8_sfx3s"), ExtResource("4_ff75x"), ExtResource("4_kcoun"), ExtResource("10_gyste"), ExtResource("3_sjh24"), ExtResource("5_jegl3"), ExtResource("10_lknxd"), ExtResource("9_p5qon"), ExtResource("11_p3b6d"), ExtResource("12_bchkn"), ExtResource("14_ckj55"), ExtResource("15_q8b24"), ExtResource("6_csv17"), ExtResource("7_6i05k"), ExtResource("17_ff75x"), ExtResource("18_ifeo7"), ExtResource("19_qj5kr"), ExtResource("20_d5jaa"), ExtResource("21_k8ojv"), ExtResource("22_7sqp1")])
+sticker_registry = Array[ExtResource("2_x6jpx")]([ExtResource("8_sfx3s"), ExtResource("4_ff75x"), ExtResource("4_kcoun"), ExtResource("10_gyste"), ExtResource("3_sjh24"), ExtResource("8_a2m5q"), ExtResource("5_jegl3"), ExtResource("10_lknxd"), ExtResource("9_p5qon"), ExtResource("11_p3b6d"), ExtResource("12_bchkn"), ExtResource("14_ckj55"), ExtResource("15_q8b24"), ExtResource("6_csv17"), ExtResource("7_6i05k")])
 tile_registry = Array[ExtResource("20_lmoi6")]([ExtResource("21_6uxt2"), ExtResource("23_bwj6o"), ExtResource("23_6a4tp"), ExtResource("24_631el"), ExtResource("25_vs120"), ExtResource("26_v2cs8"), ExtResource("27_32sfa"), ExtResource("22_ym3tv")])
-apple = ExtResource("27_a2m5q")
 tooltip = NodePath("Tooltip")
 camera = NodePath("CogworldViewport/SubViewport/Cogworld/Camera2D")
 hamster_slot = NodePath("CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy/HamsterSlot")
@@ -498,7 +491,9 @@ red_arrow = NodePath("WheelVisual/RedArrow")
 cogwheel = NodePath("WheelVisual/3DWheelProjector/SubViewport/Node3D/BigCogwheel")
 click_audio = SubResource("PackedScene_cwurv")
 tile_tooltip = ExtResource("19_x6jpx")
+wheel_size = null
 stickers = NodePath("Proxy2/Stickers")
+sprite_scale = null
 
 [node name="Proxy2" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=487615973 node_paths=PackedStringArray("scale_target")]
 script = ExtResource("19_fkdbe")

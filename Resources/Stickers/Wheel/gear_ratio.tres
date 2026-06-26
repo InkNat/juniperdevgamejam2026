@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="StickerData" format=3 uid="uid://c068m1of27sah"]
+
+[ext_resource type="Script" uid="uid://dgxfjckrxanua" path="res://Scripts/sticker_data.gd" id="1_e4x83"]
+[ext_resource type="Texture2D" uid="uid://b2r5vu8d6l8vc" path="res://Sprites/FAST.png" id="2_k8mmi"]
+
+[resource]
+script = ExtResource("1_e4x83")
+texture = ExtResource("2_k8mmi")
+size = Vector2i(3, 3)
+wheel_sticker = true
+name = "Gear Ratio"
+description = "Wheel sticker.
+Wheel spins 2x faster
+independently of the gear."
+metadata/_custom_type_script = "uid://dgxfjckrxanua"

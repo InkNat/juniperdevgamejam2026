@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://l0y521g25h4c"]
+
+[ext_resource type="Script" uid="uid://cu6a1tq8sa07i" path="res://Scripts/itemdata.gd" id="1_0drj1"]
+[ext_resource type="Texture2D" uid="uid://b8e1arwah3q26" path="res://Sprites/apple_slice.png" id="1_i1igv"]
+
+[resource]
+script = ExtResource("1_0drj1")
+icon = ExtResource("1_i1igv")
+name = "Apple Slice"
+tag = "apple_slice"
+description = "Skip negative tiles.
+"
+background_color = Color(0.34509805, 0.79607844, 0.34509805, 1)
+metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

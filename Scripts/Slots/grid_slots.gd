@@ -1,5 +1,7 @@
 class_name GridSlots extends Slot
 
+static var instance: GridSlots
+
 @export var _grid_size_x : int
 @export var _grid_size_y : int
 @export var _cell_size : int
@@ -7,6 +9,7 @@ class_name GridSlots extends Slot
 var contents = []
 
 func _ready():
+	instance = self
 	for i in range(_grid_size_x*_grid_size_y):
 		contents.append(null)
 

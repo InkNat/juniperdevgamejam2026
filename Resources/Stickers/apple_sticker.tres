@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="StickerData" format=3 uid="uid://g4w3fqcgjbjs"]
+
+[ext_resource type="Script" uid="uid://dgxfjckrxanua" path="res://Scripts/sticker_data.gd" id="1_e5nfi"]
+[ext_resource type="Texture2D" uid="uid://crx8fltxvt3cv" path="res://Sprites/applesticker.png" id="2_oe504"]
+
+[resource]
+script = ExtResource("1_e5nfi")
+texture = ExtResource("2_oe504")
+name = "Apple Sticker"
+description = "10% chance to add an apple 
+slice to your inventory."
+metadata/_custom_type_script = "uid://dgxfjckrxanua"
