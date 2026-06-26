@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="StickerData" format=3 uid="uid://c4ei4lq5vt07a"]
+
+[ext_resource type="Script" uid="uid://dgxfjckrxanua" path="res://Scripts/sticker_data.gd" id="1_xoebx"]
+[ext_resource type="Texture2D" uid="uid://cerkpic4ivem4" path="res://Sprites/creditcard.png" id="2_j5wbc"]
+
+[resource]
+script = ExtResource("1_xoebx")
+texture = ExtResource("2_j5wbc")
+size = Vector2i(3, 3)
+wheel_sticker = true
+name = "Credit Card"
+description = "Wheel sticker.
++50% rewards"
+metadata/_custom_type_script = "uid://dgxfjckrxanua"

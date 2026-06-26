@@ -1,4 +1,4 @@
-extends Node2D
+class_name Proxy extends Node2D
 
 @export var scale_target: Node2D
 var camera: Camera2D
@@ -17,3 +17,11 @@ func _process(delta):
 	var e = get_viewport_rect().size/2
 	target.position = ((global_position-camera.position)*camera.zoom)+e
 	scale_target.scale = camera.zoom
+	
+func delete():
+	print("deleted")
+	if (scale_target != target):
+		if is_instance_valid(scale_target):
+			scale_target.queue_free()
+	if is_instance_valid(target):
+		target.queue_free()

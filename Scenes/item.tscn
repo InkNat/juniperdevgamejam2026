@@ -7,7 +7,7 @@
 size = Vector2(16, 16)
 
 [node name="Item" type="Node2D" unique_id=1706374103 node_paths=PackedStringArray("sprite")]
-z_index = 4090
+z_index = 4000
 script = ExtResource("1_76mu4")
 sprite = NodePath("Texture")
 pick_item_audio = ExtResource("2_76mu4")

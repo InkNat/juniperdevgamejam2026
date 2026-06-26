@@ -16,7 +16,7 @@ func _ready():
 
 func set_sold_item(item: ItemData):
 	_name_label.text = item.name
-	cost = item.base_cost
+	cost = (item.base_cost)*Game.instance.global_cost_multiplier
 	_price_label.text = str(cost) + "$"
 	_sold_item = item
 	background.modulate = item.background_color

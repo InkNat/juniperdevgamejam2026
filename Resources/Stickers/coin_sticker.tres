@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StickerData" format=3 uid="uid://d3uvcngskwu67"]
+
+[ext_resource type="Script" uid="uid://dgxfjckrxanua" path="res://Scripts/sticker_data.gd" id="1_56l5f"]
+[ext_resource type="Texture2D" uid="uid://l60ea4uwar3a" path="res://Sprites/coin.png" id="2_wbnsm"]
+
+[resource]
+script = ExtResource("1_56l5f")
+texture = ExtResource("2_wbnsm")
+name = "Coin"
+description = "+1000$"
+metadata/_custom_type_script = "uid://dgxfjckrxanua"

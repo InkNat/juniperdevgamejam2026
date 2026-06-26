@@ -21,7 +21,7 @@ func _process(delta):
 
 func get_tooltip() -> TooltipData:
 	if _dragging: return null
-	return TooltipData.new(item_data.icon, item_data.background_color,item_data.name, item_data.description)
+	return TooltipData.new(item_data.icon, item_data.background_color,item_data.name, item_data.description,2)
 
 func click_press():
 	Game.play_and_die(pick_item_audio)

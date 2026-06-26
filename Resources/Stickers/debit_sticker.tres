@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="StickerData" format=3 uid="uid://badm43da1hnn"]
+
+[ext_resource type="Script" uid="uid://dgxfjckrxanua" path="res://Scripts/sticker_data.gd" id="2_xes5x"]
+[ext_resource type="Texture2D" uid="uid://b7meyy4jmdue8" path="res://Sprites/debitcard.png" id="2_ysj2g"]
+
+[resource]
+script = ExtResource("2_xes5x")
+texture = ExtResource("2_ysj2g")
+size = Vector2i(3, 2)
+name = "Debit Card"
+description = "+20000$"
+metadata/_custom_type_script = "uid://dgxfjckrxanua"

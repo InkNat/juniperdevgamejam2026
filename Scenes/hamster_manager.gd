@@ -8,6 +8,8 @@ var previous = 0
 var _pos
 var _rot
 
+var tween_buffer: Tween
+
 var shove_time = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -18,13 +20,17 @@ func _ready():
 	body_entered.connect(random_hurt)
 
 func shove():
+	if (tween_buffer != null and tween_buffer.is_valid()):
+		tween_buffer.kill()
 	freeze = false
 	shove_time = 1
 	linear_velocity = Vector3((randf()-0.5),randf(),0).normalized() * 30
 func reset():
 	freeze = true
-	position = _pos
-	rotation = _rot
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position", _pos, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
+	tween.parallel().tween_property(self, "rotation", _rot, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
+	tween_buffer = tween
 	speed = 1
 	animated_sprite.play("omori_wobbler")
 func run():
@@ -32,7 +38,7 @@ func run():
 
 func random_hurt(_other):
 	var _speed = linear_velocity.length()
-	Game.play_and_die(collision_noise, (randf()+1)/2,_speed/30)
+	Game.play_and_die(collision_noise, (randf()+1)/2,0.3 + (_speed/30))
 	animated_sprite.stop()
 	var e = (randi()%9)+1
 	if e == previous: e+=1

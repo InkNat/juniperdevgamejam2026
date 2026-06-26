@@ -2,19 +2,19 @@
 
 [ext_resource type="Script" uid="uid://du3o3rr0v3r4g" path="res://Scripts/Cogworld/wheel.gd" id="1_5pcjj"]
 [ext_resource type="PackedScene" uid="uid://c2obbv1kgq74x" path="res://Scenes/audio_stream_player.tscn" id="2_vg21s"]
+[ext_resource type="PackedScene" uid="uid://l4a0yms58kph" path="res://Scenes/tile_tooltip.tscn" id="3_lftd2"]
 [ext_resource type="Shader" uid="uid://dfojatw757cjj" path="res://Shaders/segmentedwheel.gdshader" id="3_oaoae"]
 [ext_resource type="ArrayMesh" uid="uid://cldsorfkonbqa" path="res://Models/SmallCogwheel.tres" id="4_5pcjj"]
-[ext_resource type="Texture2D" uid="uid://cbte7wm467275" path="res://Sprites/WheelColorStrips/wheel_stripe.png" id="4_vg21s"]
-[ext_resource type="Texture2D" uid="uid://c8q8kbgurnotg" path="res://Sprites/red arowe.png" id="5_546as"]
+[ext_resource type="Texture2D" uid="uid://bdkt4ipvsin67" path="res://Sprites/pointer.png" id="6_oaoae"]
+[ext_resource type="Script" uid="uid://q7otcvnu0q8a" path="res://Scripts/Cogworld/proxy.gd" id="6_vg21s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1phco"]
 resource_local_to_scene = true
 shader = ExtResource("3_oaoae")
-shader_parameter/colorSampler = ExtResource("4_vg21s")
 shader_parameter/separatorColor = Color(0, 0, 0, 1)
 shader_parameter/angle_offset = 0.0
-shader_parameter/separatorCount = 8
-shader_parameter/separatorLength = 0.01
+shader_parameter/separator_count = 4
+shader_parameter/separatorLength = 0.02
 shader_parameter/minLength = 0.1
 shader_parameter/maxLength = 0.2
 
@@ -24,13 +24,15 @@ load_path = "res://.godot/imported/whitepixel.png-835a41345ae031d828326087080977
 [sub_resource type="ViewportTexture" id="ViewportTexture_iivbl"]
 viewport_path = NodePath("WheelVisual/3DWheelProjector/SubViewport")
 
-[node name="SmallWheel" type="Node2D" unique_id=2143089451 node_paths=PackedStringArray("wheel", "red_arrow", "cogwheel")]
+[node name="SmallWheel" type="Node2D" unique_id=2143089451 node_paths=PackedStringArray("wheel", "red_arrow", "cogwheel", "stickers")]
 script = ExtResource("1_5pcjj")
 wheel = NodePath("WheelVisual/Wheel")
 red_arrow = NodePath("WheelVisual/RedArrow")
 cogwheel = NodePath("WheelVisual/3DWheelProjector/SubViewport/Node3D/BigCogwheel")
 click_audio = ExtResource("2_vg21s")
+tile_tooltip = ExtResource("3_lftd2")
 wheel_size = 0
+stickers = NodePath("Proxy/Stickers")
 
 [node name="WheelVisual" type="Node2D" parent="." unique_id=1863031343]
 
@@ -61,7 +63,10 @@ mesh = ExtResource("4_5pcjj")
 
 [node name="RedArrow" type="Sprite2D" parent="WheelVisual" unique_id=1053535091]
 position = Vector2(0, -26)
-rotation = 1.5707964
-texture = ExtResource("5_546as")
-centered = false
-offset = Vector2(-2, -9)
+texture = ExtResource("6_oaoae")
+
+[node name="Proxy" type="Node2D" parent="." unique_id=1448295850 node_paths=PackedStringArray("scale_target")]
+script = ExtResource("6_vg21s")
+scale_target = NodePath("Stickers")
+
+[node name="Stickers" type="Node2D" parent="Proxy" unique_id=173015961]

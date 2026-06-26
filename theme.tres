@@ -1,7 +1,19 @@
 [gd_resource type="Theme" format=3 uid="uid://daceovuu0mg68"]
 
 [ext_resource type="StyleBox" uid="uid://crcmo3i3vm2ea" path="res://stylebox.tres" id="1_cjfk0"]
+[ext_resource type="Texture2D" uid="uid://cidfmuyjhvykq" path="res://Sprites/UI/item_icon_background.png" id="2_110ce"]
 [ext_resource type="FontFile" uid="uid://cupgphoqtkwuf" path="res://pixel font.ttf" id="2_cjfk0"]
+[ext_resource type="Texture2D" uid="uid://dq6d707vjmdjg" path="res://Sprites/UI/full ui.png" id="2_vj6dk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05tig"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6vr2p"]
+texture = ExtResource("2_vj6dk")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 
 [resource]
 default_font = ExtResource("2_cjfk0")
@@ -11,6 +23,9 @@ Button/styles/focus = ExtResource("1_cjfk0")
 Button/styles/hover = ExtResource("1_cjfk0")
 Button/styles/normal = ExtResource("1_cjfk0")
 Button/styles/pressed = ExtResource("1_cjfk0")
+HSlider/icons/grabber = ExtResource("2_110ce")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_05tig")
+HSlider/styles/slider = SubResource("StyleBoxTexture_6vr2p")
 Label/font_sizes/font_size = 11
 Panel/styles/panel = ExtResource("1_cjfk0")
 PanelContainer/styles/panel = ExtResource("1_cjfk0")

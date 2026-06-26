@@ -4,16 +4,19 @@ extends Node
 @export var store_tab: ShopTab
 @export var settings_tab: ShopTab
 
+var locked = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	close_all()
 
-func _input(event):
-	if (grocery_tab.is_open or store_tab.is_open or settings_tab.is_open):
-		get_viewport().set_input_as_handled()
+#func _input(event):
+	#if (grocery_tab.is_open or store_tab.is_open or settings_tab.is_open):
+	#	get_viewport().set_input_as_handled()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func groceries():
+	if locked: return
 	if (grocery_tab.is_open): 
 		close_all()
 		return
@@ -22,6 +25,7 @@ func groceries():
 	grocery_tab.open()
 
 func store():
+	if locked: return
 	if (store_tab.is_open): 
 		close_all()
 		return
@@ -30,6 +34,7 @@ func store():
 	grocery_tab.close()
 
 func settings():
+	if locked: return
 	if (settings_tab.is_open): 
 		close_all()
 		return

@@ -114,7 +114,8 @@ scale = Vector2(88.99999, 101.99999)
 texture = ExtResource("12_7hhs2")
 centered = false
 
-[node name="Node2D" type="Node2D" parent="StoreTab" unique_id=167023093]
+[node name="Node2D" type="Node2D" parent="StoreTab" unique_id=983891031]
+clip_children = 1
 position = Vector2(31, 8)
 
 [node name="GroceryTab" type="Sprite2D" parent="." unique_id=999702410 node_paths=PackedStringArray("target")]

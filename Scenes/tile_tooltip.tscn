@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://l4a0yms58kph"]
+
+[ext_resource type="Script" uid="uid://btesr4txynog6" path="res://tile_tooltip.gd" id="1_3mnoh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mduoy"]
+radius = 8.0
+
+[node name="TileTooltip" type="Node2D" unique_id=1879772578]
+script = ExtResource("1_3mnoh")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=526527655]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=596212536]
+shape = SubResource("CircleShape2D_mduoy")

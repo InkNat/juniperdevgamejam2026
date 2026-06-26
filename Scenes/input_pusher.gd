@@ -10,5 +10,5 @@ func _ready():
 func _process(delta):
 	pass
 
-func _input(event):
+func _unhandled_input(event):
 	get_child(0).push_input(event)

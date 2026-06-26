@@ -12,5 +12,9 @@ func _ready():
 func _process(delta):
 	pass
 
+func safe_delete():
+	for e in get_children():
+		if e is Proxy: e.delete()
+
 func place_wheel_here():
 	Cogworld.instance.place_wheel_at(wheel_size,wheel_position)

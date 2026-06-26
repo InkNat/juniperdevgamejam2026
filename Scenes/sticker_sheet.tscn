@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bp2rx4270u1b2"]
+
+[ext_resource type="Texture2D" uid="uid://qspjb50js2by" path="res://Sprites/UI/sticker_sheet.png" id="1_wafjd"]
+[ext_resource type="Script" uid="uid://c8jyit40yfoyd" path="res://Scenes/sticker_sheet.gd" id="2_jbtdt"]
+[ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="3_2g2gv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csmwn"]
+size = Vector2(64, 156.00002)
+
+[node name="StickerSheet" type="Sprite2D" unique_id=2023786330 node_paths=PackedStringArray("sticker_area", "label")]
+texture = ExtResource("1_wafjd")
+centered = false
+script = ExtResource("2_jbtdt")
+sticker_area = NodePath("StickerArea")
+label = NodePath("StickerPriceLabel")
+
+[node name="StickerPriceLabel" type="Label" parent="." unique_id=2100193472]
+modulate = Color(0.0627451, 0.06666667, 0.06666667, 1)
+offset_left = 0.99998116
+offset_top = 108.0
+offset_right = 23.99998
+offset_bottom = 120.0
+theme = ExtResource("3_2g2gv")
+theme_override_font_sizes/font_size = 8
+text = "1000$"
+
+[node name="StickerArea" type="Area2D" parent="." unique_id=1906564206]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StickerArea" unique_id=320748194]
+position = Vector2(32, 37.000008)
+shape = SubResource("RectangleShape2D_csmwn")

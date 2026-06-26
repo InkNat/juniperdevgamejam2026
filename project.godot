@@ -10,9 +10,13 @@ config_version=5
 
 [application]
 
-config/name="juniperdevgamejam2026"
+config/name="Mr Spinnington's Mechanical Emporium"
 run/main_scene="uid://clo7177g2bvre"
 config/features=PackedStringArray("4.7", "Forward Plus")
+
+[audio]
+
+buses/default_bus_layout="uid://k3g2eapgsbrh"
 
 [display]
 

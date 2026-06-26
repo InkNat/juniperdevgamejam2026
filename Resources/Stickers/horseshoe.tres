@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StickerData" format=3 uid="uid://wf05lo0tr1ft"]
+
+[ext_resource type="Script" uid="uid://dgxfjckrxanua" path="res://Scripts/sticker_data.gd" id="1_5buek"]
+[ext_resource type="Texture2D" uid="uid://dk5a1vflw40d5" path="res://Sprites/horseshoe.png" id="2_0g2ud"]
+
+[resource]
+script = ExtResource("1_5buek")
+texture = ExtResource("2_0g2ud")
+name = "Horseshoe"
+description = "20% chance to give 10000$"
+metadata/_custom_type_script = "uid://dgxfjckrxanua"

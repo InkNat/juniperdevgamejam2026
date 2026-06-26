@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="StickerData" format=3 uid="uid://f8cht1wnummy"]
+
+[ext_resource type="Script" uid="uid://dgxfjckrxanua" path="res://Scripts/sticker_data.gd" id="1_uij5c"]
+[ext_resource type="Texture2D" uid="uid://b6iopqefw4x6a" path="res://Sprites/drill.png" id="2_mjftt"]
+
+[resource]
+script = ExtResource("1_uij5c")
+texture = ExtResource("2_mjftt")
+size = Vector2i(2, 1)
+name = "Drill"
+description = "Trigger the opposite tile."
+metadata/_custom_type_script = "uid://dgxfjckrxanua"

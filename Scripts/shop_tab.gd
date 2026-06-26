@@ -30,6 +30,7 @@ func delete_insides():
 			_insides.queue_free()
 
 func spawn_insides():
+	if (is_instance_valid(_insides)): _insides.queue_free()
 	if (insides == null): return
 	_insides = insides.instantiate()
 	target.add_child(_insides)

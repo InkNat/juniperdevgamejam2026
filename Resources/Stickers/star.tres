@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StickerData" format=3 uid="uid://ccwua0o58poqq"]
+
+[ext_resource type="Script" uid="uid://dgxfjckrxanua" path="res://Scripts/sticker_data.gd" id="1_o87tb"]
+[ext_resource type="Texture2D" uid="uid://bjfik6w6v2onx" path="res://Sprites/satr.png" id="2_j7s70"]
+
+[resource]
+script = ExtResource("1_o87tb")
+texture = ExtResource("2_j7s70")
+name = "Star"
+description = "+500$ per star on this wheel"
+metadata/_custom_type_script = "uid://dgxfjckrxanua"

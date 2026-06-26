@@ -43,15 +43,15 @@ func is_full() -> bool:
 			return false
 	return true
 
-func add_item(item: Item):
+func add_item(item: Item) -> bool:
 	for i in range(len(contents)):
 		if (contents[i] == null):
 			contents[i] = item
 			item.attachement = (get_vec_from_index(i)*_cell_size)+ Vector2(_cell_size/2.0,_cell_size/2.0)
 			item.position = item.attachement
 			add_child(item)
-			break
-	
+			return true
+	return false
 
 func can_retrieve(_item: Item) -> bool:
 	return true

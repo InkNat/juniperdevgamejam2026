@@ -9,7 +9,7 @@ base_cost = 500
 icon = ExtResource("1_7iw0a")
 name = "Spinach"
 tag = "spinach"
-description = "+0.5% reward per tile 
+description = "+1% reward per tile 
 the clicker passes over"
 background_color = Color(0.5752035, 0.89537734, 0.45555526, 1)
 metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

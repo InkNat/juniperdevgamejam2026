@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StickerData" format=3 uid="uid://d0f1b3r7wruw4"]
+
+[ext_resource type="Script" uid="uid://dgxfjckrxanua" path="res://Scripts/sticker_data.gd" id="1_km4pv"]
+[ext_resource type="Texture2D" uid="uid://drq8e3klwigri" path="res://Sprites/again.png" id="2_vdo74"]
+
+[resource]
+script = ExtResource("1_km4pv")
+texture = ExtResource("2_vdo74")
+size = Vector2i(2, 2)
+name = "Again! and Again?"
+description = "Keep reward and respin the wheel.
+20% chance to respin the wheel again."
+metadata/_custom_type_script = "uid://dgxfjckrxanua"

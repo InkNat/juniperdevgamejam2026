@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StickerData" format=3 uid="uid://dkiodyvx6jht5"]
+
+[ext_resource type="Script" uid="uid://dgxfjckrxanua" path="res://Scripts/sticker_data.gd" id="1_gagwy"]
+[ext_resource type="Texture2D" uid="uid://3mw3r4snydfi" path="res://Sprites/lucky.png" id="2_ual3j"]
+
+[resource]
+script = ExtResource("1_gagwy")
+texture = ExtResource("2_ual3j")
+size = Vector2i(2, 2)
+name = "Lucky Clover"
+description = "Roll random effects an additional 
+time, take the best result."
+metadata/_custom_type_script = "uid://dgxfjckrxanua"

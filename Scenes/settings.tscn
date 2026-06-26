@@ -1,7 +1,89 @@
 [gd_scene format=3 uid="uid://bgr7vofljfrpo"]
 
-[node name="settings" type="Node2D" unique_id=964925640]
+[ext_resource type="Script" uid="uid://hcswvjjwy1oq" path="res://Scenes/settings.gd" id="1_6kysc"]
+[ext_resource type="Shader" uid="uid://djh7dkph2i4v5" path="res://Scenes/scrolling_text.gdshader" id="1_lhmql"]
+[ext_resource type="Texture2D" uid="uid://c7grwga0folil" path="res://Sprites/mr_background.png" id="2_aaqfp"]
+[ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="3_j2dne"]
+[ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="4_6kysc"]
+[ext_resource type="Texture2D" uid="uid://dgtbsm7j5b25c" path="res://Sprites/UI/music_note.png" id="4_j2dne"]
+[ext_resource type="Texture2D" uid="uid://dsh4f21qyaudy" path="res://Sprites/UI/megaphone.png" id="5_6kysc"]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=87612944]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6kysc"]
+shader = ExtResource("1_lhmql")
+shader_parameter/text = ExtResource("2_aaqfp")
+shader_parameter/second_offset = Vector2(0, 0.125)
+shader_parameter/size = Vector2(89, 102)
+shader_parameter/speed = 0.05
+shader_parameter/background_color = Color(0, 0.04058157, 0.005374158, 1)
+shader_parameter/text_color = Color(0.0036738925, 0.08736404, 6.016344e-09, 1)
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1073439627]
+[node name="Settings" type="Node2D" unique_id=964925640]
+script = ExtResource("1_6kysc")
+
+[node name="Control" type="Control" parent="." unique_id=485441688]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("4_6kysc")
+
+[node name="Background" type="Sprite2D" parent="Control" unique_id=2140044554]
+modulate = Color(0.26806864, 0.20216721, 0.22568214, 1)
+z_index = -3
+material = SubResource("ShaderMaterial_6kysc")
+scale = Vector2(89, 102.00001)
+texture = ExtResource("3_j2dne")
+centered = false
+
+[node name="MusicNote" type="Sprite2D" parent="Control" unique_id=1194690833]
+position = Vector2(11, 9)
+texture = ExtResource("4_j2dne")
+
+[node name="Megaphone" type="Sprite2D" parent="Control" unique_id=506938878]
+position = Vector2(11, 25)
+texture = ExtResource("5_6kysc")
+
+[node name="MusicSlider" type="HSlider" parent="Control" unique_id=1163352173]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 1.0
+offset_right = 67.0
+offset_bottom = 17.0
+min_value = -30.0
+max_value = 12.0
+
+[node name="SoundsSlider" type="HSlider" parent="Control" unique_id=118186116]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 17.0
+offset_right = 67.0
+offset_bottom = 33.0
+min_value = -30.0
+max_value = 12.0
+
+[node name="QuitButton" type="Button" parent="Control" unique_id=1180633812]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 85.0
+offset_right = 84.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 8
+text = "Quit"
+
+[node name="RestartButton" type="Button" parent="Control" unique_id=306623949]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 85.0
+offset_right = 46.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 8
+text = "Restart"
+
+[node name="SnapButton" type="Button" parent="Control" unique_id=2019357213]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 67.0
+offset_right = 84.0
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 8
+text = "Snap to Center"

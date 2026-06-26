@@ -1,4 +1,6 @@
-extends Wheel
+class_name MainWheel extends Wheel
+
+static var global_tags: Array[String] = []
 
 var current_full_spin_time: float = 0
 var fadeout_time: float = 0
@@ -8,6 +10,10 @@ var speed: float = 1
 @export var spin_curve: Curve
 @export var cylinder: Node3D
 @export var hamster_manager: HamsterManager
+@export var base_tiles: Array[Tile]
+
+func _ready():
+	setup(base_tiles)
 
 func _process(delta):
 	
@@ -26,14 +32,19 @@ func _process(delta):
 	rotate_wheel(wheel_rotation)
 
 func spin(tags: Array[String]):
+	Game.instance.spin_reset()
 	var total_time = (randf()*2)+1
 	var total_speed = 1
+	var rest: Array[String] = []
 	for tag in tags:
 		match tag:
 			"oat":
 				total_time += (randf()*1)+1
 			"carrot":
 				total_speed += 1
+			_:
+				rest.append(tag)
+	global_tags = rest
 	current_full_spin_time = total_time
 	fadeout_time = max_fadeout_time*speed
 	hamster_manager.speed = speed*100
@@ -42,3 +53,4 @@ func spin(tags: Array[String]):
 
 func land():
 	super.land()
+	Game.instance.land_reset()

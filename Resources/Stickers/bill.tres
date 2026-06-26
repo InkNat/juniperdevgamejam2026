@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StickerData" format=3 uid="uid://dmf7v3rw2lj32"]
+
+[ext_resource type="Script" uid="uid://dgxfjckrxanua" path="res://Scripts/sticker_data.gd" id="1_f7ojv"]
+[ext_resource type="Texture2D" uid="uid://bwrooy7nly5fx" path="res://Sprites/bill.png" id="2_5om4e"]
+
+[resource]
+script = ExtResource("1_f7ojv")
+texture = ExtResource("2_5om4e")
+size = Vector2i(2, 1)
+name = "Bill"
+tag = "bill"
+description = "+5000$"
+metadata/_custom_type_script = "uid://dgxfjckrxanua"

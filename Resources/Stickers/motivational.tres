@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StickerData" format=3 uid="uid://day8dx458ejbb"]
+
+[ext_resource type="Script" uid="uid://dgxfjckrxanua" path="res://Scripts/sticker_data.gd" id="1_ua6uh"]
+[ext_resource type="Texture2D" uid="uid://s5mqsurmb3w" path="res://Sprites/motivational.png" id="2_wxq3v"]
+
+[resource]
+script = ExtResource("1_ua6uh")
+texture = ExtResource("2_wxq3v")
+size = Vector2i(2, 2)
+name = "Motivational"
+description = "+25% hamster speed 
+on next spin."
+metadata/_custom_type_script = "uid://dgxfjckrxanua"

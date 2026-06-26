@@ -1,79 +1,33 @@
 [gd_scene format=3 uid="uid://bqgai5td6sg7q"]
 
-[ext_resource type="Script" path="res://Scenes/store_shop.gd" id="1_fgfif"]
+[ext_resource type="Texture2D" uid="uid://b6krvav5xm6mn" path="res://Sprites/ui_mask.png" id="1_cxns5"]
+[ext_resource type="Script" uid="uid://e41hqjc3cup8" path="res://Scenes/store_shop.gd" id="1_fgfif"]
 [ext_resource type="Texture2D" uid="uid://c3b88qeahm7jh" path="res://Sprites/wheel_slot.png" id="1_xul8q"]
-[ext_resource type="Texture2D" uid="uid://qspjb50js2by" path="res://Sprites/UI/sticker_sheet.png" id="2_xul8q"]
-[ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="3_k3vkq"]
-[ext_resource type="Texture2D" uid="uid://c6eja7puwbsbx" path="res://Sprites/UI/price.png" id="5_k3vkq"]
+[ext_resource type="PackedScene" uid="uid://bp2rx4270u1b2" path="res://Scenes/sticker_sheet.tscn" id="3_cxns5"]
+[ext_resource type="PackedScene" uid="uid://bh1aqwp63vw74" path="res://Scenes/small_wheel_icon.tscn" id="7_csmwn"]
+[ext_resource type="PackedScene" uid="uid://6oyxiohlr14e" path="res://Scenes/medium_wheel_icon.tscn" id="8_2576g"]
+[ext_resource type="PackedScene" uid="uid://dpiyoljbr3vfu" path="res://Scenes/big_wheel_icon.tscn" id="9_fitbp"]
 
-[node name="StoreShop" type="Node2D" unique_id=1924492146]
-script = ExtResource("1_fgfif")
-
-[node name="StickerSheet" type="Sprite2D" parent="." unique_id=825315933]
-z_index = 2
-position = Vector2(2, -63)
-rotation = -6.2831855
-texture = ExtResource("2_xul8q")
+[node name="StoreShop" type="Sprite2D" unique_id=1535909755 node_paths=PackedStringArray("wheel_slots")]
+clip_children = 1
+texture = ExtResource("1_cxns5")
 centered = false
+script = ExtResource("1_fgfif")
+sticker_sheet = ExtResource("3_cxns5")
+wheel_icons = Array[PackedScene]([ExtResource("7_csmwn"), ExtResource("8_2576g"), ExtResource("9_fitbp")])
+wheel_slots = [NodePath("WheelSlots/WheelStoreSlot1"), NodePath("WheelSlots/WheelStoreSlot2"), NodePath("WheelSlots/WheelStoreSlot3")]
 
-[node name="StickerPriceLabel" type="Label" parent="." unique_id=1520752105]
-modulate = Color(0.0627451, 0.06666667, 0.06666667, 1)
-z_index = 10
-offset_left = 3.0
-offset_top = 45.0
-offset_right = 26.0
-offset_bottom = 57.0
-theme = ExtResource("3_k3vkq")
-theme_override_font_sizes/font_size = 8
-text = "1000$"
+[node name="WheelSlots" type="Node2D" parent="." unique_id=550734129]
+position = Vector2(0, 50)
 
-[node name="WheelStoreSlot" type="Sprite2D" parent="." unique_id=1917318551]
+[node name="WheelStoreSlot1" type="Sprite2D" parent="WheelSlots" unique_id=1917318551]
 position = Vector2(15, 87)
 texture = ExtResource("1_xul8q")
 
-[node name="Sprite2D" type="Sprite2D" parent="WheelStoreSlot" unique_id=1564116090]
-position = Vector2(0, -20)
-texture = ExtResource("5_k3vkq")
-
-[node name="Label" type="Label" parent="WheelStoreSlot/Sprite2D" unique_id=1774828953]
-offset_left = -12.0
-offset_top = -3.0
-offset_right = 28.0
-offset_bottom = 20.0
-theme = ExtResource("3_k3vkq")
-theme_override_font_sizes/font_size = 8
-text = "2000$"
-
-[node name="WheelStoreSlot2" type="Sprite2D" parent="." unique_id=1828963621]
+[node name="WheelStoreSlot2" type="Sprite2D" parent="WheelSlots" unique_id=1828963621]
 position = Vector2(44, 87)
 texture = ExtResource("1_xul8q")
 
-[node name="Sprite2D" type="Sprite2D" parent="WheelStoreSlot2" unique_id=1047138460]
-position = Vector2(0, -20)
-texture = ExtResource("5_k3vkq")
-
-[node name="Label" type="Label" parent="WheelStoreSlot2/Sprite2D" unique_id=803532286]
-offset_left = -12.0
-offset_top = -3.0
-offset_right = 28.0
-offset_bottom = 20.0
-theme = ExtResource("3_k3vkq")
-theme_override_font_sizes/font_size = 8
-text = "4000$"
-
-[node name="WheelStoreSlot3" type="Sprite2D" parent="." unique_id=1682734391]
+[node name="WheelStoreSlot3" type="Sprite2D" parent="WheelSlots" unique_id=1682734391]
 position = Vector2(73, 87)
 texture = ExtResource("1_xul8q")
-
-[node name="Sprite2D" type="Sprite2D" parent="WheelStoreSlot3" unique_id=736576768]
-position = Vector2(0, -20)
-texture = ExtResource("5_k3vkq")
-
-[node name="Label" type="Label" parent="WheelStoreSlot3/Sprite2D" unique_id=1945273574]
-offset_left = -12.0
-offset_top = -3.0
-offset_right = 28.0
-offset_bottom = 20.0
-theme = ExtResource("3_k3vkq")
-theme_override_font_sizes/font_size = 8
-text = "8000$"

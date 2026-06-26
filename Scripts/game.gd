@@ -1,6 +1,10 @@
 class_name Game extends Node2D
 
 static var instance: Game
+
+@export var sticker_registry: Array[StickerData]
+@export var tile_registry: Array[Tile]
+@export_group("References")
 @export var tooltip : Tooltip
 @export var camera: Camera2D
 @export var hamster_slot: Node2D
@@ -9,17 +13,25 @@ static var instance: Game
 @export var money_label: Label
 @export var audio_player: PackedScene
 @export var shop_tabs: Node2D
-@export var test_sticker: PackedScene
-var _camera_zoom: float = 1.0
+@export var sticker_sheet_slot: Node2D
+var _camera_zoom: float = 0.5
 var cash_money: int = 2000
+var generated_sticker_sheet: Array[StickerData]
+var popped_sticker_sheet: bool = false
+
+var global_cost_multiplier: float = 1
 
 var current_sticker: Sticker
+var sold_wheels = null
+
+var tooltip_time = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _init():
 	instance = self
 
 func _ready():
+	land_reset()
 	hamster_slot.place_first_item.connect(spin_button.open_sign)
 	spin_button.sign_clicked.connect(hamster_slot.consume_and_spin)
 	hamster_slot.spin.connect(func (): 
@@ -29,15 +41,60 @@ static func play_and_die(audio: AudioStream, pitch: float = 1, volume = 1): inst
 
 func _play_and_die(audio: AudioStream, pitch: float = 1, volume = 1):
 	var e: AudioStreamPlayer = audio_player.instantiate()
+	e.bus = "Sounds"
 	e.stream = audio
 	e.pitch_scale = pitch
 	e.volume_linear = volume
 	add_child(e)
 
+func kill_previous_sheet():
+	if (sticker_sheet_slot.get_child_count() > 0):
+		var c = sticker_sheet_slot.get_child(0)
+		if c != null:
+			c.discard()
+
+func setup_sticker_sheet(sheet: Node2D):
+	sheet.reparent(sticker_sheet_slot)
+	sheet.position = Vector2(0,0)
+
+func spin_reset():
+	global_cost_multiplier *= 1.1
+	shop_tabs.close_all()
+	shop_tabs.locked = true
+
+func clear_wheels():
+	sold_wheels = null
+func generate_wheels():
+	var result: Array[WheelData] = []
+	for i in range(3):
+		var wheel_size = randi()%3
+		var tile_count = ((randi()%8) + 1)*pow(2,wheel_size)
+		var tiles: Array[Tile] = []
+		tiles.resize(tile_count)
+		for j in range(tile_count):
+			tiles[j] = (tile_registry[randi()%len(tile_registry)])
+		var wheel_data: WheelData = WheelData.new(wheel_size,tiles)
+		result.append(wheel_data)
+	sold_wheels = result
+func get_sold_wheels():
+	return sold_wheels
+
+func land_reset():
+	popped_sticker_sheet = false
+	Cogworld.instance.delete_previews()
+	generate_wheels()
+	shop_tabs.locked = false
+	generated_sticker_sheet = StickerSheetGenerator.new(Vector2(4,6),sticker_registry).generate_sticker_sheet()
+
 func pop_sticker() -> Sticker:
 	var result = current_sticker
 	current_sticker = null
 	return result
+
+func push_sticker(sticker: Sticker):
+	current_sticker = sticker
+	sticker.reparent(self)
+	sticker.position = get_global_mouse_position()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -47,36 +104,41 @@ func _process(delta):
 	
 	_camera_zoom = clamp(_camera_zoom,0.3,1)
 	camera.zoom = lerp(camera.zoom,Vector2(_camera_zoom*2,_camera_zoom*2),delta*20)
-	
-	if (Input.is_action_just_pressed("Small") and current_sticker == null):
-		current_sticker = test_sticker.instantiate()
-		add_child(current_sticker)
-	
 	if (current_sticker != null):
 		current_sticker.position = mouse_pos
+		if Input.is_action_just_pressed("Click"):
+			current_sticker.reset()
+			current_sticker = null
 	
-	var parameters = PhysicsPointQueryParameters2D.new();
+	var parameters: PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new();
 	parameters.position = mouse_pos;
 	parameters.collide_with_areas = true
 	var show_tooltip = false
+	var tooltip_data = null
 	var result = space.intersect_point(parameters)
-	for dict in result:
+	
+	if (current_sticker == null): for dict in result:
 		var collider: Node = dict["collider"]
 		var collider_parent = collider.get_parent()
-		if Input.is_action_just_pressed("Click") and collider_parent.has_method("click_press"):
-			collider_parent.click_press()
+		if Input.is_action_just_pressed("Click"):
+			if collider_parent.has_method("click_press"):
+				collider_parent.click_press()
 		
 		if collider_parent.has_method("get_tooltip"):
-			var tooltip_data: TooltipData = collider_parent.get_tooltip()
-			if (tooltip_data == null): continue
-			tooltip.set_tooltip(tooltip_data)
-			show_tooltip = true
-			break
+			var ttd = collider_parent.get_tooltip()
+			if (ttd == null): continue
+			if (tooltip_data == null or tooltip_data.priority < ttd.priority):
+				tooltip_data = ttd
+	
+	
+	if (tooltip_data != null): 
+		tooltip.set_tooltip(tooltip_data)
+		show_tooltip = true
 	var viewport_size:Rect2 = get_viewport_rect()
 	
-	tooltip.update_minimum_size()
 	tooltip.global_position = Vector2(
 		clamp(mouse_pos.x,0,viewport_size.size.x-tooltip.size.x),
 		clamp(mouse_pos.y,0,viewport_size.size.y-tooltip.size.y)
 	) 
+	tooltip.visible = false
 	tooltip.visible = show_tooltip

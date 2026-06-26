@@ -6,4 +6,6 @@
 script = ExtResource("1_nv7ld")
 color = Color(0.24705882, 0, 0.61960787, 1)
 base_reward = -20000
+hue_shift = -105.0
+name = "Purple"
 metadata/_custom_type_script = "uid://c2vyt84ou3pjd"

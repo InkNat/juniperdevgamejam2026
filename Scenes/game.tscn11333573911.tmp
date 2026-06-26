@@ -1,0 +1,741 @@
+[gd_scene format=4 uid="uid://ci8e3htfxl1na"]
+
+[ext_resource type="Script" uid="uid://dvbse4yxt4b38" path="res://Scripts/game.gd" id="1_wrm1d"]
+[ext_resource type="Script" uid="uid://btq5gf8lyiyq2" path="res://Scripts/Slots/hamster_slot.gd" id="2_mg4q0"]
+[ext_resource type="PackedScene" uid="uid://c2obbv1kgq74x" path="res://Scenes/audio_stream_player.tscn" id="2_v2cs8"]
+[ext_resource type="Script" uid="uid://dgxfjckrxanua" path="res://Scripts/sticker_data.gd" id="2_x6jpx"]
+[ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="3_iivbl"]
+[ext_resource type="Resource" uid="uid://d3uvcngskwu67" path="res://Resources/Stickers/coin_sticker.tres" id="3_sjh24"]
+[ext_resource type="Texture2D" uid="uid://cg7fb2svorr6q" path="res://Sprites/Items/oats_holder.png" id="4_7nbq1"]
+[ext_resource type="Script" uid="uid://htje5fgs5h2e" path="res://Scripts/tooltip.gd" id="4_22asu"]
+[ext_resource type="Resource" uid="uid://bjbh2anx6utj7" path="res://Resources/Stickers/sad_sticker.tres" id="4_k5jl5"]
+[ext_resource type="Texture2D" uid="uid://dq6d707vjmdjg" path="res://Sprites/UI/full ui.png" id="4_mg4q0"]
+[ext_resource type="Script" uid="uid://djjoqipw7b6on" path="res://Scripts/Slots/grid_slots.gd" id="5_h4fw4"]
+[ext_resource type="Shader" uid="uid://dfojatw757cjj" path="res://Shaders/segmentedwheel.gdshader" id="5_i6g32"]
+[ext_resource type="Texture2D" uid="uid://cidfmuyjhvykq" path="res://Sprites/UI/item_icon_background.png" id="5_vm72l"]
+[ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="6_1l0tm"]
+[ext_resource type="Script" uid="uid://dtblyjnxeprm" path="res://Scripts/Cogworld/cogworld.gd" id="9_mucmn"]
+[ext_resource type="Texture2D" uid="uid://c8q8kbgurnotg" path="res://Sprites/red arowe.png" id="10_ldgsr"]
+[ext_resource type="Texture2D" uid="uid://bu1al5pltf6vw" path="res://Sprites/matpat.jpg" id="11_vs120"]
+[ext_resource type="ArrayMesh" uid="uid://bd1e3xyyc6rjc" path="res://Models/MediumCogwheel.tres" id="12_22asu"]
+[ext_resource type="Script" uid="uid://whlshrepr0o8" path="res://Scenes/input_pusher.gd" id="13_631el"]
+[ext_resource type="Texture2D" uid="uid://cpq72rcikpwcs" path="res://Sprites/UI/circle.svg" id="16_85qyi"]
+[ext_resource type="Script" uid="uid://dkunpr0x4ph85" path="res://Scripts/main_wheel.gd" id="16_fkdbe"]
+[ext_resource type="Shader" uid="uid://dho3ny4pwb7n7" path="res://Shaders/mask.gdshader" id="16_iivbl"]
+[ext_resource type="PackedScene" uid="uid://fmsn41ok0g5i" path="res://Scenes/coin_sticker.tscn" id="16_v2cs8"]
+[ext_resource type="AudioStream" uid="uid://cttoesuj6nur6" path="res://Sounds/wheel_click.wav" id="17_81klo"]
+[ext_resource type="PackedScene" uid="uid://c662cotbrgpym" path="res://Scenes/mediumwheelpreview.tscn" id="17_cwurv"]
+[ext_resource type="PackedScene" uid="uid://rrngt3i26um2" path="res://Scenes/test.tscn" id="18_cwurv"]
+[ext_resource type="PackedScene" uid="uid://csdltrx7dvm3g" path="res://Scenes/smallwheelpreview.tscn" id="18_ese38"]
+[ext_resource type="PackedScene" uid="uid://bqdy4hvtplcb" path="res://Scenes/mediumwheel.tscn" id="18_mucmn"]
+[ext_resource type="Script" uid="uid://d3dqiim8xheu3" path="res://Scripts/play_and_die.gd" id="18_tgy6u"]
+[ext_resource type="Script" uid="uid://q7otcvnu0q8a" path="res://Scripts/Cogworld/proxy.gd" id="19_fkdbe"]
+[ext_resource type="Script" uid="uid://c2vyt84ou3pjd" path="res://Scripts/tile.gd" id="20_lmoi6"]
+[ext_resource type="PackedScene" uid="uid://kqshj2y3m17n" path="res://Scenes/smallwheel.tscn" id="20_oeip8"]
+[ext_resource type="Resource" uid="uid://duo76hod7pwiw" path="res://Resources/Tiles/pink.tres" id="21_6uxt2"]
+[ext_resource type="Texture2D" uid="uid://d1v538f8pf0ni" path="res://Sprites/SPINbutton.png" id="21_exi56"]
+[ext_resource type="Script" uid="uid://b2b1dyxiqfmpr" path="res://Scripts/spin_button_manager.gd" id="22_7t8sx"]
+[ext_resource type="Resource" uid="uid://dkxm2mketho85" path="res://Resources/Tiles/purple.tres" id="22_ym3tv"]
+[ext_resource type="Resource" uid="uid://dnsdtm0fpuw2j" path="res://Resources/Tiles/orange.tres" id="23_6a4tp"]
+[ext_resource type="Resource" uid="uid://egbtdixk5l33" path="res://Resources/Tiles/red.tres" id="23_bwj6o"]
+[ext_resource type="Resource" uid="uid://ddxgr1aq1q5b" path="res://Resources/Tiles/yellow.tres" id="24_631el"]
+[ext_resource type="Resource" uid="uid://i5j4g12o1m15" path="res://Resources/Tiles/green.tres" id="25_vs120"]
+[ext_resource type="Resource" uid="uid://1moc5sb8ltfg" path="res://Resources/Tiles/cyan.tres" id="26_v2cs8"]
+[ext_resource type="Resource" uid="uid://cy6pt5d6s3f2y" path="res://Resources/Tiles/blue.tres" id="27_32sfa"]
+[ext_resource type="Texture2D" uid="uid://bcbmstnx5fx4m" path="res://Sprites/mr.spinnington_fast.png" id="29_631el"]
+[ext_resource type="PackedScene" uid="uid://bqnnsjd51761o" path="res://Scenes/bigwheelpreview.tscn" id="31_xe308"]
+[ext_resource type="Texture2D" uid="uid://dtp8c5yw4nelc" path="res://Sprites/mr.hurtington.png" id="33_32sfa"]
+[ext_resource type="AudioStream" uid="uid://kch8fudhw0cy" path="res://Sounds/collision.wav" id="33_htg8p"]
+[ext_resource type="PackedScene" uid="uid://tkbhuk000ape" path="res://Scenes/bigwheel.tscn" id="33_oeip8"]
+[ext_resource type="Script" uid="uid://b6eewmrj3cwu1" path="res://Scenes/hamster_manager.gd" id="36_v2cs8"]
+[ext_resource type="Texture2D" uid="uid://b1h42i6u1xbah" path="res://Sprites/mr.spinnington_idle.png" id="36_vs120"]
+[ext_resource type="PackedScene" uid="uid://bpd6vah0yqaqj" path="res://Scenes/shop_tabs.tscn" id="43_6a4tp"]
+[ext_resource type="Texture2D" uid="uid://dhfqatp6nnrf6" path="res://Sprites/UI/inventorytab.png" id="46_htg8p"]
+[ext_resource type="Texture2D" uid="uid://bkfqqimd31iiw" path="res://Sprites/UI/glass ui.png" id="46_tt7mg"]
+[ext_resource type="Shader" uid="uid://djh7dkph2i4v5" path="res://Scenes/scrolling_text.gdshader" id="47_32sfa"]
+[ext_resource type="Texture2D" uid="uid://c7grwga0folil" path="res://Sprites/mr_background.png" id="48_titue"]
+[ext_resource type="Script" uid="uid://kehx14xli3xt" path="res://Scenes/follower.gd" id="49_tt7mg"]
+[ext_resource type="Shader" uid="uid://ds2lxv6fws7cj" path="res://Scenes/spiral.gdshader" id="50_htg8p"]
+
+[sub_resource type="Curve" id="Curve_fkdbe"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 3.0288222, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="PackedScene" id="PackedScene_cwurv"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [],
+"names": PackedStringArray("PlayAndDie", "AudioStreamPlayer", "stream", "autoplay", "script"),
+"node_count": 1,
+"node_ids": PackedInt32Array(1814125365),
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 2, 0, 3, 1, 4, 2, 0),
+"variants": [ExtResource("17_81klo"), true, ExtResource("18_tgy6u")],
+"version": 3
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iivbl"]
+radius = 45.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ym3tv"]
+shader = ExtResource("5_i6g32")
+shader_parameter/separatorColor = Color(0, 0, 0, 1)
+shader_parameter/angle_offset = 0.0
+shader_parameter/separator_count = 1
+shader_parameter/separatorLength = 0.01
+shader_parameter/minLength = 0.3
+shader_parameter/maxLength = 0.43
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fkdbe"]
+viewport_path = NodePath("CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DWheelProjector/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_85qyi"]
+shader = ExtResource("16_iivbl")
+shader_parameter/mask = ExtResource("16_85qyi")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_81klo"]
+viewport_path = NodePath("CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2d40v"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_25ntx"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 282,
+"index_data": PackedByteArray("AAACACgAAAABAAIAKAACAAQAKQABAAAAKAApAAAAKQADAAEAKgADACkAKgAFAAMAKQArACoAKwAFACoAKAArACkAKwAHAAUAJgAHACsAJgAnAAcALAAnACYAKwAsACYALAAlACcALQAlACwALQAkACUAKwAuACwALAAuAC0ALgAkAC0AKAAuACsALgAjACQAIgAjAC4AIgAhACMAHgAhACIALgAeACIAHgAgACEALwAgAB4ALwAfACAAHgAwAC8AMAAfAC8ALgAwAB4AMAAdAB8AMQAdADAAMQAcAB0AMgAcADEAMAAyADEAMgAbABwALgAXADAAMAAXADIAMwAbADIAMgAXADMAMwAaABsAFwAaADMAFwAZABoANAAZABcANAAYABkANQAYADQAFwA1ADQANQAWABgANgAWADUANgAVABYANQA3ADYANwAVADYAFwA3ADUANwAUABUAEgAUADcAEgATABQAOAATABIANwA4ABIAOAARABMAOQARADgAOQAQABEANwANADgAOAANADkADQAQADkAFwANADcADQAPABAAOgAPAA0AOgAOAA8AOwAOADoADQA7ADoAOwAMAA4APAAMADsAPAALAAwAOwA9ADwAPQALADwADQA9ADsAPQAKAAsACAAKAD0ACAAJAAoAPgAJAAgAPQA+AAgAPgAGAAkADQAoAD0APQAoAD4AFwAoAA0AKAAXAC4APgAoAD8APwAGAD4AKAAEAD8APwAEAAYA"),
+"lods": [0.24502045, PackedByteArray("AAABAAIAAAADAAEAAAACAAQAAAAFAAMAAAAEAAYAAAAHAAUAAAAGAAgACAAGAAkACAAJAAoACAAKAAsACAALAAwACAAMAA0ADQAAAAgADQAMAA4ADQAOAA8ADQAPABAADQAQABEADQARABIAEgARABMAEgATABQAEgAUABUAEgAVABYAFwANABIAEgAWABcAFwAAAA0AFwAWABgAFwAYABkAFwAZABoAFwAaABsAFwAbABwAFwAcAB0AFwAdAB4AHgAdAB8AHgAfACAAHgAgACEAIgAXAB4AHgAhACIAAAAXACIAIgAhACMAIgAjACQAIgAkACUAAAAiACYAIgAlACYAJgAHAAAAJgAlACcAJgAnAAcA")],
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 64,
+"vertex_data": PackedByteArray("/38AAAAAAAD/f///AAAAAPiY//91AgAABmf//3UCAAD7sP//vgkAAANP//++CQAAHMf//5IVAADiOP//khUAAIHaAAB9JQAAgdr//30lAABs6v//4jgAAED2//8DTwAAif3//wZnAACJ/QAA+JgAAP//////fwAAif3///iYAABA9v//+7AAAGzq//8cxwAAgdoAAIHaAACB2v//gdoAABzH//9s6gAA+7D//0D2AAD4mP//if0AAAZnAACJ/QAA/3//////AAAGZ///if0AAANP//9A9gAA4jj//2zqAAB9Jf//gdoAAJIV//8cxwAAdQIAAPiYAAC+Cf//+7AAAHUC///4mAAAAAD///9/AAAAAAAA/38AAHUC//8GZwAAvgn//wNPAACSFf//4jgAAH0lAAB9JQAAfSX//30lAAD4mAAAdQIAAAZnAAB1AgAAA08AAL4JAADiOAAAkhUAAJIVAADiOAAAvgkAAANPAAB1AgAABmcAAL4JAAD7sAAAkhUAABzHAAB9JQAAgdoAAOI4AABs6gAAA08AAED2AAD/fwAA//8AAPiYAACJ/QAA+7AAAED2AAAcxwAAbOoAAGzqAAAcxwAAQPYAAPuwAAD//wAA/38AAIn9AAAGZwAAQPYAAANPAABs6gAA4jgAABzHAACSFQAA+7AAAL4JAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4q5yl"]
+resource_name = "cylinder_Cylinder"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("////f///AAD/9wAA/+8AAP/nAAD/3/9//98AAP/XAAD/zwAA/8cAAP+3/3//vwAA/7cAAP+vAAD/pwAA/5//f/+fAAD/lwAA/48AAP+HAAD/d/9//38AAP93AAD/bwAA/2cAAP9fAAD/VwAA/0f/f/9PAAD/RwAA/z8AAP8//3//NwAA/y8AAP8nAAD/H/9//x8AAP8XAAAAAP9//w8AAP8HAAAAAAAA/7+Ogo6C/7+NlI2UArRB/L2D+8tB/PvLcOuNlHDrcOv/9/9///f/f//v/3//9wAA/+//f//n/3//7wAA/+f/f//nAAD/3/9//9f/f//fAAD/1/9//8//f//XAAD/z/9//8f/f//PAAD/x/9//7//f//HAAD/v/9//7cAAP+3/3//vwAA/68AAP+v/3//r/9//6cAAP+n/3//p/9//58AAP+f/3//lwAA/5f/f/+X/3//jwAA/4//f/+P/3//hwAA/4f/f/+H/3//fwAA/3//f/9//3//d/9//2//f/93AAD/b/9//2f/f/9vAAD/Z/9//1//f/9nAAD/X/9//1f/f/9fAAD/V/9//0//f/9XAAD/T/9//08AAP9H/3//PwAA/z//f/9HAAD/NwAA/zf/f/83/3//LwAA/y//f/8v/3//JwAA/yf/f/8n/3//HwAA/x//f/8XAAD/F/9//xf/f/8PAAD/D/9//w//f/8HAAD/B/9//wf/f/vLvYMCtL2D3Z3pjHyoPIfpjN2dvYMCtDyHfKjpjCHiPIeC192dFPONlHDrfKjC+PvLQfz/v2/9IeIU84LXwvgU8yHiwviC1yHi6YyC1zyHFPPdnUH8ArTC+Hyob/3/vw=="),
+"format": 34896613399,
+"index_count": 282,
+"index_data": PackedByteArray("AAACADIAAAABAAIAMwADADQAMwA1AAMANgAEADcANgA4AAQAOQAGAAUAOQA6AAYAOwAHADwAOwA9AAcAPgAIAD8APgBAAAgAQQAJAEIAQQBDAAkARAALAEUARABGAAsARwBIAEkARwBKAEgACgBLAEwACgAMAEsATQBOAE8ATQANAE4AUABRAFIAUAAOAFEADwBTAFQADwAQAFMAVQBWAFcAVQARAFYAWABZAFoAWAASAFkAWwBcAF0AWwATAFwAXgAWABQAXgAVABYAXwAXAGAAXwBhABcAYgAYAGMAYgBkABgAZQAZAGYAZQBnABkAaAAaAGkAaABqABoAawAcAGwAawBtABwAbgAdABsAbgBvAB0AcABxAHIAcABzAHEAHwB0AHUAHwAeAHQAdgB3AHgAdgAgAHcAeQB6AHsAeQAhAHoAfAB9AH4AfAAiAH0AIwB/AIAAIwAkAH8AgQCCAIMAgQAlAIIAhACFAIYAhAAnAIUAhwApACYAhwAoACkAiACJACoAiQCKAIsAiACKAIkAigCMACwAigCNAIwAjACNAI4AiACNAIoAjQAuACsAjQCPAC4ALgCPAJAAjQAtAI8AiAAtAI0AjwCRAJIAjwAtAJEAkQAtAJMALQCUAJUALQCWAJQAlACWAJcALQCIAC8ALQAvAJYAlgCYADEAlgAvAJgAmAAvAJkAmgCIAJsAnACIAJoALwCIAJwAnACaADAALwCcAJ0AnQCcAJ4ALwCdAJ8A"),
+"lods": [0.24502045, PackedByteArray("AAABAAIAAAACAAMAAAADAAQAAAAEAAUABQAEAAYABQAGAAcABQAHAAgABQAIAAkABQAJAAoACgAJAAsACgALAAwACgAMAA0ACgANAA4ACgAOAA8ADwAOABAADwAQABEADwARABIADwASABMADwATABQAFAATABUAFAAVABYAFAAWABcAFAAXABgAFAAYABkAFAAZABoAFAAaABsAGwAaABwAGwAcAB0AGwAdAB4AGwAeAB8AHwAeACAAHwAgACEAHwAhACIAHwAiACMAIwAiACQAIwAkACUAIwAlACYAJgAlACcAJgAnACgAJgAoACkAKgArACwAKgAtACsAKwAtAC4ALQAqAC8ALwAqADAALQAvADEA")],
+"material": SubResource("StandardMaterial3D_2d40v"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 160,
+"vertex_data": PackedByteArray("/38AAAAAAAD/f///AAAAAPiY//91AgAA+7D//74JAAAcx///khUAAIHaAAB9JQAAgdr//30lAABs6v//4jgAAED2//8DTwAAif3//wZnAACJ/QAA+JgAAP//////fwAAif3///iYAABA9v//+7AAAGzq//8cxwAAgdoAAIHaAACB2v//gdoAABzH//9s6gAA+7D//0D2AAD4mP//if0AAAZnAACJ/QAA/3//////AAAGZ///if0AAANP//9A9gAA4jj//2zqAAB9Jf//gdoAAJIV//8cxwAAdQIAAPiYAAC+Cf//+7AAAHUC///4mAAAAAD///9/AAAAAAAA/38AAHUC//8GZwAAvgn//wNPAACSFf//4jgAAH0lAAB9JQAAfSX//30lAADiOP//khUAAP9/AAAAAAAAA0///74JAAAGZ///dQIAAP9///8AAAAA/38AAAAA/78AAAAA/3//v30lAAB9Jf+/BmcAAIn9/791AgAA+Jj/v4n9AAD4mP+/gdoAAH0l/7+B2gAAgdr/v/iYAAB1AgAA+JgAAHUCAAD7sAAAvgkAAPiY//91AgAA+7AAAL4JAAAcxwAAkhUAAPuw//++CQAAHMcAAJIVAAAcx///khUAAIHaAAB9JQAAbOoAAOI4AACB2v//fSUAAGzqAADiOAAAQPYAAANPAABs6v//4jgAAED2AAADTwAAif0AAAZnAABA9v//A08AAIn9AAAGZwAA//8AAP9/AACJ/f//BmcAAP//AAD/fwAAif3///iYAACJ/QAA+JgAAP//////fwAAQPb///uwAABA9gAA+7AAAED2AAD7sAAAbOr//xzHAABs6gAAHMcAAGzqAAAcxwAAgdr//4HaAACB2gAAgdoAABzH//9s6gAAHMcAAGzqAAAcxwAAbOoAAPuw//9A9gAA+7AAAED2AAD7sAAAQPYAAPiY//+J/QAA+JgAAIn9AAD4mAAAif0AAP9//////wAA/38AAP//AAD/fwAA//8AAAZnAACJ/QAAA08AAED2AAAGZ///if0AAANPAABA9gAA4jgAAGzqAAADT///QPYAAOI4AABs6gAAfSUAAIHaAADiOP//bOoAAH0lAACB2gAAkhUAABzHAAB9Jf//gdoAAJIVAAAcxwAAvgkAAPuwAACSFf//HMcAAL4JAAD7sAAAvgn///uwAAB1AgAA+JgAAAAA////fwAAAAAAAP9/AAB1Av//+JgAAHUC//8GZwAAdQIAAAZnAAB1AgAABmcAAL4J//8DTwAAvgkAAANPAAC+CQAAA08AAJIV///iOAAAkhUAAOI4AACSFQAA4jgAAH0l//99JQAAfSUAAH0lAADiOP//khUAAOI4AACSFQAA4jgAAJIVAAADT///vgkAAANPAAC+CQAAA08AAL4JAAAGZ///dQIAAAZnAAB1AgAABmcAAHUCAAD4mAAAdQL/vwZnAAB1Av+/4jgAAJIV/78DTwAAvgn/v5IVAADiOP+/dQIAAAZn/7++CQAAA0//v5IVAAAcx/+/vgkAAPuw/7/iOAAAbOr/v30lAACB2v+/A08AAED2/7/4mAAAif3/v/9/AAD///+/HMcAAGzq/7/7sAAAQPb/v2zqAAAcx/+/QPYAAPuw/78cxwAAkhX/v/uwAAC+Cf+/bOoAAOI4/7+J/QAABmf/v0D2AAADT/+///8AAP9//78Bev9/AXr/fwF6/392b/9/W2b/f0Re/39EXv9/5lb/fwdQ/39+Sf9///+AtiRD/3///4C2///3r///GKn//7qh//+6of//o5n//4iQ///9hQD6/38A+v9/APr/f3Xv/39b5v9/RN7/f+XW/399yf9/B9D/f33J/3/avP9/2rz/f4C2/3/3r/9/GKn/f7qh/3+6of9/o5n/f/2F/3+IkP9//YX/f/2F/3////9/////f/7//3////9//v//f/7//3/+//9//v//fwF6/392b/9/dm//f3Zv/39bZv9/W2b/f1tm/39EXv9/RF7/f+ZW/3/mVv9/5lb/fwdQ/38HUP9/B1D/f35J/39+Sf9/fkn/fyRD/38kQ/9/JEP/f///2rz//9q8///avP//2rz//4C2//+Atv//96////ev///3r///GKn//xip//8Yqf//uqH//7qh//+jmf//o5n//6OZ//+IkP//iJD//4iQ///9hf///YX///2FAPr/f3Xv/3917/9/de//f1vm/39b5v9/W+b/f0Te/39E3v9/RN7/f+XW/3/l1v9/5db/fwfQ/38H0P9/B9D/f33J/399yf9/I8P/fyPD/38jw/9/I8P/f9q8/3/avP9/gLb/f4C2/3+Atv9/96//f/ev/3/3r/9/GKn/fxip/38Yqf9/uqH/f7qh/3+jmf9/o5n/f6OZ/3+IkP9/iJD/f4iQ/3/9hf9/////f////3////9//v//f/7//3/+//9//v//f/7//3/+//9//v//f/7//3/+//9/////f////3////9//v//f/7//3/+//9//v//f/7//3/+//9//v//f/7//3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_25ntx")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aeaeg"]
+bounce = 0.8
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xvgv"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lpvs"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6jpx"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjh24"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5jl5"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqk4g"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh6x0"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0obb"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfavm"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcn4n"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4kai"]
+atlas = ExtResource("33_32sfa")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcvim"]
+atlas = ExtResource("36_vs120")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnkle"]
+atlas = ExtResource("36_vs120")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr3wg"]
+atlas = ExtResource("36_vs120")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vs120"]
+atlas = ExtResource("29_631el")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2cs8"]
+atlas = ExtResource("29_631el")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32sfa"]
+atlas = ExtResource("29_631el")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_titue"]
+atlas = ExtResource("29_631el")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt7mg"]
+atlas = ExtResource("29_631el")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htg8p"]
+atlas = ExtResource("29_631el")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jcvim"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xvgv")
+}],
+"loop": 1,
+"name": &"hurt_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lpvs")
+}],
+"loop": 1,
+"name": &"hurt_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6jpx")
+}],
+"loop": 1,
+"name": &"hurt_10",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjh24")
+}],
+"loop": 1,
+"name": &"hurt_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5jl5")
+}],
+"loop": 1,
+"name": &"hurt_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqk4g")
+}],
+"loop": 1,
+"name": &"hurt_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fh6x0")
+}],
+"loop": 1,
+"name": &"hurt_5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0obb")
+}],
+"loop": 1,
+"name": &"hurt_6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfavm")
+}],
+"loop": 1,
+"name": &"hurt_7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcn4n")
+}],
+"loop": 1,
+"name": &"hurt_8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4kai")
+}],
+"loop": 1,
+"name": &"hurt_9",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcvim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnkle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wr3wg")
+}],
+"loop": 1,
+"name": &"omori_wobbler",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vs120")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2cs8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32sfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_titue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt7mg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htg8p")
+}],
+"loop": 1,
+"name": &"running",
+"speed": 40.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wr3wg"]
+margin = 0.2
+radius = 0.27001953
+height = 0.87184143
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_631el"]
+margin = 0.06
+data = PackedVector3Array(0, -1, -1, 0.1951, 1, -0.9808, 0.1951, -1, -0.9808, 0, -1, -1, 0, 1, -1, 0.1951, 1, -0.9808, 0.1951, -1, -0.9808, 0.3827, 1, -0.92389995, 0.3827, -1, -0.92389995, 0.1951, -1, -0.9808, 0.1951, 1, -0.9808, 0.3827, 1, -0.92389995, 0.3827, -1, -0.92389995, 0.5556, 1, -0.8315, 0.5556, -1, -0.8315, 0.3827, -1, -0.92389995, 0.3827, 1, -0.92389995, 0.5556, 1, -0.8315, 0.5556, -1, -0.8315, 0.7071, 1, -0.7071, 0.7071, -1, -0.7071, 0.5556, -1, -0.8315, 0.5556, 1, -0.8315, 0.7071, 1, -0.7071, 0.7071, -1, -0.7071, 0.8314, 1, -0.5556, 0.8314, -1, -0.5556, 0.7071, -1, -0.7071, 0.7071, 1, -0.7071, 0.8314, 1, -0.5556, 0.8314, -1, -0.5556, 0.92389995, 1, -0.3827, 0.92389995, -1, -0.3827, 0.8314, -1, -0.5556, 0.8314, 1, -0.5556, 0.92389995, 1, -0.3827, 0.92389995, -1, -0.3827, 0.9808, 1, -0.1951, 0.9808, -1, -0.1951, 0.92389995, -1, -0.3827, 0.92389995, 1, -0.3827, 0.9808, 1, -0.1951, 0.9808, -1, -0.1951, 1, 1, 0, 1, -1, 0, 0.9808, -1, -0.1951, 0.9808, 1, -0.1951, 1, 1, 0, 1, -1, 0, 0.9808, 1, 0.1951, 0.9808, -1, 0.1951, 1, -1, 0, 1, 1, 0, 0.9808, 1, 0.1951, 0.9808, -1, 0.1951, 0.92389995, 1, 0.3827, 0.92389995, -1, 0.3827, 0.9808, -1, 0.1951, 0.9808, 1, 0.1951, 0.92389995, 1, 0.3827, 0.92389995, -1, 0.3827, 0.8314, 1, 0.5556, 0.8314, -1, 0.5556, 0.92389995, -1, 0.3827, 0.92389995, 1, 0.3827, 0.8314, 1, 0.5556, 0.8314, -1, 0.5556, 0.7071, 1, 0.7071, 0.7071, -1, 0.7071, 0.8314, -1, 0.5556, 0.8314, 1, 0.5556, 0.7071, 1, 0.7071, 0.7071, -1, 0.7071, 0.5556, 1, 0.8314, 0.5556, -1, 0.8314, 0.7071, -1, 0.7071, 0.7071, 1, 0.7071, 0.5556, 1, 0.8314, 0.5556, -1, 0.8314, 0.3827, 1, 0.92389995, 0.3827, -1, 0.92389995, 0.5556, -1, 0.8314, 0.5556, 1, 0.8314, 0.3827, 1, 0.92389995, 0.3827, -1, 0.92389995, 0.1951, 1, 0.9808, 0.1951, -1, 0.9808, 0.3827, -1, 0.92389995, 0.3827, 1, 0.92389995, 0.1951, 1, 0.9808, 0.1951, -1, 0.9808, 0, 1, 1, 0, -1, 1, 0.1951, -1, 0.9808, 0.1951, 1, 0.9808, 0, 1, 1, 0, -1, 1, -0.1951, 1, 0.9808, -0.1951, -1, 0.9808, 0, -1, 1, 0, 1, 1, -0.1951, 1, 0.9808, -0.1951, -1, 0.9808, -0.3827, 1, 0.92389995, -0.3827, -1, 0.92389995, -0.1951, -1, 0.9808, -0.1951, 1, 0.9808, -0.3827, 1, 0.92389995, -0.3827, -1, 0.92389995, -0.5556, 1, 0.8314, -0.5556, -1, 0.8314, -0.3827, -1, 0.92389995, -0.3827, 1, 0.92389995, -0.5556, 1, 0.8314, -0.5556, -1, 0.8314, -0.7071, 1, 0.7071, -0.7071, -1, 0.7071, -0.5556, -1, 0.8314, -0.5556, 1, 0.8314, -0.7071, 1, 0.7071, -0.7071, -1, 0.7071, -0.8315, 1, 0.5556, -0.8315, -1, 0.5556, -0.7071, -1, 0.7071, -0.7071, 1, 0.7071, -0.8315, 1, 0.5556, -0.8315, -1, 0.5556, -0.92389995, 1, 0.3827, -0.92389995, -1, 0.3827, -0.8315, -1, 0.5556, -0.8315, 1, 0.5556, -0.92389995, 1, 0.3827, -0.92389995, -1, 0.3827, -0.9808, 1, 0.1951, -0.9808, -1, 0.1951, -0.92389995, -1, 0.3827, -0.92389995, 1, 0.3827, -0.9808, 1, 0.1951, -0.9808, -1, 0.1951, -1, 1, 0, -1, -1, 0, -0.9808, -1, 0.1951, -0.9808, 1, 0.1951, -1, 1, 0, -1, -1, 0, -0.9808, 1, -0.1951, -0.9808, -1, -0.1951, -1, -1, 0, -1, 1, 0, -0.9808, 1, -0.1951, -0.9808, -1, -0.1951, -0.92389995, 1, -0.3827, -0.92389995, -1, -0.3827, -0.9808, -1, -0.1951, -0.9808, 1, -0.1951, -0.92389995, 1, -0.3827, -0.92389995, -1, -0.3827, -0.8315, 1, -0.5556, -0.8315, -1, -0.5556, -0.92389995, -1, -0.3827, -0.92389995, 1, -0.3827, -0.8315, 1, -0.5556, -0.8315, -1, -0.5556, -0.7071, 1, -0.7071, -0.7071, -1, -0.7071, -0.8315, -1, -0.5556, -0.8315, 1, -0.5556, -0.7071, 1, -0.7071, -0.7071, -1, -0.7071, -0.5556, 1, -0.8315, -0.5556, -1, -0.8315, -0.7071, -1, -0.7071, -0.7071, 1, -0.7071, -0.5556, 1, -0.8315, -0.5556, -1, -0.8315, -0.3827, 1, -0.92389995, -0.3827, -1, -0.92389995, -0.5556, -1, -0.8315, -0.5556, 1, -0.8315, -0.3827, 1, -0.92389995, -0.3827, -1, -0.92389995, -0.1951, 1, -0.9808, -0.1951, -1, -0.9808, -0.3827, -1, -0.92389995, -0.3827, 1, -0.92389995, -0.1951, 1, -0.9808, -0.1951, -1, -0.9808, 0, 1, -1, 0, -1, -1, -0.1951, -1, -0.9808, -0.1951, 1, -0.9808, 0, 1, -1, 0.1951, -1, -0.9808, -0.1951, -1, -0.9808, 0, -1, -1, -0.1951, -1, -0.9808, -0.5556, -1, -0.8315, -0.3827, -1, -0.92389995, 0.1951, -1, -0.9808, -0.5556, -1, -0.8315, -0.1951, -1, -0.9808, -0.5556, -1, -0.8315, -0.8315, -1, -0.5556, -0.7071, -1, -0.7071, -0.5556, -1, -0.8315, -0.9808, -1, -0.1951, -0.8315, -1, -0.5556, -0.8315, -1, -0.5556, -0.9808, -1, -0.1951, -0.92389995, -1, -0.3827, 0.1951, -1, -0.9808, -0.9808, -1, -0.1951, -0.5556, -1, -0.8315, -0.9808, -1, -0.1951, -0.9808, -1, 0.1951, -1, -1, 0, -0.9808, -1, -0.1951, -0.8315, -1, 0.5556, -0.9808, -1, 0.1951, -0.9808, -1, 0.1951, -0.8315, -1, 0.5556, -0.92389995, -1, 0.3827, -0.9808, -1, -0.1951, -0.1951, -1, 0.9808, -0.8315, -1, 0.5556, 0.1951, -1, -0.9808, -0.1951, -1, 0.9808, -0.9808, -1, -0.1951, -0.8315, -1, 0.5556, -0.5556, -1, 0.8314, -0.7071, -1, 0.7071, -0.8315, -1, 0.5556, -0.1951, -1, 0.9808, -0.5556, -1, 0.8314, -0.5556, -1, 0.8314, -0.1951, -1, 0.9808, -0.3827, -1, 0.92389995, -0.1951, -1, 0.9808, 0.1951, -1, 0.9808, 0, -1, 1, -0.1951, -1, 0.9808, 0.5556, -1, 0.8314, 0.1951, -1, 0.9808, 0.1951, -1, 0.9808, 0.5556, -1, 0.8314, 0.3827, -1, 0.92389995, -0.1951, -1, 0.9808, 0.1951, -1, -0.9808, 0.9808, -1, 0.1951, -0.1951, -1, 0.9808, 0.9808, -1, 0.1951, 0.5556, -1, 0.8314, 0.5556, -1, 0.8314, 0.8314, -1, 0.5556, 0.7071, -1, 0.7071, 0.5556, -1, 0.8314, 0.9808, -1, 0.1951, 0.8314, -1, 0.5556, 0.8314, -1, 0.5556, 0.9808, -1, 0.1951, 0.92389995, -1, 0.3827, 0.5556, -1, -0.8315, 0.1951, -1, -0.9808, 0.3827, -1, -0.92389995, 0.8314, -1, -0.5556, 0.1951, -1, -0.9808, 0.5556, -1, -0.8315, 0.9808, -1, 0.1951, 0.1951, -1, -0.9808, 0.8314, -1, -0.5556, 0.8314, -1, -0.5556, 0.5556, -1, -0.8315, 0.7071, -1, -0.7071, 0.9808, -1, 0.1951, 0.8314, -1, -0.5556, 0.9808, -1, -0.1951, 0.9808, -1, -0.1951, 0.8314, -1, -0.5556, 0.92389995, -1, -0.3827, 0.9808, -1, 0.1951, 0.9808, -1, -0.1951, 1, -1, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vm72l"]
+texture = ExtResource("4_mg4q0")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22asu"]
+size = Vector2(19.999989, 72.00002)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkdbe"]
+size = Vector2(36, 36)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_81klo"]
+points = PackedVector2Array(-16.499992, 22.5, -18.499992, 24.5, -21.499992, 24.5, -44.499992, 1.5, -44.499992, -0.5, -21.499992, -23.500008, -18.499992, -23.500008, -16.499992, -21.500008)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4fw4"]
+size = Vector2(30, 46)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tt7mg"]
+shader = ExtResource("47_32sfa")
+shader_parameter/text = ExtResource("48_titue")
+shader_parameter/second_offset = Vector2(0, 0.125)
+shader_parameter/size = Vector2(51.25, 48.25)
+shader_parameter/speed = 0.05
+shader_parameter/background_color = Color(0, 0.021325381, 0.019793116, 1)
+shader_parameter/text_color = Color(0, 0.10039256, 0.08634325, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_htg8p"]
+shader = ExtResource("47_32sfa")
+shader_parameter/text = ExtResource("48_titue")
+shader_parameter/second_offset = Vector2(0, 0.125)
+shader_parameter/size = Vector2(71, 10)
+shader_parameter/speed = 0.05
+shader_parameter/background_color = Color(0.047557615, 0.04755766, 0.047557645, 1)
+shader_parameter/text_color = Color(0.008202022, 0.008202025, 0.008202025, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ke0wg"]
+shader = ExtResource("50_htg8p")
+shader_parameter/ring_amount = 3.0
+shader_parameter/line_amount = 1
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/color1 = Color(0.051970966, 0.05197096, 0.05197095, 1)
+shader_parameter/color2 = Color(0.06053035, 0.06053035, 0.060530342, 1)
+
+[node name="Game" type="Node2D" unique_id=547770425 node_paths=PackedStringArray("tooltip", "camera", "hamster_slot", "main_wheel", "spin_button", "money_label", "shop_tabs", "sticker_sheet_slot")]
+texture_filter = 1
+script = ExtResource("1_wrm1d")
+sticker_registry = Array[ExtResource("2_x6jpx")]([ExtResource("3_sjh24"), ExtResource("4_k5jl5")])
+tooltip = NodePath("Tooltip")
+camera = NodePath("CogworldViewport/SubViewport/Cogworld/Camera2D")
+hamster_slot = NodePath("CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy/HamsterSlot")
+main_wheel = NodePath("CogworldViewport/SubViewport/Cogworld/MainWheel")
+spin_button = NodePath("SpinSign")
+money_label = NodePath("Money/MoneyLabel")
+audio_player = ExtResource("2_v2cs8")
+shop_tabs = NodePath("ShopTabs")
+test_sticker = ExtResource("16_v2cs8")
+sticker_sheet_slot = NodePath("StickerSheetSlot")
+
+[node name="CogworldViewport" type="SubViewportContainer" parent="." unique_id=1843949557]
+z_index = -4095
+offset_right = 768.0
+offset_bottom = 432.0
+mouse_filter = 2
+script = ExtResource("13_631el")
+
+[node name="SubViewport" type="SubViewport" parent="CogworldViewport" unique_id=1382370156]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+physics_object_picking = true
+size = Vector2i(384, 216)
+render_target_update_mode = 4
+
+[node name="Cogworld" type="Node2D" parent="CogworldViewport/SubViewport" unique_id=1785529873 node_paths=PackedStringArray("main_cogwheel", "camera")]
+script = ExtResource("9_mucmn")
+previews = Dictionary[int, PackedScene]({
+0: ExtResource("18_ese38"),
+1: ExtResource("17_cwurv"),
+2: ExtResource("31_xe308")
+})
+wheels = Dictionary[int, PackedScene]({
+0: ExtResource("20_oeip8"),
+1: ExtResource("18_mucmn"),
+2: ExtResource("33_oeip8")
+})
+main_cogwheel = NodePath("MainWheel")
+camera = NodePath("Camera2D")
+
+[node name="i have free will" type="Sprite2D" parent="CogworldViewport/SubViewport/Cogworld" unique_id=1772060781]
+modulate = Color(1, 1, 1, 0.039215688)
+position = Vector2(-2906, -1814)
+scale = Vector2(0.71309185, 0.48813558)
+texture = ExtResource("11_vs120")
+
+[node name="Camera2D" type="Camera2D" parent="CogworldViewport/SubViewport/Cogworld" unique_id=1683973372]
+
+[node name="MainWheel" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld" unique_id=2143089451 node_paths=PackedStringArray("cylinder", "hamster_manager", "wheel", "red_arrow", "cogwheel", "stickers")]
+script = ExtResource("16_fkdbe")
+packed_scene = ExtResource("18_cwurv")
+spin_curve = SubResource("Curve_fkdbe")
+cylinder = NodePath("WheelVisual/3DInsideProjector/SubViewport/Node3D/cylinder")
+hamster_manager = NodePath("WheelVisual/3DInsideProjector/SubViewport/Node3D/Hamster")
+wheel = NodePath("WheelVisual/Wheel")
+red_arrow = NodePath("WheelVisual/RedArrow")
+cogwheel = NodePath("WheelVisual/3DWheelProjector/SubViewport/Node3D/BigCogwheel")
+click_audio = SubResource("PackedScene_cwurv")
+stickers = NodePath("Proxy2/Stickers")
+tiles = Array[ExtResource("20_lmoi6")]([ExtResource("21_6uxt2"), ExtResource("23_bwj6o"), ExtResource("23_6a4tp"), ExtResource("24_631el"), ExtResource("25_vs120"), ExtResource("26_v2cs8"), ExtResource("27_32sfa"), ExtResource("22_ym3tv"), ExtResource("21_6uxt2"), ExtResource("23_bwj6o"), ExtResource("23_6a4tp"), ExtResource("24_631el"), ExtResource("25_vs120"), ExtResource("26_v2cs8"), ExtResource("27_32sfa"), ExtResource("22_ym3tv")])
+
+[node name="Proxy2" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=487615973 node_paths=PackedStringArray("scale_target")]
+script = ExtResource("19_fkdbe")
+scale_target = NodePath("Stickers")
+
+[node name="Stickers" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy2" unique_id=1528598156]
+
+[node name="Proxy" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=683071112 node_paths=PackedStringArray("scale_target")]
+script = ExtResource("19_fkdbe")
+scale_target = NodePath("HamsterSlot/Area")
+
+[node name="HamsterSlot" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy" unique_id=1521343912]
+script = ExtResource("2_mg4q0")
+
+[node name="Area" type="Area2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy/HamsterSlot" unique_id=226345977]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy/HamsterSlot/Area" unique_id=897946354]
+shape = SubResource("CircleShape2D_iivbl")
+
+[node name="WheelVisual" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=1863031343]
+
+[node name="Wheel" type="Sprite2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual" unique_id=2086716450]
+material = SubResource("ShaderMaterial_ym3tv")
+scale = Vector2(128, 128)
+texture = ExtResource("6_1l0tm")
+
+[node name="3DWheelProjector" type="Sprite2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual" unique_id=599887041]
+z_index = -2
+scale = Vector2(0.375, 0.375)
+texture = SubResource("ViewportTexture_fkdbe")
+
+[node name="SubViewport" type="SubViewport" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DWheelProjector" unique_id=1071431751]
+own_world_3d = true
+transparent_bg = true
+
+[node name="Node3D" type="Node3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DWheelProjector/SubViewport" unique_id=882110213]
+
+[node name="Camera3D" type="Camera3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DWheelProjector/SubViewport/Node3D" unique_id=1053374171]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, 0)
+projection = 1
+size = 2.03
+
+[node name="BigCogwheel" type="MeshInstance3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DWheelProjector/SubViewport/Node3D" unique_id=960038175]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+mesh = ExtResource("12_22asu")
+
+[node name="3DInsideProjector" type="Sprite2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual" unique_id=1816939802]
+z_index = -1
+material = SubResource("ShaderMaterial_85qyi")
+scale = Vector2(0.125, 0.125)
+texture = SubResource("ViewportTexture_81klo")
+
+[node name="SubViewport" type="SubViewport" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector" unique_id=1104155898]
+
+[node name="Node3D" type="Node3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport" unique_id=484737466]
+
+[node name="cylinder" type="Node3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D" unique_id=1992354599]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="Cylinder" type="MeshInstance3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D/cylinder" unique_id=1720696635]
+mesh = SubResource("ArrayMesh_4q5yl")
+
+[node name="Camera3D" type="Camera3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D" unique_id=1834175201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.9788048)
+fov = 55.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D" unique_id=1209579366]
+transform = Transform3D(1, 0, 0, 0, 0.98158056, 0.19104885, 0, -0.19104885, 0.98158056, 0, 0.8742473, 3.7726355)
+spot_attenuation = 1.19
+spot_angle = 44.72
+spot_angle_attenuation = 0.40612617
+
+[node name="Hamster" type="RigidBody3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D" unique_id=1947900317 node_paths=PackedStringArray("animated_sprite")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57446414, 0.08348197)
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+physics_material_override = SubResource("PhysicsMaterial_aeaeg")
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("36_v2cs8")
+animated_sprite = NodePath("Sprite3D")
+collision_noise = ExtResource("33_htg8p")
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D/Hamster" unique_id=1140889113]
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_jcvim")
+animation = &"hurt_9"
+autoplay = "omori_wobbler"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D/Hamster" unique_id=2144293855]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.010292053, -0.15817136, 0)
+shape = SubResource("CapsuleShape3D_wr3wg")
+debug_color = Color(0.98753124, 8.182227e-06, 0.6208047, 1)
+debug_fill = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D" unique_id=154567651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1061766, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D/StaticBody3D" unique_id=1517175454]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, 0, 1.1061766, 0)
+shape = SubResource("ConcavePolygonShape3D_631el")
+
+[node name="RedArrow" type="Sprite2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual" unique_id=1053535091]
+position = Vector2(0, -53)
+rotation = 1.5707964
+texture = ExtResource("10_ldgsr")
+centered = false
+offset = Vector2(-2, -9)
+
+[node name="Node2D" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=401547829]
+
+[node name="Tooltip" type="PanelContainer" parent="." unique_id=1879497400]
+z_index = 4096
+offset_left = 119.0
+offset_top = 73.0
+offset_right = 192.0
+offset_bottom = 109.0
+mouse_filter = 2
+theme = ExtResource("3_iivbl")
+theme_override_styles/panel = SubResource("StyleBoxTexture_vm72l")
+script = ExtResource("4_22asu")
+
+[node name="HSplitContainer" type="HBoxContainer" parent="Tooltip" unique_id=1389371349]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Background" type="TextureRect" parent="Tooltip/HSplitContainer" unique_id=599257487]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("5_vm72l")
+
+[node name="Icon" type="TextureRect" parent="Tooltip/HSplitContainer/Background" unique_id=2030670183]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("4_7nbq1")
+
+[node name="MarginContainer" type="MarginContainer" parent="Tooltip/HSplitContainer" unique_id=699709317]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tooltip/HSplitContainer/MarginContainer" unique_id=2098259152]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Name" type="Label" parent="Tooltip/HSplitContainer/MarginContainer/VBoxContainer" unique_id=1374549087]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 8
+text = "Name"
+
+[node name="Description" type="RichTextLabel" parent="Tooltip/HSplitContainer/MarginContainer/VBoxContainer" unique_id=939902478]
+modulate = Color(0.46618086, 0.4661808, 0.4661808, 1)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+text = "Description"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="SpinSign" type="Node2D" parent="." unique_id=1564193266]
+z_index = 200
+position = Vector2(300, 224)
+rotation = -1.5707964
+script = ExtResource("22_7t8sx")
+
+[node name="Sprite2D" type="Sprite2D" parent="SpinSign" unique_id=501187105]
+texture = ExtResource("21_exi56")
+offset = Vector2(-10, -50)
+
+[node name="Area2D" type="Area2D" parent="SpinSign" unique_id=1249803599]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpinSign/Area2D" unique_id=687729016]
+position = Vector2(-3, -56.00003)
+shape = SubResource("RectangleShape2D_22asu")
+
+[node name="Area2D2" type="Area2D" parent="SpinSign" unique_id=776800993]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpinSign/Area2D2" unique_id=1442969288]
+position = Vector2(-11, -38)
+shape = SubResource("RectangleShape2D_fkdbe")
+
+[node name="Area2D3" type="Area2D" parent="SpinSign" unique_id=2127432933]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpinSign/Area2D3" unique_id=1747860357]
+position = Vector2(-11.5, -38.5)
+shape = SubResource("ConvexPolygonShape2D_81klo")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1817472785]
+position = Vector2(347, 164)
+texture = ExtResource("46_htg8p")
+
+[node name="Inventory" type="Node2D" parent="Sprite2D2" unique_id=1328805220]
+position = Vector2(-14, -24)
+script = ExtResource("5_h4fw4")
+_grid_size_x = 2
+_grid_size_y = 3
+_cell_size = 16
+
+[node name="Area2D" type="Area2D" parent="Sprite2D2/Inventory" unique_id=1385441536]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/Inventory/Area2D" unique_id=893196993]
+position = Vector2(16, 24)
+shape = SubResource("RectangleShape2D_h4fw4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D2" unique_id=1366728877]
+z_index = -1
+material = SubResource("ShaderMaterial_tt7mg")
+position = Vector2(11.374989, -0.125)
+scale = Vector2(51.249977, 48.25)
+texture = ExtResource("6_1l0tm")
+
+[node name="Money" type="Node2D" parent="." unique_id=2073472326]
+position = Vector2(6, 6)
+
+[node name="MoneyLabel" type="Label" parent="Money" unique_id=942007113]
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 85.0
+offset_bottom = 19.0
+theme = ExtResource("3_iivbl")
+theme_override_font_sizes/font_size = 8
+text = "2,147,483,647$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Money" unique_id=193049399]
+position = Vector2(23, 1)
+texture = ExtResource("21_exi56")
+offset = Vector2(-10, -50)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Money" unique_id=1606274463]
+position = Vector2(67, 1)
+texture = ExtResource("21_exi56")
+offset = Vector2(-10, -50)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Money" unique_id=1632458794]
+offset_right = 89.0
+offset_bottom = 28.0
+texture = ExtResource("46_tt7mg")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="back" type="Sprite2D" parent="Money" unique_id=1478068580]
+z_index = -2
+material = SubResource("ShaderMaterial_htg8p")
+position = Vector2(44.5, 13.999999)
+scale = Vector2(71, 9.999999)
+texture = ExtResource("6_1l0tm")
+
+[node name="ShopTabs" parent="." unique_id=1319265294 instance=ExtResource("43_6a4tp")]
+position = Vector2(384, 7)
+
+[node name="SpiralBackground" type="Sprite2D" parent="." unique_id=1415703983 node_paths=PackedStringArray("target")]
+z_index = -4096
+material = SubResource("ShaderMaterial_ke0wg")
+position = Vector2(191.99998, 108)
+scale = Vector2(400, 400)
+texture = ExtResource("6_1l0tm")
+script = ExtResource("49_tt7mg")
+target = NodePath("../CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy/HamsterSlot")
+
+[node name="StickerSheetSlot" type="Node2D" parent="." unique_id=1712007632]
+position = Vector2(6, 216)

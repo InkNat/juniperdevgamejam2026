@@ -9,6 +9,7 @@ static var instance: Cogworld
 var grid : Dictionary[Vector2i,Wheel]
 var _previews: Array[Node] = []
 
+var wheel_data: WheelData
 
 
 func _init():
@@ -17,11 +18,12 @@ func _init():
 func _ready():
 	grid[Vector2i(0,0)] = main_cogwheel
 
+func set_wheel_to_place(p_wheel_data: WheelData):
+	wheel_data = p_wheel_data
+	generate_previews(wheel_data.wheel_size)
+
 func generate_previews(wheel_size):
-	for preview in _previews:
-		preview.queue_free()
-	_previews = []
-	
+	delete_previews()
 	for vec: Vector2 in get_all_empty_spots(wheel_size):
 		var cl = previews[wheel_size].instantiate()
 		cl.position = vec*Vector2(64,64)
@@ -29,6 +31,12 @@ func generate_previews(wheel_size):
 		cl.wheel_size = wheel_size
 		add_child(cl)
 		_previews.append(cl)
+
+func delete_previews():
+	for preview in _previews:
+		preview.safe_delete()
+		preview.queue_free()
+	_previews = []
 
 func neighbor_checks(wheel_size_from, wheel_size_to) -> Array[Vector2i]:
 	if (wheel_size_from == wheel_size_to):
@@ -68,11 +76,13 @@ func sync_wheel(vec: Vector2i, wheel: Wheel):
 func place_wheel_at(wheel_size, vec: Vector2i):
 	if (grid.get(vec) != null): return
 	var scene = wheels[wheel_size]
-	var inst = scene.instantiate()
+	var inst:Wheel = scene.instantiate()
+	inst.setup(wheel_data.tiles)
 	inst.position = vec*Vector2i(64,64)
 	grid[vec] = inst
+	wheel_data = null
 	add_child(inst)
-	generate_previews(wheel_size)
+	delete_previews()
 	sync_wheel(vec, inst)
 
 func get_all_empty_spots(size) -> Array[Vector2i]:

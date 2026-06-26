@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dpiyoljbr3vfu"]
+
+[ext_resource type="Script" uid="uid://b6exu2fmvgdw3" path="res://Scenes/wheel_icon.gd" id="1_cjexe"]
+[ext_resource type="Shader" uid="uid://dfojatw757cjj" path="res://Shaders/segmentedwheel.gdshader" id="1_lhweo"]
+[ext_resource type="ArrayMesh" uid="uid://cn5x3mquemgks" path="res://Models/BigCogwheel.tres" id="2_cjexe"]
+[ext_resource type="Script" uid="uid://bgqpikrb15qfo" path="res://Scenes/rotate_constantly.gd" id="3_ma57r"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cs371"]
+viewport_path = NodePath("Node2D/WheelVisual/3DWheelProjector/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fdq3a"]
+resource_local_to_scene = true
+shader = ExtResource("1_lhweo")
+shader_parameter/separatorColor = Color(0, 0, 0, 1)
+shader_parameter/angle_offset = 0.0
+shader_parameter/separator_count = 4
+shader_parameter/separatorLength = 0.005
+shader_parameter/minLength = 0.3
+shader_parameter/maxLength = 0.42
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a5tlo"]
+load_path = "res://.godot/imported/whitepixel.png-835a41345ae031d82832608708097779.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cjexe"]
+
+[node name="BigWheelIcon" type="Node2D" unique_id=2137945900 node_paths=PackedStringArray("wheel", "area")]
+script = ExtResource("1_cjexe")
+wheel = NodePath("Node2D/WheelVisual/Wheel")
+area = NodePath("Area2D")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=518854061]
+
+[node name="WheelVisual" type="Node2D" parent="Node2D" unique_id=66004904]
+scale = Vector2(0.075, 0.075)
+
+[node name="3DWheelProjector" type="Sprite2D" parent="Node2D/WheelVisual" unique_id=1517978075]
+scale = Vector2(0.375, 0.375)
+texture = SubResource("ViewportTexture_cs371")
+
+[node name="SubViewport" type="SubViewport" parent="Node2D/WheelVisual/3DWheelProjector" unique_id=1277024370]
+own_world_3d = true
+transparent_bg = true
+size = Vector2i(1024, 1024)
+
+[node name="Node3D" type="Node3D" parent="Node2D/WheelVisual/3DWheelProjector/SubViewport" unique_id=139662435]
+
+[node name="Camera3D" type="Camera3D" parent="Node2D/WheelVisual/3DWheelProjector/SubViewport/Node3D" unique_id=2047376681]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, 0)
+projection = 1
+size = 4.06
+
+[node name="BigCogwheel" type="MeshInstance3D" parent="Node2D/WheelVisual/3DWheelProjector/SubViewport/Node3D" unique_id=1264518682]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+mesh = ExtResource("2_cjexe")
+script = ExtResource("3_ma57r")
+
+[node name="Wheel" type="Sprite2D" parent="Node2D/WheelVisual" unique_id=543256566]
+material = SubResource("ShaderMaterial_fdq3a")
+scale = Vector2(256, 256)
+texture = SubResource("CompressedTexture2D_a5tlo")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1154825971]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2095592435]
+shape = SubResource("CircleShape2D_cjexe")
