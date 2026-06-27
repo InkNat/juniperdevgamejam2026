@@ -81,7 +81,6 @@
 [ext_resource type="Script" uid="uid://b2joj87wrir42" path="res://Scripts/Cogworld/area_button.gd" id="53_sjh24"]
 [ext_resource type="Texture2D" uid="uid://bdkt4ipvsin67" path="res://Sprites/pointer.png" id="54_ff75x"]
 [ext_resource type="AudioStream" uid="uid://divihharp21bk" path="res://Sounds/hamster_die.wav" id="58_lrctp"]
-[ext_resource type="AudioStream" uid="uid://bt3x2q60cw5b0" path="res://Sounds/Music/SPIN_SONG.wav" id="59_nqk4g"]
 [ext_resource type="Script" uid="uid://buutmtjgp7x1m" path="res://Scenes/mini_light_controller.gd" id="60_j0obb"]
 [ext_resource type="Texture2D" uid="uid://doekqmcdgwctl" path="res://Sprites/UI/led.png" id="61_nfavm"]
 [ext_resource type="Shader" uid="uid://c5nixosxut2ij" path="res://Shaders/hue_shift.gdshader" id="64_qj5kr"]
@@ -615,7 +614,7 @@ spot_attenuation = 1.19
 spot_angle = 44.72
 spot_angle_attenuation = 0.40612617
 
-[node name="Hamster" type="RigidBody3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D" unique_id=1947900317 node_paths=PackedStringArray("animated_sprite", "particles", "music")]
+[node name="Hamster" type="RigidBody3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D" unique_id=1947900317 node_paths=PackedStringArray("animated_sprite", "particles")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57446414, 0.08348197)
 axis_lock_linear_z = true
 axis_lock_angular_x = true
@@ -628,7 +627,6 @@ animated_sprite = NodePath("Sprite3D")
 collision_noise = ExtResource("33_htg8p")
 particles = NodePath("CPUParticles3D")
 sound = ExtResource("58_lrctp")
-music = NodePath("../../../../../../../../../AudioStreamPlayer")
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel/WheelVisual/3DInsideProjector/SubViewport/Node3D/Hamster" unique_id=1140889113]
 texture_filter = 0
@@ -1304,11 +1302,6 @@ texture = ExtResource("61_nfavm")
 [node name="34" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=1902119041]
 position = Vector2(81, 59)
 texture = ExtResource("61_nfavm")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=360905497]
-stream = ExtResource("59_nqk4g")
-autoplay = true
-bus = &"Music"
 
 [node name="Explodeeee" type="Sprite2D" parent="." unique_id=726560560]
 position = Vector2(279, 261)

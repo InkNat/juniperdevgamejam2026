@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://ci8e3htfxl1na" path="res://Scenes/game.tscn" id="3_8gbba"]
 [ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://blgbf47pkxhbf" path="res://trigger_warning.tscn" id="4_kry3j"]
+[ext_resource type="AudioStream" uid="uid://bt3x2q60cw5b0" path="res://Sounds/Music/SPIN_SONG.wav" id="6_6bp64"]
+[ext_resource type="Script" uid="uid://b6tw0o7u88lpi" path="res://Scenes/music_manager.gd" id="7_344ge"]
 
 [node name="Main" type="Node" unique_id=228515965 node_paths=PackedStringArray("cover")]
 script = ExtResource("1_bo1nx")
@@ -22,3 +24,8 @@ z_index = 4096
 scale = Vector2(384, 216)
 texture = ExtResource("4_jjvhh")
 centered = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=937788687]
+stream = ExtResource("6_6bp64")
+bus = &"Music"
+script = ExtResource("7_344ge")

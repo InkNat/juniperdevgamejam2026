@@ -8,6 +8,11 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if not MusicManager.instance.playing: MusicManager.instance.playing = true
+	
+	var audio_tween = create_tween()
+	audio_tween.tween_property(AudioServer.get_bus_effect(1,0), "cutoff_hz", 70, 1)
+	
 	start_button.pressed.connect(Main.instance.start_game)
 	var tween = get_tree().create_tween()
 	tween.tween_interval(0.5)

@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var music_slider = $Control/MusicSlider
+@onready var music_slider : Slider = $Control/MusicSlider
 @onready var sounds_slider = $Control/SoundsSlider
 @onready var restart_button = $Control/RestartButton
 @onready var snap_button = $Control/SnapButton
@@ -19,5 +19,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	AudioServer.set_bus_volume_db(1, music_slider.value)
-	AudioServer.set_bus_volume_db(2, sounds_slider.value)
+	if music_slider.value == music_slider.min_value:
+		AudioServer.set_bus_volume_db(1,-1000)
+	else:
+		AudioServer.set_bus_volume_db(1, music_slider.value)
+		
+	if sounds_slider.value == sounds_slider.min_value:
+		AudioServer.set_bus_volume_db(2,-1000)
+	else:
+		AudioServer.set_bus_volume_db(2, sounds_slider.value)

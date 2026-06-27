@@ -6,7 +6,6 @@ static var instance: HamsterManager
 @export var collision_noise: AudioStream
 @export var particles: CPUParticles3D
 @export var sound: AudioStream
-@export var music: AudioStreamPlayer
 var speed: float = 1
 var previous = 0
 
@@ -30,7 +29,7 @@ func _ready():
 
 func explode():
 	print("bam")
-	music.playing = false
+	MusicManager.instance.playing = false
 	Game.instance.play_and_die(sound)
 	animated_sprite.visible = false
 	particles.emitting = true

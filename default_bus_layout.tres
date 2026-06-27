@@ -2,7 +2,7 @@
 
 [sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_j3pel"]
 resource_name = "LowPassFilter"
-cutoff_hz = 2384.0
+cutoff_hz = 100.0
 resonance = 0.65
 
 [resource]

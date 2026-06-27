@@ -44,6 +44,8 @@ func camera_weight():
 	tween.tween_property(camera, "offset", Vector2.ZERO, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 
 func _ready():
+	var audio_tween = create_tween()
+	audio_tween.tween_property(AudioServer.get_bus_effect(1,0), "cutoff_hz", 2000, 1)
 	MiniLightController.reset()
 	land_reset(true)
 	hamster_slot.place_first_item.connect(spin_button.open_sign)
