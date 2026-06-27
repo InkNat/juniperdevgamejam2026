@@ -63,6 +63,14 @@ func neighbor_checks(wheel_size_from, wheel_size_to) -> Array[Vector2i]:
 	else:
 		return []
 
+func get_neighbors_of(wheel: Wheel) -> Array[Wheel]:
+	var result: Array[Wheel] = []
+	for size in Wheel.WheelSize.values():
+		for check in neighbor_checks(wheel.wheel_size, size):
+			if grid.has(check):
+				result.append(grid[check])
+	return result
+
 func sync_wheel(vec: Vector2i, wheel: Wheel):
 	for size in Wheel.WheelSize.values():
 		for neighbor_pos in neighbor_checks(wheel.wheel_size, size):

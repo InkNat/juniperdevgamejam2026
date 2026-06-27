@@ -122,6 +122,10 @@ func push_sticker(sticker: Sticker):
 	sticker.reparent(self)
 	sticker.position = get_global_mouse_position()
 
+func _input(event):
+	if event is InputEventMouseMotion:
+		tooltip_time = 0.06
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	money_label.text = str(cash_money) + "$"
@@ -143,6 +147,11 @@ func _process(delta):
 	var tooltip_data = null
 	var result = space.intersect_point(parameters)
 	
+	tooltip_time-=delta
+	
+	if Input.is_action_just_pressed("Big"):
+		generated_sticker_sheet = StickerSheetGenerator.new(Vector2(4,6),sticker_registry).generate_sticker_sheet()
+		
 	if (current_sticker == null): for dict in result:
 		var collider: Node = dict["collider"]
 		var collider_parent = collider.get_parent()
@@ -159,12 +168,11 @@ func _process(delta):
 	
 	if (tooltip_data != null): 
 		tooltip.set_tooltip(tooltip_data)
-		show_tooltip = true
+		show_tooltip = tooltip_time <= 0
 	var viewport_size:Rect2 = get_viewport_rect()
 	
 	tooltip.global_position = Vector2(
 		clamp(mouse_pos.x,0,viewport_size.size.x-tooltip.size.x),
 		clamp(mouse_pos.y,0,viewport_size.size.y-tooltip.size.y)
 	) 
-	tooltip.visible = false
 	tooltip.visible = show_tooltip

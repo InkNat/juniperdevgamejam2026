@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://tkbhuk000ape"]
 
 [ext_resource type="Script" uid="uid://du3o3rr0v3r4g" path="res://Scripts/Cogworld/wheel.gd" id="1_uidn7"]
-[ext_resource type="PackedScene" uid="uid://c2obbv1kgq74x" path="res://Scenes/audio_stream_player.tscn" id="2_12mdv"]
+[ext_resource type="Curve" uid="uid://dwypdfpkypvrf" path="res://red_arrow_curve.tres" id="2_7h477"]
 [ext_resource type="PackedScene" uid="uid://l4a0yms58kph" path="res://Scenes/tile_tooltip.tscn" id="3_7h477"]
+[ext_resource type="AudioStream" uid="uid://cttoesuj6nur6" path="res://Sounds/wheel_click.wav" id="3_h4wi4"]
 [ext_resource type="Shader" uid="uid://dfojatw757cjj" path="res://Shaders/segmentedwheel.gdshader" id="3_jn67y"]
 [ext_resource type="ArrayMesh" uid="uid://cn5x3mquemgks" path="res://Models/BigCogwheel.tres" id="4_uidn7"]
 [ext_resource type="Script" uid="uid://q7otcvnu0q8a" path="res://Scripts/Cogworld/proxy.gd" id="6_12mdv"]
@@ -28,8 +29,9 @@ viewport_path = NodePath("WheelVisual/3DWheelProjector/SubViewport")
 script = ExtResource("1_uidn7")
 wheel = NodePath("WheelVisual/Wheel")
 red_arrow = NodePath("WheelVisual/RedArrow")
+red_arrow_curve = ExtResource("2_7h477")
 cogwheel = NodePath("WheelVisual/3DWheelProjector/SubViewport/Node3D/BigCogwheel")
-click_audio = ExtResource("2_12mdv")
+click_audio = ExtResource("3_h4wi4")
 tile_tooltip = ExtResource("3_7h477")
 wheel_size = 2
 stickers = NodePath("Proxy/Stickers/TileStickers")

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cybqi61jwcbvf"]
+
+[ext_resource type="Script" uid="uid://wnayd260m3en" path="res://Scenes/mini_juicer.gd" id="1_iiky5"]
+[ext_resource type="Shader" uid="uid://bpjif4crroofq" path="res://Shaders/Pulse.gdshader" id="2_6san1"]
+[ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="3_wmav3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mduoy"]
+shader = ExtResource("2_6san1")
+shader_parameter/time = 0.0
+
+[sub_resource type="Curve" id="Curve_fbgur"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 100), 263.93246, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_dkquw"]
+_data = [Vector2(0.012345679, 1), 0.0, 0.21275386, 0, 0, Vector2(0.9876544, 0), -4.0408993, 0.0, 0, 0]
+point_count = 2
+
+[node name="MiniJuicer" type="Node2D" unique_id=868231453]
+script = ExtResource("1_iiky5")
+
+[node name="Ring" type="Sprite2D" parent="." unique_id=995212485]
+material = SubResource("ShaderMaterial_mduoy")
+scale = Vector2(128, 128)
+texture = ExtResource("3_wmav3")
+
+[node name="Label" type="Label" parent="." unique_id=1545448662]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2049692132]
+emitting = false
+amount = 128
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.85
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 210.94
+initial_velocity_max = 304.69
+damping_min = 50.0
+damping_max = 60.0
+damping_curve = SubResource("Curve_fbgur")
+scale_amount_min = 0.7
+scale_amount_max = 1.3
+scale_amount_curve = SubResource("Curve_dkquw")
