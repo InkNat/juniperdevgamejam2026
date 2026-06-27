@@ -10,7 +10,7 @@ size = Vector2i(3, 4)
 wheel_sticker = true
 name = "Rainbow Bow"
 description = "Wheel sticker.
-+10000$ for every unique color rolled.
++100$ for every unique color rolled.
 Reset this bonus if a repeat color
 is rolled."
 metadata/_custom_type_script = "uid://dgxfjckrxanua"

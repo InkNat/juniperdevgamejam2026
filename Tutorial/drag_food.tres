@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TutorialText" format=3 uid="uid://dnt205ram61ku"]
+
+[ext_resource type="Script" uid="uid://dd5fquc62wkdu" path="res://tutorial_text.gd" id="1_0ylp2"]
+
+[resource]
+script = ExtResource("1_0ylp2")
+title = "drag_food"
+text = "Drag the food to your hamster to feed it!"
+metadata/_custom_type_script = "uid://dd5fquc62wkdu"

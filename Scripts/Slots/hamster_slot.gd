@@ -46,6 +46,7 @@ func _can_insert(_item: Item) -> bool:
 	return _item_count < maximum_capacity
 
 func _insert(item: Item):
+	MiniTutorial.show_tutorial("spin_wheel")
 	item.reparent(self, true)
 	if (_item_count == 0): place_first_item.emit()
 	_item_count+=1

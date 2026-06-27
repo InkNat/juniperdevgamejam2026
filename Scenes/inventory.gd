@@ -19,6 +19,7 @@ func is_empty() -> bool:
 
 func open():
 	is_open = true
+	MiniTutorial.show_tutorial("inventory")
 	var tween = get_tree().create_tween()
 	tween.tween_property(target,"position",Vector2.ZERO, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
 func close():

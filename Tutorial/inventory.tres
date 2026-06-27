@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TutorialText" format=3 uid="uid://ccaflg6q7twdd"]
+
+[ext_resource type="Script" uid="uid://dd5fquc62wkdu" path="res://tutorial_text.gd" id="1_saeen"]
+
+[resource]
+script = ExtResource("1_saeen")
+title = "inventory"
+text = "This is your inventory. You can hold items here. Click on the apple slice to drag it around."
+metadata/_custom_type_script = "uid://dd5fquc62wkdu"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TutorialText" format=3 uid="uid://cvmhl131sfbtv"]
+
+[ext_resource type="Script" uid="uid://dd5fquc62wkdu" path="res://tutorial_text.gd" id="1_vvxaj"]
+
+[resource]
+script = ExtResource("1_vvxaj")
+title = "wheel_stickers"
+time = 7.0
+text = "Wheel stickers must be placed in the center of a wheel that isn't the hamster wheel."
+metadata/_custom_type_script = "uid://dd5fquc62wkdu"

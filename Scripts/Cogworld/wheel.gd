@@ -87,19 +87,23 @@ func _input(event):
 	if not _setup: return
 	if Game.instance.current_sticker == null: return
 	var is_wheel: bool = Game.instance.current_sticker.sticker_data.wheel_sticker
-	if is_wheel and self is MainWheel:
-		return
 	if (event.is_action_pressed("Click")):
 		var pos = get_global_mouse_position()-position
 		var length = pos.length()/sprite_scale
+		if is_wheel and length < wheel_range_max:
+			MiniTutorial.show_tutorial("wheel_stickers", false)
+		
 		if length < wheel_range_min:
 			if is_wheel:
+				if self is MainWheel: return
 				if (wheel_stickers.get_child_count() > max_stickers()): return
 				var cs = Game.instance.pop_sticker()
 				if (cs != null):
 					Game.play_and_die(Sticker.sound_stick)
+					StickerSheet.check_die()
 					cs.reparent(wheel_stickers,true)
 					cs.scale = Vector2(0.5,0.5)
+					MiniTutorial.instance.hide_tutorial()
 			else:
 				for e in wheel_stickers.get_children():
 					if e is Sticker:
@@ -107,18 +111,25 @@ func _input(event):
 						if e.sticker_data.get_tag() == "halo":
 							var cs = Game.instance.pop_sticker()
 							Game.play_and_die(Sticker.sound_stick)
+							StickerSheet.check_die()
 							cs.reparent(e,true)
 							cs.position = Vector2.ZERO
 							cs.rotation = 0
 							cs.scale = Vector2(1,1)
+							MiniTutorial.instance.hide_tutorial()
 		elif (length > wheel_range_min and length < wheel_range_max):
 			var chosen_tile = floor(fmod((-atan2(pos.x, pos.y)/TAU)+0.5+wheel_rotation,1)*segments)
 			if (stickers.get_child(chosen_tile).get_child_count() > max_stickers()): return
 			var cs = Game.instance.pop_sticker()
 			if (cs != null):
 				Game.play_and_die(Sticker.sound_stick)
+				StickerSheet.check_die()
 				cs.reparent(stickers.get_child(chosen_tile),true)
 				cs.scale = Vector2(0.5,0.5)
+				MiniTutorial.instance.hide_tutorial()
+
+var first = true
+var previous_wheel_speed = 1
 
 func rotate_wheel(p_wheel_rotation: float):
 	if not _setup: return
@@ -127,6 +138,23 @@ func rotate_wheel(p_wheel_rotation: float):
 		var gear_offset = (1/(pow(2,wheel_size)*16))
 		var gear_ratio = 1*(pow(2,wheel_size-subwheel.wheel_size))
 		subwheel.rotate_wheel((wheel_rotation+gear_offset)*-gear_ratio)
+	
+	
+	var _wheel_speed = wheel_speed()
+	var currentSegment:int = int(floor(wheel_rotation*segments*_wheel_speed))
+	
+	if previous_wheel_speed != _wheel_speed:
+		previous_wheel_speed = _wheel_speed
+		previousSegment = currentSegment
+		return
+	
+	if first: 
+		first = false
+		previousSegment = currentSegment
+		return
+	for i in range(abs(currentSegment-previousSegment)):
+		click()
+	previousSegment = currentSegment
 
 func normalized_wheel_rotation() -> float:
 	return fmod(wheel_rotation,1)
@@ -167,12 +195,6 @@ func _process(_delta):
 	stickers.rotation = -wheel_rotation*TAU*_wheel_speed
 	wheel_stickers.rotation = stickers.rotation
 	wheel.material.set_shader_parameter("angle_offset", wheel_rotation*_wheel_speed)
-	
-	var currentSegment:int = int(floor(wheel_rotation*segments*_wheel_speed))
-	
-	for i in range(abs(currentSegment-previousSegment)):
-		click()
-	previousSegment = currentSegment
 
 func clover_randf(clover_count: int):
 	var e = randf()
@@ -192,18 +214,23 @@ func has_stickers(index: int, tag: String, check_exhaust: bool = false) -> bool:
 				s.exhaust()
 		return true
 	
-	if (halo_check(tag)): return true
+	if (halo_check(tag, check_exhaust)): return true
 	return false
 
-func halo_check(tag: String):
+func halo_check(tag: String, check_exhaust: bool = false):
 	for wheel_sticker in wheel_stickers.get_children():
 		if wheel_sticker is Sticker:
 			if wheel_sticker.sticker_data.get_tag() == "halo":
 				if wheel_sticker.get_child_count() > 1:
 					for child in wheel_sticker.get_children():
 						if child is not Sticker: continue
-						if child.sticker_data.get_tag() == tag:
-							return true
+						if child.sticker_data.get_tag() != tag: continue
+						if check_exhaust:
+							if child.exhausted:
+								continue
+							elif child.sticker_data.exhausts: 
+								child.exhaust()
+						return true
 
 func get_halo_stickers() -> Array[Sticker]:
 	var result: Array[Sticker] = []
@@ -228,7 +255,7 @@ func count_stickers(index: int, tag: String, check_exhaust: bool = false) -> int
 				elif s.sticker_data.exhausts: 
 					s.exhaust()
 			result+=1
-	if (halo_check(tag)): return true
+	if (halo_check(tag, check_exhaust)): return true
 	return result
 
 func count_total_stickers(tag: String) -> int:
@@ -271,6 +298,7 @@ func _trigger(index: int, trigger_trace: TriggerTrace, multiplier: float = 1):
 	for e in get_wheel_stickers("nodal", true):
 		for w in Cogworld.instance.get_neighbors_of(self):
 			if trigger_trace.check(e):
+				print("neighbor with size " + str(w.wheel_size))
 				w.trigger_tile(rolled_tile, trigger_trace, multiplier)
 	
 	var rainbow_count = len(get_wheel_stickers("rainbow_bow"))
@@ -286,7 +314,7 @@ func _trigger(index: int, trigger_trace: TriggerTrace, multiplier: float = 1):
 	
 	var money = rolled_tile.base_reward
 	
-	var bonus_money = len(rain_bow_bow_tiles)*10000*rainbow_count
+	var bonus_money = len(rain_bow_bow_tiles)*100*rainbow_count
 	
 	var raspberry_count = 0
 	var mulberry_count = 0
@@ -359,6 +387,7 @@ func skip_check() -> bool:
 	var result = tile_result()
 	for sub_wheel in subwheels:
 		if (sub_wheel.skip_check()):
+			MiniJuicer.juice(stickers.get_child(result).global_position, trigger_sound, "Skip!", Color(0.573, 0.102, 1.0, 1.0), 0)
 			return true
 	return has_stickers(result, "nuh_uh!", true)
 
@@ -373,9 +402,13 @@ func total_respins() -> int:
 		respins+=1
 		if clover_randf(clover_count) > 0.9:
 			respins+=1
+			MiniJuicer.juice(stickers.get_child(result).global_position, trigger_sound, "Again and Again!", Color(0.0, 0.921, 0.448, 1.0), 0)
+		else:
+			MiniJuicer.juice(stickers.get_child(result).global_position, trigger_sound, "Again!", Color(0.0, 0.921, 0.448, 1.0), 0)
 	return respins
 
 func land():
+	MiniTutorial.show_tutorial("hover_colors")
 	for sub_wheel in subwheels:
 		sub_wheel.land()
 	var result = tile_result()
@@ -386,6 +419,13 @@ func refresh_stickers():
 	for sub_wheel in subwheels:
 		sub_wheel.refresh_stickers()
 	for c in stickers.get_children():
+		for s in c.get_children():
+			if s is not Sticker: continue
+			if not s.exhausted: continue
+			s.refresh()
+	for c in wheel_stickers.get_children():
+		if c is not Sticker: continue
+		if c.sticker_data.get_tag() != "halo": continue
 		for s in c.get_children():
 			if s is not Sticker: continue
 			if not s.exhausted: continue

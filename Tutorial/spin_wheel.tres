@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TutorialText" format=3 uid="uid://c62bru678aeuk"]
+
+[ext_resource type="Script" uid="uid://dd5fquc62wkdu" path="res://tutorial_text.gd" id="1_hp0wg"]
+
+[resource]
+script = ExtResource("1_hp0wg")
+title = "spin_wheel"
+text = "Now, spin the wheel!"
+metadata/_custom_type_script = "uid://dd5fquc62wkdu"

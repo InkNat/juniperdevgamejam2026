@@ -14,6 +14,7 @@ var ss
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MiniTutorial.show_tutorial("hover_stickers")
 	instance = self
 	var sold_wheels = Game.instance.get_sold_wheels()
 	var vis = false

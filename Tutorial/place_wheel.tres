@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TutorialText" format=3 uid="uid://dk8w5rfmxcf8k"]
+
+[ext_resource type="Script" uid="uid://dd5fquc62wkdu" path="res://tutorial_text.gd" id="1_nr85u"]
+
+[resource]
+script = ExtResource("1_nr85u")
+title = "place_wheel"
+time = 7.0
+text = "Place your new wheel by clicking of the highlighted spots!"
+metadata/_custom_type_script = "uid://dd5fquc62wkdu"

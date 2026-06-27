@@ -70,12 +70,13 @@ func spin(tags: Array[String], multiplier:float = 1):
 				Multipliers.instance.set_display_text("carrot", str(total_speed) + "x speed")
 			"cheese":
 				Game.instance.cheese_bonuses.append(CheeseBonus.new())
-				Multipliers.instance.set_display_text("cheese", str(int(Game.instance.get_cheese_bonus()*100)) + "%")
 			"mulberry":
 				mulberry_count+=1
 			"raspberry":
 				raspberry_count+=1
 		rest.append(tag)
+	if len(Game.instance.cheese_bonuses) > 0:
+		Multipliers.instance.set_display_text("cheese", str(int(Game.instance.get_cheese_bonus()*100)) + "%")
 	var mulberry_mult = pow(1.5,mulberry_count)
 	var raspberry_add = (raspberry_count*10)
 	

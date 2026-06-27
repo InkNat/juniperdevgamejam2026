@@ -18,7 +18,7 @@ var locked = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	instance = self
-	close_all()
+	settings_tab.close()
 
 #func _input(event):
 	#if (grocery_tab.is_open or store_tab.is_open or settings_tab.is_open):
@@ -29,6 +29,12 @@ func by_tab(tab: Tabs):
 		Tabs.Groceries: groceries()
 		Tabs.Store: store()
 		Tabs.Settings: settings()
+
+func unlock_groceries():
+	grocery_tab.unlock()
+	
+func unlock_store():
+	store_tab.unlock()
 
 func currently_open() -> Tabs:
 	if grocery_tab.is_open: return Tabs.Groceries

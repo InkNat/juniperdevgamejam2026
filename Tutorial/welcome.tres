@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TutorialText" format=3 uid="uid://dhg0xgnyoplgx"]
+
+[ext_resource type="Script" uid="uid://dd5fquc62wkdu" path="res://tutorial_text.gd" id="1_pemvc"]
+
+[resource]
+script = ExtResource("1_pemvc")
+title = "welcome"
+text = "Welcome! Click the cyan icon at the bottom right to get started."
+metadata/_custom_type_script = "uid://dd5fquc62wkdu"

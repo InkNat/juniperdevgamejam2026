@@ -1,4 +1,9 @@
-extends Sprite2D
+class_name StickerSheet extends Sprite2D
+
+static var _instance: StickerSheet
+
+static func check_die():
+	if _instance != null: _instance._check_die()
 
 @export var sticker_area: Area2D
 @export var label: Label
@@ -10,7 +15,7 @@ var state = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	_instance = self
 	retract()
 	sticker_area.mouse_entered.connect(func():
 		if state == 1: return
@@ -44,6 +49,7 @@ func _process(delta):
 	if (state == 3): return
 	if (Input.is_action_just_pressed("Click") and extended and state == 0):
 		buy.call_deferred()
+func _check_die():
 	if get_child_count() <= 2:
 		discard()
 
@@ -52,6 +58,7 @@ func buy():
 	if Game.instance.shop_tabs.currently_open() != Shop.Tabs.Store: return
 	if not Game.spend_money(price): return
 	Game.instance.play_and_die(buy_audio)
+	MiniTutorial.show_tutorial("place_stickers", false)
 	Game.instance.kill_previous_sheet()
 	Game.instance.popped_sticker_sheet = true
 	Game.instance.shop_tabs.close_all()

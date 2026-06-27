@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TutorialText" format=3 uid="uid://b5deuotkk3008"]
+
+[ext_resource type="Script" uid="uid://dd5fquc62wkdu" path="res://tutorial_text.gd" id="1_v24r7"]
+
+[resource]
+script = ExtResource("1_v24r7")
+title = "place_stickers"
+time = 7.0
+text = "Place stickers by clicking them, then clicking a colored spot!"
+metadata/_custom_type_script = "uid://dd5fquc62wkdu"

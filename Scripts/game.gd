@@ -60,6 +60,9 @@ func _ready():
 	var audio_tween = create_tween()
 	audio_tween.tween_property(AudioServer.get_bus_effect(1,0), "cutoff_hz", 2000, 1)
 	MiniLightController.reset()
+	var appl = Game.instance.apple.create_item()
+	GridSlots.instance.add_item(appl)
+	MiniTutorial.show_tutorial("welcome")
 	land_reset(true)
 	hamster_slot.place_first_item.connect(spin_button.open_sign)
 	spin_button.sign_clicked.connect(hamster_slot.consume_and_spin)
@@ -134,16 +137,17 @@ func land_reset(boo: bool = false):
 	var new_bonuses: Array[CheeseBonus] = []
 	for cheese_bonus in cheese_bonuses:
 		cheese_bonus.tick()
-		if not cheese_bonus.is_valid(): continue
-		new_bonuses.append(cheese_bonus)
+		if cheese_bonus.is_valid():
+			new_bonuses.append(cheese_bonus)
 	cheese_bonuses = new_bonuses
 	shop_tabs.locked = false
 	generated_sticker_sheet = StickerSheetGenerator.new(Vector2(4,6),sticker_registry).generate_sticker_sheet()
-	shop_tabs.by_tab(previous_tab)
+	
 	Multipliers.instance.reset()
 	if not boo: 
 		Inventory.instance.open()
 		flash_time = 3
+		shop_tabs.by_tab(previous_tab)
 	
 
 func pop_sticker() -> Sticker:
@@ -201,10 +205,7 @@ func _process(delta):
 	var result = space.intersect_point(parameters)
 	
 	tooltip_time-=delta
-	
-	if Input.is_action_just_pressed("Big"):
-		generated_sticker_sheet = StickerSheetGenerator.new(Vector2(4,6),sticker_registry).generate_sticker_sheet()
-		
+
 	if (current_sticker == null): for dict in result:
 		var collider: Node = dict["collider"]
 		var collider_parent = collider.get_parent()

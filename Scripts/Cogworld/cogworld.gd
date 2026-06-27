@@ -65,10 +65,13 @@ func neighbor_checks(wheel_size_from, wheel_size_to) -> Array[Vector2i]:
 
 func get_neighbors_of(wheel: Wheel) -> Array[Wheel]:
 	var result: Array[Wheel] = []
+	var vec: Vector2i = grid.find_key(wheel)
+	if vec == null: return []
 	for size in Wheel.WheelSize.values():
 		for check in neighbor_checks(wheel.wheel_size, size):
-			if grid.has(check):
-				result.append(grid[check])
+			var e: Vector2i =  check+vec
+			if grid.has(e):
+				result.append(grid[e])
 	return result
 
 func sync_wheel(vec: Vector2i, wheel: Wheel):

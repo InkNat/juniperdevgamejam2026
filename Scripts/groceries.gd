@@ -13,6 +13,7 @@ var _shop_open: bool = false
 var hovering = false
 
 func _ready():
+	MiniTutorial.show_tutorial("hover_food")
 	scroll_area.mouse_entered.connect(func(): hovering = true)
 	scroll_area.mouse_exited.connect(func(): hovering = false)
 	

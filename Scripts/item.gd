@@ -39,6 +39,7 @@ func get_tag() -> String:
 	return item_data.tag
 
 func click_press():
+	MiniTutorial.show_tutorial("drag_food")
 	Game.play_and_die(pick_item_audio)
 	var mouse_pos = get_global_mouse_position()
 	_dragging = true

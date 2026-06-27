@@ -471,7 +471,7 @@ size = Vector2(66.99996, 33.000004)
 [node name="Game" type="Node2D" unique_id=547770425 node_paths=PackedStringArray("tooltip", "camera", "hamster_slot", "main_wheel", "spin_button", "explode_button", "money_label", "shop_tabs", "sticker_sheet_slot")]
 texture_filter = 1
 script = ExtResource("1_wrm1d")
-sticker_registry = Array[ExtResource("2_x6jpx")]([ExtResource("4_ff75x"), ExtResource("18_ifeo7"), ExtResource("19_qj5kr"), ExtResource("15_q8b24"), ExtResource("8_sfx3s"), ExtResource("4_kcoun"), ExtResource("10_gyste"), ExtResource("3_sjh24"), ExtResource("5_jegl3"), ExtResource("10_lknxd"), ExtResource("9_p5qon"), ExtResource("11_p3b6d"), ExtResource("12_bchkn"), ExtResource("14_ckj55"), ExtResource("6_csv17"), ExtResource("7_6i05k"), ExtResource("17_ff75x"), ExtResource("20_d5jaa"), ExtResource("21_k8ojv"), ExtResource("22_7sqp1")])
+sticker_registry = Array[ExtResource("2_x6jpx")]([ExtResource("8_sfx3s"), ExtResource("4_ff75x"), ExtResource("17_ff75x"), ExtResource("4_kcoun"), ExtResource("10_gyste"), ExtResource("3_sjh24"), ExtResource("5_jegl3"), ExtResource("10_lknxd"), ExtResource("9_p5qon"), ExtResource("11_p3b6d"), ExtResource("12_bchkn"), ExtResource("14_ckj55"), ExtResource("15_q8b24"), ExtResource("6_csv17"), ExtResource("7_6i05k"), ExtResource("18_ifeo7"), ExtResource("19_qj5kr"), ExtResource("20_d5jaa"), ExtResource("21_k8ojv"), ExtResource("22_7sqp1")])
 tile_registry = Array[ExtResource("20_lmoi6")]([ExtResource("21_6uxt2"), ExtResource("23_bwj6o"), ExtResource("23_6a4tp"), ExtResource("24_631el"), ExtResource("25_vs120"), ExtResource("26_v2cs8"), ExtResource("27_32sfa"), ExtResource("22_ym3tv")])
 apple = ExtResource("27_a2m5q")
 tooltip = NodePath("Tooltip")

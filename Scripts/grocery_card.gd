@@ -39,4 +39,5 @@ func can_retrieve(_item: Item) -> bool:
 func _retrieve(_item: Item):
 	Game.spend_money(cost)
 	Game.instance.play_and_die(buy_audio)
+	MiniTutorial.show_tutorial("store_tab")
 	refresh_item()

@@ -26,5 +26,6 @@ func close_sign():
 func click_press():
 	if locked: return
 	Game.instance.play_and_die(sound)
+	MiniTutorial.instance.hide_tutorial()
 	close_sign()
 	sign_clicked.emit()

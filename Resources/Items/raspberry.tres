@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_7gto6")
-base_cost = 10
+base_cost = 8
 icon = ExtResource("1_d2h8l")
 name = "Raspberry"
 tag = "raspberry"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TutorialText" format=3 uid="uid://hxsiwr52ncbq"]
+
+[ext_resource type="Script" uid="uid://dd5fquc62wkdu" path="res://tutorial_text.gd" id="1_rrm3u"]
+
+[resource]
+script = ExtResource("1_rrm3u")
+title = "store_tab"
+text = "Let's add more wheels! Click the new blue icon to the right."
+metadata/_custom_type_script = "uid://dd5fquc62wkdu"

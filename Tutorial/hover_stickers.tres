@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TutorialText" format=3 uid="uid://cyiddeqetddyb"]
+
+[ext_resource type="Script" uid="uid://dd5fquc62wkdu" path="res://tutorial_text.gd" id="1_crl4d"]
+
+[resource]
+script = ExtResource("1_crl4d")
+title = "hover_stickers"
+time = 7.0
+text = "Here you can buy new wheels and special stickers! Hover over them for more information."
+metadata/_custom_type_script = "uid://dd5fquc62wkdu"

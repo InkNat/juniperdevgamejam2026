@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TutorialText" format=3 uid="uid://orytce016sca"]
+
+[ext_resource type="Script" uid="uid://dd5fquc62wkdu" path="res://tutorial_text.gd" id="1_5s47d"]
+
+[resource]
+script = ExtResource("1_5s47d")
+title = "hover_colors"
+text = "Incredible! Hover over the colors of your wheel to see how much they'll give you."
+metadata/_custom_type_script = "uid://dd5fquc62wkdu"

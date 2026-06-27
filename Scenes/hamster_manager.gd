@@ -71,9 +71,6 @@ func _process(delta):
 		if explode_time < 0:
 			Main.instance.switch_scene("main_menu")
 	
-	if (Input.is_action_just_pressed("Medium")):
-		shove()
-	
 	animated_sprite.speed_scale = speed
 	if (position.length() > 10):
 		position = _pos

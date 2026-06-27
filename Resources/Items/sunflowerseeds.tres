@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_3skoc")
-base_cost = 250
+base_cost = 100
 icon = ExtResource("1_te2ap")
 name = "Sun. Seed"
 tag = "sun_seed"

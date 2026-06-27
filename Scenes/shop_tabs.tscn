@@ -302,6 +302,7 @@ centered = false
 script = ExtResource("6_1257h")
 insides = ExtResource("6_ho4mo")
 target = NodePath("Node2D")
+tutorial_locked = true
 
 [node name="AreaButton" type="Node2D" parent="StoreTab" unique_id=1709855505 node_paths=PackedStringArray("target")]
 position = Vector2(13, 24)
@@ -543,6 +544,7 @@ centered = false
 script = ExtResource("6_1257h")
 insides = ExtResource("3_gx8hh")
 target = NodePath("Node2D")
+tutorial_locked = true
 
 [node name="AreaButton" type="Node2D" parent="GroceryTab" unique_id=306390068 node_paths=PackedStringArray("target")]
 position = Vector2(13, 24)
