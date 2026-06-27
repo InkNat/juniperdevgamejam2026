@@ -2,20 +2,22 @@
 
 [ext_resource type="Script" uid="uid://oe4w02wk4xwl" path="res://Scripts/main_menu.gd" id="1_28flt"]
 [ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="1_48xlc"]
-[ext_resource type="Shader" uid="uid://djh7dkph2i4v5" path="res://Scenes/scrolling_text.gdshader" id="3_n45e2"]
-[ext_resource type="Texture2D" uid="uid://c7grwga0folil" path="res://Sprites/mr_background.png" id="4_opfnp"]
+[ext_resource type="Texture2D" uid="uid://2ywa3jtws3e7" path="res://Sprites/UI/mrspinningtonsmechanicatitlest.png" id="3_cp0ys"]
+[ext_resource type="Shader" path="res://Scenes/spiral.gdshader" id="3_trj04"]
+[ext_resource type="Texture2D" uid="uid://ebrak2ere6cw" path="res://Sprites/UI/lmrtonchudest.png" id="4_yhxw7"]
 [ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="5_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://bpe0bapxh65ng" path="res://Sprites/UI/PLAY.png" id="9_trj04"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ke0wg"]
-shader = ExtResource("3_n45e2")
-shader_parameter/text = ExtResource("4_opfnp")
-shader_parameter/second_offset = Vector2(0, 0.125)
-shader_parameter/size = Vector2(384, 216)
-shader_parameter/speed = 0.2
-shader_parameter/background_color = Color(0, 0, 0, 1)
-shader_parameter/text_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vr1f0"]
+shader = ExtResource("3_trj04")
+shader_parameter/ring_amount = 3.0
+shader_parameter/line_amount = 1
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/color1 = Color(0.051970966, 0.05197096, 0.05197095, 1)
+shader_parameter/color2 = Color(0.06053035, 0.06053035, 0.060530342, 1)
 
-[node name="MainMenu" type="Control" unique_id=197997598 node_paths=PackedStringArray("start_button", "quit_button")]
+[node name="MainMenu" type="Control" unique_id=197997598 node_paths=PackedStringArray("start_button")]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -25,54 +27,68 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_48xlc")
 script = ExtResource("1_28flt")
-start_button = NodePath("RichTextLabel/Start Button")
-quit_button = NodePath("RichTextLabel/Quit Button")
+start_button = NodePath("Start Button")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=709873276]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Mr Spinnington's Mechanical Emporium"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="cresds" type="Label" parent="." unique_id=344998380]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 207.0
+offset_right = 121.0
+offset_bottom = 215.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "A game by InkNat and Nowa"
 
-[node name="Start Button" type="Button" parent="RichTextLabel" unique_id=268640662]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -128.0
-offset_top = 15.0
-offset_right = 128.0
-offset_bottom = 47.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "start"
+[node name="legal1" type="Label" parent="." unique_id=1314703668]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 189.0
+offset_right = 383.0
+offset_bottom = 197.0
+theme_override_colors/font_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+theme_override_font_sizes/font_size = 8
+text = "By clicking \"Play\" you legally agree to delegate your soul and all of your posessions"
+autowrap_mode = 1
 
-[node name="Quit Button" type="Button" parent="RichTextLabel" unique_id=1130831637]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -128.0
-offset_top = 46.0
-offset_right = 128.0
-offset_bottom = 78.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "quit
-"
+[node name="legal2" type="Label" parent="." unique_id=1563989600]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 198.0
+offset_right = 115.0
+offset_bottom = 206.0
+theme_override_colors/font_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+theme_override_font_sizes/font_size = 8
+text = " to Mr. Spinnington."
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1209947958]
-z_index = -20
-material = SubResource("ShaderMaterial_ke0wg")
-scale = Vector2(384, 216)
+[node name="SpiralBackground" type="Sprite2D" parent="." unique_id=1186032024]
+z_index = -4096
+material = SubResource("ShaderMaterial_vr1f0")
+position = Vector2(63, 57)
+scale = Vector2(659, 628.24994)
 texture = ExtResource("5_cp0ys")
-centered = false
+
+[node name="tiltle" type="Sprite2D" parent="." unique_id=893395490]
+position = Vector2(240, 54)
+texture = ExtResource("3_cp0ys")
+
+[node name="ton" type="Sprite2D" parent="." unique_id=1795068004]
+position = Vector2(50, 41)
+texture = ExtResource("4_yhxw7")
+
+[node name="Start Button" type="Button" parent="." unique_id=268640662]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 22.0
+offset_right = 56.0
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "
+"
+icon = ExtResource("9_trj04")
+flat = true

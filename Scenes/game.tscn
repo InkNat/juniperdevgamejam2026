@@ -69,11 +69,11 @@
 [ext_resource type="PackedScene" uid="uid://bpd6vah0yqaqj" path="res://Scenes/shop_tabs.tscn" id="43_6a4tp"]
 [ext_resource type="Texture2D" uid="uid://dhfqatp6nnrf6" path="res://Sprites/UI/inventorytab.png" id="46_htg8p"]
 [ext_resource type="Texture2D" uid="uid://bkfqqimd31iiw" path="res://Sprites/UI/glass ui.png" id="46_tt7mg"]
-[ext_resource type="Shader" uid="uid://djh7dkph2i4v5" path="res://Scenes/scrolling_text.gdshader" id="47_32sfa"]
+[ext_resource type="Shader" path="res://Scenes/scrolling_text.gdshader" id="47_32sfa"]
 [ext_resource type="Texture2D" uid="uid://c7grwga0folil" path="res://Sprites/mr_background.png" id="48_titue"]
 [ext_resource type="Script" uid="uid://c40yju6rs8lbq" path="res://Scenes/inventory.gd" id="49_k5jl5"]
-[ext_resource type="Script" uid="uid://kehx14xli3xt" path="res://Scenes/follower.gd" id="49_tt7mg"]
-[ext_resource type="Shader" uid="uid://ds2lxv6fws7cj" path="res://Scenes/spiral.gdshader" id="50_htg8p"]
+[ext_resource type="Script" path="res://Scenes/follower.gd" id="49_tt7mg"]
+[ext_resource type="Shader" path="res://Scenes/spiral.gdshader" id="50_htg8p"]
 [ext_resource type="Script" uid="uid://i750tthaqhck" path="res://Scenes/trash_slot.gd" id="52_x6jpx"]
 [ext_resource type="Texture2D" uid="uid://b11i0q5eovnb3" path="res://Sprites/affectionate.png" id="53_sfx3s"]
 [ext_resource type="Script" uid="uid://b2joj87wrir42" path="res://Scripts/Cogworld/area_button.gd" id="53_sjh24"]
@@ -82,6 +82,7 @@
 [ext_resource type="Script" uid="uid://buutmtjgp7x1m" path="res://Scenes/mini_light_controller.gd" id="60_j0obb"]
 [ext_resource type="Texture2D" uid="uid://doekqmcdgwctl" path="res://Sprites/UI/led.png" id="61_nfavm"]
 [ext_resource type="Shader" uid="uid://c5nixosxut2ij" path="res://Shaders/hue_shift.gdshader" id="64_qj5kr"]
+[ext_resource type="Texture2D" uid="uid://dx6ql8bhqks2w" path="res://Sprites/UI/inventorytab-export.png" id="80_d5jaa"]
 
 [sub_resource type="Curve" id="Curve_fkdbe"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 3.0288222, 0.0, 0, 0]
@@ -403,7 +404,7 @@ points = PackedVector2Array(-16.499992, 22.5, -18.499992, 24.5, -21.499992, 24.5
 shader = ExtResource("47_32sfa")
 shader_parameter/text = ExtResource("48_titue")
 shader_parameter/second_offset = Vector2(0, 0.125)
-shader_parameter/size = Vector2(71, 10)
+shader_parameter/size = Vector2(72, 12.5)
 shader_parameter/speed = 0.05
 shader_parameter/background_color = Color(0.047557615, 0.04755766, 0.047557645, 1)
 shader_parameter/text_color = Color(0.008202022, 0.008202025, 0.008202025, 1)
@@ -714,14 +715,161 @@ collision_layer = 2
 position = Vector2(-11.5, -38.5)
 shape = SubResource("ConvexPolygonShape2D_81klo")
 
+[node name="leds" type="Node2D" parent="SpinSign" unique_id=1822553362]
+position = Vector2(-103, -82)
+
+[node name="34" type="Sprite2D" parent="SpinSign/leds" unique_id=1593753376]
+position = Vector2(106, -6.999996)
+texture = ExtResource("61_nfavm")
+
+[node name="35" type="Sprite2D" parent="SpinSign/leds" unique_id=953619926]
+position = Vector2(100, -6.999996)
+texture = ExtResource("61_nfavm")
+
+[node name="36" type="Sprite2D" parent="SpinSign/leds" unique_id=1310291579]
+position = Vector2(94, -6.999996)
+texture = ExtResource("61_nfavm")
+
+[node name="37" type="Sprite2D" parent="SpinSign/leds" unique_id=275383556]
+position = Vector2(94, -0.99999666)
+texture = ExtResource("61_nfavm")
+
+[node name="38" type="Sprite2D" parent="SpinSign/leds" unique_id=439876614]
+position = Vector2(94, 5.000003)
+texture = ExtResource("61_nfavm")
+
+[node name="39" type="Sprite2D" parent="SpinSign/leds" unique_id=397092143]
+position = Vector2(94, 11.000004)
+texture = ExtResource("61_nfavm")
+
+[node name="40" type="Sprite2D" parent="SpinSign/leds" unique_id=1371004568]
+position = Vector2(93, 17.000004)
+texture = ExtResource("61_nfavm")
+
+[node name="41" type="Sprite2D" parent="SpinSign/leds" unique_id=422821828]
+position = Vector2(92, 22.000004)
+texture = ExtResource("61_nfavm")
+
+[node name="42" type="Sprite2D" parent="SpinSign/leds" unique_id=936946834]
+position = Vector2(89, 28.000002)
+texture = ExtResource("61_nfavm")
+
+[node name="43" type="Sprite2D" parent="SpinSign/leds" unique_id=1239995901]
+position = Vector2(83, 29.000002)
+texture = ExtResource("61_nfavm")
+
+[node name="44" type="Sprite2D" parent="SpinSign/leds" unique_id=628304371]
+position = Vector2(77, 29)
+texture = ExtResource("61_nfavm")
+
+[node name="45" type="Sprite2D" parent="SpinSign/leds" unique_id=169843376]
+position = Vector2(71, 29)
+texture = ExtResource("61_nfavm")
+
+[node name="46" type="Sprite2D" parent="SpinSign/leds" unique_id=2094223726]
+position = Vector2(71, 23)
+texture = ExtResource("61_nfavm")
+
+[node name="47" type="Sprite2D" parent="SpinSign/leds" unique_id=385049102]
+position = Vector2(66, 28)
+texture = ExtResource("61_nfavm")
+
+[node name="48" type="Sprite2D" parent="SpinSign/leds" unique_id=392207041]
+position = Vector2(61, 33)
+texture = ExtResource("61_nfavm")
+
+[node name="49" type="Sprite2D" parent="SpinSign/leds" unique_id=1567048372]
+position = Vector2(56, 38)
+texture = ExtResource("61_nfavm")
+
+[node name="65" type="Sprite2D" parent="SpinSign/leds" unique_id=790496521]
+position = Vector2(51, 43)
+texture = ExtResource("61_nfavm")
+
+[node name="50" type="Sprite2D" parent="SpinSign/leds" unique_id=1743286506]
+position = Vector2(56, 48)
+texture = ExtResource("61_nfavm")
+
+[node name="51" type="Sprite2D" parent="SpinSign/leds" unique_id=659774260]
+position = Vector2(61, 53)
+texture = ExtResource("61_nfavm")
+
+[node name="52" type="Sprite2D" parent="SpinSign/leds" unique_id=365896030]
+position = Vector2(66, 58)
+texture = ExtResource("61_nfavm")
+
+[node name="53" type="Sprite2D" parent="SpinSign/leds" unique_id=791062155]
+position = Vector2(71, 63)
+texture = ExtResource("61_nfavm")
+
+[node name="54" type="Sprite2D" parent="SpinSign/leds" unique_id=406073476]
+position = Vector2(71, 57)
+texture = ExtResource("61_nfavm")
+
+[node name="55" type="Sprite2D" parent="SpinSign/leds" unique_id=834823051]
+position = Vector2(77, 57)
+texture = ExtResource("61_nfavm")
+
+[node name="56" type="Sprite2D" parent="SpinSign/leds" unique_id=1461817414]
+position = Vector2(83, 57)
+texture = ExtResource("61_nfavm")
+
+[node name="57" type="Sprite2D" parent="SpinSign/leds" unique_id=74837239]
+position = Vector2(89, 57.000004)
+texture = ExtResource("61_nfavm")
+
+[node name="58" type="Sprite2D" parent="SpinSign/leds" unique_id=447547792]
+position = Vector2(94, 56.000004)
+texture = ExtResource("61_nfavm")
+
+[node name="59" type="Sprite2D" parent="SpinSign/leds" unique_id=1248626654]
+position = Vector2(99, 53.000004)
+texture = ExtResource("61_nfavm")
+
+[node name="60" type="Sprite2D" parent="SpinSign/leds" unique_id=463793402]
+position = Vector2(103, 47.000004)
+texture = ExtResource("61_nfavm")
+
+[node name="61" type="Sprite2D" parent="SpinSign/leds" unique_id=1599751437]
+position = Vector2(105, 41.000004)
+texture = ExtResource("61_nfavm")
+
+[node name="62" type="Sprite2D" parent="SpinSign/leds" unique_id=1885083550]
+position = Vector2(106, 35.000004)
+texture = ExtResource("61_nfavm")
+
+[node name="63" type="Sprite2D" parent="SpinSign/leds" unique_id=1951633163]
+position = Vector2(106, 29.000004)
+texture = ExtResource("61_nfavm")
+
+[node name="64" type="Sprite2D" parent="SpinSign/leds" unique_id=33499960]
+position = Vector2(106, 23.000004)
+texture = ExtResource("61_nfavm")
+
+[node name="66" type="Sprite2D" parent="SpinSign/leds" unique_id=1512766206]
+position = Vector2(106, 17.000004)
+texture = ExtResource("61_nfavm")
+
+[node name="67" type="Sprite2D" parent="SpinSign/leds" unique_id=769019608]
+position = Vector2(106, 11.000004)
+texture = ExtResource("61_nfavm")
+
+[node name="68" type="Sprite2D" parent="SpinSign/leds" unique_id=1262700436]
+position = Vector2(106, 5.000004)
+texture = ExtResource("61_nfavm")
+
+[node name="69" type="Sprite2D" parent="SpinSign/leds" unique_id=57586242]
+position = Vector2(106, -0.9999962)
+texture = ExtResource("61_nfavm")
+
 [node name="Money" type="Node2D" parent="." unique_id=2073472326]
 position = Vector2(6, 6)
 
 [node name="MoneyLabel" type="Label" parent="Money" unique_id=942007113]
-offset_left = 4.0
-offset_top = 11.0
-offset_right = 85.0
-offset_bottom = 19.0
+offset_left = 9.0
+offset_top = 12.0
+offset_right = 81.0
+offset_bottom = 20.0
 theme = ExtResource("3_iivbl")
 theme_override_font_sizes/font_size = 8
 text = "2,147,483,647$"
@@ -734,13 +882,13 @@ texture = ExtResource("21_exi56")
 offset = Vector2(-10, -50)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Money" unique_id=1606274463]
-position = Vector2(67, 1)
+position = Vector2(68, 1)
 texture = ExtResource("21_exi56")
 offset = Vector2(-10, -50)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Money" unique_id=1632458794]
-offset_right = 89.0
-offset_bottom = 28.0
+offset_right = 90.0
+offset_bottom = 30.0
 texture = ExtResource("46_tt7mg")
 patch_margin_left = 12
 patch_margin_top = 12
@@ -750,9 +898,140 @@ patch_margin_bottom = 12
 [node name="back" type="Sprite2D" parent="Money" unique_id=1478068580]
 z_index = -2
 material = SubResource("ShaderMaterial_htg8p")
-position = Vector2(44.5, 13.999999)
-scale = Vector2(71, 9.999999)
+position = Vector2(45, 14.75)
+scale = Vector2(72, 12.500002)
 texture = ExtResource("6_1l0tm")
+
+[node name="leds" type="Node2D" parent="Money" unique_id=277742022]
+position = Vector2(0, 1)
+
+[node name="34" type="Sprite2D" parent="Money/leds" unique_id=687159298]
+position = Vector2(5, 16)
+texture = ExtResource("61_nfavm")
+
+[node name="35" type="Sprite2D" parent="Money/leds" unique_id=1218665046]
+position = Vector2(6, 22)
+texture = ExtResource("61_nfavm")
+
+[node name="36" type="Sprite2D" parent="Money/leds" unique_id=509498665]
+position = Vector2(12, 23)
+texture = ExtResource("61_nfavm")
+
+[node name="37" type="Sprite2D" parent="Money/leds" unique_id=1603938621]
+position = Vector2(18, 23)
+texture = ExtResource("61_nfavm")
+
+[node name="38" type="Sprite2D" parent="Money/leds" unique_id=475262082]
+position = Vector2(24, 23)
+texture = ExtResource("61_nfavm")
+
+[node name="39" type="Sprite2D" parent="Money/leds" unique_id=865539521]
+position = Vector2(30, 23)
+texture = ExtResource("61_nfavm")
+
+[node name="40" type="Sprite2D" parent="Money/leds" unique_id=2087648263]
+position = Vector2(36, 23)
+texture = ExtResource("61_nfavm")
+
+[node name="41" type="Sprite2D" parent="Money/leds" unique_id=16185658]
+position = Vector2(42, 23)
+texture = ExtResource("61_nfavm")
+
+[node name="42" type="Sprite2D" parent="Money/leds" unique_id=1728726507]
+position = Vector2(48, 23)
+texture = ExtResource("61_nfavm")
+
+[node name="43" type="Sprite2D" parent="Money/leds" unique_id=1134975756]
+position = Vector2(54, 23)
+texture = ExtResource("61_nfavm")
+
+[node name="44" type="Sprite2D" parent="Money/leds" unique_id=910691473]
+position = Vector2(60, 23)
+texture = ExtResource("61_nfavm")
+
+[node name="45" type="Sprite2D" parent="Money/leds" unique_id=862760709]
+position = Vector2(66, 23)
+texture = ExtResource("61_nfavm")
+
+[node name="46" type="Sprite2D" parent="Money/leds" unique_id=286283753]
+position = Vector2(72, 23)
+texture = ExtResource("61_nfavm")
+
+[node name="47" type="Sprite2D" parent="Money/leds" unique_id=434571027]
+position = Vector2(78, 23)
+texture = ExtResource("61_nfavm")
+
+[node name="48" type="Sprite2D" parent="Money/leds" unique_id=988542841]
+position = Vector2(84, 22)
+texture = ExtResource("61_nfavm")
+
+[node name="49" type="Sprite2D" parent="Money/leds" unique_id=1333688793]
+position = Vector2(85, 16)
+texture = ExtResource("61_nfavm")
+
+[node name="65" type="Sprite2D" parent="Money/leds" unique_id=1695888616]
+position = Vector2(85, 10)
+texture = ExtResource("61_nfavm")
+
+[node name="50" type="Sprite2D" parent="Money/leds" unique_id=1532633739]
+position = Vector2(84, 4)
+texture = ExtResource("61_nfavm")
+
+[node name="51" type="Sprite2D" parent="Money/leds" unique_id=1868167986]
+position = Vector2(78, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="52" type="Sprite2D" parent="Money/leds" unique_id=1176261130]
+position = Vector2(72, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="53" type="Sprite2D" parent="Money/leds" unique_id=381359109]
+position = Vector2(66, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="54" type="Sprite2D" parent="Money/leds" unique_id=1644681936]
+position = Vector2(60, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="55" type="Sprite2D" parent="Money/leds" unique_id=1347102512]
+position = Vector2(54, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="56" type="Sprite2D" parent="Money/leds" unique_id=2055144299]
+position = Vector2(48, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="57" type="Sprite2D" parent="Money/leds" unique_id=1687327367]
+position = Vector2(42, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="58" type="Sprite2D" parent="Money/leds" unique_id=1522985984]
+position = Vector2(36, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="59" type="Sprite2D" parent="Money/leds" unique_id=917448142]
+position = Vector2(30, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="60" type="Sprite2D" parent="Money/leds" unique_id=264907607]
+position = Vector2(24, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="61" type="Sprite2D" parent="Money/leds" unique_id=1350859820]
+position = Vector2(18, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="62" type="Sprite2D" parent="Money/leds" unique_id=451594456]
+position = Vector2(12, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="63" type="Sprite2D" parent="Money/leds" unique_id=652408716]
+position = Vector2(6, 4)
+texture = ExtResource("61_nfavm")
+
+[node name="64" type="Sprite2D" parent="Money/leds" unique_id=1861024104]
+position = Vector2(5, 10)
+texture = ExtResource("61_nfavm")
 
 [node name="ShopTabs" parent="." unique_id=1319265294 instance=ExtResource("43_6a4tp")]
 position = Vector2(384, 7)
@@ -836,10 +1115,129 @@ method_name = "toggle"
 position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_dr77u")
 
+[node name="Sprite2D" type="Sprite2D" parent="Inventory/Inventory" unique_id=307205269]
+z_index = 1
+position = Vector2(12, 44)
+texture = ExtResource("80_d5jaa")
+
+[node name="leds" type="Node2D" parent="Inventory/Inventory" unique_id=1175439294]
+position = Vector2(-8, 0)
+
+[node name="7" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=1582166142]
+position = Vector2(82, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="8" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=1362010535]
+position = Vector2(76, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="9" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=1718215354]
+position = Vector2(70, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="10" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=574819784]
+position = Vector2(64, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="11" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=834491115]
+position = Vector2(58, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="12" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=1054506322]
+position = Vector2(52, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="13" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=749394086]
+position = Vector2(46, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="14" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=2013848547]
+position = Vector2(40, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="15" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=961061453]
+position = Vector2(34, 3)
+texture = ExtResource("61_nfavm")
+
+[node name="16" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=12455176]
+position = Vector2(28, 4)
+texture = ExtResource("61_nfavm")
+
+[node name="17" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=951277249]
+position = Vector2(27, 10)
+texture = ExtResource("61_nfavm")
+
+[node name="18" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=2099943145]
+position = Vector2(27, 16)
+texture = ExtResource("61_nfavm")
+
+[node name="19" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=231363073]
+position = Vector2(27, 22)
+texture = ExtResource("61_nfavm")
+
+[node name="20" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=1724147898]
+position = Vector2(27, 28)
+texture = ExtResource("61_nfavm")
+
+[node name="21" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=1055018091]
+position = Vector2(27, 34)
+texture = ExtResource("61_nfavm")
+
+[node name="22" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=936082251]
+position = Vector2(27, 40)
+texture = ExtResource("61_nfavm")
+
+[node name="23" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=630565769]
+position = Vector2(27, 46)
+texture = ExtResource("61_nfavm")
+
+[node name="24" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=783581486]
+position = Vector2(27, 52)
+texture = ExtResource("61_nfavm")
+
+[node name="25" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=2010294992]
+position = Vector2(27, 58)
+texture = ExtResource("61_nfavm")
+
+[node name="26" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=373036720]
+position = Vector2(33, 59)
+texture = ExtResource("61_nfavm")
+
+[node name="27" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=1597611101]
+position = Vector2(39, 59)
+texture = ExtResource("61_nfavm")
+
+[node name="28" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=15950514]
+position = Vector2(45, 59)
+texture = ExtResource("61_nfavm")
+
+[node name="29" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=2066306775]
+position = Vector2(51, 59)
+texture = ExtResource("61_nfavm")
+
+[node name="30" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=149934096]
+position = Vector2(57, 59)
+texture = ExtResource("61_nfavm")
+
+[node name="31" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=681938454]
+position = Vector2(63, 59)
+texture = ExtResource("61_nfavm")
+
+[node name="32" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=467632664]
+position = Vector2(69, 59)
+texture = ExtResource("61_nfavm")
+
+[node name="33" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=1156329803]
+position = Vector2(75, 59)
+texture = ExtResource("61_nfavm")
+
+[node name="34" type="Sprite2D" parent="Inventory/Inventory/leds" unique_id=1902119041]
+position = Vector2(81, 59)
+texture = ExtResource("61_nfavm")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=360905497]
 stream = ExtResource("59_nqk4g")
 autoplay = true
-bus = &"Music"
 
 [node name="MiniLightController" type="Node2D" parent="." unique_id=1835109123]
 visible = false
