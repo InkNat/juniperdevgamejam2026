@@ -143,6 +143,7 @@ func push_sticker(sticker: Sticker):
 
 func _input(event):
 	if event.is_action_pressed("Small"):
+		cash_money = 999999999
 		land_reset()
 	if event is InputEventMouseMotion:
 		tooltip_time = 0.06
