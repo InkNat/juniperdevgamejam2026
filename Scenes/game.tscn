@@ -87,8 +87,11 @@
 [ext_resource type="Shader" uid="uid://c5nixosxut2ij" path="res://Shaders/hue_shift.gdshader" id="64_qj5kr"]
 [ext_resource type="Texture2D" uid="uid://dx6ql8bhqks2w" path="res://Sprites/UI/inventorytab-export.png" id="80_d5jaa"]
 [ext_resource type="AudioStream" uid="uid://rcrg8nuyxlpx" path="res://Sounds/hit.wav" id="84_e6ols"]
+[ext_resource type="Script" uid="uid://dinge3xurfuos" path="res://Scenes/delete_button.gd" id="85_b1mpw"]
+[ext_resource type="Texture2D" uid="uid://colp3ygw0n16v" path="res://Sprites/delete.png" id="85_ccfo7"]
 [ext_resource type="Texture2D" uid="uid://rgr1nbqgdxkw" path="res://Scenes/explodeeee-export.png" id="85_gsm33"]
 [ext_resource type="Script" uid="uid://14we5f5ogbgd" path="res://Scenes/explode_button_manager.gd" id="86_lrctp"]
+[ext_resource type="PackedScene" uid="uid://bmg0vf38ume8f" path="res://Scenes/multipliers.tscn" id="92_umggo"]
 
 [sub_resource type="Curve" id="Curve_fkdbe"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 3.0288222, 0.0, 0, 0]
@@ -1105,11 +1108,12 @@ target = NodePath("../CogworldViewport/SubViewport/Cogworld/MainWheel/Proxy/Hams
 z_index = 4093
 position = Vector2(6, 216)
 
-[node name="Inventory" type="Node2D" parent="." unique_id=1928031187 node_paths=PackedStringArray("target", "slots")]
+[node name="Inventory" type="Node2D" parent="." unique_id=1928031187 node_paths=PackedStringArray("target", "slots", "trash_slot")]
 position = Vector2(310, 132)
 script = ExtResource("49_k5jl5")
 target = NodePath("Inventory")
 slots = NodePath("Inventory/Inventory")
+trash_slot = NodePath("Inventory/TrashSlot")
 
 [node name="Inventory" type="Sprite2D" parent="Inventory" unique_id=1817472785]
 position = Vector2(59, 0)
@@ -1148,9 +1152,15 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inventory/Inventory/TrashSlot/Area2D" unique_id=22450079]
 shape = SubResource("RectangleShape2D_ke0wg")
 
-[node name="DeleteButton" type="Node2D" parent="Inventory/Inventory" unique_id=460564548 node_paths=PackedStringArray("target")]
+[node name="Delete" type="Sprite2D" parent="Inventory/Inventory" unique_id=2029208275]
+visible = false
+position = Vector2(64, 40)
+texture = ExtResource("85_ccfo7")
+
+[node name="DeleteButton" type="Node2D" parent="Inventory/Inventory" unique_id=460564548 node_paths=PackedStringArray("sprite", "target")]
 position = Vector2(37, 32)
-script = ExtResource("53_sjh24")
+script = ExtResource("85_b1mpw")
+sprite = NodePath("../Delete")
 target = NodePath("../TrashSlot")
 method_name = "delete"
 
@@ -1313,3 +1323,6 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Explodeeee/Area2D" unique_id=1644721473]
 position = Vector2(-5.9999995, -81)
 shape = SubResource("RectangleShape2D_gsm33")
+
+[node name="Multipliers" parent="." unique_id=801630971 instance=ExtResource("92_umggo")]
+position = Vector2(8, 50)

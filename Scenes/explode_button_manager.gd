@@ -1,7 +1,10 @@
 extends Sprite2D
 var _current_tween: Tween
 
+var is_open: bool = false
+
 func open_sign():
+	is_open = true
 	if (_current_tween != null): _current_tween.kill()
 	rotation_degrees = -90
 	_current_tween = get_tree().create_tween()

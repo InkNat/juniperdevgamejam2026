@@ -58,16 +58,30 @@ func spin(tags: Array[String], multiplier:float = 1):
 	var total_time = (randf()*2)+1
 	var total_speed = 1
 	var rest: Array[String] = []
+	var mulberry_count = 0
+	var raspberry_count = 0
 	for tag in tags:
 		match tag:
 			"oat":
 				total_time += (randf()*1)+1
 			"carrot":
 				total_speed += 1
+				Multipliers.instance.set_display_text("carrot", str(total_speed) + "x speed")
 			"cheese":
 				Game.instance.cheese_bonuses.append(CheeseBonus.new())
+				Multipliers.instance.set_display_text("cheese", str(int(Game.instance.get_cheese_bonus()*100)) + "%")
+			"mulberry":
+				mulberry_count+=1
+			"raspberry":
+				raspberry_count+=1
 			_:
 				rest.append(tag)
+	var mulberry_mult = pow(1.5,mulberry_count)
+	var raspberry_add = (raspberry_count*100)
+	
+	if (raspberry_add > 0): Multipliers.instance.set_display_text("raspberry", "+"+ str(raspberry_add))
+	if (mulberry_mult > 1):  Multipliers.instance.set_display_text("mulberry", "x"+ str(floor(mulberry_mult*1000)/1000.0))
+	
 	total_speed *= motivation*multiplier
 	motivation = 1
 	speed = total_speed

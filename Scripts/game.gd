@@ -125,9 +125,9 @@ func land_reset(boo: bool = false):
 	shop_tabs.locked = false
 	generated_sticker_sheet = StickerSheetGenerator.new(Vector2(4,6),sticker_registry).generate_sticker_sheet()
 	shop_tabs.by_tab(previous_tab)
+	Multipliers.instance.reset()
 	if not boo: Inventory.instance.open()
-	if can_explode():
-		explode_button.open_sign()
+	
 
 func pop_sticker() -> Sticker:
 	var result = current_sticker
@@ -142,14 +142,15 @@ func push_sticker(sticker: Sticker):
 	sticker.position = get_global_mouse_position()
 
 func _input(event):
-	if event.is_action_pressed("Small"):
-		cash_money = 999999999
-		land_reset()
 	if event is InputEventMouseMotion:
 		tooltip_time = 0.06
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	if not explode_button.is_open and can_explode():
+		explode_button.open_sign()
+	
 	money_label.text = str(cash_money) + "$"
 	var space = get_world_2d().direct_space_state
 	var mouse_pos = get_global_mouse_position()

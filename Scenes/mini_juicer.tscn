@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://wnayd260m3en" path="res://Scenes/mini_juicer.gd" id="1_iiky5"]
 [ext_resource type="Shader" uid="uid://bpjif4crroofq" path="res://Shaders/Pulse.gdshader" id="2_6san1"]
 [ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="3_wmav3"]
+[ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="4_6san1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mduoy"]
 shader = ExtResource("2_6san1")
-shader_parameter/time = 0.0
+shader_parameter/time = -1.0
 
 [sub_resource type="Curve" id="Curve_fbgur"]
 _limits = [0.0, 100.0, 0.0, 1.0]
@@ -17,28 +18,41 @@ point_count = 2
 _data = [Vector2(0.012345679, 1), 0.0, 0.21275386, 0, 0, Vector2(0.9876544, 0), -4.0408993, 0.0, 0, 0]
 point_count = 2
 
-[node name="MiniJuicer" type="Node2D" unique_id=868231453]
+[node name="MiniJuicer" type="Node2D" unique_id=868231453 node_paths=PackedStringArray("particles", "ring", "label")]
 script = ExtResource("1_iiky5")
+particles = NodePath("CPUParticles2D")
+ring = NodePath("Ring")
+label = NodePath("Label")
 
 [node name="Ring" type="Sprite2D" parent="." unique_id=995212485]
 material = SubResource("ShaderMaterial_mduoy")
-scale = Vector2(128, 128)
+scale = Vector2(32, 32)
 texture = ExtResource("3_wmav3")
 
 [node name="Label" type="Label" parent="." unique_id=1545448662]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_6san1")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2049692132]
-emitting = false
 amount = 128
-lifetime = 0.3
-one_shot = true
 explosiveness = 0.85
 spread = 180.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 210.94
-initial_velocity_max = 304.69
+initial_velocity_min = 93.75
+initial_velocity_max = 93.75
 damping_min = 50.0
 damping_max = 60.0
 damping_curve = SubResource("Curve_fbgur")

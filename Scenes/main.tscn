@@ -4,15 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://b6a3douagmd23" path="res://Scenes/main_menu.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://ci8e3htfxl1na" path="res://Scenes/game.tscn" id="3_8gbba"]
 [ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://blgbf47pkxhbf" path="res://trigger_warning.tscn" id="4_kry3j"]
 
 [node name="Main" type="Node" unique_id=228515965 node_paths=PackedStringArray("cover")]
 script = ExtResource("1_bo1nx")
 cover = NodePath("Cover")
 scenes = Dictionary[String, PackedScene]({
 "game": ExtResource("3_8gbba"),
-"main_menu": ExtResource("2_8gbba")
+"main_menu": ExtResource("2_8gbba"),
+"trigger_warning": ExtResource("4_kry3j")
 })
-default_scene = "main_menu"
+default_scene = "trigger_warning"
 
 [node name="Cover" type="Sprite2D" parent="." unique_id=39469567]
 modulate = Color(0, 0, 0, 1)

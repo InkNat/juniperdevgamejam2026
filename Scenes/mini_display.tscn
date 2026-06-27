@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://do5d22pgmgech"]
+
+[ext_resource type="Texture2D" uid="uid://65fp3mlm0jce" path="res://Sprites/spinach.png" id="1_5vn2n"]
+[ext_resource type="Script" uid="uid://viis5f64u525" path="res://Scenes/mini_display.gd" id="1_hg0n0"]
+[ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="2_hg0n0"]
+
+[node name="MiniDisplay" type="Node2D" unique_id=340138963 node_paths=PackedStringArray("sprite", "label")]
+script = ExtResource("1_hg0n0")
+sprite = NodePath("Spinach")
+label = NodePath("Label")
+
+[node name="Spinach" type="Sprite2D" parent="." unique_id=841796493]
+texture = ExtResource("1_5vn2n")
+centered = false
+
+[node name="Label" type="Label" parent="." unique_id=1115673076]
+offset_left = 15.0
+offset_top = 4.0
+offset_right = 43.0
+offset_bottom = 12.0
+theme = ExtResource("2_hg0n0")
+theme_override_font_sizes/font_size = 8
+text = "+5%"

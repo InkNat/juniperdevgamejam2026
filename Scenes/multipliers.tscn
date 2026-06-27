@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bmg0vf38ume8f"]
+
+[ext_resource type="Script" uid="uid://di1gldjpmoqd" path="res://Scenes/multipliers.gd" id="1_p8n65"]
+[ext_resource type="Texture2D" uid="uid://d1mquwclv0yqa" path="res://Sprites/cheese.png" id="2_1b70y"]
+[ext_resource type="Texture2D" uid="uid://65fp3mlm0jce" path="res://Sprites/spinach.png" id="3_jl1ts"]
+[ext_resource type="Texture2D" uid="uid://0kk2tx6xwr5p" path="res://Sprites/carot.png" id="4_hv244"]
+[ext_resource type="Texture2D" uid="uid://vkf4h8d0n42y" path="res://Sprites/mulberry.png" id="5_7ekgh"]
+[ext_resource type="Texture2D" uid="uid://c52fhdrh7lmwy" path="res://Sprites/raspberry.png" id="6_drboi"]
+
+[node name="Multipliers" type="Node2D" unique_id=801630971]
+script = ExtResource("1_p8n65")
+icons = Dictionary[String, Texture]({
+"carrot": ExtResource("4_hv244"),
+"cheese": ExtResource("2_1b70y"),
+"mulberry": ExtResource("5_7ekgh"),
+"raspberry": ExtResource("6_drboi"),
+"spinach": ExtResource("3_jl1ts")
+})

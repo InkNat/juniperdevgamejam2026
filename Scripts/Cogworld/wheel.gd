@@ -1,5 +1,6 @@
 class_name Wheel extends Node2D
 
+@onready var trigger_sound = load("res://Sounds/trigger.wav")
 
 @export var wheel: Node2D
 @export var red_arrow: Node2D
@@ -62,8 +63,10 @@ func click():
 	if has_stickers(result, "clicker"):
 		trigger(result, TriggerTrace.new(), 0.05)
 	
-	var spinach = MainWheel.instance.food_count("spinach")
-	MainWheel.instance.spinach_mult += spinach*0.01
+	var spinach = MainWheel.instance.food_count("spinach")*0.01
+	MainWheel.instance.spinach_mult += spinach
+	if (spinach > 0):
+		Multipliers.instance.set_display_text("spinach", str(int(MainWheel.instance.spinach_mult*100)) + "%")
 		
 	var popcorn = MainWheel.instance.food_count("popcorn")
 	if popcorn > 0:
@@ -288,6 +291,7 @@ func _trigger(index: int, trigger_trace: TriggerTrace, multiplier: float = 1):
 			"affectionate":
 				heart_count+=1
 			"apple_sticker":
+				MiniJuicer.juice(stickers.get_child(index).global_position, trigger_sound, "Apple!", Color(1,0.3,0.5,1), len(trigger_trace._contents)*0.1)
 				if clover_randf(clover_count) >= 1-(0.1*multiplier):
 					var apple = Game.instance.apple.create_item()
 					var result = GridSlots.instance.add_item(apple)
@@ -314,7 +318,16 @@ func _trigger(index: int, trigger_trace: TriggerTrace, multiplier: float = 1):
 			"mulberry":
 				mulberry_count+=1
 	
-	Game.instance.cash_money += (ceil((money+(raspberry_count*100))*pow(1.5,mulberry_count))) * multiplier * MainWheel.instance.spinach_mult * Game.instance.get_cheese_bonus()
+	var mulberry_mult = pow(1.5,mulberry_count)
+	var raspberry_add = (raspberry_count*100)
+	
+	if (raspberry_add > 0): Multipliers.instance.set_display_text("raspberry", "+"+ str(raspberry_add))
+	if (mulberry_mult > 1):  Multipliers.instance.set_display_text("mulberry", "x"+ str(floor(mulberry_mult*1000)/1000.0))
+	
+	var total = (ceil((money+raspberry_add)*mulberry_mult)) * multiplier * MainWheel.instance.spinach_mult * Game.instance.get_cheese_bonus()
+	total = ceil(total)
+	MiniJuicer.juice(stickers.get_child(index).global_position, trigger_sound, "+" + str(total) +"$", rolled_tile.color, len(trigger_trace._contents)*0.1)
+	Game.instance.cash_money += total
 
 func skip_check() -> bool:
 	var result = tile_result()

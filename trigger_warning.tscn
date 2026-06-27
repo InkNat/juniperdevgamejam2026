@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://blgbf47pkxhbf"]
+
+[ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="1_ang1v"]
+[ext_resource type="Script" uid="uid://x8iv5y4w8ufh" path="res://trigger_warning.gd" id="1_rgldf"]
+[ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="2_rgldf"]
+
+[node name="TriggerWarning" type="Node2D" unique_id=885590886]
+script = ExtResource("1_rgldf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1531182211]
+self_modulate = Color(0, 0, 0, 1)
+offset_right = 384.0
+offset_bottom = 216.0
+texture = ExtResource("1_ang1v")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect" unique_id=2065650136]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_rgldf")
+bbcode_enabled = true
+text = "[color=RED]TRIGGER WARNING[/color]
+
+This game contains [color=RED]FLASHING LIGHTS[/color], a hamster, fortune wheels, gambling, marbled cheese, depictions of a human nose and an excessively extreme amount of seriousness that could cause slight itching behind the shoulder, a sentiment of unease and even sudden blinking. We firmly advise against playing this game if you stubbed your toe on a Thursday 16th, if you frequently drink battery acid or if you own a glue factory.
+[color=RED]Good luck, have fun.[/color]
+
+Note : No hamsters were harmed during the making of this game.
+
+
+[color=GRAY]*click to continue*[/color]"
+horizontal_alignment = 1
+vertical_alignment = 1

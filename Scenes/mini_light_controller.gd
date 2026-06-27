@@ -33,7 +33,6 @@ func _process(delta):
 			frame_count+=0.15
 			time-=delta
 			if (time < 0):
-				print("acute and immediate kidney failure")
 				state = LightState.Idle
 		_:frame_count+=0.01
 	

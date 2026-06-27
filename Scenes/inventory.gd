@@ -15,7 +15,7 @@ func toggle():
 	else: open()
 
 func is_empty() -> bool:
-	return slots.is_empty() and trash_slot.item != null
+	return slots.is_empty() and trash_slot.item == null
 
 func open():
 	is_open = true
