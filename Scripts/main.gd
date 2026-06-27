@@ -34,6 +34,7 @@ func switch_scene(scene_name: String):
 		current_scene = new_scene
 		add_child(new_scene)
 		)
+	tween.tween_interval(0.3)
 	tween.tween_property(cover, "modulate", Color(0,0,0,0), 0.5)
 	
 
