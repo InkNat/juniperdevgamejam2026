@@ -14,6 +14,7 @@ var speed: float = 1
 @export var cylinder: Node3D
 @export var hamster_manager: HamsterManager
 @export var base_tiles: Array[Tile]
+@export var land_sound: AudioStream
 
 var _previous_tags = []
 var skips = 0
@@ -85,10 +86,12 @@ func land():
 		return
 	skips = 0
 	respins = total_respins()
+	HamsterManager.instance.reset()
 	MiniLightController.state = MiniLightController.LightState.Winning
 	MiniLightController.tile = tiles[tile_result()]
 	MiniLightController.time = 20
 	super.land()
+	Game.instance.play_and_die(land_sound)
 	if respins > 0:
 		spin(_previous_tags)
 		respins-=1

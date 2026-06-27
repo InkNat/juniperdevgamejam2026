@@ -5,6 +5,7 @@ class_name GroceryCard extends Slot
 @export var item_attach: Node2D
 @export var bar_code: Sprite2D
 @export var background: Sprite2D
+@export var buy_audio: AudioStream
 var _sold_item: ItemData
 var cost: int
 var index
@@ -37,4 +38,5 @@ func can_retrieve(_item: Item) -> bool:
 
 func _retrieve(_item: Item):
 	Game.instance.cash_money -= cost
+	Game.instance.play_and_die(buy_audio)
 	refresh_item()

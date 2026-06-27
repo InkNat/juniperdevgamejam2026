@@ -2,6 +2,7 @@ extends Sprite2D
 
 @export var sticker_area: Area2D
 @export var label: Label
+@export var buy_audio: AudioStream
 
 var price
 var extended = false
@@ -47,6 +48,7 @@ func _process(delta):
 		discard()
 
 func buy():
+	Game.instance.play_and_die(buy_audio)
 	if Game.instance.cash_money < price: return
 	Game.instance.cash_money -= price
 	Game.instance.kill_previous_sheet()

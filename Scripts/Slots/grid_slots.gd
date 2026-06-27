@@ -46,6 +46,12 @@ func is_full() -> bool:
 			return false
 	return true
 
+func is_empty() -> bool:
+	for e in contents:
+		if e != null:
+			return false
+	return true
+
 func add_item(item: Item) -> bool:
 	for i in range(len(contents)):
 		if (contents[i] == null):

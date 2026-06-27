@@ -4,6 +4,8 @@ static var instance: Inventory
 
 var is_open: bool = false
 @export var target: Node2D
+@export var slots: GridSlots
+@export var trash_slot: TrashSlot
 
 func _ready():
 	instance = self
@@ -11,6 +13,9 @@ func _ready():
 func toggle():
 	if is_open: close()
 	else: open()
+
+func is_empty() -> bool:
+	return slots.is_empty() and trash_slot.item != null
 
 func open():
 	is_open = true

@@ -11,10 +11,12 @@ static var instance: Game
 @export var hamster_slot: Node2D
 @export var main_wheel: Node2D
 @export var spin_button: Node2D
+@export var explode_button: Node2D
 @export var money_label: Label
 @export var audio_player: PackedScene
 @export var shop_tabs: Node2D
 @export var sticker_sheet_slot: Node2D
+@export var cheapest_item : ItemData
 var _camera_zoom: float = 0.5
 var cash_money: int = 35000
 var generated_sticker_sheet: Array[StickerData]
@@ -37,7 +39,8 @@ func _init():
 	instance = self
 
 func _ready():
-	land_reset()
+	MiniLightController.reset()
+	land_reset(true)
 	hamster_slot.place_first_item.connect(spin_button.open_sign)
 	spin_button.sign_clicked.connect(hamster_slot.consume_and_spin)
 	hamster_slot.spin.connect(func (): 
@@ -57,7 +60,7 @@ func get_cheese_bonus() -> float:
 	return result
 
 func can_explode() -> bool:
-	return 
+	return cash_money < cheapest_item.base_cost*global_cost_multiplier and Inventory.instance.is_empty()
 
 static func play_and_die(audio: AudioStream, pitch: float = 1, volume = 1): instance._play_and_die(audio, pitch, volume)
 
@@ -103,7 +106,7 @@ func generate_wheels():
 func get_sold_wheels():
 	return sold_wheels
 
-func land_reset():
+func land_reset(boo: bool = false):
 	popped_sticker_sheet = false
 	Cogworld.instance.delete_previews()
 	generate_wheels()
@@ -117,7 +120,9 @@ func land_reset():
 	shop_tabs.locked = false
 	generated_sticker_sheet = StickerSheetGenerator.new(Vector2(4,6),sticker_registry).generate_sticker_sheet()
 	shop_tabs.by_tab(previous_tab)
-	Inventory.instance.open()
+	if not boo: Inventory.instance.open()
+	if can_explode():
+		explode_button.open_sign()
 
 func pop_sticker() -> Sticker:
 	var result = current_sticker

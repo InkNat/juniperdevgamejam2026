@@ -1,14 +1,22 @@
 class_name MiniLightController extends Node2D
 
+static var instance: MiniLightController
+
 static var state: LightState = LightState.Idle
 static var tile: Tile = null
 static var time: float = 2
+static func reset():
+	state = LightState.Idle
+	tile = null
+	time  = 2
+
 @export var alternance: int = 2
 
 enum LightState {
 	Idle,
 	Spinning,
-	Winning
+	Winning,
+	Dead
 }
 
 var frame_count = 0
@@ -40,6 +48,8 @@ func _process(delta):
 					sprite.modulate = tile.color
 				else:
 					sprite.modulate = Color(0.03, 0.03, 0.03, 1.0)
+			LightState.Dead:
+				sprite.modulate = Color(0.03, 0.03, 0.03, 1.0)
 			_:
 				if fmod(i+frame_count,alternance) <= 1:
 					sprite.modulate = Color(1,1,1,1)

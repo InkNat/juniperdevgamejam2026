@@ -1,9 +1,5 @@
-extends Node2D
-
+extends Sprite2D
 var _current_tween: Tween
-@export var sound: AudioStream
-
-signal sign_clicked
 
 func open_sign():
 	if (_current_tween != null): _current_tween.kill()
@@ -11,7 +7,7 @@ func open_sign():
 	_current_tween = get_tree().create_tween()
 	_current_tween.set_trans(Tween.TRANS_ELASTIC)
 	_current_tween.set_ease(Tween.EASE_OUT)
-	_current_tween.tween_property(self, "rotation_degrees",0,1)
+	_current_tween.tween_property(self, "rotation_degrees",0,4)
 func close_sign():
 	if (_current_tween != null): _current_tween.kill()
 	_current_tween = get_tree().create_tween()
@@ -21,6 +17,5 @@ func close_sign():
 
 
 func click_press():
-	Game.instance.play_and_die(sound)
+	HamsterManager.instance.explode()
 	close_sign()
-	sign_clicked.emit()

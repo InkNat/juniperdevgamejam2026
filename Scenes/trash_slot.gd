@@ -1,4 +1,4 @@
-extends Slot
+class_name TrashSlot extends Slot
 
 var item: Item
 @export var item_attach: Node2D

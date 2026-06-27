@@ -3,6 +3,7 @@ class_name Main extends Node
 
 static var instance: Main
 
+@export var cover: Sprite2D
 @export var scenes: Dictionary[String, PackedScene]
 @export var persistent_data: Dictionary[String, Variant]
 @export var default_scene: String
@@ -24,11 +25,17 @@ func quit_game():
 	get_tree().quit()
 
 func switch_scene(scene_name: String):
-	if (current_scene != null):
-		current_scene.queue_free()
-	var new_scene = scenes[scene_name].instantiate()
-	current_scene = new_scene
-	add_child(new_scene)
+	var tween = get_tree().create_tween()
+	tween.tween_property(cover, "modulate", Color(0,0,0,1), 0.5)
+	tween.tween_callback(func(): 
+		if (current_scene != null):
+			current_scene.queue_free()
+		var new_scene = scenes[scene_name].instantiate()
+		current_scene = new_scene
+		add_child(new_scene)
+		)
+	tween.tween_property(cover, "modulate", Color(0,0,0,0), 0.5)
+	
 
 func save_persistent_data():
 	var save_file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)

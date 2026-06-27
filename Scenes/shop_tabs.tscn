@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bgr7vofljfrpo" path="res://Scenes/settings.tscn" id="4_1257h"]
 [ext_resource type="Script" uid="uid://bxywu8qj801jd" path="res://Scripts/shop_tab.gd" id="6_1257h"]
 [ext_resource type="PackedScene" uid="uid://bqgai5td6sg7q" path="res://Scenes/store_shop.tscn" id="6_ho4mo"]
+[ext_resource type="AudioStream" uid="uid://rcrg8nuyxlpx" path="res://Sounds/hit.wav" id="6_i52sw"]
 [ext_resource type="Texture2D" uid="uid://ogklxoyhvhjd" path="res://Sprites/UI/settings_tab-export.png" id="9_ihmao"]
 [ext_resource type="Shader" uid="uid://djh7dkph2i4v5" path="res://Scenes/scrolling_text.gdshader" id="10_1257h"]
 [ext_resource type="Script" uid="uid://buutmtjgp7x1m" path="res://Scenes/mini_light_controller.gd" id="10_i52sw"]
@@ -67,6 +68,7 @@ position = Vector2(13, 24)
 script = ExtResource("2_r5tdd")
 target = NodePath("../..")
 method_name = "settings"
+sound = ExtResource("6_i52sw")
 
 [node name="Area2D" type="Area2D" parent="SettingsTab/AreaButton" unique_id=1026230624]
 position = Vector2(0, 33)
@@ -306,6 +308,7 @@ position = Vector2(13, 24)
 script = ExtResource("2_r5tdd")
 target = NodePath("../..")
 method_name = "store"
+sound = ExtResource("6_i52sw")
 
 [node name="Area2D" type="Area2D" parent="StoreTab/AreaButton" unique_id=589665000]
 position = Vector2(0, 16)
@@ -546,6 +549,7 @@ position = Vector2(13, 24)
 script = ExtResource("2_r5tdd")
 target = NodePath("../..")
 method_name = "groceries"
+sound = ExtResource("6_i52sw")
 
 [node name="Area2D" type="Area2D" parent="GroceryTab/AreaButton" unique_id=1187663971]
 

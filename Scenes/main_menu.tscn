@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://oe4w02wk4xwl" path="res://Scripts/main_menu.gd" id="1_28flt"]
 [ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="1_48xlc"]
 [ext_resource type="Texture2D" uid="uid://2ywa3jtws3e7" path="res://Sprites/UI/mrspinningtonsmechanicatitlest.png" id="3_cp0ys"]
-[ext_resource type="Shader" path="res://Scenes/spiral.gdshader" id="3_trj04"]
+[ext_resource type="Shader" uid="uid://ds2lxv6fws7cj" path="res://Scenes/spiral.gdshader" id="3_trj04"]
 [ext_resource type="Texture2D" uid="uid://ebrak2ere6cw" path="res://Sprites/UI/lmrtonchudest.png" id="4_yhxw7"]
 [ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="5_cp0ys"]
 [ext_resource type="Texture2D" uid="uid://bpe0bapxh65ng" path="res://Sprites/UI/PLAY.png" id="9_trj04"]
@@ -17,7 +17,7 @@ shader_parameter/scale = Vector2(1, 1)
 shader_parameter/color1 = Color(0.051970966, 0.05197096, 0.05197095, 1)
 shader_parameter/color2 = Color(0.06053035, 0.06053035, 0.060530342, 1)
 
-[node name="MainMenu" type="Control" unique_id=197997598 node_paths=PackedStringArray("start_button")]
+[node name="MainMenu" type="Control" unique_id=197997598 node_paths=PackedStringArray("start_button", "anim", "anim2", "anim3", "rot_wobbl")]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -27,24 +27,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_48xlc")
 script = ExtResource("1_28flt")
-start_button = NodePath("Start Button")
-
-[node name="cresds" type="Label" parent="." unique_id=344998380]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 207.0
-offset_right = 121.0
-offset_bottom = 215.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
-text = "A game by InkNat and Nowa"
+start_button = NodePath("anim2/Start Button")
+anim = NodePath("anim")
+anim2 = NodePath("anim2")
+anim3 = NodePath("anim3")
+rot_wobbl = NodePath("anim2/Start Button")
 
 [node name="legal1" type="Label" parent="." unique_id=1314703668]
 layout_mode = 0
 offset_left = 1.0
-offset_top = 189.0
+offset_top = 188.0
 offset_right = 383.0
-offset_bottom = 197.0
+offset_bottom = 200.0
 theme_override_colors/font_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
 theme_override_font_sizes/font_size = 8
 text = "By clicking \"Play\" you legally agree to delegate your soul and all of your posessions"
@@ -53,9 +47,9 @@ autowrap_mode = 1
 [node name="legal2" type="Label" parent="." unique_id=1563989600]
 layout_mode = 0
 offset_left = 1.0
-offset_top = 198.0
+offset_top = 197.0
 offset_right = 115.0
-offset_bottom = 206.0
+offset_bottom = 209.0
 theme_override_colors/font_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
 theme_override_font_sizes/font_size = 8
 text = " to Mr. Spinnington."
@@ -67,28 +61,55 @@ position = Vector2(63, 57)
 scale = Vector2(659, 628.24994)
 texture = ExtResource("5_cp0ys")
 
-[node name="tiltle" type="Sprite2D" parent="." unique_id=893395490]
+[node name="anim" type="Node2D" parent="." unique_id=89969128]
+position = Vector2(0, -95)
+
+[node name="tiltle" type="Sprite2D" parent="anim" unique_id=893395490]
 position = Vector2(240, 54)
 texture = ExtResource("3_cp0ys")
 
-[node name="ton" type="Sprite2D" parent="." unique_id=1795068004]
+[node name="ton" type="Sprite2D" parent="anim" unique_id=1795068004]
 position = Vector2(50, 41)
 texture = ExtResource("4_yhxw7")
 
-[node name="Start Button" type="Button" parent="." unique_id=268640662]
-layout_mode = 1
+[node name="anim2" type="Node2D" parent="." unique_id=1118611486]
+position = Vector2(0, 100)
+
+[node name="Start Button" type="Button" parent="anim2" unique_id=268640662]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -56.0
-offset_top = 22.0
-offset_right = 56.0
-offset_bottom = 87.0
+offset_left = 136.0
+offset_top = 130.0
+offset_right = 248.0
+offset_bottom = 195.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 text = "
 "
 icon = ExtResource("9_trj04")
 flat = true
+icon_alignment = 1
+
+[node name="anim3" type="Node2D" parent="." unique_id=754281149]
+position = Vector2(0, 47)
+
+[node name="Control" type="Control" parent="anim3" unique_id=445757836]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_48xlc")
+
+[node name="cresds" type="Label" parent="anim3/Control" unique_id=344998380]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 207.0
+offset_right = 121.0
+offset_bottom = 219.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "A game by InkNat and Nowa"

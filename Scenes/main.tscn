@@ -3,11 +3,20 @@
 [ext_resource type="Script" uid="uid://bb4ipuv181moq" path="res://Scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://b6a3douagmd23" path="res://Scenes/main_menu.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://ci8e3htfxl1na" path="res://Scenes/game.tscn" id="3_8gbba"]
+[ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="4_jjvhh"]
 
-[node name="Main" type="Node" unique_id=1374424201]
+[node name="Main" type="Node" unique_id=228515965 node_paths=PackedStringArray("cover")]
 script = ExtResource("1_bo1nx")
+cover = NodePath("Cover")
 scenes = Dictionary[String, PackedScene]({
 "game": ExtResource("3_8gbba"),
 "main_menu": ExtResource("2_8gbba")
 })
 default_scene = "main_menu"
+
+[node name="Cover" type="Sprite2D" parent="." unique_id=39469567]
+modulate = Color(0, 0, 0, 1)
+z_index = 4096
+scale = Vector2(384, 216)
+texture = ExtResource("4_jjvhh")
+centered = false

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://qspjb50js2by" path="res://Sprites/UI/sticker_sheet.png" id="1_wafjd"]
 [ext_resource type="Script" uid="uid://c8jyit40yfoyd" path="res://Scenes/sticker_sheet.gd" id="2_jbtdt"]
 [ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="3_2g2gv"]
+[ext_resource type="AudioStream" uid="uid://clrqsafrqnxkn" path="res://Sounds/kaching.wav" id="3_jbtdt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csmwn"]
 size = Vector2(64, 156.00002)
@@ -13,6 +14,7 @@ centered = false
 script = ExtResource("2_jbtdt")
 sticker_area = NodePath("StickerArea")
 label = NodePath("StickerPriceLabel")
+buy_audio = ExtResource("3_jbtdt")
 
 [node name="StickerPriceLabel" type="Label" parent="." unique_id=2100193472]
 modulate = Color(0.0627451, 0.06666667, 0.06666667, 1)

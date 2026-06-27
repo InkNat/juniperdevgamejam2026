@@ -3,7 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://4jp0rmy30ytr" path="res://Sprites/UI/grocery_tag.png" id="1_opmjl"]
 [ext_resource type="Script" uid="uid://omiftv5y36bm" path="res://Scripts/grocery_card.gd" id="2_qgrom"]
 [ext_resource type="FontFile" uid="uid://cupgphoqtkwuf" path="res://pixel font.ttf" id="3_opmjl"]
-[ext_resource type="Shader" path="res://Scenes/bar_code.gdshader" id="4_be8vw"]
+[ext_resource type="AudioStream" uid="uid://clrqsafrqnxkn" path="res://Sounds/kaching.wav" id="3_qgrom"]
+[ext_resource type="Shader" uid="uid://dw4wv1a8au7af" path="res://Scenes/bar_code.gdshader" id="4_be8vw"]
 [ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="5_qgrom"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0h1a0"]
@@ -22,6 +23,7 @@ _price_label = NodePath("PriceLabel")
 item_attach = NodePath("ItemAttach")
 bar_code = NodePath("Barcode")
 background = NodePath("Background")
+buy_audio = ExtResource("3_qgrom")
 
 [node name="NameLabel" type="Label" parent="." unique_id=259348073]
 offset_left = 22.0
