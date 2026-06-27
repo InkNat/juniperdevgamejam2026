@@ -67,7 +67,7 @@ func get_cheese_bonus() -> float:
 	return result
 
 func can_explode() -> bool:
-	return cash_money < cheapest_item.base_cost*global_cost_multiplier and Inventory.instance.is_empty()
+	return cash_money < cheapest_item.base_cost*global_cost_multiplier and Inventory.instance.is_empty() and hamster_slot.is_empty()
 
 static func play_and_die(audio: AudioStream, pitch: float = 1, volume = 1): instance._play_and_die(audio, pitch, volume)
 
@@ -150,8 +150,11 @@ func _input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	if not explode_button.is_open and can_explode():
+	if not shop_tabs.locked and not explode_button.is_open and can_explode():
 		explode_button.open_sign()
+		spin_button.close_sign()
+		spin_button.locked = true
+	
 	
 	money_label.text = str(cash_money) + "$"
 	var space = get_world_2d().direct_space_state

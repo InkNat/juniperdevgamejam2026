@@ -326,7 +326,10 @@ func _trigger(index: int, trigger_trace: TriggerTrace, multiplier: float = 1):
 	
 	var total = (ceil((money+raspberry_add)*mulberry_mult)) * multiplier * MainWheel.instance.spinach_mult * Game.instance.get_cheese_bonus()
 	total = ceil(total)
-	MiniJuicer.juice(stickers.get_child(index).global_position, trigger_sound, "+" + str(total) +"$", rolled_tile.color, len(trigger_trace._contents)*0.1)
+	if total > 0:
+		MiniJuicer.juice(stickers.get_child(index).global_position, trigger_sound, "+" + str(total) +"$", rolled_tile.color, len(trigger_trace._contents)*0.1)
+	else:
+		MiniJuicer.juice(stickers.get_child(index).global_position, trigger_sound, str(total) +"$", rolled_tile.color, len(trigger_trace._contents)*0.1)
 	Game.instance.cash_money += total
 
 func skip_check() -> bool:

@@ -153,7 +153,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_25ntx")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bp64"]
-albedo_color = Color(0.74138486, 0.74138457, 0.74138457, 1)
+albedo_color = Color(0.0142752165, 0.014275218, 0.014275218, 1)
 metallic = 0.2
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aeaeg"]
@@ -538,8 +538,10 @@ red_arrow_curve = ExtResource("45_d5jaa")
 cogwheel = NodePath("WheelVisual/3DWheelProjector/SubViewport/Node3D/BigCogwheel")
 click_audio = ExtResource("17_81klo")
 tile_tooltip = ExtResource("19_x6jpx")
+wheel_size = null
 stickers = NodePath("Proxy2/Stickers/TileStickers")
 wheel_stickers = NodePath("Proxy2/Stickers/WheelStickers")
+sprite_scale = null
 
 [node name="Proxy2" type="Node2D" parent="CogworldViewport/SubViewport/Cogworld/MainWheel" unique_id=487615973 node_paths=PackedStringArray("scale_target")]
 script = ExtResource("19_fkdbe")

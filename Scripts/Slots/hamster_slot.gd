@@ -22,6 +22,9 @@ func get_tags() -> Array[String]:
 		result.append(child.get_tag())
 	return result
 
+func is_empty() -> bool:
+	return len(get_tags()) <= 0
+
 func arrange_items():
 	var i = 0
 	for child in get_children():
