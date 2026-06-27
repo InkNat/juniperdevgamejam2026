@@ -17,4 +17,5 @@ func safe_delete():
 		if e is Proxy: e.delete()
 
 func place_wheel_here():
+	Game.instance.camera_weight()
 	Cogworld.instance.place_wheel_at(wheel_size,wheel_position)

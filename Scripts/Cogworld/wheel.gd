@@ -143,9 +143,11 @@ func _process(_delta):
 	
 	red_arrow.rotation = red_arrow_curve.sample(fmod(wheel_rotation*segments,1))
 	
+	var wheel_speed = wheel_speed()
 	cogwheel.rotation.y = wheel_rotation*TAU
-	stickers.rotation = -wheel_rotation*TAU
-	wheel.material.set_shader_parameter("angle_offset", wheel_rotation*wheel_speed())
+	stickers.rotation = -wheel_rotation*TAU*wheel_speed
+	wheel_stickers.rotation = stickers.rotation
+	wheel.material.set_shader_parameter("angle_offset", wheel_rotation*wheel_speed)
 	
 	var currentSegment = floor(wheel_rotation*segments)
 	
@@ -315,7 +317,7 @@ func skip_check() -> bool:
 	for sub_wheel in subwheels:
 		if (sub_wheel.skip_check()):
 			return true
-	return has_stickers(result, "nuh_uh!")
+	return has_stickers(result, "nuh_uh!", true)
 
 func total_respins() -> int:
 	var result = tile_result()

@@ -48,8 +48,8 @@ func _process(delta):
 		discard()
 
 func buy():
-	Game.instance.play_and_die(buy_audio)
 	if Game.instance.cash_money < price: return
+	Game.instance.play_and_die(buy_audio)
 	Game.instance.cash_money -= price
 	Game.instance.kill_previous_sheet()
 	Game.instance.popped_sticker_sheet = true

@@ -38,6 +38,11 @@ var previous_tab = Shop.Tabs.None
 func _init():
 	instance = self
 
+func camera_weight():
+	var tween = create_tween()
+	camera.offset = Vector2(0,10)
+	tween.tween_property(camera, "offset", Vector2.ZERO, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+
 func _ready():
 	MiniLightController.reset()
 	land_reset(true)
@@ -146,7 +151,7 @@ func _process(delta):
 	var space = get_world_2d().direct_space_state
 	var mouse_pos = get_global_mouse_position()
 	
-	_camera_zoom = clamp(_camera_zoom,0.3,1)
+	_camera_zoom = clamp(_camera_zoom,0.2,1.4)
 	camera.zoom = lerp(camera.zoom,Vector2(_camera_zoom*2,_camera_zoom*2),delta*20)
 	if (current_sticker != null):
 		current_sticker.position = mouse_pos
