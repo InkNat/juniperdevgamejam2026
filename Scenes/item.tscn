@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bvj2es6a7iu5n" path="res://Scripts/item.gd" id="1_76mu4"]
 [ext_resource type="AudioStream" uid="uid://bil25ivoxtiuk" path="res://Sounds/pick_item.wav" id="2_76mu4"]
 [ext_resource type="Shader" uid="uid://c5nixosxut2ij" path="res://Shaders/hue_shift.gdshader" id="3_btogu"]
+[ext_resource type="AudioStream" uid="uid://c00n4k3lcbawt" path="res://Sounds/item_drop.wav" id="3_tnst4"]
 [ext_resource type="Texture2D" uid="uid://4ryqwe0it1gk" path="res://Sprites/pepper.png" id="4_tnst4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76mu4"]
@@ -12,12 +13,14 @@ size = Vector2(16, 16)
 resource_local_to_scene = true
 shader = ExtResource("3_btogu")
 shader_parameter/hue_shift = 0.0
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [node name="Item" type="Node2D" unique_id=1706374103 node_paths=PackedStringArray("sprite")]
 z_index = 4000
 script = ExtResource("1_76mu4")
 sprite = NodePath("Texture")
 pick_item_audio = ExtResource("2_76mu4")
+drop_item_audio = ExtResource("3_tnst4")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2040448549]
 collision_mask = 2

@@ -1,5 +1,9 @@
 class_name Sticker extends Sprite2D
 
+static var sound_stick: AudioStream = load("res://Sounds/sticker_stick.wav")
+static var sound_drop: AudioStream = load("res://Sounds/sticker_drop.wav")
+static var sound_pick: AudioStream = load("res://Sounds/sticker_pick.wav")
+
 var sticker_data: StickerData
 var previous_parent
 var previous_position
@@ -25,6 +29,7 @@ func click_press():
 	previous_parent = get_parent()
 	previous_position = position
 	Game.instance.push_sticker(self)
+	Game.play_and_die(sound_pick)
 
 func exhaust():
 	modulate = Color(0.5,0.5,0.5,1)
@@ -35,6 +40,7 @@ func refresh():
 	exhausted = false
 	
 func reset():
+	Game.play_and_die(sound_drop)
 	if not is_instance_valid(previous_parent):
 		queue_free()
 		return

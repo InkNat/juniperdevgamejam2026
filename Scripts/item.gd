@@ -2,6 +2,7 @@ class_name Item extends Node2D
 
 @export var sprite: Sprite2D
 @export var pick_item_audio: AudioStream
+@export var drop_item_audio: AudioStream
 var _dragging: bool = false
 var _dragging_offset: Vector2
 var attachement: Vector2 = position
@@ -50,3 +51,6 @@ func click_release():
 		var oa_parent = other_area.get_parent()
 		if oa_parent is Slot:
 			oa_parent.insert_item(self)
+			Game.play_and_die(pick_item_audio, 0.8)
+			return
+	Game.play_and_die(drop_item_audio)

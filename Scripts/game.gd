@@ -142,6 +142,8 @@ func push_sticker(sticker: Sticker):
 	sticker.position = get_global_mouse_position()
 
 func _input(event):
+	if event.is_action_pressed("Small"):
+		land_reset()
 	if event is InputEventMouseMotion:
 		tooltip_time = 0.06
 

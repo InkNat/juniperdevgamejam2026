@@ -1,5 +1,8 @@
 class_name WheelIcon extends Node2D
 
+var sound_choose: AudioStream = load("res://Sounds/wheel_choose.wav")
+var sound_enter: AudioStream = load("res://Sounds/wheel_hover_enter.wav")
+var sound_exit: AudioStream = load("res://Sounds/wheel_hover_exit.wav")
 @export var wheel: Sprite2D
 var scale_target: Node2D
 @export var area: Area2D
@@ -28,6 +31,7 @@ func setup(wheel_data: WheelData):
 
 func _input(event):
 	if (hovering and event.is_action_pressed("Click")):
+		Game.play_and_die(sound_choose)
 		Game.instance.clear_wheels()
 		Cogworld.instance.set_wheel_to_place(_wheel_data)
 		StoreShop.instance.phase_out_wheel_slots()
@@ -36,6 +40,7 @@ func _input(event):
 
 func hover_enter():
 	if StoreShop.instance.ss != null and StoreShop.instance.ss.extended: return
+	Game.play_and_die(sound_enter)
 	hovering = true
 	z_index = 2
 	var tween = get_tree().create_tween()
@@ -43,6 +48,7 @@ func hover_enter():
 
 func hover_exit():
 	hovering = false
+	Game.play_and_die(sound_exit)
 	z_index = 0
 	var tween = get_tree().create_tween()
 	tween.tween_property(scale_target, "scale", Vector2(1,1), 0.4).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)

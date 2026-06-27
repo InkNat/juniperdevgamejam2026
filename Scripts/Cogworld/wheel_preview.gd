@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var sound: AudioStream = load("res://Sounds/wheel_place.wav")
 var wheel_size
 var wheel_position: Vector2
 
@@ -17,5 +18,6 @@ func safe_delete():
 		if e is Proxy: e.delete()
 
 func place_wheel_here():
+	Game.instance.play_and_die(sound)
 	Game.instance.camera_weight()
 	Cogworld.instance.place_wheel_at(wheel_size,wheel_position)

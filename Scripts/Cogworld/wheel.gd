@@ -82,6 +82,7 @@ func _input(event):
 			if is_wheel:
 				var cs = Game.instance.pop_sticker()
 				if (cs != null):
+					Game.play_and_die(Sticker.sound_stick)
 					cs.reparent(wheel_stickers,true)
 					cs.scale = Vector2(0.5,0.5)
 			else:
@@ -90,14 +91,17 @@ func _input(event):
 						if (e.get_child_count() > 1): continue
 						if e.sticker_data.get_tag() == "halo":
 							var cs = Game.instance.pop_sticker()
+							Game.play_and_die(Sticker.sound_stick)
 							cs.reparent(e,true)
 							cs.position = Vector2.ZERO
 							cs.rotation = 0
 							cs.scale = Vector2(1,1)
 		elif (length > wheel_range_min and length < wheel_range_max):
 			var chosen_tile = floor(fmod((-atan2(pos.x, pos.y)/TAU)+0.5+wheel_rotation,1)*segments)
+			if (stickers.get_child(chosen_tile).get_child_count() > 3): return
 			var cs = Game.instance.pop_sticker()
 			if (cs != null):
+				Game.play_and_die(Sticker.sound_stick)
 				cs.reparent(stickers.get_child(chosen_tile),true)
 				cs.scale = Vector2(0.5,0.5)
 
