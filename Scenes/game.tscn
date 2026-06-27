@@ -430,7 +430,7 @@ points = PackedVector2Array(-16.499992, 22.5, -18.499992, 24.5, -21.499992, 24.5
 shader = ExtResource("47_32sfa")
 shader_parameter/text = ExtResource("48_titue")
 shader_parameter/second_offset = Vector2(0, 0.125)
-shader_parameter/size = Vector2(72, 12.5)
+shader_parameter/size = Vector2(72, 12)
 shader_parameter/speed = 0.05
 shader_parameter/background_color = Color(0.047557615, 0.04755766, 0.047557645, 1)
 shader_parameter/text_color = Color(0.008202022, 0.008202025, 0.008202025, 1)
@@ -471,7 +471,7 @@ size = Vector2(66.99996, 33.000004)
 [node name="Game" type="Node2D" unique_id=547770425 node_paths=PackedStringArray("tooltip", "camera", "hamster_slot", "main_wheel", "spin_button", "explode_button", "money_label", "shop_tabs", "sticker_sheet_slot")]
 texture_filter = 1
 script = ExtResource("1_wrm1d")
-sticker_registry = Array[ExtResource("2_x6jpx")]([ExtResource("18_ifeo7"), ExtResource("19_qj5kr"), ExtResource("4_ff75x"), ExtResource("15_q8b24"), ExtResource("8_sfx3s"), ExtResource("4_kcoun"), ExtResource("10_gyste"), ExtResource("3_sjh24"), ExtResource("5_jegl3"), ExtResource("10_lknxd"), ExtResource("9_p5qon"), ExtResource("11_p3b6d"), ExtResource("12_bchkn"), ExtResource("14_ckj55"), ExtResource("6_csv17"), ExtResource("7_6i05k"), ExtResource("17_ff75x"), ExtResource("20_d5jaa"), ExtResource("21_k8ojv"), ExtResource("22_7sqp1")])
+sticker_registry = Array[ExtResource("2_x6jpx")]([ExtResource("4_ff75x"), ExtResource("18_ifeo7"), ExtResource("19_qj5kr"), ExtResource("15_q8b24"), ExtResource("8_sfx3s"), ExtResource("4_kcoun"), ExtResource("10_gyste"), ExtResource("3_sjh24"), ExtResource("5_jegl3"), ExtResource("10_lknxd"), ExtResource("9_p5qon"), ExtResource("11_p3b6d"), ExtResource("12_bchkn"), ExtResource("14_ckj55"), ExtResource("6_csv17"), ExtResource("7_6i05k"), ExtResource("17_ff75x"), ExtResource("20_d5jaa"), ExtResource("21_k8ojv"), ExtResource("22_7sqp1")])
 tile_registry = Array[ExtResource("20_lmoi6")]([ExtResource("21_6uxt2"), ExtResource("23_bwj6o"), ExtResource("23_6a4tp"), ExtResource("24_631el"), ExtResource("25_vs120"), ExtResource("26_v2cs8"), ExtResource("27_32sfa"), ExtResource("22_ym3tv")])
 apple = ExtResource("27_a2m5q")
 tooltip = NodePath("Tooltip")
@@ -924,6 +924,7 @@ position = Vector2(106, -0.9999962)
 texture = ExtResource("61_nfavm")
 
 [node name="Money" type="Node2D" parent="." unique_id=2073472326]
+z_index = 3000
 position = Vector2(6, 6)
 
 [node name="MoneyLabel" type="Label" parent="Money" unique_id=942007113]
@@ -960,8 +961,8 @@ patch_margin_bottom = 12
 [node name="back" type="Sprite2D" parent="Money" unique_id=1478068580]
 z_index = -2
 material = SubResource("ShaderMaterial_htg8p")
-position = Vector2(45, 14.75)
-scale = Vector2(72, 12.500002)
+position = Vector2(45, 15.000001)
+scale = Vector2(72, 11.999999)
 texture = ExtResource("6_1l0tm")
 
 [node name="leds" type="Node2D" parent="Money" unique_id=277742022]

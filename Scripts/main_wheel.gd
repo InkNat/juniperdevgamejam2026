@@ -18,6 +18,7 @@ var speed: float = 1
 
 var _previous_tags = []
 var skips = 0
+var tt_respins = 0
 
 var spinach_mult = 1
 
@@ -33,7 +34,7 @@ func food_count(food: String) -> int:
 
 func _process(delta):
 	
-	var time_mult = pow(-2,skips)
+	var time_mult = pow(-2,skips)*pow(2,tt_respins)
 	
 	if current_full_spin_time > 0:
 		wheel_rotation += speed*delta*time_mult
@@ -74,17 +75,16 @@ func spin(tags: Array[String], multiplier:float = 1):
 				mulberry_count+=1
 			"raspberry":
 				raspberry_count+=1
-			_:
-				rest.append(tag)
+		rest.append(tag)
 	var mulberry_mult = pow(1.5,mulberry_count)
-	var raspberry_add = (raspberry_count*100)
+	var raspberry_add = (raspberry_count*10)
 	
 	if (raspberry_add > 0): Multipliers.instance.set_display_text("raspberry", "+"+ str(raspberry_add))
 	if (mulberry_mult > 1):  Multipliers.instance.set_display_text("mulberry", "x"+ str(floor(mulberry_mult*1000)/1000.0))
 	
 	total_speed *= motivation*multiplier
 	motivation = 1
-	speed = total_speed
+	speed = min(total_speed,20)
 	global_tags = rest
 	current_full_spin_time = total_time
 	fadeout_time = max_fadeout_time*speed
@@ -99,17 +99,20 @@ func land():
 		spin(_previous_tags)
 		return
 	skips = 0
-	respins = total_respins()
 	HamsterManager.instance.reset()
 	MiniLightController.state = MiniLightController.LightState.Winning
 	MiniLightController.tile = tiles[tile_result()]
 	MiniLightController.time = 20
 	super.land()
 	Game.instance.play_and_die(land_sound)
+	respins = total_respins()
+	print(respins)
 	if respins > 0:
 		spin(_previous_tags)
+		tt_respins+=1
 		respins-=1
 		return
+	tt_respins = 0
 	skips = 0
 	spinach_mult = 1
 	Game.instance.land_reset()

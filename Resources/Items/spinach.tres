@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_cyf41")
-base_cost = 5000
+base_cost = 75
 icon = ExtResource("1_7iw0a")
 name = "Spinach"
 tag = "spinach"

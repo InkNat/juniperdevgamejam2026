@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("1_7gto6")
-base_cost = 2000
+base_cost = 10
 icon = ExtResource("1_d2h8l")
 name = "Raspberry"
 tag = "raspberry"
-description = "+100$ base reward"
+description = "+10$ base reward"
 background_color = Color(0.66617215, 1, 0.62179273, 1)
 metadata/_custom_type_script = "uid://cu6a1tq8sa07i"

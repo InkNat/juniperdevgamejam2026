@@ -6,6 +6,7 @@ var sound_exit: AudioStream = load("res://Sounds/wheel_hover_exit.wav")
 @export var wheel: Sprite2D
 var scale_target: Node2D
 @export var area: Area2D
+@export var max_stickers: int = 1
 
 var _wheel_data
 
@@ -28,6 +29,9 @@ func setup(wheel_data: WheelData):
 	var texture: ImageTexture = ImageTexture.create_from_image(image)
 	wheel.material.set_shader_parameter("color_sampler", texture)
 	wheel.material.set_shader_parameter("separator_count", float(tiles_len))
+
+func get_tooltip() -> TooltipData:
+	return TooltipData.new(null, Color(0), "Wheel", "Buy a new wheel and place it! \nMax stickers : " + str(max_stickers), 3)
 
 func _input(event):
 	if (hovering and event.is_action_pressed("Click")):

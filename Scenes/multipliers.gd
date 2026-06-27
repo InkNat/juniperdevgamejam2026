@@ -20,7 +20,6 @@ func set_display_text(display: String, text: String):
 			d.label.text = text
 			d.visible = true
 			return
-	print("not found")
 
 func reset():
 	for d in get_children():

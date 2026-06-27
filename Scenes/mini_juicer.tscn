@@ -6,8 +6,9 @@
 [ext_resource type="Theme" uid="uid://daceovuu0mg68" path="res://theme.tres" id="4_6san1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mduoy"]
+resource_local_to_scene = true
 shader = ExtResource("2_6san1")
-shader_parameter/time = -1.0
+shader_parameter/time = 0.67
 
 [sub_resource type="Curve" id="Curve_fbgur"]
 _limits = [0.0, 100.0, 0.0, 1.0]
@@ -15,8 +16,8 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 100), 263.93246, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_dkquw"]
-_data = [Vector2(0.012345679, 1), 0.0, 0.21275386, 0, 0, Vector2(0.9876544, 0), -4.0408993, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 1), 0.0, 0.056881998, 0, 0, Vector2(0.36625516, 0.011235952), -0.88075364, -0.88075364, 0, 0, Vector2(0.9876544, 0), -0.1114423, 0.0, 0, 0]
+point_count = 3
 
 [node name="MiniJuicer" type="Node2D" unique_id=868231453 node_paths=PackedStringArray("particles", "ring", "label")]
 script = ExtResource("1_iiky5")
@@ -47,12 +48,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2049692132]
+emitting = false
 amount = 128
+lifetime = 0.4
+one_shot = true
 explosiveness = 0.85
 spread = 180.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 93.75
-initial_velocity_max = 93.75
+initial_velocity_min = 120.0
+initial_velocity_max = 120.0
 damping_min = 50.0
 damping_max = 60.0
 damping_curve = SubResource("Curve_fbgur")

@@ -7,5 +7,5 @@
 script = ExtResource("1_o87tb")
 texture = ExtResource("2_j7s70")
 name = "Star"
-description = "+500$ per star on this wheel"
+description = "+5$ per star on this wheel"
 metadata/_custom_type_script = "uid://dgxfjckrxanua"

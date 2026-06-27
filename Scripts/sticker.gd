@@ -9,7 +9,7 @@ var previous_parent
 var previous_position
 
 var locked = true
-var exhausted = false
+var exhausted: bool = false
 
 func setup_data(p_sticker_data: StickerData):
 	sticker_data = p_sticker_data

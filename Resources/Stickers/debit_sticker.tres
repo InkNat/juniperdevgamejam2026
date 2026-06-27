@@ -8,5 +8,5 @@ script = ExtResource("2_xes5x")
 texture = ExtResource("2_ysj2g")
 size = Vector2i(3, 2)
 name = "Debit Card"
-description = "+20000$"
+description = "+200$"
 metadata/_custom_type_script = "uid://dgxfjckrxanua"

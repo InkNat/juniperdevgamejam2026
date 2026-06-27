@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_qi86r")
-base_cost = 1000
+base_cost = 5
 icon = ExtResource("1_sqsnd")
 name = "Oat"
 tag = "oat"

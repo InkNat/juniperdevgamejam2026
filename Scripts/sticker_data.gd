@@ -18,6 +18,7 @@ func _init(p_texture: Texture = null, p_size: Vector2i = Vector2(1,1), p_wheel_s
 	description = p_description
 
 func get_tag() -> String:
+	print(name.to_snake_case())
 	return name.to_snake_case()
 
 func create() -> Sticker:

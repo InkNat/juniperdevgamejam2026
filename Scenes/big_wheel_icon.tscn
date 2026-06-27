@@ -27,6 +27,7 @@ load_path = "res://.godot/imported/whitepixel.png-835a41345ae031d828326087080977
 script = ExtResource("1_cjexe")
 wheel = NodePath("Node2D/WheelVisual/Wheel")
 area = NodePath("Area2D")
+max_stickers = 8
 
 [node name="Node2D" type="Node2D" parent="." unique_id=518854061]
 

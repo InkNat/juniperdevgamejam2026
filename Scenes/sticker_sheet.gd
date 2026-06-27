@@ -48,9 +48,10 @@ func _process(delta):
 		discard()
 
 func buy():
-	if Game.instance.cash_money < price: return
+	if not extended: return
+	if Game.instance.shop_tabs.currently_open() != Shop.Tabs.Store: return
+	if not Game.spend_money(price): return
 	Game.instance.play_and_die(buy_audio)
-	Game.instance.cash_money -= price
 	Game.instance.kill_previous_sheet()
 	Game.instance.popped_sticker_sheet = true
 	Game.instance.shop_tabs.close_all()

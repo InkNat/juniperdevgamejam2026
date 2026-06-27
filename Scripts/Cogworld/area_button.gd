@@ -16,19 +16,16 @@ func _ready():
 	area.mouse_entered.connect(func(): 
 		hovering = true
 		hover_enter.emit()
-		print("e")
 		)
 	area.mouse_exited.connect(func(): 
 		hovering = false
 		hover_exit.emit()
-		print("e")
 		)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
 	if (event.is_action_pressed("Click") and hovering):
-		print("e")
 		if (sound != null): Game.instance.play_and_die(sound)
 		if (target != null and target.has_method(method_name)):
 			target.call(method_name)

@@ -11,7 +11,7 @@
 resource_local_to_scene = true
 shader = ExtResource("4_be8vw")
 shader_parameter/seed = 11.625
-shader_parameter/resolution = 33
+shader_parameter/resolution = 28
 
 [node name="GroceryCard" type="Sprite2D" unique_id=966004064 node_paths=PackedStringArray("_name_label", "_price_label", "item_attach", "bar_code", "background")]
 texture_filter = 1
@@ -42,7 +42,7 @@ offset_right = 90.0
 offset_bottom = 20.0
 theme_override_fonts/font = ExtResource("3_opmjl")
 theme_override_font_sizes/font_size = 8
-text = "10$"
+text = "1$"
 vertical_alignment = 2
 
 [node name="ItemAttach" type="Node2D" parent="." unique_id=248506041]
@@ -55,6 +55,6 @@ texture = ExtResource("5_qgrom")
 
 [node name="Barcode" type="Sprite2D" parent="." unique_id=1074709732]
 material = SubResource("ShaderMaterial_0h1a0")
-position = Vector2(69.5, 15.5)
-scale = Vector2(33, 7.0000005)
+position = Vector2(72, 15.5)
+scale = Vector2(27.999996, 7.0000005)
 texture = ExtResource("5_qgrom")

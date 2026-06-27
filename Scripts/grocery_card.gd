@@ -34,9 +34,9 @@ func _can_insert(_item: Item) -> bool: return false
 func _insert(_item: Item): pass
 
 func can_retrieve(_item: Item) -> bool:
-	return Game.instance.cash_money >= cost
+	return Game.get_money() >= cost
 
 func _retrieve(_item: Item):
-	Game.instance.cash_money -= cost
+	Game.spend_money(cost)
 	Game.instance.play_and_die(buy_audio)
 	refresh_item()

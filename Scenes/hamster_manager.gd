@@ -28,7 +28,6 @@ func _ready():
 	body_entered.connect(random_hurt)
 
 func explode():
-	print("bam")
 	MusicManager.instance.playing = false
 	Game.instance.play_and_die(sound)
 	animated_sprite.visible = false

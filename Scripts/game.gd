@@ -18,7 +18,8 @@ static var instance: Game
 @export var sticker_sheet_slot: Node2D
 @export var cheapest_item : ItemData
 var _camera_zoom: float = 0.5
-var cash_money: int = 35000
+var _cash_money: int = 20
+var _gained_money: int = 0
 var generated_sticker_sheet: Array[StickerData]
 var popped_sticker_sheet: bool = false
 
@@ -34,9 +35,21 @@ var tooltip_time = 0;
 
 var previous_tab = Shop.Tabs.None
 
+var flash_time: float = 0
+
 # Called when the node enters the scene tree for the first time.
 func _init():
 	instance = self
+
+static func gain_money(amount: int):
+	instance._cash_money+=amount
+	instance._gained_money+=amount
+static func spend_money(amount: int) -> bool:
+	if instance._cash_money < amount: return false
+	instance._cash_money-=amount
+	return true
+static func get_money() -> int:
+	return instance._cash_money
 
 func camera_weight():
 	var tween = create_tween()
@@ -63,11 +76,10 @@ func get_cheese_bonus() -> float:
 	var result: float = 1
 	for cb in cheese_bonuses:
 		result += cb.bonus
-	print(result)
 	return result
 
 func can_explode() -> bool:
-	return cash_money < cheapest_item.base_cost*global_cost_multiplier and Inventory.instance.is_empty() and hamster_slot.is_empty()
+	return _cash_money < cheapest_item.base_cost*global_cost_multiplier and Inventory.instance.is_empty() and hamster_slot.is_empty()
 
 static func play_and_die(audio: AudioStream, pitch: float = 1, volume = 1): instance._play_and_die(audio, pitch, volume)
 
@@ -90,11 +102,12 @@ func setup_sticker_sheet(sheet: Node2D):
 	sheet.position = Vector2(0,0)
 
 func spin_reset():
-	global_cost_multiplier *= 1.15
+	global_cost_multiplier *= 1.2
 	previous_tab = shop_tabs.currently_open()
 	shop_tabs.close_all()
 	Inventory.instance.close()
 	shop_tabs.locked = true
+	_gained_money = 0
 
 func clear_wheels():
 	sold_wheels = null
@@ -128,7 +141,9 @@ func land_reset(boo: bool = false):
 	generated_sticker_sheet = StickerSheetGenerator.new(Vector2(4,6),sticker_registry).generate_sticker_sheet()
 	shop_tabs.by_tab(previous_tab)
 	Multipliers.instance.reset()
-	if not boo: Inventory.instance.open()
+	if not boo: 
+		Inventory.instance.open()
+		flash_time = 3
 	
 
 func pop_sticker() -> Sticker:
@@ -156,7 +171,17 @@ func _process(delta):
 		spin_button.locked = true
 	
 	
-	money_label.text = str(cash_money) + "$"
+	if flash_time > 0:
+		flash_time-=delta
+		var e = ""
+		if _gained_money > 0: e = "+"
+		money_label.text = e + str(_gained_money) + "$"
+		money_label.modulate = Color.from_hsv(fmod(flash_time,1),0.8,0.8)
+	else:
+		money_label.text = str(_cash_money) + "$"
+		money_label.modulate = Color(1,1,1,1)
+	
+	
 	var space = get_world_2d().direct_space_state
 	var mouse_pos = get_global_mouse_position()
 	

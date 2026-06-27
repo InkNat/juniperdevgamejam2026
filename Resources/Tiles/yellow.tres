@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_yislq")
 color = Color(1, 0.77254903, 0, 1)
-base_reward = 1000
+base_reward = 5
 hue_shift = 40.0
 name = "Yellow"
 metadata/_custom_type_script = "uid://c2vyt84ou3pjd"
