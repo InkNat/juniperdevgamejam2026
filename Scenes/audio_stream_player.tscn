@@ -4,4 +4,5 @@
 
 [node name="PlayAndDie" type="AudioStreamPlayer" unique_id=1814125365]
 autoplay = true
+bus = &"Sounds"
 script = ExtResource("2_jxntt")

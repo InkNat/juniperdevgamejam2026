@@ -10,7 +10,8 @@
 [ext_resource type="Script" uid="uid://bxywu8qj801jd" path="res://Scripts/shop_tab.gd" id="6_1257h"]
 [ext_resource type="PackedScene" uid="uid://bqgai5td6sg7q" path="res://Scenes/store_shop.tscn" id="6_ho4mo"]
 [ext_resource type="Texture2D" uid="uid://ogklxoyhvhjd" path="res://Sprites/UI/settings_tab-export.png" id="9_ihmao"]
-[ext_resource type="Shader" path="res://Scenes/scrolling_text.gdshader" id="10_1257h"]
+[ext_resource type="Shader" uid="uid://djh7dkph2i4v5" path="res://Scenes/scrolling_text.gdshader" id="10_1257h"]
+[ext_resource type="Script" uid="uid://buutmtjgp7x1m" path="res://Scenes/mini_light_controller.gd" id="10_i52sw"]
 [ext_resource type="Texture2D" uid="uid://doekqmcdgwctl" path="res://Sprites/UI/led.png" id="10_ksv06"]
 [ext_resource type="Texture2D" uid="uid://c7grwga0folil" path="res://Sprites/mr_background.png" id="11_s14v1"]
 [ext_resource type="Texture2D" uid="uid://cvyxitfaeoawy" path="res://Sprites/whitepixel.png" id="12_7hhs2"]
@@ -93,6 +94,8 @@ position = Vector2(20, 56)
 texture = ExtResource("9_ihmao")
 
 [node name="leds" type="Node2D" parent="SettingsTab" unique_id=1715661045]
+script = ExtResource("10_i52sw")
+alternance = 3
 
 [node name="1" type="Sprite2D" parent="SettingsTab/leds" unique_id=1146288830]
 position = Vector2(118, 3)
@@ -331,6 +334,8 @@ position = Vector2(20, 39)
 texture = ExtResource("13_i52sw")
 
 [node name="leds" type="Node2D" parent="StoreTab" unique_id=1450379076]
+script = ExtResource("10_i52sw")
+alternance = 3
 
 [node name="1" type="Sprite2D" parent="StoreTab/leds" unique_id=561428813]
 position = Vector2(118, 3)
@@ -568,6 +573,8 @@ position = Vector2(20, 24)
 texture = ExtResource("16_dh8uu")
 
 [node name="leds" type="Node2D" parent="GroceryTab" unique_id=1760763976]
+script = ExtResource("10_i52sw")
+alternance = 3
 
 [node name="1" type="Sprite2D" parent="GroceryTab/leds" unique_id=202964297]
 position = Vector2(118, 3)

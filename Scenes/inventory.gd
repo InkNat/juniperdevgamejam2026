@@ -1,7 +1,12 @@
-extends Node2D
+class_name Inventory extends Node2D
+
+static var instance: Inventory
 
 var is_open: bool = false
 @export var target: Node2D
+
+func _ready():
+	instance = self
 
 func toggle():
 	if is_open: close()

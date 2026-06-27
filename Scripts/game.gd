@@ -30,6 +30,8 @@ var sold_wheels = null
 
 var tooltip_time = 0;
 
+var previous_tab = Shop.Tabs.None
+
 # Called when the node enters the scene tree for the first time.
 func _init():
 	instance = self
@@ -54,6 +56,9 @@ func get_cheese_bonus() -> float:
 	print(result)
 	return result
 
+func can_explode() -> bool:
+	return 
+
 static func play_and_die(audio: AudioStream, pitch: float = 1, volume = 1): instance._play_and_die(audio, pitch, volume)
 
 func _play_and_die(audio: AudioStream, pitch: float = 1, volume = 1):
@@ -76,7 +81,9 @@ func setup_sticker_sheet(sheet: Node2D):
 
 func spin_reset():
 	global_cost_multiplier *= 1.15
+	previous_tab = shop_tabs.currently_open()
 	shop_tabs.close_all()
+	Inventory.instance.close()
 	shop_tabs.locked = true
 
 func clear_wheels():
@@ -109,6 +116,8 @@ func land_reset():
 	cheese_bonuses = new_bonuses
 	shop_tabs.locked = false
 	generated_sticker_sheet = StickerSheetGenerator.new(Vector2(4,6),sticker_registry).generate_sticker_sheet()
+	shop_tabs.by_tab(previous_tab)
+	Inventory.instance.open()
 
 func pop_sticker() -> Sticker:
 	var result = current_sticker

@@ -51,6 +51,7 @@ func _process(delta):
 	rotate_wheel(wheel_rotation)
 
 func spin(tags: Array[String], multiplier:float = 1):
+	MiniLightController.state = MiniLightController.LightState.Spinning
 	_previous_tags = tags
 	Game.instance.spin_reset()
 	var total_time = (randf()*2)+1
@@ -84,6 +85,9 @@ func land():
 		return
 	skips = 0
 	respins = total_respins()
+	MiniLightController.state = MiniLightController.LightState.Winning
+	MiniLightController.tile = tiles[tile_result()]
+	MiniLightController.time = 20
 	super.land()
 	if respins > 0:
 		spin(_previous_tags)
